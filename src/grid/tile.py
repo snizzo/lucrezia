@@ -1,3 +1,6 @@
+from pandac.PandaModules import CardMaker
+from panda3d.core import NodePath
+
 '''
 TILE CLASS
 
@@ -9,6 +12,21 @@ direct geometry in other parts of code.
 class Tile:
 	
 	def __init__(self):
-		#constructor code here...
+		self.geometry = 0
+		self.node = 0
+	
+	def setX(self, x):
+		if self.node != 0:
+			self.node.setX(x)
 		
-		pass # syntactic sugar for an empty token (simlpy do nothing but don't throw syntax error)
+	def setY(self, y):
+		if self.node != 0:
+			self.node.setZ(y)
+	
+	def setBackgroundColor(self, r, g, b, a):
+		cm = CardMaker("tilebgcolor")
+		cm.setFrame(-0.5,0.5,-0.5,0.5) #this make a 1x1 quad
+		cm.setColor(r, g, b, a)
+		
+		self.geometry = cm.generate()
+		self.node = NodePath(self.geometry)

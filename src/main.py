@@ -15,7 +15,9 @@ class MyApp(ShowBase):
         #defining global variables
         # TAKE CARE: these must be objects created form classes which
         # structure has been built with globalness in mind!!
-        __builtin__.grid = Grid()
+        #
+        # for completeness: add minus 'p' before class name for naming variables
+        __builtin__.pGrid = Grid()
  
  
 app = MyApp()
