@@ -1,17 +1,21 @@
+#panda imports
 from direct.showbase.ShowBase import ShowBase
- 
+
+#libs imports
+import __builtin__
+
+#lucrezia imports
+from grid.grid import Grid
+
 class MyApp(ShowBase):
  
     def __init__(self):
         ShowBase.__init__(self)
- 
-        # Load the environment model.
-        self.environ = self.loader.loadModel("models/environment")
-        # Reparent the model to render.
-        self.environ.reparentTo(self.render)
-        # Apply scale and position transforms on the model.
-        self.environ.setScale(0.25, 0.25, 0.25)
-        self.environ.setPos(-8, 42, 0)
+        
+        #defining global variables
+        # TAKE CARE: these must be objects created form classes which
+        # structure has been built with globalness in mind!!
+        __builtin__.grid = Grid()
  
  
 app = MyApp()
