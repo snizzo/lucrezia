@@ -28,7 +28,7 @@ class Grid:
 		self.node = render.attachNewNode("tileset")
 		
 		#automatic methods
-		self.generateEmptyTileset(100,100)
+		self.generateEmptyTileset(20,20)
 		self.mergeMeshes()
 	
 	'''
