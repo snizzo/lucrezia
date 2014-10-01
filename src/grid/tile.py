@@ -30,3 +30,4 @@ class Tile:
 		
 		self.geometry = cm.generate()
 		self.node = NodePath(self.geometry)
+		self.node.setTwoSided(True)
