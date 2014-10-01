@@ -28,7 +28,8 @@ class Grid:
 		self.node = render.attachNewNode("tileset")
 		
 		#automatic methods
-		self.generateEmptyTileset(40,40)
+		self.generateEmptyTileset(100,100)
+		self.mergeMeshes()
 	
 	'''
 	This method generates an internal tileset.
