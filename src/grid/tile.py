@@ -2,7 +2,7 @@ from pandac.PandaModules import CardMaker
 from panda3d.core import NodePath
 
 '''
-TILE CLASS
+TILE CLASS 
 
 Tile class is used to represent a tile in the 2d simulated
 world. This will take care of anything from flags to textures to 
