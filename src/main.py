@@ -6,9 +6,10 @@ import __builtin__
 
 #lucrezia imports
 from grid.grid import Grid
+#from utils.once import Once
 
 class MyApp(ShowBase):
- 
+
     def __init__(self):
         ShowBase.__init__(self)
         
@@ -18,7 +19,8 @@ class MyApp(ShowBase):
         #
         # for completeness: add minus 'p' before class name for naming variables
         __builtin__.pGrid = Grid()
- 
- 
+        
+        
+        
 app = MyApp()
 app.run()
