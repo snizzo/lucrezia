@@ -44,17 +44,13 @@ class Grid:
 		for i in range(x):
 			l = []
 			
-			colorSwitch.toggle()
-			
 			for j in range(y):
 				t = Tile()
 				
+				t.generate()
+				
 				#color switcher
-				if colorSwitch.get():
-					t.setBackgroundColor(0.7,0.7,0.7,1)
-				else:
-					t.setBackgroundColor(0.3,0.3,0.3,1)
-				colorSwitch.toggle()
+				t.setTexture("misc/grass")
 				
 				#setting right coordinates
 				t.setX(i-(x/2))
