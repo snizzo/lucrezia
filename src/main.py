@@ -22,8 +22,6 @@ class MyApp(ShowBase):
         # for completeness: add minus 'p' before class name for naming variables
         __builtin__.pGrid = Grid()
         
-        p = Parser('parser/example.data')
-        
         r = ResourceManager()
         print r.getResource('misc/grass') # deve dire path assoluto = res/misc/grass.png
         

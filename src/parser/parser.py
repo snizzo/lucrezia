@@ -22,7 +22,15 @@ class Parser:
         self.raw = list(text)           #actually duplicate list, not using pointer
         
         if ext=='var':
-            pass
+            self.parsed = []
+            for i in range(len(text)):
+                key = text[i].split('=')[0]
+                value = text[i].split('=')[1]
+                self.parsed.append([key,value])
         if ext=='data':
-            pass
-        
+            self.parsed = []
+            for i in range(len(text)):
+                self.parsed.append(text[i].split('='))
+    
+    def get(self):
+        return self.parsed
