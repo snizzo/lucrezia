@@ -1,10 +1,12 @@
-'''
 
-'''
 class ResourceManager:
     def __init__(self):
-        pass # here constructor code
+        self.resources = []
+    
+    def traverseResFolder(self):
+        pass #codice che analizza la cartella res e per ogni elemento
+             #aggiunge ['key',Resource()] a self.resources
     
     def getResource(self, key):
-        #here code that get resource
+        #codice che torna Resource associato a suddetta key
         return "full resource absoulute path (value)"
