@@ -1,5 +1,5 @@
 from pandac.PandaModules import CardMaker
-from panda3d.core import NodePath
+from panda3d.core import NodePath, TextureStage
 
 '''
 TILE CLASS 
@@ -25,8 +25,17 @@ class Tile:
         self.cm.setFrame(-0.5,0.5,-0.5,0.5) #this make a 1x1 quad
     
     #this oen adds static resource
-    def addResource(self, name):
-        pass
+    def addTexture(self, name):
+        tex = loader.loadTexture('../res/'+name+'.png')
+        ts = TextureStage('ts')
+        ts.setMode(TextureStage.MDecal)
+        self.node.setTexture(ts, tex)
+    
+    def setWalkable(self, value):
+        self.walkable = value
+    
+    def getWalkable(self):
+        return self.walkable
     
     def setX(self, x):
         if self.node != 0:

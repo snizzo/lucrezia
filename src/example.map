@@ -1,0 +1,26 @@
+<data>
+    <row>
+        <tile walkable="true"><resource url="misc/grass" /></tile>
+        <tile walkable="true"><resource url="misc/grass"></resource></tile>
+        <tile walkable="true"><resource url="misc/grass"></resource></tile>
+        <tile walkable="true"><resource url="misc/grass"></resource></tile>
+    </row>
+    <row>
+        <tile walkable="true"><resource url="misc/grass"></resource></tile>
+        <tile walkable="true"><resource url="misc/grass"></resource></tile>
+        <tile walkable="true"><resource url="misc/grass"></resource><resource url="misc/obelisk" /></tile>
+        <tile walkable="true"><resource url="misc/grass"></resource></tile>
+    </row>
+    <row>
+        <tile walkable="true"><resource url="misc/grass"></resource></tile>
+        <tile walkable="true"><resource url="misc/grass"></resource></tile>
+        <tile walkable="true"><resource url="misc/grass"></resource></tile>
+        <tile walkable="true"><resource url="misc/grass"></resource></tile>
+    </row>
+    <row>
+        <tile walkable="true"><resource url="misc/grass"></resource></tile>
+        <tile walkable="true"><resource url="misc/grass"></resource></tile>
+        <tile walkable="true"><resource url="misc/grass"></resource></tile>
+        <tile walkable="true"><resource url="misc/grass"></resource></tile>
+    </row>
+</data>
