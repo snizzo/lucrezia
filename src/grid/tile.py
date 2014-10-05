@@ -1,5 +1,6 @@
 from pandac.PandaModules import CardMaker
 from panda3d.core import NodePath, TextureStage
+from pandac.PandaModules import TransparencyAttrib
 
 '''
 TILE CLASS 
@@ -11,25 +12,75 @@ direct geometry in other parts of code.
 '''
 class Tile:
     
-    def __init__(self):
+    def __init__(self, baseDimension):
         #public props
         self.walkable = True
         self.resources = []
         
-        #inner props
-        self.geometry = 0
-        self.node = 0
+        self.innerX = 0
+        self.innerY = 0
+        self.innerDimension = 0
         
-        #quads
-        self.cm = CardMaker("tilebgcolor")
-        self.cm.setFrame(-0.5,0.5,-0.5,0.5) #this make a 1x1 quad
+        self.baseDimension = baseDimension
+        
+        self.node = NodePath('tilenode')
+        self.node.setTwoSided(True)
     
-    #this oen adds static resource
+    #add a static texture to basic 128x128 tile pixel image
+    #use just to paint the world basicly. Use addObject for every object that has to do with collision etc
     def addTexture(self, name):
         tex = loader.loadTexture('../res/'+name+'.png')
+        xscaled = tex.getOrigFileXSize() / self.baseDimension
+        yscaled = tex.getOrigFileYSize() / self.baseDimension
+        
+        cm = CardMaker("tiletexture")
+        cm.setFrame(0,xscaled,0,yscaled)
+        
         ts = TextureStage('ts')
         ts.setMode(TextureStage.MDecal)
-        self.node.setTexture(ts, tex)
+        
+        geomnode = NodePath(cm.generate())
+        geomnode.setTexture(ts, tex)
+        geomnode.reparentTo(self.node)
+    
+    #used to add objects to game that intersects (or not) walkability
+    def addObject(self, name):
+        tex = loader.loadTexture('../res/'+name+'.png')
+        
+        xscaled = tex.getOrigFileXSize() / self.baseDimension
+        yscaled = tex.getOrigFileYSize() / self.baseDimension
+        
+        cm = CardMaker("tileobject")
+        cm.setFrame(0,xscaled,0,yscaled)
+        
+        ts = TextureStage('ts')
+        ts.setMode(TextureStage.MDecal)
+        
+        geomnode = NodePath(cm.generate())
+        geomnode.setP(-300)
+        geomnode.setTexture(tex)
+        geomnode.setTransparency(TransparencyAttrib.MAlpha)
+        geomnode.reparentTo(self.node)
+        '''
+        tex = loader.loadTexture('../res/'+name+'.png')
+        
+        xscaled = tex.getOrigFileXSize() / 128
+        yscaled = tex.getOrigFileYSize() / 128
+        
+        cm = CardMaker("tileobject")
+        cm.setFrame(-xscaled,xscaled,-yscaled,yscaled)
+        
+        ts = TextureStage('ts')
+        ts.setMode(TextureStage.MDecal)
+        
+        objectnode = self.node.attachNewNode('objectnode')
+        objectgeomnode = objectnode.attachNewNode(cm.generate())
+        objectnode.setP(300)
+        objectnode.setTexture(ts, tex)
+        objectnode.place()
+        '''
+    def getResDimension(self):
+        pass
     
     def setWalkable(self, value):
         self.walkable = value
@@ -40,19 +91,12 @@ class Tile:
     def setX(self, x):
         if self.node != 0:
             self.node.setX(x)
+            self.innerX = x
             
     def setY(self, y):
         if self.node != 0:
             self.node.setZ(y)
-    
-    def setBackgroundColor(self, r, g, b, a):
-        cm.setColor(r, g, b, a)
-        
-    def setTexture(self, name):
-        tex = loader.loadTexture('../res/'+name+'.png')
-        self.node.setTexture(tex)
-    
+            self.innerY = y
+
     def generate(self):
-        self.geometry = self.cm.generate()
-        self.node = NodePath(self.geometry)
-        self.node.setTwoSided(True)
+        pass

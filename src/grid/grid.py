@@ -32,6 +32,7 @@ class Grid:
         
         self.node = render.attachNewNode("tileset")
         
+        self.tileDimension = 128.0
         #automatic methods
         #self.generateEmptyTileset(20,20)
         #self.mergeMeshes()
@@ -46,17 +47,20 @@ class Grid:
         for row in rowsdata:                            #for every row
             for tile in row.childNodes:                 #for every tile
                 if tile.nodeType == Node.ELEMENT_NODE:  #if child is tile
-                    t = Tile()
+                    t = Tile(self.tileDimension)
                     t.generate()
                     t.setWalkable(tile.attributes['walkable'].value)
                     t.setX(currentx)
                     t.setY(currenty)
                     for res in tile.childNodes:
                         if res.nodeType == Node.ELEMENT_NODE: # adding resources to tile
-                            t.addTexture(res.attributes['url'].value)
+                            if res.nodeName == 'ground':
+                                t.addTexture(res.attributes['url'].value)
+                                currentx += 1
+                            elif res.nodeName == 'object':
+                                t.addObject(res.attributes['url'].value)
                             
                     t.node.reparentTo(self.node)
-                    currentx += 1
             currentx = 0
             currenty += 1
     

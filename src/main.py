@@ -1,5 +1,6 @@
 #panda imports
 from direct.showbase.ShowBase import ShowBase
+from panda3d.core import OrthographicLens
 
 #libs imports
 import __builtin__
@@ -14,6 +15,15 @@ class MyApp(ShowBase):
 
     def __init__(self):
         ShowBase.__init__(self)
+        
+        '''
+        #ortho camera lens
+        lens = OrthographicLens()
+        lens.setFilmSize(16, 12)  #TODO: quattro terzi, fixare, spostare tutto nella classe telecamera e adattare in base allo schermo utente
+        base.cam.node().setLens(lens)
+        base.cam.setY(-5)
+        base.cam.setP(-330)
+        '''
         
         #defining global variables
         # TAKE CARE: these must be objects created form classes which
