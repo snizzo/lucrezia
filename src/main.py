@@ -32,7 +32,7 @@ class MyApp(ShowBase):
         lens.setFilmSize(12, 9)  #TODO: quattro terzi, fixare, spostare tutto nella classe telecamera e adattare in base allo schermo utente
         base.cam.node().setLens(lens)
         base.cam.setY(-5)
-        base.cam.setP(-330)
+        base.cam.setP(-355)
         '''
         
         #defining global variables

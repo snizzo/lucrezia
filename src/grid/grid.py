@@ -53,7 +53,9 @@ class Grid:
                     t.setWalkable(tile.attributes['walkable'].value)
                     t.setX(currentx)
                     t.setY(currenty)
-                    o = Once()
+                    
+                    o = Once() #lo switch viene fatto solo in presenza di una texture 'ground'
+                    
                     for res in tile.childNodes:
                         if res.nodeType == Node.ELEMENT_NODE: # adding resources to tile
                             if res.nodeName == 'ground':
@@ -61,7 +63,7 @@ class Grid:
                                 if o.get():
                                     currentx += 1
                             elif res.nodeName == 'object':
-                                t.addObject(res.attributes['url'].value)
+                                t.addObject(res.attributes['url'].value, res.attributes['inclination'].value)
                             
                     t.node.reparentTo(self.node)
             currentx = 0

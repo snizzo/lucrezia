@@ -46,7 +46,7 @@ class Tile:
         self.groundnode.setTexture(ts, tex)
     
     #used to add objects to game that intersects (or not) walkability
-    def addObject(self, name):
+    def addObject(self, name, inclination):
         tex = loader.loadTexture('../res/'+name+'.png')
         
         xscaled = tex.getOrigFileXSize() / self.baseDimension
@@ -63,7 +63,7 @@ class Tile:
         
         geomnode = NodePath(cm.generate())
         geomnode.setX((-xscaled/2)+0.5)
-        geomnode.setP(-300)
+        geomnode.setP(-(360-int(inclination)))
         geomnode.setTexture(tex)
         geomnode.setTransparency(TransparencyAttrib.MAlpha)
         geomnode.reparentTo(self.node)
