@@ -1,7 +1,7 @@
 <data>
     <row>
         <tile walkable="true"><ground url="misc/grass" /></tile>
-        <tile walkable="true"><ground url="misc/grass" /></tile>
+        <tile walkable="true"><ground url="misc/grass" /><character url="lucrezia" inclination="30" scale="6" playable="true" /></tile>
         <tile walkable="true"><ground url="misc/grass" /></tile>
         <tile walkable="true"><ground url="misc/grass" /></tile>
         <tile walkable="true"><ground url="misc/grass" /></tile>
@@ -16,7 +16,7 @@
    <row>
         <tile walkable="true"><ground url="misc/grass" /></tile>
         <tile walkable="true"><ground url="misc/grass" /></tile>
-        <tile walkable="true"><ground url="misc/grass" /><ground url="misc/leaves" /><object url="misc/tree" inclination="60"/></tile>
+        <tile walkable="true"><ground url="misc/grass" /><ground url="misc/leaves" /><object url="misc/tree" inclination="30"/></tile>
         <tile walkable="true"><ground url="misc/grass" /></tile>
         <tile walkable="true"><ground url="misc/grass" /></tile>
    </row>

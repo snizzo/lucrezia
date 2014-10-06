@@ -9,6 +9,7 @@ from xml.dom import Node
 from utils.toggle import Toggle
 from utils.once import Once
 from tile import Tile
+from character import Character
 
 '''
 This class abstracts the 2D grid commoly used in 2D games
@@ -30,6 +31,8 @@ class Grid:
     def __init__(self):
         #variables initialization
         self.tileset = []
+        self.characterset = []
+        self.scrollableset = [] #fix this shiet, scollables can't definitely sit here...
         
         self.node = render.attachNewNode("tileset")
         
@@ -49,6 +52,7 @@ class Grid:
             for tile in row.childNodes:                 #for every tile
                 if tile.nodeType == Node.ELEMENT_NODE:  #if child is tile
                     t = Tile(self.tileDimension)
+                    self.tileset.append(t)
                     t.generate()
                     t.setWalkable(tile.attributes['walkable'].value)
                     t.setX(currentx)
@@ -64,6 +68,18 @@ class Grid:
                                     currentx += 1
                             elif res.nodeName == 'object':
                                 t.addObject(res.attributes['url'].value, res.attributes['inclination'].value)
+                            elif res.nodeName == 'scrollable':
+                                c = Scrollable(res.attributes['url'].value, res.attributes['inclination'].value, self.tileDimension)
+                                c.setX(currentx)
+                                c.setY(currenty)
+                                self.scrollableset.append(c)
+                            elif res.nodeName == 'character':
+                                c = Character(res.attributes['url'].value, res.attributes['inclination'].value, res.attributes['scale'].value, res.attributes['playable'].value)
+                                
+                                c.setX(currentx)
+                                c.setY(currenty)
+                                c.node.reparentTo(self.node)
+                                self.characterset.append(c)
                             
                     t.node.reparentTo(self.node)
             currentx = 0

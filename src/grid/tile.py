@@ -58,9 +58,6 @@ class Tile:
         ts = TextureStage('ts')
         ts.setMode(TextureStage.MDecal)
         
-        print xscaled
-        print yscaled
-        
         geomnode = NodePath(cm.generate())
         geomnode.setX((-xscaled/2)+0.5)
         geomnode.setP(-(360-int(inclination)))
