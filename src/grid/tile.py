@@ -25,23 +25,25 @@ class Tile:
         
         self.node = NodePath('tilenode')
         self.node.setTwoSided(True)
+        
+        
+        #generating groundnode
+        cm = CardMaker("tiletexture")
+        cm.setFrame(0,1,0,1)
+        
+        self.groundnode = NodePath('groundtilenode')
+        self.groundnode.attachNewNode(cm.generate())
+        self.groundnode.reparentTo(self.node)
     
     #add a static texture to basic 128x128 tile pixel image
     #use just to paint the world basicly. Use addObject for every object that has to do with collision etc
     def addTexture(self, name):
         tex = loader.loadTexture('../res/'+name+'.png')
-        xscaled = tex.getOrigFileXSize() / self.baseDimension
-        yscaled = tex.getOrigFileYSize() / self.baseDimension
-        
-        cm = CardMaker("tiletexture")
-        cm.setFrame(0,xscaled,0,yscaled)
         
         ts = TextureStage('ts')
         ts.setMode(TextureStage.MDecal)
         
-        geomnode = NodePath(cm.generate())
-        geomnode.setTexture(ts, tex)
-        geomnode.reparentTo(self.node)
+        self.groundnode.setTexture(ts, tex)
     
     #used to add objects to game that intersects (or not) walkability
     def addObject(self, name):

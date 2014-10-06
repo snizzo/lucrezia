@@ -1,6 +1,6 @@
 <data>
     <row>
-        <tile walkable="true"><ground url="misc/grass" /><object url="misc/obelisk" /></tile>
+        <tile walkable="true"><ground url="misc/grass" /><ground url="misc/obelisk" /><object url="misc/obelisk" /></tile>
         <tile walkable="true"><ground url="misc/grass" /></tile>
         <tile walkable="true"><ground url="misc/grass" /></tile>
         <tile walkable="true"><ground url="misc/grass" /></tile>
