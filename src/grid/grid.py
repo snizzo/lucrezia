@@ -7,6 +7,7 @@ from xml.dom import Node
 
 #internals
 from utils.toggle import Toggle
+from utils.once import Once
 from tile import Tile
 
 '''
@@ -52,11 +53,13 @@ class Grid:
                     t.setWalkable(tile.attributes['walkable'].value)
                     t.setX(currentx)
                     t.setY(currenty)
+                    o = Once()
                     for res in tile.childNodes:
                         if res.nodeType == Node.ELEMENT_NODE: # adding resources to tile
                             if res.nodeName == 'ground':
                                 t.addTexture(res.attributes['url'].value)
-                                currentx += 1
+                                if o.get():
+                                    currentx += 1
                             elif res.nodeName == 'object':
                                 t.addObject(res.attributes['url'].value)
                             

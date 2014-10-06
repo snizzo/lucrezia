@@ -1,6 +1,7 @@
 #panda imports
 from direct.showbase.ShowBase import ShowBase
 from panda3d.core import OrthographicLens
+from panda3d.core import loadPrcFileData
 
 #libs imports
 import __builtin__
@@ -11,6 +12,15 @@ from grid.grid import Grid
 from parser.parser import Parser
 from resourcemanager.resourcemanager import ResourceManager
 
+#fullscreen e grandezza finestra
+loadPrcFileData("","""
+fullscreen 0
+win-size 1024 768
+text-encoding utf8
+show-frame-rate-meter 1
+sync-video #t
+""")
+
 class MyApp(ShowBase):
 
     def __init__(self):
@@ -19,7 +29,7 @@ class MyApp(ShowBase):
         '''
         #ortho camera lens
         lens = OrthographicLens()
-        lens.setFilmSize(16, 12)  #TODO: quattro terzi, fixare, spostare tutto nella classe telecamera e adattare in base allo schermo utente
+        lens.setFilmSize(12, 9)  #TODO: quattro terzi, fixare, spostare tutto nella classe telecamera e adattare in base allo schermo utente
         base.cam.node().setLens(lens)
         base.cam.setY(-5)
         base.cam.setP(-330)

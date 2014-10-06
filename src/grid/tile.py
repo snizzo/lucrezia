@@ -58,7 +58,11 @@ class Tile:
         ts = TextureStage('ts')
         ts.setMode(TextureStage.MDecal)
         
+        print xscaled
+        print yscaled
+        
         geomnode = NodePath(cm.generate())
+        geomnode.setX((-xscaled/2)+0.5)
         geomnode.setP(-300)
         geomnode.setTexture(tex)
         geomnode.setTransparency(TransparencyAttrib.MAlpha)
