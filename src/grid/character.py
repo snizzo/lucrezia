@@ -1,6 +1,9 @@
 from pandac.PandaModules import CardMaker
-from panda3d.core import NodePath, TextureStage
 from pandac.PandaModules import TransparencyAttrib
+from panda3d.core import NodePath, TextureStage
+from panda3d.core import CollisionTraverser,CollisionNode,CollisionTube,BitMask32,CollisionSphere
+from panda3d.core import CollisionHandlerQueue,CollisionRay
+from panda3d.core import BoundingSphere, Point3
 from panda3d.core import UvScrollNode
 from direct.task import Task
 
@@ -43,15 +46,39 @@ class Character(DirectObject):
         self.sleft.reparentTo(self.node)
         self.sright.reparentTo(self.node)
         
+        if playable=="true":
+            self.setPlayable(True)
+            self.setCollisions(True)
+        else:
+            self.setPlayable(False)
+        
         self.node.setX((-32/2)+0.5)
         self.node.setP(-(360-int(inclination)))
         self.node.setScale(float(scale))
         self.node.setTransparency(TransparencyAttrib.MAlpha)
+    
+    def setCollisions(self, value):
+        if value == True:
+            print "setting collisions"
+            b = self.node.getBounds().getRadius()
+            
+            self.cTrav = CollisionTraverser()
+            
+            self.collisionTube = CollisionSphere(b/2,0,b/2,0.035)
+            self.collisionNode = CollisionNode('characterTube')
+            self.collisionNode.addSolid(self.collisionTube)
+            self.collisionNode.setFromCollideMask(BitMask32.bit(0))
+            self.collisionNode.setIntoCollideMask(BitMask32.allOff())
+            self.collisionNodeNp = self.node.attachNewNode(self.collisionNode)
+            self.collisionHandler = CollisionHandlerQueue()
+            self.cTrav.addCollider(self.collisionNodeNp, self.collisionHandler)
+
+            # Uncomment this line to see the collision rays
+            self.collisionNodeNp.show()
         
-        if playable=="true":
-            self.setPlayable(True)
-        else:
-            self.setPlayable(False)
+            # Uncomment this line to show a visual representation of the 
+            # collisions occuring
+            self.cTrav.showCollisions(render)
     
     #used to set playability in real time
     #useful when we want to switch context/scripted scenes
@@ -71,8 +98,14 @@ class Character(DirectObject):
             self.ignoreAll()
     
     def hideAllSubnodes(self):
-        for n in self.node.getChildren():
-            n.hide()
+        self.wtop.hide()
+        self.wdown.hide()
+        self.wleft.hide()
+        self.wright.hide()
+        self.stop.hide()
+        self.sdown.hide()
+        self.sleft.hide()
+        self.sright.hide()
     
     def setMovement(self, value):
         if value == True:
@@ -173,6 +206,10 @@ class Character(DirectObject):
             self.node.setZ(self.node.getZ()+1*dt)
         if self.downdown == True:
             self.node.setZ(self.node.getZ()-1*dt)
+        
+        #check collisions
+        self.cTrav.traverse(render)
+        
         return Task.cont
     
     def setX(self, x):
