@@ -19,6 +19,7 @@ class Character(DirectObject):
         self.downdown = False
         
         self.movtask = 0
+        self.currentlydown = 0
         
         #public props
         self.node = NodePath("characternode")
@@ -79,74 +80,99 @@ class Character(DirectObject):
                 self.movtask = taskMgr.add(self.moveCharacter, "moveCharacterTask")
         if value == False:
             if self.movtask != 0:
-                taskMgr.remove(self.movtask)
-                self.movtask = 0
+                if self.currentlydown == 0:
+                    taskMgr.remove(self.movtask)
+                    self.movtask = 0
+    
+    def clearMovement(self):
+        self.leftdown = False
+        self.rightdown = False
+        self.topdown = False
+        self.downdown = False
+        
     
     def arrowLeftDown(self):
+        self.clearMovement()
         #track key down
         self.leftdown = True
         self.setMovement(True)
         #show changes to screen
         self.hideAllSubnodes()
         self.wleft.show()
+        self.currentlydown += 1
     def arrowLeftUp(self):
         self.leftdown = False
         self.setMovement(False)
         #show changes to screen
-        self.hideAllSubnodes()
-        self.sleft.show()
+        if self.currentlydown == 1:
+            self.hideAllSubnodes()
+            self.sleft.show()
+        self.currentlydown -= 1
     
     def arrowRightDown(self):
+        self.clearMovement()
         #track key down
         self.rightdown = True
         self.setMovement(True)
         #show changes to screen
         self.hideAllSubnodes()
         self.wright.show()
+        self.currentlydown += 1
     def arrowRightUp(self):
         self.setMovement(False)
         self.rightdown = False
         #show changes to screen
-        self.hideAllSubnodes()
-        self.sright.show()
+        if self.currentlydown == 1:
+            self.hideAllSubnodes()
+            self.sright.show()
+        self.currentlydown -= 1
     
     def arrowDownDown(self):
+        self.clearMovement()
         #track key down
         self.downdown = True
         self.setMovement(True)
         #show changes to screen
         self.hideAllSubnodes()
         self.wdown.show()
+        self.currentlydown += 1
     def arrowDownUp(self):
         self.downdown = False
         self.setMovement(False)
         #show changes to screen
-        self.hideAllSubnodes()
-        self.sdown.show()
+        if self.currentlydown == 1:
+            self.hideAllSubnodes()
+            self.sdown.show()
+        self.currentlydown -= 1
     
     def arrowUpDown(self):
+        self.clearMovement()
         #track key down
         self.topdown = True
         self.setMovement(True)
         #show changes to screen
         self.hideAllSubnodes()
         self.wtop.show()
+        self.currentlydown += 1
     def arrowUpUp(self):
         self.topdown = False
         self.setMovement(False)
         #show changes to screen
-        self.hideAllSubnodes()
-        self.stop.show()
+        if self.currentlydown == 1:
+            self.hideAllSubnodes()
+            self.stop.show()
+        self.currentlydown -= 1
     
     def moveCharacter(self, task):
+        dt = globalClock.getDt()
         if self.leftdown == True:
-            self.node.setX(self.node.getX()-0.01)
+            self.node.setX(self.node.getX()-1*dt)
         if self.rightdown == True:
-            self.node.setX(self.node.getX()+0.01)
+            self.node.setX(self.node.getX()+1*dt)
         if self.topdown == True:
-            self.node.setZ(self.node.getZ()+0.01)
+            self.node.setZ(self.node.getZ()+1*dt)
         if self.downdown == True:
-            self.node.setZ(self.node.getZ()-0.01)
+            self.node.setZ(self.node.getZ()-1*dt)
         return Task.cont
     
     def setX(self, x):
