@@ -5,6 +5,7 @@ from panda3d.core import loadPrcFileData
 
 #libs imports
 import __builtin__
+import os
 
 #lucrezia imports
 from grid.grid import Grid
@@ -41,12 +42,16 @@ class MyApp(ShowBase):
         #
         # for completeness: add minus 'p' before class name for naming variables
         __builtin__.pGrid = Grid()
+        __builtin__.resourceManager = ResourceManager() 
+        
         
         pGrid.loadMap('example.map')
         
+        print resourceManager.getResource("misc/grass.png")
+        """
         r = ResourceManager()
         print r.getResource('misc/grass') # deve dire path assoluto = res/misc/grass.png
-        
+        """
         
         
 app = MyApp()

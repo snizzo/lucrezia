@@ -38,7 +38,7 @@ class Tile:
     #add a static texture to basic 128x128 tile pixel image
     #use just to paint the world basicly. Use addObject for every object that has to do with collision etc
     def addTexture(self, name):
-        tex = loader.loadTexture('../res/'+name+'.png')
+        tex = loader.loadTexture(resourceManager.getResource(name)+'.png')
         
         ts = TextureStage('ts')
         ts.setMode(TextureStage.MDecal)
@@ -47,7 +47,7 @@ class Tile:
     
     #used to add objects to game that intersects (or not) walkability
     def addObject(self, name, inclination):
-        tex = loader.loadTexture('../res/'+name+'.png')
+        tex = loader.loadTexture(resourceManager.getResource(name)+'.png')
         
         xscaled = tex.getOrigFileXSize() / self.baseDimension
         yscaled = tex.getOrigFileYSize() / self.baseDimension

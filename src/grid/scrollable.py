@@ -9,7 +9,7 @@ class Scrollable():
         #public props
         self.baseDimension = baseDimension
         
-        tex = loader.loadTexture('../res/'+name+'.png')
+        tex = loader.loadTexture(resourceManager.getResource(name)+'.png')
         
         xscaled = tex.getOrigFileXSize() / self.baseDimension
         yscaled = tex.getOrigFileYSize() / self.baseDimension
