@@ -1,6 +1,8 @@
-from pandac.PandaModules import CardMaker
+from panda3d.core import CollisionTraverser,CollisionNode,CollisionTube,BitMask32,CollisionSphere
 from panda3d.core import NodePath, TextureStage
+
 from pandac.PandaModules import TransparencyAttrib
+from pandac.PandaModules import CardMaker
 
 '''
 TILE CLASS 
@@ -25,7 +27,6 @@ class Tile:
         
         self.node = NodePath('tilenode')
         self.node.setTwoSided(True)
-        
         
         #generating groundnode
         cm = CardMaker("tiletexture")
@@ -58,12 +59,23 @@ class Tile:
         ts = TextureStage('ts')
         ts.setMode(TextureStage.MDecal)
         
+        self.node.showTightBounds()
+        tb = self.node.getTightBounds()
+        print tb
+        
+        self.collisionTube = CollisionSphere(xscaled/2,0,xscaled/2,xscaled/2)
+        self.collisionNode = CollisionNode('objectSphere')
+        self.collisionNode.addSolid(self.collisionTube)
+        self.collisionNodeNp = self.node.attachNewNode(self.collisionNode)
+        self.collisionNodeNp.setX(-xscaled/4)
+        
         geomnode = NodePath(cm.generate())
         geomnode.setX((-xscaled/2)+0.5)
         geomnode.setP(-(360-int(inclination)))
         geomnode.setTexture(tex)
         geomnode.setTransparency(TransparencyAttrib.MAlpha)
         geomnode.reparentTo(self.node)
+        
         '''
         tex = loader.loadTexture('../res/'+name+'.png')
         

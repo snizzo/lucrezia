@@ -67,8 +67,6 @@ class Character(DirectObject):
             self.collisionTube = CollisionSphere(b/2,0,b/2,0.035)
             self.collisionNode = CollisionNode('characterTube')
             self.collisionNode.addSolid(self.collisionTube)
-            self.collisionNode.setFromCollideMask(BitMask32.bit(0))
-            self.collisionNode.setIntoCollideMask(BitMask32.allOff())
             self.collisionNodeNp = self.node.attachNewNode(self.collisionNode)
             self.collisionHandler = CollisionHandlerQueue()
             self.cTrav.addCollider(self.collisionNodeNp, self.collisionHandler)
