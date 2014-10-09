@@ -16,13 +16,8 @@ class Character(DirectObject):
         self.state = "still"
         self.direction = "down"
         
-        self.leftdown = False
-        self.rightdown = False
-        self.topdown = False
-        self.downdown = False
-        
         self.movtask = 0
-        self.currentlydown = 0
+        self.currentlydown = []
         
         #public props
         self.node = NodePath("characternode")
@@ -111,100 +106,112 @@ class Character(DirectObject):
                 self.movtask = taskMgr.add(self.moveCharacter, "moveCharacterTask")
         if value == False:
             if self.movtask != 0:
-                if self.currentlydown == 0:
+                if len(self.currentlydown) == 0:
                     taskMgr.remove(self.movtask)
                     self.movtask = 0
     
-    def clearMovement(self):
-        self.leftdown = False
-        self.rightdown = False
-        self.topdown = False
-        self.downdown = False
+    def setAnim(self):
+        self.hideAllSubnodes()
+        
+        if len(self.currentlydown) > 0:
+            if self.currentlydown[-1] == 'left':
+                self.wleft.show()
+            if self.currentlydown[-1] == 'right':
+                self.wright.show()
+            if self.currentlydown[-1] == 'top':
+                self.wtop.show()
+            if self.currentlydown[-1] == 'down':
+                self.wdown.show()
+        
         
     
     def arrowLeftDown(self):
-        self.clearMovement()
         #track key down
         self.leftdown = True
         self.setMovement(True)
         #show changes to screen
-        self.hideAllSubnodes()
-        self.wleft.show()
-        self.currentlydown += 1
+        self.currentlydown.append("left")
+        self.setAnim()
     def arrowLeftUp(self):
         self.leftdown = False
         self.setMovement(False)
         #show changes to screen
-        if self.currentlydown == 1:
+        if len(self.currentlydown) == 1:
             self.hideAllSubnodes()
             self.sleft.show()
-        self.currentlydown -= 1
+        self.currentlydown.remove("left")
+        
+        if len(self.currentlydown) > 0:
+            self.setAnim()
     
     def arrowRightDown(self):
-        self.clearMovement()
         #track key down
         self.rightdown = True
         self.setMovement(True)
         #show changes to screen
-        self.hideAllSubnodes()
-        self.wright.show()
-        self.currentlydown += 1
+        self.currentlydown.append("right")
+        self.setAnim()
     def arrowRightUp(self):
         self.setMovement(False)
         self.rightdown = False
         #show changes to screen
-        if self.currentlydown == 1:
+        if len(self.currentlydown) == 1:
             self.hideAllSubnodes()
             self.sright.show()
-        self.currentlydown -= 1
+        self.currentlydown.remove("right")
+        
+        if len(self.currentlydown) > 0:
+            self.setAnim()
     
     def arrowDownDown(self):
-        self.clearMovement()
         #track key down
         self.downdown = True
         self.setMovement(True)
         #show changes to screen
-        self.hideAllSubnodes()
-        self.wdown.show()
-        self.currentlydown += 1
+        self.currentlydown.append("down")
+        self.setAnim()
     def arrowDownUp(self):
         self.downdown = False
         self.setMovement(False)
         #show changes to screen
-        if self.currentlydown == 1:
+        if len(self.currentlydown) == 1:
             self.hideAllSubnodes()
             self.sdown.show()
-        self.currentlydown -= 1
+        self.currentlydown.remove("down")
+        
+        if len(self.currentlydown) > 0:
+            self.setAnim()
     
     def arrowUpDown(self):
-        self.clearMovement()
         #track key down
         self.topdown = True
         self.setMovement(True)
         #show changes to screen
-        self.hideAllSubnodes()
-        self.wtop.show()
-        self.currentlydown += 1
+        self.currentlydown.append("top")
+        self.setAnim()
     def arrowUpUp(self):
         self.topdown = False
         self.setMovement(False)
         #show changes to screen
-        if self.currentlydown == 1:
+        if len(self.currentlydown) == 1:
             self.hideAllSubnodes()
             self.stop.show()
-        self.currentlydown -= 1
+        self.currentlydown.remove("top")
+        if len(self.currentlydown) > 0:
+            self.setAnim()
     
     def moveCharacter(self, task):
         dt = globalClock.getDt()
-        if self.leftdown == True:
-            self.node.setX(self.node.getX()-1*dt)
-        if self.rightdown == True:
-            self.node.setX(self.node.getX()+1*dt)
-        if self.topdown == True:
-            self.node.setZ(self.node.getZ()+1*dt)
-        if self.downdown == True:
-            self.node.setZ(self.node.getZ()-1*dt)
-        
+        if len(self.currentlydown) > 0:
+            if self.currentlydown[-1] == 'left':
+                self.node.setX(self.node.getX()-1*dt)
+            if self.currentlydown[-1] == 'right':
+                self.node.setX(self.node.getX()+1*dt)
+            if self.currentlydown[-1] == 'top':
+                self.node.setZ(self.node.getZ()+1*dt)
+            if self.currentlydown[-1] == 'down':
+                self.node.setZ(self.node.getZ()-1*dt)
+            
         #check collisions
         self.cTrav.traverse(render)
         
