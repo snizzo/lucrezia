@@ -48,7 +48,7 @@ class MyApp(ShowBase):
         
         pGrid.loadMap('example.map')
         
-        extract.extract_Txt("ita")
+        #extract.extract_Txt("ita")
         extract.extract_Txt("ing")
         
         print resourceManager.getResource("misc/grass.png")

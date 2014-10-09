@@ -3,3 +3,18 @@ MN_LOAD=Carica
 MN_OPTION=Opzioni
 MN_CREDITS=Crediti
 MN_QUIT=Esci
+
+MN_VIDEO=Grafica
+MN_COMMANDS=Controlli
+MN_AUDIO=Audio
+MN_LANG=Lingua
+MN_BACK=Indietro
+
+MN_START=Premi start
+
+MN_EXIT=Sei sicuro di voler uscire?
+MN_Y=Si
+MN_N=No
+
+MN_LOAD=Carica
+MN_DELETE=Cancella

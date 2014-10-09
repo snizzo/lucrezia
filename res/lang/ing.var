@@ -3,3 +3,18 @@ MN_LOAD=Load game
 MN_OPTION=Options
 MN_CREDITS=Credits
 MN_QUIT=Quit
+
+MN_VIDEO=Graphics
+MN_COMMANDS=Controls
+MN_AUDIO=Audio
+MN_LANG=Languages
+MN_BACK=Back
+
+MN_START=Press start
+
+MN_EXIT=Do you really want to exit?
+MN_Y=Yes
+MN_N=No
+
+MN_LOAD=Load
+MN_DELETE=Delete

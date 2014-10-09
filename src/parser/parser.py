@@ -24,9 +24,12 @@ class Parser:
         if ext=='var':
             self.parsed = []
             for i in range(len(text)):
-                key = text[i].split('=')[0]
-                value = text[i].split('=')[1]
-                self.parsed.append([key,value])
+                if (text[i]==""): 
+                    self.parsed.append(["",""])
+                else:
+                    key = text[i].split('=')[0]
+                    value = text[i].split('=')[1]
+                    self.parsed.append([key,value])
         if ext=='data':
             self.parsed = []
             for i in range(len(text)):
