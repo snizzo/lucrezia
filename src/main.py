@@ -12,6 +12,7 @@ from grid.grid import Grid
 #from utils.once import Once
 from parser.parser import Parser
 from resourcemanager.resourcemanager import ResourceManager
+from extract.extract import Extract
 
 #fullscreen e grandezza finestra
 loadPrcFileData("","""
@@ -43,9 +44,12 @@ class MyApp(ShowBase):
         # for completeness: add minus 'p' before class name for naming variables
         __builtin__.pGrid = Grid()
         __builtin__.resourceManager = ResourceManager() 
-        
+        __builtin__.extract = Extract()
         
         pGrid.loadMap('example.map')
+        
+        extract.extract_Txt("ita")
+        extract.extract_Txt("ing")
         
         print resourceManager.getResource("misc/grass.png")
         """
