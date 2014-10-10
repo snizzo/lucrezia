@@ -1,6 +1,6 @@
 from parser.parser import Parser
 
-class Extract:
+class Extract_Title:
     
     def __init__(self):
         self.langdir = 'lang'
@@ -13,7 +13,8 @@ class Extract:
             'COMMANDS_MENU' : ['MN_BACK'],
             'AUDIO_MENU' : ['MN_BACK'],
             'LANG_MENU' : ['MN_BACK'],
-            'QUIT_MENU': ['MN_EXIT','MN_Y','MN_N']
+            'QUIT_MENU': ['MN_EXIT','MN_Y','MN_N'],
+            'MN_VERSION' : ['VERSION']
         }
 
     
@@ -27,5 +28,15 @@ class Extract:
                 for index, value in enumerate(self.current_menu[menu]):
                     if coppia[0]==value:
                         self.current_menu[menu][index] = coppia[1]
+           
+        versionM = Parser(resourceManager.getResource('DefaultConfig.var'))
+        data2 = versionM.get()
+        
+        for coppia in data2:
+            for menu in self.current_menu:
+                for index, value in enumerate(self.current_menu[menu]):
+                    if coppia[0]==value:
+                        self.current_menu[menu][index] = coppia[1]
+        
         
         print self.current_menu

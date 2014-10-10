@@ -12,7 +12,7 @@ from grid.grid import Grid
 #from utils.once import Once
 from parser.parser import Parser
 from resourcemanager.resourcemanager import ResourceManager
-from extract.extract import Extract
+from extract.extract import Extract_Title
 
 #fullscreen e grandezza finestra
 loadPrcFileData("","""
@@ -44,7 +44,7 @@ class MyApp(ShowBase):
         # for completeness: add minus 'p' before class name for naming variables
         __builtin__.pGrid = Grid()
         __builtin__.resourceManager = ResourceManager() 
-        __builtin__.extract = Extract()
+        __builtin__.extract = Extract_Title()
         
         pGrid.loadMap('example.map')
         
