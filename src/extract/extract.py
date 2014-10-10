@@ -1,6 +1,6 @@
 from parser.parser import Parser
 
-class Extract_Title:
+class ExtractTitle:
     
     def __init__(self):
         self.langdir = 'lang'
@@ -18,7 +18,7 @@ class Extract_Title:
         }
 
     
-    def extract_Txt(self,lang):
+    def extractTxt(self,lang):
         current_menup = Parser(resourceManager.getResource(self.langdir + '/' + lang + '.var')) 
         data = current_menup.get()    # lista di coppie es: MN_PLAY gioca
        
