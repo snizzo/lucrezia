@@ -86,8 +86,10 @@ class Tile:
         ts = TextureStage('ts')
         ts.setMode(TextureStage.MDecal)
         
+        #must handle differently objects which are small and big
+        #check directly on xscaled
         if xscaled < 1:
-            self.collisionTube = CollisionBox(LPoint3f((-xscaled/2)+0.5 - offsetwidth,0,0),LPoint3f((xscaled/2)+0.5 + offsetwidth,0.1,0.3 + offsetheight))
+            self.collisionTube = CollisionBox(LPoint3f(0.5 - xscaled/2 - offsetwidth,0,0),LPoint3f(0.5 + xscaled/2 + offsetwidth,0.1,0.3 + offsetheight))
             
         if xscaled >= 1:
             self.collisionTube = CollisionBox(LPoint3f(0 - offsetwidth,0,0),LPoint3f(xscaled + offsetwidth,0.1,0.3 + offsetheight))
@@ -95,10 +97,13 @@ class Tile:
         self.collisionNode = CollisionNode('objectSphere')
         self.collisionNode.addSolid(self.collisionTube)
         self.collisionNodeNp = self.node.attachNewNode(self.collisionNode)
-        self.collisionNodeNp.setX(-xscaled/4)
+        self.collisionNodeNp.setX(0)
         
         geomnode = NodePath(cm.generate())
-        geomnode.setX((-xscaled/2)+0.5)
+        if xscaled >= 1:
+            geomnode.setX(0)
+        if xscaled < 1:
+            geomnode.setX(0.5 - xscaled/2)
         geomnode.setP(-(360-int(inclination)))
         geomnode.setTexture(tex)
         geomnode.setTransparency(TransparencyAttrib.MAlpha)
