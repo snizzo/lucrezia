@@ -1,5 +1,6 @@
 from panda3d.core import CollisionTraverser,CollisionNode,CollisionTube,BitMask32,CollisionSphere
 from panda3d.core import NodePath, TextureStage
+from panda3d.core import Point3, CollisionPolygon, CollisionBox, LPoint3f
 
 from pandac.PandaModules import TransparencyAttrib
 from pandac.PandaModules import CardMaker
@@ -47,11 +48,37 @@ class Tile:
         self.groundnode.setTexture(ts, tex)
     
     #used to add objects to game that intersects (or not) walkability
-    def addObject(self, name, inclination):
+    def addObject(self, attributes):
+        #manage attributes directly in object creation,
+        #this was many attributes are not mandatory
+        if attributes.has_key('url'):
+            name = attributes['url'].value
+        else:
+            print "WARNING: url not defined, loading placeholder"
+            name = 'misc/placeholder'
+        
+        if attributes.has_key('inclination'):
+            inclination = float(attributes['inclination'].value)
+        else:
+            inclination = 30.0
+        
+        if attributes.has_key('offsetwidth'):
+            offsetwidth = float(attributes['offsetwidth'].value)
+        else:
+            offsetwidth = 0.0
+        
+        if attributes.has_key('offsetheight'):
+            offsetheight = float(attributes['offsetheight'].value)
+        else:
+            offsetheight = 0.0
+        
         tex = loader.loadTexture(resourceManager.getResource(name)+'.png')
         
         xscaled = tex.getOrigFileXSize() / self.baseDimension
         yscaled = tex.getOrigFileYSize() / self.baseDimension
+        
+        print xscaled
+        print yscaled
         
         cm = CardMaker("tileobject")
         cm.setFrame(0,xscaled,0,yscaled)
@@ -59,11 +86,12 @@ class Tile:
         ts = TextureStage('ts')
         ts.setMode(TextureStage.MDecal)
         
-        self.node.showTightBounds()
-        tb = self.node.getTightBounds()
-        print tb
+        if xscaled < 1:
+            self.collisionTube = CollisionBox(LPoint3f((-xscaled/2)+0.5 - offsetwidth,0,0),LPoint3f((xscaled/2)+0.5 + offsetwidth,0.1,0.3 + offsetheight))
+            
+        if xscaled >= 1:
+            self.collisionTube = CollisionBox(LPoint3f(0 - offsetwidth,0,0),LPoint3f(xscaled + offsetwidth,0.1,0.3 + offsetheight))
         
-        self.collisionTube = CollisionSphere(xscaled/2,0,xscaled/2,xscaled/2)
         self.collisionNode = CollisionNode('objectSphere')
         self.collisionNode.addSolid(self.collisionTube)
         self.collisionNodeNp = self.node.attachNewNode(self.collisionNode)
@@ -94,6 +122,7 @@ class Tile:
         objectnode.setTexture(ts, tex)
         objectnode.place()
         '''
+    
     def getResDimension(self):
         pass
     

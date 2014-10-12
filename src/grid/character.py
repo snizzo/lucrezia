@@ -215,6 +215,10 @@ class Character(DirectObject):
         #check collisions
         self.cTrav.traverse(render)
         
+        entries = []
+        for i in range(self.collisionHandler.getNumEntries()):
+            entry = self.collisionHandler.getEntry(i)
+        
         return Task.cont
     
     def setX(self, x):
