@@ -16,13 +16,17 @@ from extract.extract import ExtractTitle
 from configmanager.configmanager import Configmanager
 from audio.audioManager import AudioManager
 
+__builtin__.resourceManager = ResourceManager()
+__builtin__.configmanager = Configmanager()
+#configmanager.loadConfig()
+
 #fullscreen e grandezza finestra
 loadPrcFileData("","""
 fullscreen 0
-win-size 1024 768
+win-size 800 600
 text-encoding utf8
 show-frame-rate-meter 1
-sync-video #t
+sync-video #f
 """)
 
 class MyApp(ShowBase):
@@ -45,14 +49,13 @@ class MyApp(ShowBase):
         #
         # for completeness: add minus 'p' before class name for naming variables
         __builtin__.pGrid = Grid()
-        __builtin__.resourceManager = ResourceManager() 
         __builtin__.extract = ExtractTitle()
-        __builtin__.configmanager = Configmanager() 
+        #__builtin__.configmanager = Configmanager() 
         __builtin__.audioManager = AudioManager()
 
-# ===========================================
+        # ===========================================
         # load the config class
-        configmanager.loadConfig()
+        #configmanager.loadConfig()
         # ===========================================
         
         lang = configmanager.getData("LANGUAGE").lower()
