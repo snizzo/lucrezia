@@ -1,5 +1,5 @@
 from panda3d.core import CollisionTraverser,CollisionNode,CollisionTube,BitMask32,CollisionSphere
-from panda3d.core import NodePath, TextureStage
+from panda3d.core import NodePath, TextureStage, Texture
 from panda3d.core import Point3, CollisionPolygon, CollisionBox, LPoint3f
 
 from pandac.PandaModules import TransparencyAttrib
@@ -41,6 +41,8 @@ class Tile:
     #use just to paint the world basicly. Use addObject for every object that has to do with collision etc
     def addTexture(self, name):
         tex = loader.loadTexture(resourceManager.getResource(name)+'.png')
+        tex.setWrapV(Texture.WM_clamp)
+        tex.setWrapU(Texture.WM_clamp)
         
         ts = TextureStage('ts')
         ts.setMode(TextureStage.MDecal)
@@ -72,13 +74,14 @@ class Tile:
         else:
             offsetheight = 0.0
         
+        
+        
         tex = loader.loadTexture(resourceManager.getResource(name)+'.png')
+        tex.setWrapV(Texture.WM_clamp)
+        tex.setWrapU(Texture.WM_clamp)
         
         xscaled = tex.getOrigFileXSize() / self.baseDimension
         yscaled = tex.getOrigFileYSize() / self.baseDimension
-        
-        print xscaled
-        print yscaled
         
         cm = CardMaker("tileobject")
         cm.setFrame(0,xscaled,0,yscaled)
@@ -127,15 +130,11 @@ class Tile:
         objectnode.setTexture(ts, tex)
         objectnode.place()
         '''
+    def addCustomObject(self, o):
+        o.getNode().reparentTo(self.node)
     
     def getResDimension(self):
         pass
-    
-    def setWalkable(self, value):
-        self.walkable = value
-    
-    def getWalkable(self):
-        return self.walkable
     
     def setX(self, x):
         if self.node != 0:
