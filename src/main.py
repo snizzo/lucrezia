@@ -68,6 +68,7 @@ class MyApp(ShowBase):
         print r.getResource('misc/grass') # deve dire path assoluto = res/misc/grass.png
         """
         
+        audioManager.playMusic("misc/bgmusic.ogg")
         
 app = MyApp()
 app.run()
