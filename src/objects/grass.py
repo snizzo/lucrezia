@@ -19,7 +19,7 @@ class Grass():
             x = random.uniform(0.0, 1.0)
             y = random.uniform(0.0, 1.0)
             
-            scale = random.uniform(0.7, 1.3)
+            scale = random.uniform(0.7, 1.2)
             
             tex = loader.loadTexture(resourceManager.getResource('misc/grass_special.png'))
             tex.setWrapV(Texture.WM_clamp)
@@ -33,7 +33,7 @@ class Grass():
             
             grassnodenp = NodePath(cm.generate())
             grassnodenp.setTexture(tex)
-            grassnodenp.setTransparency(TransparencyAttrib.MAlpha)
+            grassnodenp.setTransparency(TransparencyAttrib.MMultisample)
             grassnodenp.reparentTo(self.node)
             grassnodenp.setP(-330)
             grassnodenp.setX(x)

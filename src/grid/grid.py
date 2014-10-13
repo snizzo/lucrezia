@@ -35,7 +35,9 @@ class Grid:
         self.characterset = []
         self.scrollableset = [] #fix this shiet, scollables can't definitely sit here...
         
+        #main nodes
         self.node = render.attachNewNode("tileset")
+        self.grassnode = self.node.attachNewNode("grassnodes")
         
         self.tileDimension = 128.0
         #automatic methods
@@ -69,8 +71,9 @@ class Grid:
                             elif res.nodeName == 'object':
                                 t.addObject(res.attributes)
                             elif res.nodeName == 'grass':
-                                g = Grass(res.attributes, self.tileDimension)
-                                t.addCustomObject(g)
+                                g = Grass(res.attributes, self.tileDimension) #creating object
+                                t.addCustomObject(g) #setting coordinates of tile
+                                g.getNode().wrtReparentTo(self.grassnode)
                             elif res.nodeName == 'scrollable':
                                 c = Scrollable(res.attributes['url'].value, res.attributes['inclination'].value, self.tileDimension)
                                 c.setX(currentx)
@@ -87,6 +90,8 @@ class Grid:
                     t.node.reparentTo(self.node)
             currentx = 0
             currenty += 1
+        
+        self.grassnode.flattenStrong() #pumping performance for dynamic grass (like, 120x)
     
     '''
     This method generates an internal tileset.
