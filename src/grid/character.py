@@ -51,6 +51,8 @@ class Character(DirectObject):
         self.node.setP(-(360-int(inclination)))
         self.node.setScale(float(scale))
         self.node.setTransparency(TransparencyAttrib.MAlpha)
+        
+        self.lastpos = self.node.getPos()
     
     def setCollisions(self, value):
         if value == True:
@@ -67,11 +69,11 @@ class Character(DirectObject):
             self.cTrav.addCollider(self.collisionNodeNp, self.collisionHandler)
 
             # Uncomment this line to see the collision rays
-            self.collisionNodeNp.show()
+            #self.collisionNodeNp.show()
         
             # Uncomment this line to show a visual representation of the 
             # collisions occuring
-            self.cTrav.showCollisions(render)
+            #self.cTrav.showCollisions(render)
     
     #used to set playability in real time
     #useful when we want to switch context/scripted scenes
@@ -201,6 +203,7 @@ class Character(DirectObject):
             self.setAnim()
     
     def moveCharacter(self, task):
+        
         dt = globalClock.getDt()
         if len(self.currentlydown) > 0:
             if self.currentlydown[-1] == 'left':
@@ -211,10 +214,21 @@ class Character(DirectObject):
                 self.node.setZ(self.node.getZ()+1*dt)
             if self.currentlydown[-1] == 'down':
                 self.node.setZ(self.node.getZ()-1*dt)
-            
+        
         #check collisions
         self.cTrav.traverse(render)
         
+        if self.collisionHandler.getNumEntries() == 0:
+            self.lastpos = self.node.getPos()
+        else:
+            self.node.setPos(self.lastpos)
+        '''
+        entries = []
+        for i in range(self.collisionHandler.getNumEntries()):
+            entry = self.collisionHandler.getEntry(i)
+            #TODO: modify here to handle some special objects collisions
+            #for now: stop character from working
+        '''
         return Task.cont
     
     def setX(self, x):

@@ -67,7 +67,7 @@ class Grid:
                                 if o.get():
                                     currentx += 1
                             elif res.nodeName == 'object':
-                                t.addObject(res.attributes['url'].value, res.attributes['inclination'].value)
+                                t.addObject(res.attributes)
                             elif res.nodeName == 'scrollable':
                                 c = Scrollable(res.attributes['url'].value, res.attributes['inclination'].value, self.tileDimension)
                                 c.setX(currentx)
