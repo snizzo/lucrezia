@@ -1,7 +1,6 @@
 #panda imports
 from direct.showbase.ShowBase import ShowBase
 from panda3d.core import OrthographicLens
-from panda3d.core import loadPrcFileData
 
 #libs imports
 import __builtin__
@@ -13,15 +12,11 @@ from grid.grid import Grid
 from parser.parser import Parser
 from resourcemanager.resourcemanager import ResourceManager
 from extract.extract import ExtractTitle
+from configmanager.configmanager import Configmanager
+
 
 #fullscreen e grandezza finestra
-loadPrcFileData("","""
-fullscreen 0
-win-size 1024 768
-text-encoding utf8
-show-frame-rate-meter 1
-sync-video #t
-""")
+
 
 class MyApp(ShowBase):
 
@@ -45,13 +40,23 @@ class MyApp(ShowBase):
         __builtin__.pGrid = Grid()
         __builtin__.resourceManager = ResourceManager() 
         __builtin__.extract = ExtractTitle()
+        __builtin__.configmanager = Configmanager() 
         
+        # ===========================================
+        # load the config class
+        configmanager.loadConfig()
+        # ===========================================
+        
+        lang = configmanager.getData("LANGUAGE").lower()
+               
         pGrid.loadMap('example.map')
         
-        #extract.extractTxt("ita")
-        extract.extractTxt("ing")
+        extract.extractTxt(lang)
+        #extract.extractTxt("ing")
         
-        print resourceManager.getResource("misc/grass.png")
+        #DEBUG for the getResource
+        #print resourceManager.getResource("misc/grass.png")
+        
         """
         r = ResourceManager()
         print r.getResource('misc/grass') # deve dire path assoluto = res/misc/grass.png

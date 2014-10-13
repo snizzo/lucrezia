@@ -1,8 +1,10 @@
 from parser.parser import Parser
+import getpass                  #for user name of the pc
 
 class ExtractTitle:
     
     def __init__(self):
+        self.pc_name = getpass.getuser()
         self.langdir = 'lang'
         self.current_menu= {
             'START_MENU': ['MN_START'],
@@ -29,7 +31,7 @@ class ExtractTitle:
                     if coppia[0]==value:
                         self.current_menu[menu][index] = coppia[1]
            
-        versionM = Parser(resourceManager.getResource('DefaultConfig.var'))
+        versionM = Parser(resourceManager.getResource("config/" + self.pc_name +"Config.var"))
         data2 = versionM.get()
         
         for coppia in data2:

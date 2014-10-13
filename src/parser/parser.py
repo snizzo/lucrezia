@@ -21,19 +21,25 @@ class Parser:
         
         self.raw = list(text)           #actually duplicate list, not using pointer
         
+        #var = file for variables
         if ext=='var':
             self.parsed = []
             for i in range(len(text)):
+                # if empty line = ignore
                 if (text[i]==""): 
-                    self.parsed.append(["",""])
+                    pass
+                # if comment line = ignore
+                elif (text[i][0]=="#"):
+                    pass
                 else:
                     key = text[i].split('=')[0]
                     value = text[i].split('=')[1]
                     self.parsed.append([key,value])
+        #data = file datas
         if ext=='data':
             self.parsed = []
             for i in range(len(text)):
                 self.parsed.append(text[i].split('='))
-    
+ 
     def get(self):
-        return self.parsed
+        return self.parsed     
