@@ -8,6 +8,7 @@ from xml.dom import Node
 #internals
 from utils.toggle import Toggle
 from utils.once import Once
+from objects.grass import Grass
 from tile import Tile
 from character import Character
 
@@ -54,7 +55,6 @@ class Grid:
                     t = Tile(self.tileDimension)
                     self.tileset.append(t)
                     t.generate()
-                    t.setWalkable(tile.attributes['walkable'].value)
                     t.setX(currentx)
                     t.setY(currenty)
                     
@@ -68,6 +68,9 @@ class Grid:
                                     currentx += 1
                             elif res.nodeName == 'object':
                                 t.addObject(res.attributes)
+                            elif res.nodeName == 'grass':
+                                g = Grass(res.attributes, self.tileDimension)
+                                t.addCustomObject(g)
                             elif res.nodeName == 'scrollable':
                                 c = Scrollable(res.attributes['url'].value, res.attributes['inclination'].value, self.tileDimension)
                                 c.setX(currentx)
