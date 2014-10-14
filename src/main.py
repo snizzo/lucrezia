@@ -72,6 +72,7 @@ class MyApp(ShowBase):
         """
         
         audioManager.playMusic("misc/bgmusic.ogg")
+        audioManager.playEffect("misc/car.ogg")
         
 app = MyApp()
 app.run()
