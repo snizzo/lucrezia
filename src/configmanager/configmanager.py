@@ -54,4 +54,12 @@ class Configmanager:
                 return coppia[1]
     # ===========================================
  
+    def saveConfig(self, pointer, value):
+        for coppia in self.config:
+            if coppia[0] == pointer:
+                coppia[1] = value
+                print coppia[1]
+        
+    
+    
     

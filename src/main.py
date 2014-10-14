@@ -54,7 +54,7 @@ class MyApp(ShowBase):
         __builtin__.audioManager = AudioManager()
 
         # ===========================================
-        # load the config class
+        #load the config class
         #configmanager.loadConfig()
         # ===========================================
         
@@ -63,10 +63,17 @@ class MyApp(ShowBase):
 	pGrid.loadMap('example.map')
         
         #extract.extractTxt("ita")
-        extract.extractTxt("ing")
+        extract.extractTxt(lang)
         #DEBUG for the getResource
         #print resourceManager.getResource("misc/grass.png")
-        """
+        
+        configmanager.saveConfig("LANGUAGE","ITA")
+        lang = configmanager.getData("LANGUAGE").lower()
+        print "====="
+        print lang
+        extract.extractTxt(lang)
+        
+        """  
         r = ResourceManager()
         print r.getResource('misc/grass') # deve dire path assoluto = res/misc/grass.png
         """
