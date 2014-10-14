@@ -12,12 +12,12 @@ class AudioManager(DirectObject):
         self.mySound.setLoop(True)
         self.mySound.play()
         print path
-    """
+    
     # preso in input un vettore, l'audio manager va a cercare il path assoluto del file e riproduce il o gli effetti sonori
     def playEffect(self, effect):
         path = resourceManager.getResource(effect)
         effect = base.loader.loadSfx(path)
         effect.setVolume(1)
-        self.effect.append(effect)
+        self.effects.append(effect)
         effect.play()
-        print path"""
+        print path
