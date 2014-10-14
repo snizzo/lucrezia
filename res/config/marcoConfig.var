@@ -1,7 +1,7 @@
 # version
 VERSION=0.0.1
 # language
-LANGUAGE=ITA
+LANGUAGE=ING
 # resolution
 FULL_SCREEN=0
 RESOLUTION=1024 720
