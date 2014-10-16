@@ -1,4 +1,4 @@
-from parser.parser import Parser
+from parserFile.parserFile import Parser
 import getpass                  #for user name of the pc
 
 class ExtractTitle:
