@@ -59,7 +59,6 @@ class Configmanager:
             if coppia[0] == pointer:
                 coppia[1] = value
                 print coppia[1]
-        
     
     
     

@@ -10,7 +10,7 @@ import os
 #lucrezia imports
 from grid.grid import Grid
 #from utils.once import Once
-from parser.parser import Parser
+from parserFile.parserFile import Parser
 from resourcemanager.resourcemanager import ResourceManager
 from extract.extract import ExtractTitle
 from configmanager.configmanager import Configmanager
@@ -79,6 +79,7 @@ class MyApp(ShowBase):
         """
         
         audioManager.playMusic("misc/bgmusic.ogg")
+        audioManager.playEffect("misc/car.ogg")
         audioManager.playEffect("misc/car.ogg")
         
 app = MyApp()
