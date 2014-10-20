@@ -15,8 +15,8 @@ from resourcemanager.resourcemanager import ResourceManager
 from extract.extract import ExtractTitle
 from configmanager.configmanager import Configmanager
 from audio.audioManager import AudioManager
+from gui.mainMenu import MainMenu
 from camera.camera import CustomCamera
-
 __builtin__.resourceManager = ResourceManager()
 __builtin__.configmanager = Configmanager()
 #configmanager.loadConfig()
@@ -24,10 +24,10 @@ __builtin__.configmanager = Configmanager()
 #fullscreen e grandezza finestra
 loadPrcFileData("","""
 fullscreen 0
-win-size 640 480
+win-size 800 600
 text-encoding utf8
 show-frame-rate-meter 1
-sync-video #t
+sync-video #f
 """)
 
 class MyApp(ShowBase):
@@ -35,6 +35,8 @@ class MyApp(ShowBase):
     def __init__(self):
         ShowBase.__init__(self)
         
+        lang="ita"
+
         '''
         #ortho camera lens
         lens = OrthographicLens()
@@ -58,11 +60,14 @@ class MyApp(ShowBase):
         # ===========================================
         #load the config class
         #configmanager.loadConfig()
+        #lang = configmanager.getData("LANGUAGE").lower()
         # ===========================================
+                 
+        __builtin__.mainMenu = MainMenu(lang)         
         
         lang = configmanager.getData("LANGUAGE").lower()
                  
-        pGrid.loadMap('example.map')
+	pGrid.loadMap('example.map')
         
         #extract.extractTxt("ita")
         extract.extractTxt(lang)
