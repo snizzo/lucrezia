@@ -1,0 +1,7 @@
+<data> : defined map data
+    <row>  : starts a grid row
+        <tile> : creates a single tile
+            <ground url="misc/grass" />
+            <character url="lucrezia" inclination="30" scale="6" playable="true" />
+            <object url="misc/obelisk" inclination="30" offsetwidth="0" offsetheight="0" />
+            <grass />

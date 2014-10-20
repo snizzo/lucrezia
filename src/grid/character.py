@@ -89,6 +89,8 @@ class Character(DirectObject):
             self.accept("arrow_right-up", self.arrowRightUp)
             self.accept("arrow_up-up", self.arrowUpUp)
             self.accept("arrow_down-up", self.arrowDownUp)
+            #camera follow
+            customCamera.follow(self.node)
         else:
             self.ignoreAll()
     
