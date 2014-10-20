@@ -10,7 +10,7 @@ import os
 #lucrezia imports
 from grid.grid import Grid
 #from utils.once import Once
-from parserFile.parserFile import Parser
+from parser.parser import Parser
 from resourcemanager.resourcemanager import ResourceManager
 from extract.extract import ExtractTitle
 from configmanager.configmanager import Configmanager

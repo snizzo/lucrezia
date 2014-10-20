@@ -1,4 +1,4 @@
-from parserFile.parserFile import Parser
+from parser.parser import Parser
 
 class Extractor:
     
