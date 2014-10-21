@@ -1,37 +1,82 @@
-<data tilesize="64.0" showcollisions="true" camdistance="10.0">
+<data tilesize="32.0" showcollisions="false" camdistance="20.0">
     <row>
-        <tile><ground url="misc/ground" /><grass /></tile>
-        <tile><ground url="misc/ground" /><grass /><character url="lucrezia" inclination="30" scale="6" playable="true" speed="3.0" /></tile>
-        <tile><ground url="misc/ground" /><grass /></tile>
-        <tile><ground url="misc/ground" /><grass /></tile>
-        <tile><ground url="misc/ground" /><grass /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><character url="lucrezia" inclination="30" scale="11.5" playable="true" speed = "2.2" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/scrivaniadecente" inclination="2"/></tile>
    </row>
    <row>
-        <tile><ground url="misc/ground" /><grass /><object url="misc/obelisk" inclination="30" offsetwidth="0" offsetheight="0"/></tile>
-        <tile><ground url="misc/ground" /><grass /><object url="misc/obelisk" inclination="30" offsetwidth="0" offsetheight="0"/></tile>
-        <tile><ground url="misc/ground" /><grass /><ground url="misc/leaves" inclination="30"/></tile>
-        <tile><ground url="misc/ground" /><grass /><object url="misc/obelisk" inclination="30"/></tile>
-        <tile><ground url="misc/ground" /><grass /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/libro" inclination="3" elevation="1.0"/></tile>
    </row>
    <row>
-        <tile><ground url="misc/ground" /><grass /></tile>
-        <tile><ground url="misc/ground" /><grass /><object url="misc/tree" inclination="30" offsetwidth="-1.5" offsetheight="0"/></tile>
-        <tile><ground url="misc/ground" /><grass /><ground url="misc/leaves" /></tile>
-        <tile><ground url="misc/ground" /><grass /></tile>
-        <tile><ground url="misc/ground" /><grass /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
    </row>
    <row>
-        <tile><ground url="misc/ground" /><grass /></tile>
-        <tile><ground url="misc/ground" /><grass /><object url="misc/obelisk" inclination="30"/></tile>
-        <tile><ground url="misc/ground" /><grass /></tile>
-        <tile><ground url="misc/ground" /><grass /><object url="misc/obelisk" inclination="30"/></tile>
-        <tile><ground url="misc/ground" /><grass /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
    </row>
    <row>
-        <tile><ground url="misc/ground" /><grass /></tile>
-        <tile><ground url="misc/ground" /><grass /></tile>
-        <tile><ground url="misc/ground" /><grass /></tile>
-        <tile><ground url="misc/ground" /><grass /></tile>
-        <tile><ground url="misc/ground" /><grass /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+   </row>
+   <row>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+   </row>
+   <row>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/letto" inclination="2"/></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/letto" inclination="2"/></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+   </row>
+   <row>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/comodino" inclination="2"/></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
    </row>
 </data>
