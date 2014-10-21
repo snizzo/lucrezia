@@ -96,7 +96,7 @@ class Grid:
                                 c.setY(currenty)
                                 self.scrollableset.append(c)
                             elif res.nodeName == 'character':
-                                c = Character(res.attributes['url'].value, res.attributes['inclination'].value, res.attributes['scale'].value, res.attributes['playable'].value,self.showCollisions)
+                                c = Character(res.attributes, self.showCollisions)
                                 
                                 c.setX(currentx)
                                 c.setY(currenty)
