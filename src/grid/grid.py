@@ -41,6 +41,7 @@ class Grid:
         
         #default value, just for fun
         self.tileDimension = 128.0
+        self.showCollisions = False
         #automatic methods
         #self.generateEmptyTileset(20,20)
         #self.mergeMeshes()
@@ -53,6 +54,13 @@ class Grid:
             if d.attributes > 0:
                 if d.attributes.has_key('tilesize'):
                     self.tileDimension = float(d.attributes['tilesize'].value)
+                if d.attributes.has_key('showcollisions'):
+                    if d.attributes['showcollisions'].value == 'false':
+                        self.showCollisions = False
+                    else:
+                        self.showCollisions = True
+                if d.attributes.has_key('camdistance'):
+                    customCamera.setDistance(float(d.attributes['camdistance'].value))
         
         rowsdata = xmldoc.getElementsByTagName('row')
         
@@ -88,7 +96,7 @@ class Grid:
                                 c.setY(currenty)
                                 self.scrollableset.append(c)
                             elif res.nodeName == 'character':
-                                c = Character(res.attributes['url'].value, res.attributes['inclination'].value, res.attributes['scale'].value, res.attributes['playable'].value)
+                                c = Character(res.attributes['url'].value, res.attributes['inclination'].value, res.attributes['scale'].value, res.attributes['playable'].value,self.showCollisions)
                                 
                                 c.setX(currentx)
                                 c.setY(currenty)
