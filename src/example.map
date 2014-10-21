@@ -1,7 +1,7 @@
 <data tilesize="64.0" showcollisions="true" camdistance="10.0">
     <row>
         <tile><ground url="misc/ground" /><grass /></tile>
-        <tile><ground url="misc/ground" /><grass /><character url="lucrezia" inclination="30" scale="6" playable="true" /></tile>
+        <tile><ground url="misc/ground" /><grass /><character url="lucrezia" inclination="30" scale="6" playable="true" speed="3.0" /></tile>
         <tile><ground url="misc/ground" /><grass /></tile>
         <tile><ground url="misc/ground" /><grass /></tile>
         <tile><ground url="misc/ground" /><grass /></tile>

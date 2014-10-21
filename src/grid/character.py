@@ -11,7 +11,36 @@ from direct.showbase.DirectObject import DirectObject
 
 class Character(DirectObject):
     
-    def __init__(self, name, inclination, scale, playable, showCollisions):
+    def __init__(self, attributes, showCollisions):
+        #name, inclination, scale, playable
+        #res.attributes['url'].value, res.attributes['inclination'].value, res.attributes['scale'].value, res.attributes['playable'].value
+        if attributes.has_key('url'):
+            self.name = name = attributes['url'].value
+        else:
+            print "WARNING: url not defined, loading placeholder"
+            self.name = name = 'misc/placeholder'
+        
+        if attributes.has_key('inclination'):
+            self.inclination = inclination = float(attributes['inclination'].value)
+        else:
+            self.inclination = inclination = 30.0
+        
+        if attributes.has_key('scale'):
+            self.scale = scale = float(attributes['scale'].value)
+        else:
+            self.scale = scale = 1.0
+        
+        if attributes.has_key('speed'):
+            self.speed = float(attributes['speed'].value)
+        else:
+            self.speed = 1.0
+        
+        if attributes.has_key('playable'):
+            self.playable = playable = attributes['playable'].value
+        else:
+            self.playable = playable = "false"
+        
+        
         #movement
         self.state = "still"
         self.direction = "down"
@@ -211,13 +240,13 @@ class Character(DirectObject):
         dt = globalClock.getDt()
         if len(self.currentlydown) > 0:
             if self.currentlydown[-1] == 'left':
-                self.node.setX(self.node.getX()-1*dt)
+                self.node.setX(self.node.getX()-1*dt*self.speed)
             if self.currentlydown[-1] == 'right':
-                self.node.setX(self.node.getX()+1*dt)
+                self.node.setX(self.node.getX()+1*dt*self.speed)
             if self.currentlydown[-1] == 'top':
-                self.node.setZ(self.node.getZ()+1*dt)
+                self.node.setZ(self.node.getZ()+1*dt*self.speed)
             if self.currentlydown[-1] == 'down':
-                self.node.setZ(self.node.getZ()-1*dt)
+                self.node.setZ(self.node.getZ()-1*dt*self.speed)
         
         #check collisions
         self.cTrav.traverse(render)
