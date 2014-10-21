@@ -24,7 +24,7 @@ __builtin__.configmanager = Configmanager()
 #fullscreen e grandezza finestra
 loadPrcFileData("","""
 fullscreen 0
-win-size 800 600
+win-size 1366 768
 text-encoding utf8
 show-frame-rate-meter 1
 sync-video #f

@@ -89,11 +89,14 @@ class Tile:
         tex.setWrapV(Texture.WM_clamp)
         tex.setWrapU(Texture.WM_clamp)
         
-        xscaled = tex.getOrigFileXSize() / self.baseDimension
-        yscaled = tex.getOrigFileYSize() / self.baseDimension
+        
+        xorig = tex.getOrigFileXSize() / self.baseDimension
+        yorig = tex.getOrigFileYSize() / self.baseDimension
+        xscaled = (tex.getOrigFileXSize() / self.baseDimension) * scale
+        yscaled = (tex.getOrigFileYSize() / self.baseDimension) * scale
         
         cm = CardMaker("tileobject")
-        cm.setFrame(0,xscaled,0,yscaled)
+        cm.setFrame(0,xorig,0,yorig)
         
         ts = TextureStage('ts')
         ts.setMode(TextureStage.MDecal)
