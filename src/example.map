@@ -1,4 +1,4 @@
-<data>
+<data tilesize="64.0">
     <row>
         <tile><ground url="misc/ground" /><grass /></tile>
         <tile><ground url="misc/ground" /><grass /><character url="lucrezia" inclination="30" scale="6" playable="true" /></tile>
