@@ -73,7 +73,11 @@ class Tile:
             offsetheight = float(attributes['offsetheight'].value)
         else:
             offsetheight = 0.0
-        
+            
+        if attributes.has_key('elevation'):
+            elevation = float(attributes['elevation'].value)
+        else:
+            elevation = 0.0
         
         
         tex = loader.loadTexture(resourceManager.getResource(name)+'.png')
@@ -107,6 +111,7 @@ class Tile:
             geomnode.setX(0)
         if xscaled < 1:
             geomnode.setX(0.5 - xscaled/2)
+        geomnode.setY(-elevation)
         geomnode.setP(-(360-int(inclination)))
         geomnode.setTexture(tex)
         geomnode.setTransparency(TransparencyAttrib.MAlpha)
