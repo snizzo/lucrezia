@@ -39,6 +39,7 @@ class Grid:
         self.node = render.attachNewNode("tileset")
         self.grassnode = self.node.attachNewNode("grassnodes")
         
+        #default value, just for fun
         self.tileDimension = 128.0
         #automatic methods
         #self.generateEmptyTileset(20,20)
@@ -46,6 +47,13 @@ class Grid:
     
     def loadMap(self,file):
         xmldoc = minidom.parse(file)
+        
+        data = xmldoc.getElementsByTagName('data')
+        for d in data:
+            if d.attributes > 0:
+                if d.attributes.has_key('tilesize'):
+                    self.tileDimension = float(d.attributes['tilesize'].value)
+        
         rowsdata = xmldoc.getElementsByTagName('row')
         
         currentx = 0
