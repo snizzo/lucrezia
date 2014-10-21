@@ -11,10 +11,11 @@ from direct.showbase.DirectObject import DirectObject
 
 class Character(DirectObject):
     
-    def __init__(self, name, inclination, scale, playable):
+    def __init__(self, name, inclination, scale, playable, showCollisions):
         #movement
         self.state = "still"
         self.direction = "down"
+        self.showCollisions = showCollisions
         
         self.movtask = 0
         self.currentlydown = []
@@ -67,13 +68,14 @@ class Character(DirectObject):
             self.collisionNodeNp = self.node.attachNewNode(self.collisionNode)
             self.collisionHandler = CollisionHandlerQueue()
             self.cTrav.addCollider(self.collisionNodeNp, self.collisionHandler)
-
-            # Uncomment this line to see the collision rays
-            #self.collisionNodeNp.show()
-        
-            # Uncomment this line to show a visual representation of the 
-            # collisions occuring
-            #self.cTrav.showCollisions(render)
+            
+            if self.showCollisions == True:
+                # Uncomment this line to see the collision rays
+                self.collisionNodeNp.show()
+                
+                # Uncomment this line to show a visual representation of the 
+                # collisions occuring
+                self.cTrav.showCollisions(render)
     
     #used to set playability in real time
     #useful when we want to switch context/scripted scenes

@@ -6,7 +6,7 @@ from direct.task import Task
 class CustomCamera(DirectObject):
     def __init__(self):
         base.disableMouse()
-        base.camera.setY(-7.5)
+        self.setDistance(7.5)
         base.camera.setP(3)
         self.obj = 0
         self.t = 0
@@ -20,6 +20,9 @@ class CustomCamera(DirectObject):
             self.obj = obj
             #storing for later use
             self.t = taskMgr.add(self.followTask, "camerafollowtask")
+    
+    def setDistance(self, d):
+        base.camera.setY(-d)
     
     def dontFollow(self):
         if self.t != 0:
