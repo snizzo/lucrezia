@@ -79,6 +79,11 @@ class Tile:
         else:
             elevation = 0.0
         
+        if attributes.has_key('scale'):
+            scale = float(attributes['scale'].value)
+        else:
+            scale = 1.0
+        
         
         tex = loader.loadTexture(resourceManager.getResource(name)+'.png')
         tex.setWrapV(Texture.WM_clamp)
@@ -111,6 +116,7 @@ class Tile:
             geomnode.setX(0)
         if xscaled < 1:
             geomnode.setX(0.5 - xscaled/2)
+        geomnode.setScale(scale)
         geomnode.setY(-elevation)
         geomnode.setP(-(360-int(inclination)))
         geomnode.setTexture(tex)
