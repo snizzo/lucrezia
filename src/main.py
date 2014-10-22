@@ -9,6 +9,7 @@ import os
 
 #lucrezia imports
 from grid.grid import Grid
+
 #from utils.once import Once
 from parser.parser import Parser
 from resourcemanager.resourcemanager import ResourceManager
@@ -17,6 +18,8 @@ from configmanager.configmanager import Configmanager
 from audio.audioManager import AudioManager
 from gui.mainMenu import MainMenu
 from camera.camera import CustomCamera
+from utils.fadeout import FadeOut
+
 __builtin__.resourceManager = ResourceManager()
 __builtin__.configmanager = Configmanager()
 #configmanager.loadConfig()
@@ -63,7 +66,7 @@ class MyApp(ShowBase):
         #lang = configmanager.getData("LANGUAGE").lower()
         # ===========================================
                  
-        __builtin__.mainMenu = MainMenu(lang)         
+       # __builtin__.mainMenu = MainMenu(lang)         
         
         lang = configmanager.getData("LANGUAGE").lower()
                  
@@ -84,7 +87,7 @@ class MyApp(ShowBase):
         r = ResourceManager()
         print r.getResource('misc/grass') # deve dire path assoluto = res/misc/grass.png
         """
-        
+        #f= FadeOut()
         audioManager.playMusic("misc/bgmusic.ogg")
         audioManager.playEffect("misc/car.ogg")
         audioManager.playEffect("misc/car.ogg")
