@@ -71,10 +71,11 @@ class Grid:
             for tile in row.childNodes:                 #for every tile
                 if tile.nodeType == Node.ELEMENT_NODE:  #if child is tile
                     t = Tile(self.tileDimension)
-                    self.tileset.append(t)
-                    t.generate()
                     t.setX(currentx)
                     t.setY(currenty)
+                    
+                    #apending lolol
+                    self.tileset.append(t)
                     
                     o = Once() #lo switch viene fatto solo in presenza di una texture 'ground'
                     
