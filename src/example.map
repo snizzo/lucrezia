@@ -1,13 +1,13 @@
 <data tilesize="32.0" showcollisions="true" camdistance="20.0">
     <row>
-        <tile><ground url="misc/ground" walkable="false" /></tile>
+        <tile><ground url="misc/ground" /><object url="misc/obelisk" inclination="3" elevation="0" scale="0.3"/></tile>
+        <tile><ground url="misc/ground" /></tile>
         <tile><ground url="misc/ground" /></tile>
         <tile><ground url="misc/ground" /></tile>
         <tile><ground url="misc/ground" /><character url="lucrezia" inclination="30" scale="11.5" playable="true" speed = "2.2" /></tile>
         <tile><ground url="misc/ground" /></tile>
         <tile><ground url="misc/ground" /></tile>
         <tile><ground url="misc/ground" /></tile>
-        <tile><ground url="misc/ground" /><object url="misc/obelisk" inclination="2" scale="0.3" offsethorizontal="5" /></tile>
    </row>
    <row>
         <tile><ground url="misc/ground" /></tile>
@@ -17,7 +17,7 @@
         <tile><ground url="misc/ground" /></tile>
         <tile><ground url="misc/ground" /></tile>
         <tile><ground url="misc/ground" /></tile>
-        <tile><ground url="misc/ground" /><object url="misc/obelisk" inclination="3" elevation="1.0" scale="0.3"/></tile>
+        <tile><ground url="misc/ground" /></tile>
    </row>
    <row>
         <tile><ground url="misc/ground" /></tile>
@@ -62,7 +62,7 @@
    <row>
         <tile><ground url="misc/ground" /><object url="misc/obelisk" inclination="2" scale="0.3"/></tile>
         <tile><ground url="misc/ground" /></tile>
-        <tile><ground url="misc/ground" /><object url="misc/obelisk" inclination="2" scale="0.3"/></tile>
+        <tile><ground url="misc/ground" /><object url="misc/obelisk" walkable="true" inclination="2" scale="0.3"/></tile>
         <tile><ground url="misc/ground" /></tile>
         <tile><ground url="misc/ground" /></tile>
         <tile><ground url="misc/ground" /></tile>
