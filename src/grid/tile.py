@@ -147,9 +147,6 @@ class Tile:
     def addCustomObject(self, o):
         o.getNode().reparentTo(self.node)
     
-    def getResDimension(self):
-        pass
-    
     def setX(self, x):
         if self.node != 0:
             self.node.setX(x)
@@ -159,6 +156,3 @@ class Tile:
         if self.node != 0:
             self.node.setZ(y)
             self.innerY = y
-
-    def generate(self):
-        pass

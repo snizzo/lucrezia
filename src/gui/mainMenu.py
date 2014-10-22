@@ -5,33 +5,28 @@ from pandac.PandaModules import TransparencyAttrib
 from direct.task import Task
 from direct.fsm import FSM
 from panda3d.core import LVecBase4f, CardMaker, NodePath
-import sys, os
 from direct.interval.LerpInterval import LerpColorInterval
+from direct.interval.IntervalGlobal import *
 from resourcemanager.resourcemanager import ResourceManager
-
 from direct.showbase.Transitions import Transitions
 
-import time
+from utils.fadeout import FadeOut
+
+import sys, os, time
 
 menuPlayable = True
 
 class MainMenu(DirectObject):
     
     def generateWorld(self):
-        cm = CardMaker("fadeout")
-        cm.setFrame(0,1,0,1)
-        cmnode = NodePath(cm.generate())
-        cmnode.setColor(0.0,0.0,0.0,1.0)
-        cmnode.reparentTo(pixel2d)
-        cmnode.setZ(1)
+        f = FadeOut()
         
-        self.transition = Transitions(self.background)
-        self.transition.setFadeColor(0,0,0)
-        self.transition.fadeOut(2)
+        Sequence(
+         f.fadeIn(5),
+         Func(self.hideAll),
+         f.fadeOut(5)
+        ).start()
         
-        self.mainFrame.hide()
-        self.transition.fadeIn(2)
-    
     def __init__(self,lang):
         wp = WindowProperties()
         wp.setTitle("Menu Testing")
@@ -71,7 +66,5 @@ class MainMenu(DirectObject):
         
 
     def hideAll(self):
-        i = LerpColorInterval(self.mainFrame,
-                            1000,
-                            color(1,1,1),
-                            startColor=(0,0,0))
+        self.mainFrame.hide()
+        self.setKey(False)
