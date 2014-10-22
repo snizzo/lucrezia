@@ -7,7 +7,7 @@
         <tile><ground url="misc/ground" /></tile>
         <tile><ground url="misc/ground" /></tile>
         <tile><ground url="misc/ground" /></tile>
-        <tile><ground url="misc/ground" /><object url="misc/obelisk" inclination="2" scale="0.3" /></tile>
+        <tile><ground url="misc/ground" /><object url="misc/obelisk" inclination="2" scale="0.3" offsethorizontal="5" /></tile>
    </row>
    <row>
         <tile><ground url="misc/ground" /></tile>
