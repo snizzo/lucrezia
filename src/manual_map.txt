@@ -23,6 +23,7 @@ camdistance:    set camera distance from playable character
             
             OBJECT:             <object /> normal object in world, has collisions
             url:                url of the resource found by the resourcemanager
+            walkable:           set if object can be walkable ("true" or "false", default: false)
             inclination:        inclination of object
             offsetwidth:        used to stretch collisions in 3d mode
             offsetheight:       used to stretch collisions in 3d mode
