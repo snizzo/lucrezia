@@ -73,7 +73,17 @@ class Tile:
             offsetheight = float(attributes['offsetheight'].value)
         else:
             offsetheight = 0.0
-            
+        
+        if attributes.has_key('offsethorizontal'):
+            offsethorizontal = float(attributes['offsethorizontal'].value)
+        else:
+            offsethorizontal = 0.0
+        
+        if attributes.has_key('offsetvertical'):
+            offsetvertical = float(attributes['offsetvertical'].value)
+        else:
+            offsetvertical = 0.0
+        
         if attributes.has_key('elevation'):
             elevation = float(attributes['elevation'].value)
         else:
@@ -112,7 +122,8 @@ class Tile:
         self.collisionNode = CollisionNode('objectSphere')
         self.collisionNode.addSolid(self.collisionTube)
         self.collisionNodeNp = self.node.attachNewNode(self.collisionNode)
-        self.collisionNodeNp.setX(0)
+        self.collisionNodeNp.setX(offsethorizontal)
+        self.collisionNodeNp.setZ(offsetvertical)
         
         geomnode = NodePath(cm.generate())
         if xscaled >= 1:
@@ -120,6 +131,8 @@ class Tile:
         if xscaled < 1:
             geomnode.setX(0.5 - xscaled/2)
         geomnode.setScale(scale)
+        geomnode.setX(geomnode.getX()+offsethorizontal)
+        geomnode.setZ(geomnode.getZ()+offsetvertical)
         geomnode.setY(-elevation)
         geomnode.setP(-(360-int(inclination)))
         geomnode.setTexture(tex)

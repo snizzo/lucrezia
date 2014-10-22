@@ -22,9 +22,9 @@ class MainMenu(DirectObject):
         f = FadeOut()
         
         Sequence(
-         f.fadeIn(5),
+         f.fadeIn(1),
          Func(self.hideAll),
-         f.fadeOut(5)
+         f.fadeOut(1)
         ).start()
         
     def __init__(self,lang):
