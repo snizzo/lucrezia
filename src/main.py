@@ -40,7 +40,6 @@ class MyApp(ShowBase):
         
         base.win.setClearColor((0, 0, 0, 1))
         base.win.setClearColorActive(True)
-        
         lang="ita"
 
         '''

@@ -121,6 +121,11 @@ class Tile:
         else:
             scale = 1.0
         
+        if attributes.has_key('collisionmode'):
+            collisionmode = attributes['collisionmode'].value
+        else:
+            collisionmode = "2d"
+        
         if attributes.has_key('walkable'):
             if attributes['walkable'].value == "true":
                 walkable = True
@@ -146,20 +151,37 @@ class Tile:
         ts = TextureStage('ts')
         ts.setMode(TextureStage.MDecal)
         
+        # distinguish between 3d collisions (for objects with an height and sensible inclination)
+        # and 2d collisions for plain sprites
         if walkable == False:
-            #must handle differently objects which are small and big
-            #check directly on xscaled
-            if xscaled < 1:
-                self.collisionTube = CollisionBox(LPoint3f(0.5 - xscaled/2 - offsetwidth,0,0),LPoint3f(0.5 + xscaled/2 + offsetwidth,0.1,0.3 + offsetheight))
+            if collisionmode == "3d":
+                #must handle differently objects which are small and big
+                if xscaled < 1:
+                    self.collisionTube = CollisionBox(LPoint3f(0.5 - xscaled/2 - offsetwidth,0,0),LPoint3f(0.5 + xscaled/2 + offsetwidth,0.1,0.3 + offsetheight))
+                    
+                if xscaled >= 1:
+                    self.collisionTube = CollisionBox(LPoint3f(0 - offsetwidth,0,0),LPoint3f(xscaled + offsetwidth,0.1,0.3 + offsetheight))
                 
-            if xscaled >= 1:
-                self.collisionTube = CollisionBox(LPoint3f(0 - offsetwidth,0,0),LPoint3f(xscaled + offsetwidth,0.1,0.3 + offsetheight))
-            
-            self.collisionNode = CollisionNode('objectSphere')
-            self.collisionNode.addSolid(self.collisionTube)
-            self.collisionNodeNp = self.node.attachNewNode(self.collisionNode)
-            self.collisionNodeNp.setX(offsethorizontal)
-            self.collisionNodeNp.setZ(offsetvertical)
+                self.collisionNode = CollisionNode('objectSphere')
+                self.collisionNode.addSolid(self.collisionTube)
+                self.collisionNodeNp = self.node.attachNewNode(self.collisionNode)
+                self.collisionNodeNp.setX(offsethorizontal)
+                self.collisionNodeNp.setZ(offsetvertical)
+                
+            elif collisionmode == "2d":
+                #must handle differently objects which are small and big
+                if xscaled < 1:
+                    self.collisionTube = CollisionBox(LPoint3f(0.5 - xscaled/2,0,0),LPoint3f(0.5 + xscaled/2,yscaled,0.3))
+                    
+                if xscaled >= 1:
+                    self.collisionTube = CollisionBox(LPoint3f(0,0,0),LPoint3f(xscaled,yscaled,0.3))
+                
+                self.collisionNode = CollisionNode('objectSphere')
+                self.collisionNode.addSolid(self.collisionTube)
+                self.collisionNodeNp = self.node.attachNewNode(self.collisionNode)
+                self.collisionNodeNp.setP(-(270-int(inclination)))
+                self.collisionNodeNp.setX(offsethorizontal)
+                self.collisionNodeNp.setZ(offsetvertical)
         
         geomnode = NodePath(cm.generate())
         if xscaled >= 1:
