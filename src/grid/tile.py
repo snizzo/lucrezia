@@ -68,8 +68,6 @@ class Tile:
         self.groundnode.setTexture(ts, tex)
     
     def setWalkable(self, value):
-        print "setting walkability to"
-        print value
         if value == False:
             self.collisionTube = CollisionBox(LPoint3f(0,0,0),LPoint3f(1,1,1))
             
@@ -123,6 +121,14 @@ class Tile:
         else:
             scale = 1.0
         
+        if attributes.has_key('walkable'):
+            if attributes['walkable'].value == "true":
+                walkable = True
+            else:
+                walkable = False
+        else:
+            walkable = False
+        
         
         tex = loader.loadTexture(resourceManager.getResource(name)+'.png')
         tex.setWrapV(Texture.WM_clamp)
@@ -140,19 +146,20 @@ class Tile:
         ts = TextureStage('ts')
         ts.setMode(TextureStage.MDecal)
         
-        #must handle differently objects which are small and big
-        #check directly on xscaled
-        if xscaled < 1:
-            self.collisionTube = CollisionBox(LPoint3f(0.5 - xscaled/2 - offsetwidth,0,0),LPoint3f(0.5 + xscaled/2 + offsetwidth,0.1,0.3 + offsetheight))
+        if walkable == False:
+            #must handle differently objects which are small and big
+            #check directly on xscaled
+            if xscaled < 1:
+                self.collisionTube = CollisionBox(LPoint3f(0.5 - xscaled/2 - offsetwidth,0,0),LPoint3f(0.5 + xscaled/2 + offsetwidth,0.1,0.3 + offsetheight))
+                
+            if xscaled >= 1:
+                self.collisionTube = CollisionBox(LPoint3f(0 - offsetwidth,0,0),LPoint3f(xscaled + offsetwidth,0.1,0.3 + offsetheight))
             
-        if xscaled >= 1:
-            self.collisionTube = CollisionBox(LPoint3f(0 - offsetwidth,0,0),LPoint3f(xscaled + offsetwidth,0.1,0.3 + offsetheight))
-        
-        self.collisionNode = CollisionNode('objectSphere')
-        self.collisionNode.addSolid(self.collisionTube)
-        self.collisionNodeNp = self.node.attachNewNode(self.collisionNode)
-        self.collisionNodeNp.setX(offsethorizontal)
-        self.collisionNodeNp.setZ(offsetvertical)
+            self.collisionNode = CollisionNode('objectSphere')
+            self.collisionNode.addSolid(self.collisionTube)
+            self.collisionNodeNp = self.node.attachNewNode(self.collisionNode)
+            self.collisionNodeNp.setX(offsethorizontal)
+            self.collisionNodeNp.setZ(offsetvertical)
         
         geomnode = NodePath(cm.generate())
         if xscaled >= 1:
