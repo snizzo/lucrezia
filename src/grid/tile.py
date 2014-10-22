@@ -39,7 +39,25 @@ class Tile:
     
     #add a static texture to basic 128x128 tile pixel image
     #use just to paint the world basicly. Use addObject for every object that has to do with collision etc
-    def addTexture(self, name):
+    def addTexture(self, attributes):
+        if attributes.has_key('url'):
+            name = attributes['url'].value
+        else:
+            print "WARNING: url not defined, loading placeholder"
+            name = 'misc/placeholder'
+        
+        if attributes.has_key('walkable'):
+            if attributes['walkable'].value == "true":
+                self.walkable = True
+            else:
+                self.walkable = False
+        else:
+            self.walkable = True
+        
+        #setting walkable or not
+        self.setWalkable(self.walkable)
+        
+        #actually loading texture
         tex = loader.loadTexture(resourceManager.getResource(name)+'.png')
         tex.setWrapV(Texture.WM_clamp)
         tex.setWrapU(Texture.WM_clamp)
@@ -48,6 +66,17 @@ class Tile:
         ts.setMode(TextureStage.MDecal)
         
         self.groundnode.setTexture(ts, tex)
+    
+    def setWalkable(self, value):
+        print "setting walkability to"
+        print value
+        if value == False:
+            self.collisionTube = CollisionBox(LPoint3f(0,0,0),LPoint3f(1,1,1))
+            
+            self.collisionNode = CollisionNode('unwalkable')
+            self.collisionNode.addSolid(self.collisionTube)
+            self.collisionNodeNp = self.groundnode.attachNewNode(self.collisionNode)
+        
     
     #used to add objects to game that intersects (or not) walkability
     def addObject(self, attributes):
@@ -157,6 +186,7 @@ class Tile:
         objectnode.setTexture(ts, tex)
         objectnode.place()
         '''
+        
     def addCustomObject(self, o):
         o.getNode().reparentTo(self.node)
     

@@ -1,7 +1,34 @@
-<data> : defined map data
-    <row>  : starts a grid row
-        <tile> : creates a single tile
-            <ground url="misc/grass" />
-            <character url="lucrezia" inclination="30" scale="6" playable="true" />
-            <object url="misc/obelisk" inclination="30" offsetwidth="0" offsetheight="0" />
-            <grass />
+DATA:           <data> defined map data
+tilesize:       set the size of ground images
+showcollisions: set if collisions can be che seen visually ("true" or "false")
+camdistance:    set camera distance from playable character
+
+    ROW:        <row> starts a grid row
+    
+        TILE    <tile> : creates a single tile
+        walkable:       set the tile walkable or not
+        
+            GROUND:             <ground />  represents a ground object, every new ground in the same tile will overwrite previous ground image.
+                                            if alpha channel is present, colors will be merged.
+            url:                url of resource
+            
+            
+            CHARACTER           <character /> represents a character playable in the game or an NPC 
+            url:                url of resource
+            inclination:        inclination of character
+            scale:              scale character
+            playable:           defines if character is playable or not in an exact moment
+            
+            
+            
+            OBJECT:             <object /> normal object in world, has collisions
+            url:                url of the resource found by the resourcemanager
+            inclination:        inclination of object
+            offsetwidth:        used to stretch collisions in 3d mode
+            offsetheight:       used to stretch collisions in 3d mode
+            elevation:          set manually elevation of object
+            scale:              scale objects
+            offsethorizontal:   place object horizontally pixel perfect
+            offsetvertical:     place object vertically pixel perfect
+            
+            GRASS:              <grass /> special grass object
