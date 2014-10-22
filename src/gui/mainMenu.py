@@ -8,12 +8,22 @@ import sys, os
 
 from resourcemanager.resourcemanager import ResourceManager
 
+from direct.showbase.Transitions import Transitions
 
+import time
 
-class MainMenu():
-    
+menuPlayable = True
+
+class MainMenu(DirectObject):
+
     def generateWorld(self):
+        
+        self.transition = Transitions(self.background)
+        self.transition.setFadeColor(0,0,0)
+        self.transition.fadeOut(2)
+        
         self.mainFrame.hide()
+        self.transition.fadeIn(2)
     
     def __init__(self,lang):
         wp = WindowProperties()
@@ -35,3 +45,20 @@ class MainMenu():
                                                          self.buttonMaps.find("**/button_rollover"),
                                                          self.buttonMaps.find("**/button_disabled")), command=self.generateWorld, pos=(-1, 0, 0.6))
         self.startButton.reparentTo(self.mainFrame)
+        
+        
+        if menuPlayable==True:
+            self.setKey(True)
+        else:
+            self.setKey(False)
+            
+    def setKey(self, value):
+        if value==True :
+            self.accept("enter", self.enterDown)
+        else:
+            self.ignoreAll()
+        
+    def enterDown(self):
+        print("ENTER")
+        self.generateWorld()
+        
