@@ -82,7 +82,7 @@ class Grid:
                     for res in tile.childNodes:
                         if res.nodeType == Node.ELEMENT_NODE: # adding resources to tile
                             if res.nodeName == 'ground':
-                                t.addTexture(res.attributes['url'].value)
+                                t.addTexture(res.attributes)
                                 if o.get():
                                     currentx += 1
                             elif res.nodeName == 'object':

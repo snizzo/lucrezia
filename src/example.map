@@ -1,6 +1,6 @@
 <data tilesize="32.0" showcollisions="true" camdistance="20.0">
     <row>
-        <tile><ground url="misc/ground" /></tile>
+        <tile><ground url="misc/ground" walkable="false" /></tile>
         <tile><ground url="misc/ground" /></tile>
         <tile><ground url="misc/ground" /></tile>
         <tile><ground url="misc/ground" /><character url="lucrezia" inclination="30" scale="11.5" playable="true" speed = "2.2" /></tile>
