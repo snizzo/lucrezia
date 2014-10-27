@@ -16,7 +16,7 @@ from resourcemanager.resourcemanager import ResourceManager
 from extract.extract import ExtractTitle
 from configmanager.configmanager import Configmanager
 from audio.audioManager import AudioManager
-from gui.mainMenu import MainMenu
+from gui.menuParent import MenuParent
 from camera.camera import CustomCamera
 from utils.fadeout import FadeOut
 
@@ -68,7 +68,7 @@ class MyApp(ShowBase):
         #lang = configmanager.getData("LANGUAGE").lower()
         # ===========================================
                  
-        __builtin__.mainMenu = MainMenu(lang)         
+        __builtin__.manuParent = MenuParent(lang)         
         
         lang = configmanager.getData("LANGUAGE").lower()
                  
