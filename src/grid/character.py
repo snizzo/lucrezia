@@ -174,7 +174,8 @@ class Character(DirectObject):
         if len(self.currentlydown) == 1:
             self.hideAllSubnodes()
             self.sleft.show()
-        self.currentlydown.remove("left")
+        if "left" in self.currentlydown:
+            self.currentlydown.remove("left")
         
         if len(self.currentlydown) > 0:
             self.setAnim()
@@ -193,7 +194,8 @@ class Character(DirectObject):
         if len(self.currentlydown) == 1:
             self.hideAllSubnodes()
             self.sright.show()
-        self.currentlydown.remove("right")
+        if "left" in self.currentlydown:
+            self.currentlydown.remove("right")
         
         if len(self.currentlydown) > 0:
             self.setAnim()
@@ -212,7 +214,8 @@ class Character(DirectObject):
         if len(self.currentlydown) == 1:
             self.hideAllSubnodes()
             self.sdown.show()
-        self.currentlydown.remove("down")
+        if "left" in self.currentlydown:
+            self.currentlydown.remove("down")
         
         if len(self.currentlydown) > 0:
             self.setAnim()
@@ -231,7 +234,8 @@ class Character(DirectObject):
         if len(self.currentlydown) == 1:
             self.hideAllSubnodes()
             self.stop.show()
-        self.currentlydown.remove("top")
+        if "left" in self.currentlydown:
+            self.currentlydown.remove("top")
         if len(self.currentlydown) > 0:
             self.setAnim()
     
