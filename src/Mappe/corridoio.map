@@ -1,0 +1,54 @@
+<data tilesize="32.0" showcollisions="false" camdistance="15.0">
+    <row>
+	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+    </row>
+    <row>
+	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><character url="lucrezia" inclination="5" scale="11" playable="true" speed = "2.2" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+   </row>
+       <row>
+	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+   </row>
+   <row>
+	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/porta" inclination="4" offsetvertical="0.02"/><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/porta" inclination="4" offsetvertical="0.02"/><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
+        <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+   </row>
+</data>
