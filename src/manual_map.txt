@@ -11,6 +11,7 @@ camdistance:    set camera distance from playable character
             GROUND:             <ground />  represents a ground object, every new ground in the same tile will overwrite previous ground image.
                                             if alpha channel is present, colors will be merged.
             url:                url of resource
+            walkable:		set if ground can be walkable ("true" or "false", default: true)
             
             
             CHARACTER           <character /> represents a character playable in the game or an NPC 
