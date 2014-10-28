@@ -30,6 +30,11 @@ class Character(DirectObject):
         else:
             self.scale = scale = 1.0
         
+        if attributes.has_key('hitboxscale'):
+            self.hitboxscale = float(attributes['hitboxscale'].value)
+        else:
+            self.hitboxscale = 1.0
+        
         if attributes.has_key('speed'):
             self.speed = float(attributes['speed'].value)
         else:
@@ -91,7 +96,7 @@ class Character(DirectObject):
             
             self.cTrav = CollisionTraverser()
             
-            self.collisionTube = CollisionSphere(b/2,0,b/2,0.035)
+            self.collisionTube = CollisionSphere(b/2,0,b/2,0.035*self.hitboxscale)
             self.collisionNode = CollisionNode('characterTube')
             self.collisionNode.addSolid(self.collisionTube)
             self.collisionNodeNp = self.node.attachNewNode(self.collisionNode)
@@ -194,7 +199,7 @@ class Character(DirectObject):
         if len(self.currentlydown) == 1:
             self.hideAllSubnodes()
             self.sright.show()
-        if "left" in self.currentlydown:
+        if "right" in self.currentlydown:
             self.currentlydown.remove("right")
         
         if len(self.currentlydown) > 0:
@@ -214,7 +219,7 @@ class Character(DirectObject):
         if len(self.currentlydown) == 1:
             self.hideAllSubnodes()
             self.sdown.show()
-        if "left" in self.currentlydown:
+        if "down" in self.currentlydown:
             self.currentlydown.remove("down")
         
         if len(self.currentlydown) > 0:
@@ -234,7 +239,7 @@ class Character(DirectObject):
         if len(self.currentlydown) == 1:
             self.hideAllSubnodes()
             self.stop.show()
-        if "left" in self.currentlydown:
+        if "top" in self.currentlydown:
             self.currentlydown.remove("top")
         if len(self.currentlydown) > 0:
             self.setAnim()
