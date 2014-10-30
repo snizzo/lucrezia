@@ -1,9 +1,9 @@
-<data tilesize="32.0" showcollisions="false" camdistance="15.0">
+<data tilesize="32.0" showcollisions="true" camdistance="15.0">
     <row>
 	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
 	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
 	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
-	<tile><ground url="sets/OggettiCamera/black" /><object url="sets/OggettiCamera/black1" inclination="0" elevation="0.0001" offsetvertical="-0.25"/></tile>
+	<tile><ground url="sets/OggettiCamera/black" /><object url="sets/OggettiCamera/black1" inclination="0" elevation="0.0001" offsetvertical="-0.25" /></tile>
 	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
 	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
 	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
@@ -27,7 +27,7 @@
 	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/pavimento" inclination="0" elevation="0.001" offsetvertical="-0.25" walkable="true" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/pavimento" inclination="0" elevation="0.001" offsetvertical="-0.25" onWalked="messenger.send('changeMap', ['camera.map','0,0'])"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>

@@ -35,3 +35,13 @@ camdistance:    set camera distance from playable character
             collisionmode:      can be "3d" that let character go behind an object or "2d" for completely collide all image with very low inclination degrees
             
             GRASS:              <grass /> special grass object
+            
+Events API:
+	    onWalked:		used for create the change Map events, must give the Map Name and the character position
+                        "messenger.send('changeMap', ['MapName.map','PositionX,PositionY'])"
+	    
+	    
+	    
+	    
+	    
+	    
