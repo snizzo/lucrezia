@@ -85,7 +85,7 @@
    </row>
    <row>
 	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/murobagno" inclination="2"/></tile>
+        <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/murobagno" inclination="2" onWalked="messenger.send('changeMap', ['corridoio.map','2,2'])"/></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/murobagno" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/murobagno" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/murobagno" inclination="2"/></tile>

@@ -264,13 +264,14 @@ class Character(DirectObject):
             self.lastpos = self.node.getPos()
         else:
             self.node.setPos(self.lastpos)
-        '''
-        entries = []
+        
         for i in range(self.collisionHandler.getNumEntries()):
             entry = self.collisionHandler.getEntry(i)
-            #TODO: modify here to handle some special objects collisions
-            #for now: stop character from working
-        '''
+            objectNode = entry.getIntoNodePath().getParent()
+            onWalked = objectNode.getTag("onWalked")
+            if len(onWalked)>0:
+                eval(onWalked)
+        
         return Task.cont
     
     def setX(self, x):
