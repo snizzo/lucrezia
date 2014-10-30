@@ -1,6 +1,7 @@
 #panda3d
 from panda3d.core import NodePath, LPoint2i
 from direct.showbase.DirectObject import DirectObject
+from direct.interval.IntervalGlobal import *
 
 #standard python
 from xml.dom import minidom
@@ -12,6 +13,8 @@ from utils.once import Once
 from objects.grass import Grass
 from tile import Tile
 from character import Character
+
+from utils.fadeout import FadeOut
 
 '''
 This class abstracts the 2D grid commoly used in 2D games
@@ -50,9 +53,19 @@ class Grid(DirectObject):
         self.acceptOnce("changeMap", self.changeMap)
     
     def changeMap(self, mapFile, position):
+        f = FadeOut()
+        
+        Sequence(
+         f.fadeIn(1),
+         Func(self.changeMapHelper, mapFile, position),
+         Wait(1),
+         f.fadeOut(1)
+        ).start()
+    
+    def changeMapHelper(self, mapFile, position):
         #destroying every node
         for n in self.node.getChildren():
-            n.remove()
+            n.removeNode()
         
         tks = position.split(',')
         if len(tks) > 1:
