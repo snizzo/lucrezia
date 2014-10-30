@@ -72,7 +72,7 @@ class MyApp(ShowBase):
         
         lang = configmanager.getData("LANGUAGE").lower()
                  
-	pGrid.loadMap(resourceManager.getResource("Mappe/bagno.map"))
+	pGrid.loadMap(resourceManager.getResource("Mappe/camera.map"))
         
         #extract.extractTxt("ita")
         extract.extractTxt(lang)
