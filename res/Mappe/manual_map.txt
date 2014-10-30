@@ -19,6 +19,7 @@ camdistance:    set camera distance from playable character
             inclination:        inclination of character
             scale:              scale character
             playable:           defines if character is playable or not in an exact moment
+            hitboxscale:             defines the character collision
             
             
             

@@ -16,7 +16,7 @@
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/scrivaniaorizzontale" inclination="2" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/piantina" inclination="2" elevation="0.1" offsethorizontal="-0.5"  offsetvertical="0.5" scale="0.7" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /><character url="lucrezia" inclination="5" scale="11" playable="true" speed = "5" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><character url="lucrezia" inclination="5" scale="11" playable="true" speed = "5" hitboxscale="0.8" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
