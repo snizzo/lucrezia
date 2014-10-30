@@ -74,7 +74,7 @@
    <row>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/piantina" inclination="2" offsetvertical="1" scale="0.5" elevation="0.1"/><object url="sets/OggettiCamera/comodino" inclination="2" offsetvertical="0.5" scale="0.8" /><object url="sets/OggettiCamera/moon" inclination="4" offsetvertical="1.7" offsethorizontal="-0.3" elevation="0.5" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/piantina" inclination="2" offsetvertical="1" scale="0.5" elevation="0.1"/><object url="sets/OggettiCamera/comodino" inclination="2" offsetvertical="0.5" scale="0.8" /><object url="sets/OggettiCamera/moon" inclination="2" offsetvertical="1.9" offsethorizontal="-0.3" elevation="0.035"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
