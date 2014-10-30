@@ -16,7 +16,7 @@
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavbagno" /><character url="lucrezia" inclination="5" scale="11" playable="true" hitboxscale="0.8" speed = "15" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavbagno" /><character url="lucrezia" inclination="5" scale="11" playable="true" hitboxscale="0.8" speed = "5" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
