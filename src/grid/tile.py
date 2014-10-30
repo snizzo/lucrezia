@@ -141,7 +141,6 @@ class Tile:
         
         #setting scripting part
         self.node.setTag("onWalked", self.onWalked)
-        print self.node
         
         tex = loader.loadTexture(resourceManager.getResource(name)+'.png')
         tex.setWrapV(Texture.WM_clamp)
