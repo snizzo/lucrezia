@@ -85,11 +85,11 @@
    </row>
    <row>
 	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/murobagno" inclination="2" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/murobagno" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/murobagno" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/murobagno" inclination="2"/></tile>
-        <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/murobagno" inclination="2"/></tile>
-        <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/porta" inclination="4" /><object url="sets/OggettiCamera/murobagno" inclination="2"/></tile>
+        <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/porta" inclination="4" /><object url="sets/OggettiCamera/murobagno" inclination="2" onWalked="messenger.send('changeMap', ['corridoio.map','3,1'])"/></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/murobagno" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/murobagno" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/murobagno" inclination="2"/></tile>
