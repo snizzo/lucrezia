@@ -121,6 +121,11 @@ class Tile:
         else:
             scale = 1.0
         
+        if attributes.has_key('onWalked'):
+            self.onWalked = attributes['onWalked'].value
+        else:
+            self.onWalked = ""
+        
         if attributes.has_key('collisionmode'):
             collisionmode = attributes['collisionmode'].value
         else:
@@ -134,6 +139,9 @@ class Tile:
         else:
             walkable = False
         
+        #setting scripting part
+        self.node.setTag("onWalked", self.onWalked)
+        print self.node
         
         tex = loader.loadTexture(resourceManager.getResource(name)+'.png')
         tex.setWrapV(Texture.WM_clamp)

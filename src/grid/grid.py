@@ -1,5 +1,6 @@
 #panda3d
-from panda3d.core import NodePath
+from panda3d.core import NodePath, LPoint2i
+from direct.showbase.DirectObject import DirectObject
 
 #standard python
 from xml.dom import minidom
@@ -25,7 +26,7 @@ y |
   |
   v
 '''
-class Grid:
+class Grid(DirectObject):
     '''
     Autogenerates empty tileset at start
     '''
@@ -45,8 +46,26 @@ class Grid:
         #automatic methods
         #self.generateEmptyTileset(20,20)
         #self.mergeMeshes()
+        
+        self.acceptOnce("changeMap", self.changeMap)
     
-    def loadMap(self,file):
+    def changeMap(self, mapFile, position):
+        #destroying every node
+        for n in self.node.getChildren():
+            n.remove()
+        
+        tks = position.split(',')
+        if len(tks) > 1:
+            x = int(tks[0])
+            y = int(tks[1])
+        else:
+            print 'ERROR: please define a correct position in .map file, resetting to 0,0'
+            x = 0
+            y = 0
+        
+        self.loadMap(resourceManager.getResource('Mappe/'+mapFile),LPoint2i(x,y))
+    
+    def loadMap(self,file,playable_pos=LPoint2i(0,0)):
         xmldoc = minidom.parse(file)
         
         data = xmldoc.getElementsByTagName('data')
@@ -101,6 +120,14 @@ class Grid:
                                 
                                 c.setX(currentx)
                                 c.setY(currenty)
+                                
+                                if res.attributes.has_key('playable'):
+                                    if res.attributes['playable'].value:
+                                        if ((playable_pos.getX() != 0) and (playable_pos.getY() != 0)):
+                                            print 'GRID: moving player to ' + str(playable_pos)
+                                            c.setX(playable_pos.getX())
+                                            c.setY(playable_pos.getY())
+                                
                                 c.node.reparentTo(self.node)
                                 self.characterset.append(c)
                             
