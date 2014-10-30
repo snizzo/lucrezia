@@ -49,6 +49,8 @@ class Grid(DirectObject):
         #automatic methods
         #self.generateEmptyTileset(20,20)
         #self.mergeMeshes()
+        
+        self.acceptOnce("changeMap", self.changeMap)
     
     def changedMap(self):
         self.acceptOnce("changeMap", self.changeMap)
@@ -60,7 +62,8 @@ class Grid(DirectObject):
          f.fadeIn(1),
          Func(self.changeMapHelper, mapFile, position),
          Wait(1),
-         f.fadeOut(1)
+         f.fadeOut(1),
+         Func(self.changedMap)
         ).start()
     
     def changeMapHelper(self, mapFile, position):
@@ -150,7 +153,6 @@ class Grid(DirectObject):
             currenty += 1
         
         self.grassnode.flattenStrong() #pumping performance for dynamic grass (like, 120x)
-        self.changedMap()
     
     '''
     This method generates an internal tileset.

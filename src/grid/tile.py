@@ -46,6 +46,11 @@ class Tile:
             print "WARNING: url not defined, loading placeholder"
             name = 'misc/placeholder'
         
+        if attributes.has_key('onWalked'):
+            self.onWalked = attributes['onWalked'].value
+        else:
+            self.onWalked = ""
+        
         if attributes.has_key('walkable'):
             if attributes['walkable'].value == "true":
                 self.walkable = True
@@ -53,6 +58,9 @@ class Tile:
                 self.walkable = False
         else:
             self.walkable = True
+        
+        #setting scripting part
+        self.node.setTag("onWalked", self.onWalked)
         
         #setting walkable or not
         self.setWalkable(self.walkable)
