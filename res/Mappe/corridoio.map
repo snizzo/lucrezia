@@ -99,22 +99,22 @@
 	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/porta" inclination="4" offsetvertical="0.02"/><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/portachiusa" inclination="4" offsetvertical="0.02"/><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/porta" inclination="4" offsetvertical="0.02"/><object url="sets/OggettiCamera/muro" inclination="2" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/portachiusa" inclination="4" offsetvertical="0.02"/><object url="sets/OggettiCamera/muro" inclination="2" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/porta" inclination="4" offsetvertical="0.02"/><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/portachiusa" inclination="4" offsetvertical="0.02"/><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/porta" inclination="4" offsetvertical="0.02"/><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/portachiusa" inclination="4" offsetvertical="0.02"/><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
