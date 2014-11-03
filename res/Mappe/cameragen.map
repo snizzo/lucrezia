@@ -1,4 +1,4 @@
-<data tilesize="32.0" showcollisions="false" camdistance="15.0">
+<data tilesize="32.0" showcollisions="true" camdistance="15.0">
     <row>
 	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
 	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
@@ -78,7 +78,7 @@
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/quadro" inclination="4" offsethorizontal="0.035" offsetvertical="1.5" elevation="0.5" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/quadro" inclination="2" offsetvertical="1.65" offsethorizontal="0.05" elevation="0.035" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
@@ -89,7 +89,7 @@
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/porta" inclination="4" offsetvertical="0.02"/><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/porta" inclination="4" offsetvertical="0.02"/><object url="sets/OggettiCamera/muro" inclination="2" onWalked="messenger.send('changeMap', ['corridoio.map','13,1'])"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/muro" inclination="2"/></tile>
