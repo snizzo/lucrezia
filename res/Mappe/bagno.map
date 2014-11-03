@@ -1,4 +1,4 @@
-<data tilesize="32.0" showcollisions="false" camdistance="15.0">
+<data tilesize="32.0" showcollisions="true" camdistance="15.0">
     <row>
 	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
 	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
@@ -89,7 +89,7 @@
         <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/murobagno" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/murobagno" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/murobagno" inclination="2"/></tile>
-        <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/porta" inclination="4" /><object url="sets/OggettiCamera/murobagno" inclination="2" onWalked="messenger.send('changeMap', ['corridoio.map','3,1'])"/></tile>
+        <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/porta" inclination="4" /><object url="sets/OggettiCamera/murobagno" inclination="2" onWalked="messenger.send('changeMap', ['corridoio.map','18,1'])"/></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/murobagno" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/murobagno" inclination="2"/></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/murobagno" inclination="2"/></tile>
