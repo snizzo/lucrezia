@@ -27,8 +27,8 @@ camdistance:    set camera distance from playable character
             url:                url of the resource found by the resourcemanager
             walkable:           set if object can be walkable ("true" or "false", default: false)
             inclination:        inclination of object
-            offsetwidth:        used to stretch collisions in 3d mode
-            offsetheight:       used to stretch collisions in 3d mode
+            offsetwidth:        used to stretch collisions in 3d mode horizontally
+            offsetheight:       used to stretch collisions in 3d mode vertically
             elevation:          set manually elevation of object
             scale:              scale objects
             offsethorizontal:   place object horizontally pixel perfect
@@ -38,8 +38,8 @@ camdistance:    set camera distance from playable character
             GRASS:              <grass /> special grass object
             
 Events API:
-	    onWalked:		used for create the change Map events, must give the Map Name and the character position
-                        "messenger.send('changeMap', ['MapName.map','PositionX,PositionY'])"
+            onWalked:		used for create the change Map events, must give the Map Name and the character position
+                            "messenger.send('changeMap', ['MapName.map','PositionX,PositionY'])"
 	    
 	    
 	    
