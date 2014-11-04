@@ -1,4 +1,4 @@
-<data tilesize="32.0" showcollisions="true" camdistance="15.0">
+<data tilesize="32.0" showcollisions="false" camdistance="15.0">
     <row>
 	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
 	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
@@ -25,7 +25,7 @@
    </row>
    <row>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/sediaorizzontale" inclination="5" collisionmode="3d" offsetheight="0.33" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/sediaorizzontale" inclination="5" collisionmode="3d" offsetheight="0.33" offsetwidth="0.5"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/sediaorizzontale" inclination="5" collisionmode="3d" offsetheight="0.33" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>

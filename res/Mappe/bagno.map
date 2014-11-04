@@ -1,4 +1,4 @@
-<data tilesize="32.0" showcollisions="true" camdistance="15.0">
+<data tilesize="32.0" showcollisions="false" camdistance="15.0">
     <row>
 	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
 	<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
@@ -32,7 +32,7 @@
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/tendadoccia" inclination="8" offsetvertical="0.5" collisionmode="3d"/></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
    </row>
    <row>
@@ -44,7 +44,7 @@
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/black" inclination="0" offsethorizontal="0.9"/></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
    </row>
    <row>
@@ -56,7 +56,7 @@
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/black" inclination="0" offsethorizontal="0.9"/><object url="sets/OggettiCamera/tendadoccia" inclination="8" collisionmode="3d"/></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
    </row>
    <row>
@@ -68,19 +68,19 @@
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/black" inclination="0" offsethorizontal="0.9"/><object url="sets/OggettiCamera/tendadoccia" inclination="8" offsetvertical="0.5" collisionmode="3d"/></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
    </row>
    <row>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/cesso" inclination="2" /><object url="sets/OggettiCamera/separe" inclination="2" offsethorizontal="0.65" offsetvertical="-0.3" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/cesso" inclination="2" offsethorizontal="0.3" /><object url="sets/OggettiCamera/separe" inclination="2" offsethorizontal="0.95" offsetvertical="-0.3" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/black" inclination="0" offsethorizontal="0.9"/></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
    </row>
    <row>
