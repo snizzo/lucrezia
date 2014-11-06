@@ -70,10 +70,7 @@ class Tile:
         tex.setWrapV(Texture.WM_clamp)
         tex.setWrapU(Texture.WM_clamp)
         
-        ts = TextureStage('ts')
-        ts.setMode(TextureStage.MDecal)
-        
-        self.groundnode.setTexture(ts, tex)
+        self.groundnode.setTexture(tex)
     
     def setWalkable(self, value):
         if value == False:

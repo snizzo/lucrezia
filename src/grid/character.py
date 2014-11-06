@@ -45,10 +45,13 @@ class Character(DirectObject):
         else:
             self.playable = playable = "false"
         
+        if attributes.has_key('direction'):
+            self.direction = attributes['direction'].value
+        else:
+            self.direction = "down"
         
         #movement
         self.state = "still"
-        self.direction = "down"
         self.showCollisions = showCollisions
         
         self.movtask = 0
@@ -82,12 +85,29 @@ class Character(DirectObject):
         else:
             self.setPlayable(False)
         
-        self.node.setX((-32/2)+0.5)
+        #self.node.setX((-32/2)+0.5)
         self.node.setP(-(360-int(inclination)))
         self.node.setScale(float(scale))
         self.node.setTransparency(TransparencyAttrib.MAlpha)
         
         self.lastpos = self.node.getPos()
+        
+        self.face(self.direction)
+        
+        
+    def face(self, direction):
+        if direction == "left":
+            self.hideAllSubnodes()
+            self.sleft.show()
+        if direction == "right":
+            self.hideAllSubnodes()
+            self.sright.show()
+        if direction == "top":
+            self.hideAllSubnodes()
+            self.stop.show()
+        if direction == "down":
+            self.hideAllSubnodes()
+            self.sdown.show()
     
     def setCollisions(self, value):
         if value == True:

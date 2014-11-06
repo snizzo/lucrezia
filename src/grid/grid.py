@@ -11,6 +11,7 @@ from xml.dom import Node
 from utils.toggle import Toggle
 from utils.once import Once
 from objects.grass import Grass
+from objects.light import Light
 from tile import Tile
 from character import Character
 
@@ -67,6 +68,9 @@ class Grid(DirectObject):
         ).start()
     
     def changeMapHelper(self, mapFile, position):
+        #disabling all lights
+        render.setLightOff()
+        
         #destroying every node
         for n in self.node.getChildren():
             n.removeNode()
@@ -127,6 +131,10 @@ class Grid(DirectObject):
                                 g = Grass(res.attributes, self.tileDimension) #creating object
                                 t.addCustomObject(g) #setting coordinates of tile
                                 g.getNode().wrtReparentTo(self.grassnode)
+                            elif res.nodeName == 'light':
+                                l = Light(res.attributes) #creating object
+                                t.addCustomObject(l) #setting coordinates of tile
+                                l.getNode().wrtReparentTo(self.node)
                             elif res.nodeName == 'scrollable':
                                 c = Scrollable(res.attributes['url'].value, res.attributes['inclination'].value, self.tileDimension)
                                 c.setX(currentx)
