@@ -20,66 +20,82 @@
     <Vertex> 0 {
       0 0.125 0
       <UV> { 0 1 }
+      <Normal> { 0 0 1 }
     }
     <Vertex> 1 {
       0 0 0
       <UV> { 0 0 }
+      <Normal> { 0 0 1 }
     }
     <Vertex> 2 {
       0.0833333 0 0
       <UV> { 1 0 }
+      <Normal> { 0 0 1 }
     }
     <Vertex> 3 {
       0.0833333 0.125 0
       <UV> { 1 1 }
+      <Normal> { 0 0 1 }
     }
     <Vertex> 4 {
       0 0.125 0
       <UV> { 0 1 }
+      <Normal> { 0 0 1 }
     }
     <Vertex> 5 {
       0 0 0
       <UV> { 0 0 }
+      <Normal> { 0 0 1 }
     }
     <Vertex> 6 {
       0.0833333 0 0
       <UV> { 1 0 }
+      <Normal> { 0 0 1 }
     }
     <Vertex> 7 {
       0.0833333 0.125 0
       <UV> { 1 1 }
+      <Normal> { 0 0 1 }
     }
     <Vertex> 8 {
       0 0.125 0
       <UV> { 0 1 }
+      <Normal> { 0 0 1 }
     }
     <Vertex> 9 {
       0 0 0
       <UV> { 0 0 }
+      <Normal> { 0 0 1 }
     }
     <Vertex> 10 {
       0.0833333 0 0
       <UV> { 1 0 }
+      <Normal> { 0 0 1 }
     }
     <Vertex> 11 {
       0.0833333 0.125 0
       <UV> { 1 1 }
+      <Normal> { 0 0 1 }
     }
     <Vertex> 12 {
       0 0.125 0
       <UV> { 0 1 }
+      <Normal> { 0 0 1 }
     }
     <Vertex> 13 {
       0 0 0
       <UV> { 0 0 }
+      <Normal> { 0 0 1 }
     }
     <Vertex> 14 {
       0.0833333 0 0
       <UV> { 1 0 }
+      <Normal> { 0 0 1 }
     }
     <Vertex> 15 {
       0.0833333 0.125 0
       <UV> { 1 1 }
+      <Normal> { 0 0 1 }
     }
   }
   <Group> wtop_0 {

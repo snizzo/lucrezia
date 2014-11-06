@@ -1,7 +1,8 @@
 #panda imports
 from direct.showbase.ShowBase import ShowBase
-from panda3d.core import OrthographicLens
+from panda3d.core import OrthographicLens, LightRampAttrib
 from panda3d.core import loadPrcFileData
+from direct.filter.CommonFilters import CommonFilters
 
 #libs imports
 import __builtin__
@@ -26,6 +27,7 @@ __builtin__.configmanager = Configmanager()
 
 #fullscreen e grandezza finestra
 loadPrcFileData("","""
+gl-debug true
 fullscreen 0
 win-size 1366 768
 text-encoding utf8
@@ -50,6 +52,10 @@ class MyApp(ShowBase):
         base.cam.setY(-5)
         base.cam.setP(-355)
         '''
+        
+        #enabling shader system (and ppl)
+        render.setShaderAuto()
+        #base.oobe()
         
         #defining global variables
         # TAKE CARE: these must be objects created form classes which
