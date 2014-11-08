@@ -157,6 +157,9 @@ class Tile:
         xscaled = (tex.getOrigFileXSize() / self.baseDimension) * scale
         yscaled = (tex.getOrigFileYSize() / self.baseDimension) * scale
         
+        self.node.setTag("xscaled", str(xscaled))
+        self.node.setTag("yscaled", str(yscaled))
+        
         cm = CardMaker("tileobject")
         cm.setFrame(0,xorig,0,yorig)
         

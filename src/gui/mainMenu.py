@@ -24,9 +24,14 @@ class MainMenu(DirectObject):
         Sequence(
          f.fadeIn(1),
          Func(self.hideAll),
+         Func(self.loadNewLevel),
          f.fadeOut(1)
         ).start()
-        
+    
+    def loadNewLevel(self):
+        print "sending message..."
+        messenger.send('changeMap', ['camera.map','5,6'])
+    
     def __init__(self,lang):
         wp = WindowProperties()
         wp.setTitle("Menu Testing")

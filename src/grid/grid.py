@@ -55,6 +55,7 @@ class Grid(DirectObject):
     
     def changedMap(self):
         self.acceptOnce("changeMap", self.changeMap)
+        self.getPlayable().setPlayable(True)
     
     def changeMap(self, mapFile, position):
         f = FadeOut()
@@ -66,6 +67,12 @@ class Grid(DirectObject):
          f.fadeOut(1),
          Func(self.changedMap)
         ).start()
+    
+    '''
+    return the playable object of the game
+    '''
+    def getPlayable(self):
+        return self.node.find("**/=playable=true").getPythonTag("gamenode")
     
     def changeMapHelper(self, mapFile, position):
         #disabling all lights
@@ -85,6 +92,7 @@ class Grid(DirectObject):
             y = 0
         
         self.loadMap(resourceManager.getResource('Mappe/'+mapFile),LPoint2i(x,y))
+        self.getPlayable().setFollowedByCamera(True)
     
     def loadMap(self,file,playable_pos=LPoint2i(0,0)):
         xmldoc = minidom.parse(file)
