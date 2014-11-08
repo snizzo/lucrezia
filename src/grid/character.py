@@ -56,6 +56,7 @@ class Character(DirectObject):
         
         self.movtask = 0
         self.currentlydown = []
+        self.currentlyfollowed = 0
         
         #public props
         self.node = NodePath("characternode")
@@ -80,10 +81,12 @@ class Character(DirectObject):
         self.sright.reparentTo(self.node)
         
         if playable=="true":
-            self.setPlayable(True)
+            self.setPlayable(False) #seems nonsense, triggered on grid.changeMap event
+            self.node.setTag("playable", "true") #setting this to make it recognizable from grid changeMap api
             self.setCollisions(True)
         else:
             self.setPlayable(False)
+            self.node.setTag("playable", "false")
         
         #self.node.setX((-32/2)+0.5)
         self.node.setP(-(360-int(inclination)))
@@ -93,6 +96,8 @@ class Character(DirectObject):
         self.lastpos = self.node.getPos()
         
         self.face(self.direction)
+        
+        self.node.setPythonTag("gamenode", self)
         
         
     def face(self, direction):
@@ -131,6 +136,19 @@ class Character(DirectObject):
                 # collisions occuring
                 self.cTrav.showCollisions(render)
     
+    #set if camera has to effectively follow the character
+    #while it moves
+    def setFollowedByCamera(self, value):
+        #camera follow
+        if value:
+            if self.currentlyfollowed!=True:
+                customCamera.follow(self.node)
+                self.currentlyfollowed = True
+        else:
+            if self.currentlyfollowed!=False:
+                customCamera.dontFollow()
+                self.currentlyfollowed = False
+    
     #used to set playability in real time
     #useful when we want to switch context/scripted scenes
     def setPlayable(self, value):
@@ -145,10 +163,12 @@ class Character(DirectObject):
             self.accept("arrow_right-up", self.arrowRightUp)
             self.accept("arrow_up-up", self.arrowUpUp)
             self.accept("arrow_down-up", self.arrowDownUp)
-            #camera follow
-            customCamera.follow(self.node)
+            self.node.setTag("playable", "true")
+            self.setFollowedByCamera(True)
         else:
             self.ignoreAll()
+            self.node.setTag("playable", "false")
+            self.setFollowedByCamera(False)
     
     def hideAllSubnodes(self):
         self.wtop.hide()
@@ -284,6 +304,35 @@ class Character(DirectObject):
             self.lastpos = self.node.getPos()
         else:
             self.node.setPos(self.lastpos)
+            sp = self.collisionHandler.getEntry(0).getSurfacePoint(self.node) #surface point
+            objectNode = self.collisionHandler.getEntry(0).getIntoNodePath().getParent() #into object node
+            
+            #if node is a real object (not a wall)
+            if objectNode.hasTag("xscaled") and objectNode.hasTag("yscaled"):
+                if len(self.currentlydown) > 0: #at least 1, avoids list index out of range exception
+                    if self.currentlydown[-1] == 'left' or self.currentlydown[-1] == 'right':
+                        bottomObjPos = objectNode.getZ()-(float(objectNode.getTag("yscaled"))/2)
+                        topObjPos = objectNode.getZ()+(float(objectNode.getTag("yscaled"))/2)
+                        if self.node.getZ() < bottomObjPos:
+                            print "SHIFTBOTTOM"
+                            self.node.setZ(self.node.getZ()-1*dt*self.speed)
+                        if self.node.getZ() > topObjPos:
+                            print "SHIFTTOP"
+                            self.node.setZ(self.node.getZ()+1*dt*self.speed)
+                        pass
+                    if self.currentlydown[-1] == 'top' or self.currentlydown[-1] == 'down':
+                        leftObjPos = objectNode.getX()-(float(objectNode.getTag("xscaled"))/2)
+                        rightObjPos = objectNode.getX()+(float(objectNode.getTag("xscaled"))/2)
+                        
+                        if self.node.getX() < leftObjPos:
+                            print "SHIFTLEFT"
+                            self.node.setX(self.node.getX()-1*dt*self.speed)
+                            
+                        if self.node.getX() > rightObjPos:
+                            print "SHIFTRIGHT"
+                            self.node.setX(self.node.getX()+1*dt*self.speed)
+                    self.lastpos = self.node.getPos()
+            
         
         for i in range(self.collisionHandler.getNumEntries()):
             entry = self.collisionHandler.getEntry(i)

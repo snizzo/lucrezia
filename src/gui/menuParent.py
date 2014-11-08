@@ -28,11 +28,11 @@ class MenuParent(DirectObject):
         #creating object for every menu
         
         #enter menu
-        self.enter = enterMenu(lang)
+        self.enter = EnterMenu(lang)
         #main menu
-        self.main = mainMenu(lang) 
+        self.main = MainMenu(lang) 
         #>>>config menu
-        self.config = configMenu(lang)
+        self.config = ConfigMenu(lang)
         
         
         self.menustr = [self.enter, self.main, self.config, 0]
@@ -93,7 +93,7 @@ class MenuParent(DirectObject):
         
 #================================================================================================
 
-class menu:
+class Menu:
     """ Class for a generic menu """
     def __init__(self,lang,image):
         self.frame = DirectFrame(frameColor=(0, 0, 0, 1),
@@ -111,11 +111,12 @@ class menu:
         self.frame.show()    
         
     def close(self):
-        if ((index == 1)and(position == 0)):
+        if ((index == 1)and(position == 0)): #TODO: document how it works at least with one line
             f = FadeOut()
             Sequence(
              f.fadeIn(1),
              Func(self.hide),
+             Func(messenger.send, 'changeMap', ['camera.map','5,6']), #using map api to change map
              f.fadeOut(1)
             ).start()
         else:
@@ -125,11 +126,11 @@ class menu:
         self.frame.hide()
 
 
-class enterMenu(menu):
+class EnterMenu(Menu):
     """ Class for the intro menu """
     def __init__(self,lang):
         #ENTERFRAME
-        menu.__init__(self,lang,'misc/MenuBackground.png')
+        Menu.__init__(self,lang,'misc/MenuBackground.png')
         
         #self.buttonMaps = loader.loadModel(resourceManager.getResource('misc/button_maps.egg'))
                 #buttons
@@ -144,18 +145,18 @@ class enterMenu(menu):
         index += 1
 
     def show(self):
-        menu.show(self)
+        Menu.show(self)
         
     def close(self):
-        menu.close(self)
+        Menu.close(self)
         
-class  mainMenu(menu):
+class  MainMenu(Menu):
     buttons = []
     
     """ Class for the main menu """
     def __init__(self,lang):
         #MAIN FRAME
-        menu.__init__(self,lang,'misc/MenuBackground1.png')
+        Menu.__init__(self,lang,'misc/MenuBackground1.png')
         
         #self.buttonMaps = loader.loadModel(resourceManager.getResource('misc/button_maps.egg'))
                 #buttons
@@ -219,20 +220,20 @@ class  mainMenu(menu):
             button["state"] = DGG.DISABLED
         
         buttons[position]["state"] = DGG.NORMAL
-        menu.show(self)    
+        Menu.show(self)    
         
     def close(self):
-        menu.close(self)
+        Menu.close(self)
 
 
-class configMenu(menu):
+class ConfigMenu(Menu):
     
     buttons = []
     
     """ Class for the config menu """
     def __init__(self,lang):
         #MAIN FRAME
-        menu.__init__(self,lang,'misc/MenuBackground1.png')
+        Menu.__init__(self,lang,'misc/MenuBackground1.png')
         
         #self.buttonMaps = loader.loadModel(resourceManager.getResource('misc/button_maps.egg'))
                 #buttons
@@ -261,10 +262,10 @@ class configMenu(menu):
             button["state"] = DGG.DISABLED
         
         self.exitButton["state"] = DGG.NORMAL
-        menu.show(self)    
+        Menu.show(self)    
         
     def close(self):
-        menu.close(self)
+        Menu.close(self)
 
 
    

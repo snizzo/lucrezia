@@ -77,8 +77,6 @@ class MyApp(ShowBase):
         __builtin__.manuParent = MenuParent(lang)         
         
         lang = configmanager.getData("LANGUAGE").lower()
-                 
-	pGrid.loadMap(resourceManager.getResource("Mappe/camera.map"))
         
         #extract.extractTxt("ita")
         extract.extractTxt(lang)
