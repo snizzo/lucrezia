@@ -308,30 +308,28 @@ class Character(DirectObject):
             objectNode = self.collisionHandler.getEntry(0).getIntoNodePath().getParent() #into object node
             
             #if node is a real object (not a wall)
-            if objectNode.hasTag("xscaled") and objectNode.hasTag("yscaled"):
-                if len(self.currentlydown) > 0: #at least 1, avoids list index out of range exception
-                    if self.currentlydown[-1] == 'left' or self.currentlydown[-1] == 'right':
-                        bottomObjPos = objectNode.getZ()-(float(objectNode.getTag("yscaled"))/2)
-                        topObjPos = objectNode.getZ()+(float(objectNode.getTag("yscaled"))/2)
-                        if self.node.getZ() < bottomObjPos:
-                            print "SHIFTBOTTOM"
-                            self.node.setZ(self.node.getZ()-1*dt*self.speed)
-                        if self.node.getZ() > topObjPos:
-                            print "SHIFTTOP"
-                            self.node.setZ(self.node.getZ()+1*dt*self.speed)
-                        pass
-                    if self.currentlydown[-1] == 'top' or self.currentlydown[-1] == 'down':
-                        leftObjPos = objectNode.getX()-(float(objectNode.getTag("xscaled"))/2)
-                        rightObjPos = objectNode.getX()+(float(objectNode.getTag("xscaled"))/2)
-                        
-                        if self.node.getX() < leftObjPos:
-                            print "SHIFTLEFT"
-                            self.node.setX(self.node.getX()-1*dt*self.speed)
-                            
-                        if self.node.getX() > rightObjPos:
-                            print "SHIFTRIGHT"
-                            self.node.setX(self.node.getX()+1*dt*self.speed)
-                    self.lastpos = self.node.getPos()
+            if objectNode.hasTag("avoidable"):
+                if objectNode.getTag("avoidable") == "true": #see if object is intelligently avoidable
+                    if objectNode.hasTag("xscaled") and objectNode.hasTag("yscaled"):
+                        if len(self.currentlydown) > 0: #at least 1, avoids list index out of range exception
+                            if self.currentlydown[-1] == 'left' or self.currentlydown[-1] == 'right': #TODO: fix the shiet, not always working
+                                bottomObjPos = objectNode.getZ()-(float(objectNode.getTag("yscaled"))/2)
+                                topObjPos = objectNode.getZ()+(float(objectNode.getTag("yscaled"))/2)
+                                if self.node.getZ() < bottomObjPos:
+                                    self.node.setZ(self.node.getZ()-1*dt*self.speed)
+                                if self.node.getZ() > topObjPos:
+                                    self.node.setZ(self.node.getZ()+1*dt*self.speed)
+                                pass
+                            if self.currentlydown[-1] == 'top' or self.currentlydown[-1] == 'down':
+                                leftObjPos = objectNode.getX()-(float(objectNode.getTag("xscaled"))/2)
+                                rightObjPos = objectNode.getX()+(float(objectNode.getTag("xscaled"))/2)
+                                
+                                if self.node.getX() < leftObjPos:
+                                    self.node.setX(self.node.getX()-1*dt*self.speed)
+                                    
+                                if self.node.getX() > rightObjPos:
+                                    self.node.setX(self.node.getX()+1*dt*self.speed)
+                            self.lastpos = self.node.getPos()
             
         
         for i in range(self.collisionHandler.getNumEntries()):
