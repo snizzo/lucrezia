@@ -112,12 +112,11 @@ class Menu:
         
     def close(self):
         if ((index == 1)and(position == 0)): #TODO: document how it works at least with one line
-            f = FadeOut()
+            
             Sequence(
-             f.fadeIn(1),
-             Func(self.hide),
              Func(messenger.send, 'changeMap', ['camera.map','5,6']), #using map api to change map
-             f.fadeOut(1)
+             Wait(1),
+             Func(self.hide)
             ).start()
         else:
             self.hide()

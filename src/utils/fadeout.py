@@ -10,6 +10,7 @@ class FadeOut(DirectObject):
         self.cmnode = NodePath(self.cm.generate())
         self.cmnode.setTransparency(TransparencyAttrib.MAlpha)
         self.cmnode.setY(-1)
+        self.cmnode.setColorScale(LVecBase4f(0.0,0.0,0.0,0.0))
         self.cmnode.reparentTo(aspect2d)
         
     def fadeIn(self, t):
