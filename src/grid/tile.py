@@ -144,6 +144,16 @@ class Tile:
         else:
             walkable = False
         
+        if attributes.has_key('avoidable'):
+            self.node.setTag("avoidable", attributes['avoidable'].value) #applying property also to node as tag
+            if attributes['avoidable'].value == "true":
+                self.avoidable = True
+            else:
+                self.avoidable = False
+        else:
+            self.node.setTag("avoidable", "false")
+            self.avoidable = False
+        
         #setting scripting part
         self.node.setTag("onWalked", self.onWalked)
         
