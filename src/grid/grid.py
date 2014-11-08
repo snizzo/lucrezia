@@ -57,10 +57,15 @@ class Grid(DirectObject):
         self.acceptOnce("changeMap", self.changeMap)
         self.getPlayable().setPlayable(True)
     
+    def disablePlayable(self):
+        if self.getPlayable() != None:
+            self.getPlayable().setPlayable(False)
+    
     def changeMap(self, mapFile, position):
         f = FadeOut()
         
         Sequence(
+         Func(self.disablePlayable),
          f.fadeIn(1),
          Func(self.changeMapHelper, mapFile, position),
          Wait(1),
