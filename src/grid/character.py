@@ -61,6 +61,8 @@ class Character(DirectObject):
         self.currentlydown = []
         self.currentlyfollowed = 0
         
+        self.pickRequest = False
+        
         #public props
         self.node = NodePath("characternode")
         self.node.setTwoSided(True)
@@ -200,6 +202,7 @@ class Character(DirectObject):
             self.accept("arrow_right-up", self.arrowRightUp)
             self.accept("arrow_up-up", self.arrowUpUp)
             self.accept("arrow_down-up", self.arrowDownUp)
+            self.accept("space", self.spaceDown)
             self.node.setTag("playable", "true")
             self.setFollowedByCamera(True)
         else:
@@ -239,9 +242,12 @@ class Character(DirectObject):
                 self.wtop.show()
             if self.currentlydown[-1] == 'down':
                 self.wdown.show()
-        
-        
     
+    #pick request function
+    def spaceDown(self):
+        self.pickRequest = True
+        
+    #movement related functions
     def arrowLeftDown(self):
         #track key down
         self.leftdown = True
@@ -342,10 +348,15 @@ class Character(DirectObject):
         
         #entries python list
         entries = self.collisionHandler.getEntries()
+        pickentries = self.pickCollisionHandler.getEntries()
         
         for e in entries[:]:
             if e.getIntoNodePath().getName() == "characterPickTube":
                 entries.remove(e)
+        
+        for e in pickentries[:]:
+            if e.getIntoNodePath().getName() == "characterTube":
+                pickentries.remove(e)
         
         if len(entries) == 0:
             self.lastpos = self.node.getPos()
@@ -384,7 +395,16 @@ class Character(DirectObject):
             onWalked = objectNode.getTag("onWalked")
             if len(onWalked)>0:
                 eval(onWalked) #oh lol, danger detected here
-                
+        
+        for entry in pickentries:
+            if self.pickRequest == True:
+                self.pickRequest = False #resetting request
+                objectNode = entry.getIntoNodePath().getParent()
+                print "triggered pick with"+str(objectNode)
+                onPicked = objectNode.getTag("onPicked")
+                if len(onPicked)>0:
+                    eval(onPicked) #oh lol, danger detected again here
+        
         return Task.cont
     
     def setX(self, x):
