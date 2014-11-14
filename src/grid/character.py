@@ -50,6 +50,9 @@ class Character(DirectObject):
         else:
             self.direction = "down"
         
+        #defaulted to None
+        self.pickCTrav = None
+        
         #movement
         self.state = "still"
         self.showCollisions = showCollisions
@@ -84,6 +87,7 @@ class Character(DirectObject):
             self.setPlayable(False) #seems nonsense, triggered on grid.changeMap event
             self.node.setTag("playable", "true") #setting this to make it recognizable from grid changeMap api
             self.setCollisions(True)
+            self.setPickCollisions(True)
         else:
             self.setPlayable(False)
             self.node.setTag("playable", "false")
@@ -148,6 +152,39 @@ class Character(DirectObject):
             if self.currentlyfollowed!=False:
                 customCamera.dontFollow()
                 self.currentlyfollowed = False
+    
+    def setPickCollisions(self, value):
+        if value:
+            print "setting pick collisions"
+            b = self.node.getBounds().getRadius()
+            
+            self.pickCTrav = CollisionTraverser()
+            
+            self.pickCollisionTube = CollisionSphere(b/2,0,b/2,0.035*self.hitboxscale+0.01)
+            self.pickCollisionNode = CollisionNode('characterPickTube')
+            self.pickCollisionNode.addSolid(self.pickCollisionTube)
+            self.pickCollisionNodeNp = NodePath(self.pickCollisionNode)
+            self.pickCollisionNodeNp.reparentTo(self.node)
+            self.pickCollisionHandler = CollisionHandlerQueue()
+            self.pickCTrav.addCollider(self.pickCollisionNodeNp, self.pickCollisionHandler)
+            
+            
+            
+            if self.showCollisions == True:
+                # Uncomment this line to see the collision rays
+                self.pickCollisionNodeNp.show()
+                
+                # Uncomment this line to show a visual representation of the 
+                # collisions occuring
+                self.pickCTrav.showCollisions(render)
+        else:
+            #dereferincing all pick colliders (must be done in order not to collide onto NPCs)
+            self.pickCTrav = None
+            self.pickCollisionTube = None
+            self.pickCollisionNode = None
+            self.pickCollisionNodeNp = None
+            self.pickCollisionHandler = None
+            
     
     #used to set playability in real time
     #useful when we want to switch context/scripted scenes
@@ -286,6 +323,16 @@ class Character(DirectObject):
     
     def moveCharacter(self, task):
         
+        #entries python list
+        entries = self.collisionHandler.getEntries()
+        
+        for e in entries[:]:
+            if e.getIntoNodePath().getName() == "characterPickTube":
+                entries.remove(e)
+        
+        print "number of collisions: "
+        print len(entries)
+        
         dt = globalClock.getDt()
         if len(self.currentlydown) > 0:
             if self.currentlydown[-1] == 'left':
@@ -298,14 +345,18 @@ class Character(DirectObject):
                 self.node.setZ(self.node.getZ()-1*dt*self.speed)
         
         #check collisions
-        self.cTrav.traverse(render)
+        if self.cTrav != None:
+            self.cTrav.traverse(render)
         
-        if self.collisionHandler.getNumEntries() == 0:
+        if self.pickCTrav != None:
+            self.pickCTrav.traverse(render)
+        
+        if len(entries) == 0:
             self.lastpos = self.node.getPos()
         else:
             self.node.setPos(self.lastpos)
-            sp = self.collisionHandler.getEntry(0).getSurfacePoint(self.node) #surface point
-            objectNode = self.collisionHandler.getEntry(0).getIntoNodePath().getParent() #into object node
+            sp = entries[0].getSurfacePoint(self.node) #surface point
+            objectNode = entries[0].getIntoNodePath().getParent() #into object node
             
             #if node is a real object (not a wall)
             if objectNode.hasTag("avoidable"):
@@ -330,19 +381,25 @@ class Character(DirectObject):
                                 if self.node.getX() > rightObjPos:
                                     self.node.setX(self.node.getX()+1*dt*self.speed)
                             self.lastpos = self.node.getPos()
+                            print "overriding lastpos"
             
         
-        for i in range(self.collisionHandler.getNumEntries()):
-            entry = self.collisionHandler.getEntry(i)
+        for i in range(len(entries)):
+            entry = entries.pop(0)
             objectNode = entry.getIntoNodePath().getParent()
             onWalked = objectNode.getTag("onWalked")
             if len(onWalked)>0:
                 eval(onWalked)
         
+        print "----------"
         return Task.cont
     
     def setX(self, x):
         self.node.setX(x)
+        self.lastpos.setX(x)
+        print "overriding lastpos"
     
     def setY(self, y):
         self.node.setZ(y)
+        self.lastpos.setZ(y)
+        print "overriding lastpos"
