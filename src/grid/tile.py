@@ -131,6 +131,11 @@ class Tile:
         else:
             self.onWalked = ""
         
+        if attributes.has_key('onPicked'):
+            self.onPicked = attributes['onPicked'].value
+        else:
+            self.onPicked = ""
+        
         if attributes.has_key('collisionmode'):
             collisionmode = attributes['collisionmode'].value
         else:
