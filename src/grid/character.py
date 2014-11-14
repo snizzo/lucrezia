@@ -322,17 +322,6 @@ class Character(DirectObject):
             self.setAnim()
     
     def moveCharacter(self, task):
-        
-        #entries python list
-        entries = self.collisionHandler.getEntries()
-        
-        for e in entries[:]:
-            if e.getIntoNodePath().getName() == "characterPickTube":
-                entries.remove(e)
-        
-        print "number of collisions: "
-        print len(entries)
-        
         dt = globalClock.getDt()
         if len(self.currentlydown) > 0:
             if self.currentlydown[-1] == 'left':
@@ -350,6 +339,13 @@ class Character(DirectObject):
         
         if self.pickCTrav != None:
             self.pickCTrav.traverse(render)
+        
+        #entries python list
+        entries = self.collisionHandler.getEntries()
+        
+        for e in entries[:]:
+            if e.getIntoNodePath().getName() == "characterPickTube":
+                entries.remove(e)
         
         if len(entries) == 0:
             self.lastpos = self.node.getPos()
@@ -381,25 +377,20 @@ class Character(DirectObject):
                                 if self.node.getX() > rightObjPos:
                                     self.node.setX(self.node.getX()+1*dt*self.speed)
                             self.lastpos = self.node.getPos()
-                            print "overriding lastpos"
             
         
-        for i in range(len(entries)):
-            entry = entries.pop(0)
+        for entry in entries:
             objectNode = entry.getIntoNodePath().getParent()
             onWalked = objectNode.getTag("onWalked")
             if len(onWalked)>0:
-                eval(onWalked)
-        
-        print "----------"
+                eval(onWalked) #oh lol, danger detected here
+                
         return Task.cont
     
     def setX(self, x):
         self.node.setX(x)
         self.lastpos.setX(x)
-        print "overriding lastpos"
     
     def setY(self, y):
         self.node.setZ(y)
         self.lastpos.setZ(y)
-        print "overriding lastpos"
