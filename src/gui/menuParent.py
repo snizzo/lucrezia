@@ -12,259 +12,148 @@ from direct.interval.IntervalGlobal import *
 from resourcemanager.resourcemanager import ResourceManager
 
 from utils.fadeout import FadeOut
+from utils.misc import Misc
 
 import sys, os
 
-menuPlayable=True
-index = 0
-position = 0
-
-class MenuParent(DirectObject):
-    
-    def __init__(self,lang):
-        wp = WindowProperties()
-        wp.setTitle("Menu Testing")
-        wp.setSize(800, 600)
-        #creating object for every menu
-        
-        #enter menu
-        self.enter = EnterMenu(lang)
-        #main menu
-        self.main = MainMenu(lang) 
-        #>>>config menu
-        self.config = ConfigMenu(lang)
-        
-        
-        self.menustr = [self.enter, self.main, self.config, 0]
-        
-        self.menustr[index].show()
-        
-        if menuPlayable==True:
-            self.setKey(True)
-        else:
-            print("disabled")
-            self.setKey(False)
-    
-    def setKey(self, value):
-        if value==True :
-            self.accept("enter", self.enterDown)
-            """
-            self.accept("mouse1", self.ignore)
-            """
-            
-            self.accept("arrow_up", self.arrowUpDown)
-            self.accept("arrow_down", self.arrowDownDown)
-            
-        else:
-            self.ignoreAll()
-    
-    def arrowUpDown(self):
-        print("V")
-        if (index!=0): 
-            self.movecursor(-1)
-            print("%d : %d" % (index,position))
-        
-    def arrowDownDown(self):
-        print("A")
-        if (index!=0):
-            self.movecursor(1)
-            print("%d : %d" % (index,position))
-            
-    def movecursor(self,value):
-        print(value)
-        self.menustr[index].cursorMove(value)
-    
-    def enterDown(self):
-        print("enter")
-        """
-        DA SISTEMARE
-        """
-        self.check = index
-        self.menustr[index].event()
-        self.change(self.check)
-        
-    def change(self,check):
-        print("change")
-        if (check != index):
-            if (self.menustr[index] != 0):
-                self.menustr[index].show()
-            else:
-                self.setKey(False)
-        
-#================================================================================================
-
-class Menu:
-    """ Class for a generic menu """
+#menu superclass (virtual)
+class Menu(DirectObject):
     def __init__(self,lang,image):
         self.frame = DirectFrame(frameColor=(0, 0, 0, 1),
                       frameSize=(-2, 2, -2, 2),
                       pos=(0, 0, 0))
         
-        self.background = OnscreenImage(image = resourceManager.getResource(image), pos = (0, 0, 0), scale = (1.34, 1, 1))
-        self.background.setTransparency(TransparencyAttrib.MAlpha)
+        x = float(configManager.getData("XSCREEN"))
+        y = float(configManager.getData("YSCREEN"))
+        
+        self.cursor = 0   # tracks the currently selected button
+        self.buttons = [] # list of buttons
+        self.ratio = x/y  # used to set correctly quads
+        self.currenty = 0 # used to set correctly button vertical position
+        self.spacebetweenbuttons = 0.3 # space offset between buttons
+        
+        #background
+        self.background = OnscreenImage(image = resourceManager.getResource(image), pos = (0, 0, 0), scale = (self.ratio, 1, 1))
         self.background.reparentTo(self.frame)
         
         self.buttonMaps = loader.loadModel(resourceManager.getResource('misc/button_maps.egg'))
         self.frame.hide()
+        
+        #first refresh ever
+        self.refreshKeyState()
+    
+    def disableAll(self):
+        for button in self.buttons:
+                button['state'] = DGG.DISABLED
+    
+    def refreshKeyState(self):
+        self.disableAll()
+        
+        if len(self.buttons) > 0 and self.cursor <= len(self.buttons): #avoid crashing in empty menus or cursor overload (no buttons or too many)
+            self.buttons[self.cursor]['state'] = DGG.NORMAL #todo change here something
+    
+    def printButtonState(self):
+        for button in self.buttons:
+                print button['state']
+    
+    def setKey(self, value):
+        if value == True:
+            self.accept("enter", self.onEnter)
+            self.accept("arrow_up", self.onArrowUp)
+            self.accept("arrow_down", self.onArrowDown)
+        else:
+            self.ignoreAll()
+    
+    def onEnter(self):
+        self.buttons[self.cursor].getPythonTag("callback")()
+    
+    def onArrowUp(self):
+        if self.cursor == 0:
+            self.cursor = len(self.buttons)-1
+        else:
+            self.cursor -= 1
+        self.refreshKeyState()
+    
+    def onArrowDown(self):
+        if self.cursor == len(self.buttons)-1:
+            self.cursor = 0
+        else:
+            self.cursor += 1
+        self.refreshKeyState()
+    
+    '''
+    Callback on return pressed when cursor is at correct position
+    '''
+    def addButton(self, mtext, callback):
+        
+        #all a line of code lol
+        self.btn = DirectButton(text = mtext, text_scale=(0.085, 0.085), relief=None, geom= (Misc.loadImageAsPlane(resourceManager.getResource("misc/button_ready.png")),
+        self.buttonMaps.find("**/button_click"),
+        Misc.loadImageAsPlane(resourceManager.getResource("misc/button_disabled.png"))), pos=(0, 0, self.currenty))
+        
+        self.btn.setPythonTag("callback", callback)
+        self.btn.reparentTo(self.frame)
+        self.buttons.append(self.btn)
+        self.currenty -= self.spacebetweenbuttons
+        
+        self.refreshKeyState() # refreshing :)
+        #self.printButtonState()
+    
+    def getNode(self):
+        return self.frame
+    
+    def setX(self, x):
+        for button in self.buttons:
+            button.setX(button.getX()+x)
+    
+    def setY(self, z):
+        for button in self.buttons:
+            button.setZ(button.getZ()+z)
+    
+    def setSpaceBetweenButtons(self, v):
+        self.spacebetweenbuttons = v
     
     def show(self):
-        self.frame.show()    
+        self.frame.show() #show main frame
+        self.setKey(True)
         
     def close(self):
-        if ((index == 1)and(position == 0)): #TODO: document how it works at least with one line
-            
-            Sequence(
-             Func(messenger.send, 'changeMap', ['camera.map','5,6']), #using map api to change map
-             Wait(1),
-             Func(self.hide)
-            ).start()
-        else:
-            self.hide()
+        self.hide()
             
     def hide(self):
         self.frame.hide()
 
-
-class EnterMenu(Menu):
-    """ Class for the intro menu """
-    def __init__(self,lang):
-        #ENTERFRAME
-        Menu.__init__(self,lang,'misc/MenuBackground.png')
-        
-        #self.buttonMaps = loader.loadModel(resourceManager.getResource('misc/button_maps.egg'))
-                #buttons
-        self.startButton = DirectButton(text = "Premi invio", text_scale=(0.07, 0.07), relief=None, geom= (self.buttonMaps.find("**/button_ready"),
-                                                         self.buttonMaps.find("**/button_click"),
-                                                         self.buttonMaps.find("**/button_disabled")), pos=(0, 0, -0.5))
-        self.startButton.reparentTo(self.frame)
-        
-    def event(self):
-        self.close()
-        global index
-        index += 1
-
-    def show(self):
-        Menu.show(self)
-        
-    def close(self):
-        Menu.close(self)
-        
-class  MainMenu(Menu):
-    buttons = []
+'''
+Reference example on how a menu should be
+'''
+class MainMenu(Menu):
     
     """ Class for the main menu """
     def __init__(self,lang):
+        
         #MAIN FRAME
-        Menu.__init__(self,lang,'misc/MenuBackground1.png')
+        Menu.__init__(self,lang,'menu/mainmenubg.png')
+        self.addButton("New game", self.onNewGame)
+        self.addButton("Load game", self.onLoadGame)
+        self.addButton("Wake up", self.onWakeUp)
         
-        #self.buttonMaps = loader.loadModel(resourceManager.getResource('misc/button_maps.egg'))
-                #buttons
-        self.startButton = DirectButton(text = "Nuovo Gioco", text_scale=(0.07, 0.07), relief=None, geom= (self.buttonMaps.find("**/button_ready"),
-                                                         self.buttonMaps.find("**/button_click"),
-                                                         self.buttonMaps.find("**/button_disabled")), pos=(0, 0, 0.7))
-        self.startButton.reparentTo(self.frame)
+        self.setX(-1.0)
         
-        self.loadButton = DirectButton(text = "Carica Partita", text_scale=(0.07, 0.07), relief=None, geom= (self.buttonMaps.find("**/button_ready"),
-                                                         self.buttonMaps.find("**/button_click"),
-                                                         self.buttonMaps.find("**/button_disabled")), pos=(0, 0, 0.2))
-        self.loadButton.reparentTo(self.frame)
+        self.show()
         
-        self.configButton = DirectButton(text = "Impostazioni", text_scale=(0.07, 0.07), relief=None, geom= (self.buttonMaps.find("**/button_ready"),
-                                                         self.buttonMaps.find("**/button_click"),
-                                                         self.buttonMaps.find("**/button_disabled")), pos=(0, 0, -0.3))
-        self.configButton.reparentTo(self.frame)
-          
-        self.exitButton = DirectButton(text = "Esci", text_scale=(0.07, 0.07), relief=None, geom= (self.buttonMaps.find("**/button_ready"),
-                                                         self.buttonMaps.find("**/button_click"),
-                                                         self.buttonMaps.find("**/button_disabled")), pos=(0, 0, -0.8))
-        self.exitButton.reparentTo(self.frame)  
-   
-    def cursorMove(self,value):        
-        global buttons
-        global position
-        
-        self.i=position
-        if(position + value == len(buttons)):
-            position = 0
-        elif(position + value == -1):
-            position = 3
-        else:
-            position = position + value
-        print("========")
-        print(len(buttons))
-        print(self.i)
-        print(position)
-        print("========")
-
-        buttons[self.i]["state"] = DGG.DISABLED
-        
-        buttons[position]["state"] = DGG.NORMAL
-
-    def event(self):
-        global index
-        # new game
-        if (position==0):
-            self.close()
-            index += 2    
-        # instruction
-        elif (position==2):
-            self.close()
-            index += 1 
-        
-    def show(self):
-        global buttons
-        global position
-        buttons = [self.startButton,self.loadButton,self.configButton,self.exitButton]
-        for button in buttons:
-            button["state"] = DGG.DISABLED
-        
-        buttons[position]["state"] = DGG.NORMAL
-        Menu.show(self)    
-        
-    def close(self):
-        Menu.close(self)
-
-
-class ConfigMenu(Menu):
-    
-    buttons = []
-    
-    """ Class for the config menu """
-    def __init__(self,lang):
-        #MAIN FRAME
-        Menu.__init__(self,lang,'misc/MenuBackground1.png')
-        
-        #self.buttonMaps = loader.loadModel(resourceManager.getResource('misc/button_maps.egg'))
-                #buttons
-
-        self.exitButton = DirectButton(text = "Esci", text_scale=(0.07, 0.07), relief=None, geom= (self.buttonMaps.find("**/button_ready"),
-                                                         self.buttonMaps.find("**/button_click"),
-                                                         self.buttonMaps.find("**/button_disabled")), pos=(0.4, 0, -0.8))
-        self.exitButton.reparentTo(self.frame)  
-    
-    
-    def cursorMove(self,i):        
-        pass
-        
-    def event(self):
+    def onNewGame(self):
         self.close()
-        global index
-        global position
-        index -= 1
-        position = 2
         
-        
-    def show(self):
-        global buttons
-        buttons = [self.exitButton]
-        for button in buttons:
-            button["state"] = DGG.DISABLED
-        
-        self.exitButton["state"] = DGG.NORMAL
-        Menu.show(self)    
-        
+    def onLoadGame(self):
+        print "loadgame triggered"
+    
+    def onWakeUp(self):
+        print "wakeup triggered"
+    
+    #override
     def close(self):
-        Menu.close(self)
-
-
-   
+        Sequence(
+            Func(messenger.send, 'changeMap', ['camera.map','5,6']), #using map api to change map
+            Wait(1),
+            Func(Menu.close, self)
+            ).start()

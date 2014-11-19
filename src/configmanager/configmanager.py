@@ -7,7 +7,7 @@ from panda3d.core import loadPrcFileData
 from resourcemanager.resourcemanager import ResourceManager
 from extract.extractor import Extractor
 
-class Configmanager:
+class ConfigManager:
     
     def __init__(self):
         #setting for the folders

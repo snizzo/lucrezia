@@ -30,7 +30,6 @@ class ExtractTitle:
                 for index, value in enumerate(self.current_menu[menu]):
                     if coppia[0]==value:
                         self.current_menu[menu][index] = coppia[1]
-                        print self.current_menu[menu][index] 
            
         versionM = Parser(resourceManager.getResource("config/" + self.pc_name +"Config.var"))
         data2 = versionM.get()
@@ -40,6 +39,3 @@ class ExtractTitle:
                 for index, value in enumerate(self.current_menu[menu]):
                     if coppia[0]==value:
                         self.current_menu[menu][index] = coppia[1]
-        
-        
-        print self.current_menu

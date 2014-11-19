@@ -41,7 +41,7 @@ class MainMenu(DirectObject):
                       frameSize=(-2, 2, -2, 2),
                       pos=(0, 0, 0))
         
-        self.background = OnscreenImage(image = resourceManager.getResource('misc/MenuBackground.png'), pos = (0, 0, 0), scale = (1.34, 1, 1))
+        self.background = OnscreenImage(image = resourceManager.getResource('menu/mainmenubg.png'), pos = (0, 0, 0), scale = (1.34, 1, 1))
         self.background.setTransparency(TransparencyAttrib.MAlpha)
         self.background.reparentTo(self.mainFrame)
         

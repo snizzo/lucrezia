@@ -15,14 +15,14 @@ from grid.grid import Grid
 from parser.parser import Parser
 from resourcemanager.resourcemanager import ResourceManager
 from extract.extract import ExtractTitle
-from configmanager.configmanager import Configmanager
+from configmanager.configmanager import ConfigManager
 from audio.audioManager import AudioManager
-from gui.menuParent import MenuParent
+from gui.menuParent import MainMenu
 from camera.camera import CustomCamera
 from utils.fadeout import FadeOut
 
 __builtin__.resourceManager = ResourceManager()
-__builtin__.configmanager = Configmanager()
+__builtin__.configManager = ConfigManager()
 #configmanager.loadConfig()
 
 #fullscreen e grandezza finestra
@@ -64,7 +64,7 @@ class MyApp(ShowBase):
         # for completeness: add minus 'p' before class name for naming variables
         __builtin__.pGrid = Grid()
         __builtin__.extract = ExtractTitle()
-        #__builtin__.configmanager = Configmanager() 
+        #__builtin__.configManager = ConfigManager() 
         __builtin__.audioManager = AudioManager()
         __builtin__.customCamera = CustomCamera()
 
@@ -74,19 +74,18 @@ class MyApp(ShowBase):
         #lang = configmanager.getData("LANGUAGE").lower()
         # ===========================================
                  
-        __builtin__.manuParent = MenuParent(lang)         
+        __builtin__.menuParent = MainMenu(lang)
+        menuParent.show()
         
-        lang = configmanager.getData("LANGUAGE").lower()
+        lang = configManager.getData("LANGUAGE").lower()
         
         #extract.extractTxt("ita")
         extract.extractTxt(lang)
         #DEBUG for the getResource
         #print resourceManager.getResource("misc/grass.png")
         
-        configmanager.saveConfig("LANGUAGE","ITA")
-        lang = configmanager.getData("LANGUAGE").lower()
-        print "====="
-        print lang
+        configManager.saveConfig("LANGUAGE","ITA")
+        lang = configManager.getData("LANGUAGE").lower()
         extract.extractTxt(lang)
         
         """  
@@ -94,9 +93,7 @@ class MyApp(ShowBase):
         print r.getResource('misc/grass') # deve dire path assoluto = res/misc/grass.png
         """
         #f= FadeOut()
-        audioManager.playMusic("misc/bgmusic.ogg")
-        audioManager.playEffect("misc/car.ogg")
-        audioManager.playEffect("misc/car.ogg")
+        audioManager.playMusic("misc/crywolfstay.ogg")
         
 app = MyApp()
 app.run()
