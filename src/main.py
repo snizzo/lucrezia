@@ -20,6 +20,7 @@ from audio.audioManager import AudioManager
 from gui.menuParent import MainMenu
 from camera.camera import CustomCamera
 from utils.fadeout import FadeOut
+from intro.intro import Intro
 
 __builtin__.resourceManager = ResourceManager()
 __builtin__.configManager = ConfigManager()
@@ -74,8 +75,7 @@ class MyApp(ShowBase):
         #lang = configmanager.getData("LANGUAGE").lower()
         # ===========================================
                  
-        __builtin__.menuParent = MainMenu(lang)
-        menuParent.show()
+        __builtin__.mainMenu = MainMenu(lang)
         
         lang = configManager.getData("LANGUAGE").lower()
         
@@ -94,6 +94,9 @@ class MyApp(ShowBase):
         """
         #f= FadeOut()
         audioManager.playMusic("misc/crywolfstay.ogg")
+        
+        i = Intro()
+        i.start()
         
 app = MyApp()
 app.run()
