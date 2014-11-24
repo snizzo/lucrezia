@@ -400,7 +400,6 @@ class Character(DirectObject):
             if self.pickRequest == True:
                 self.pickRequest = False #resetting request
                 objectNode = entry.getIntoNodePath().getParent()
-                print "triggered pick with"+str(objectNode)
                 onPicked = objectNode.getTag("onPicked")
                 if len(onPicked)>0:
                     eval(onPicked) #oh lol, danger detected again here

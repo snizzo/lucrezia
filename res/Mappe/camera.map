@@ -13,7 +13,7 @@
     </row>
     <row>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/pianta" inclination="30" collisionmode="3d" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/pianta" inclination="30" collisionmode="3d" onPicked="main.ping()" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><character url="lucrezia" inclination="5" scale="11" playable="true" hitboxscale="0.8" speed = "3" /></tile>

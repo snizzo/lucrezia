@@ -63,6 +63,7 @@ class MyApp(ShowBase):
         # structure has been built with globalness in mind!!
         #
         # for completeness: add minus 'p' before class name for naming variables
+        __builtin__.main = self
         __builtin__.pGrid = Grid()
         __builtin__.extract = ExtractTitle()
         #__builtin__.configManager = ConfigManager() 
@@ -102,6 +103,9 @@ class MyApp(ShowBase):
         i = Intro()
         i.start()
         '''
+
+    def ping (self):
+        print "main: PONG!"
         
 app = MyApp()
 app.run()
