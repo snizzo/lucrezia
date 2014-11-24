@@ -18,6 +18,7 @@ from extract.extract import ExtractTitle
 from configmanager.configmanager import ConfigManager
 from audio.audioManager import AudioManager
 from gui.menuParent import MainMenu
+from gui.baloon import BaloonManager
 from camera.camera import CustomCamera
 from utils.fadeout import FadeOut
 from intro.intro import Intro
@@ -66,6 +67,7 @@ class MyApp(ShowBase):
         __builtin__.main = self
         __builtin__.pGrid = Grid()
         __builtin__.extract = ExtractTitle()
+        __builtin__.baloons = BaloonManager()
         #__builtin__.configManager = ConfigManager() 
         __builtin__.audioManager = AudioManager()
         __builtin__.customCamera = CustomCamera()
