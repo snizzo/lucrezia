@@ -405,6 +405,10 @@ class Character(DirectObject):
                 if len(onPicked)>0:
                     eval(onPicked) #oh lol, danger detected again here
         
+        #this is needed for empty pick
+        if self.pickRequest == True:
+            self.pickRequest = False #resetting request
+        
         return Task.cont
     
     def setX(self, x):
