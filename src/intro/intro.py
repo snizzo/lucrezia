@@ -41,6 +41,9 @@ class Intro(DirectObject):
     def clearAll(self):
         self.frame.destroy()
     
+    '''
+    FIXME: not functional for some reason, inspect
+    '''
     def quickstart(self):
         mainMenu.show()
     

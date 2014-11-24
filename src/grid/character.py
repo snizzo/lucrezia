@@ -404,6 +404,8 @@ class Character(DirectObject):
                 onPicked = objectNode.getTag("onPicked")
                 if len(onPicked)>0:
                     eval(onPicked) #oh lol, danger detected again here
+                else:
+                    print "WARNING: picking on this object is not defined"
         
         #this is needed for empty pick
         if self.pickRequest == True:
