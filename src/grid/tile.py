@@ -51,6 +51,11 @@ class Tile:
         else:
             self.onWalked = ""
         
+        if attributes.has_key('onPicked'):
+            self.onPicked = attributes['onPicked'].value
+        else:
+            self.onPicked = ""
+        
         if attributes.has_key('walkable'):
             if attributes['walkable'].value == "true":
                 self.walkable = True
@@ -61,6 +66,7 @@ class Tile:
         
         #setting scripting part
         self.node.setTag("onWalked", self.onWalked)
+        self.node.setTag("onPicked", self.onPicked)
         
         #setting walkable or not
         self.setWalkable(self.walkable)
@@ -161,6 +167,7 @@ class Tile:
         
         #setting scripting part
         self.node.setTag("onWalked", self.onWalked)
+        self.node.setTag("onPicked", self.onPicked)
         
         tex = loader.loadTexture(resourceManager.getResource(name)+'.png')
         tex.setWrapV(Texture.WM_clamp)
