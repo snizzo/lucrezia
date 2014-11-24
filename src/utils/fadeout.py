@@ -26,5 +26,5 @@ class FadeOut(DirectObject):
                             LVecBase4f(0.0,0.0,0.0,1.0))
     
     def remove(self):
-        self.cmnode.remove()
+        self.cmnode.remove_node()
         

@@ -32,7 +32,7 @@ class Intro(DirectObject):
     
     def showImage(self, image):
         if self.background != 0:
-            self.background.remove()
+            self.background.remove_node()
         
         #background
         self.background = OnscreenImage(image = resourceManager.getResource(image), pos = (0, 0, 0), scale = (self.ratio, 1, 1))
@@ -40,6 +40,9 @@ class Intro(DirectObject):
     
     def clearAll(self):
         self.frame.destroy()
+    
+    def quickstart(self):
+        mainMenu.show()
     
     def start(self):
         f = FadeOut()
@@ -49,20 +52,19 @@ class Intro(DirectObject):
             Wait(0.05),
             Func(self.showImage, "misc/reavsoft.png"),
             f.fadeOut(2),
-            Wait(8),
+            Wait(1),
             f.fadeIn(2),
             Wait(2),
             Func(self.showImage, "misc/crywolf.png"),
             Wait(0.5),
             f.fadeOut(2),
-            Wait(8),
+            Wait(1),
             f.fadeIn(2),
             Wait(2),
             Func(self.clearAll),
-            Func(mainMenu.show),
+            Func(mainMenu.show), #change this with a lucrezia apicall
             Wait(0.5),
             f.fadeOut(2),
             Wait(2),
             Func(f.remove)
         ).start()
-        

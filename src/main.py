@@ -95,8 +95,13 @@ class MyApp(ShowBase):
         #f= FadeOut()
         audioManager.playMusic("misc/crywolfstay.ogg")
         
+        mainMenu.show()
+        
+        '''
+        #UNCOMMENT TO ENABLE INTRO
         i = Intro()
         i.start()
+        '''
         
 app = MyApp()
 app.run()
