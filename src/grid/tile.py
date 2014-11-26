@@ -97,6 +97,11 @@ class Tile:
             print "WARNING: url not defined, loading placeholder"
             name = 'misc/placeholder'
         
+        if attributes.has_key('id'):
+            self.uid = attributes['id'].value
+        else:
+            self.uid = 'all'
+        
         if attributes.has_key('inclination'):
             inclination = float(attributes['inclination'].value)
         else:
@@ -168,6 +173,8 @@ class Tile:
         #setting scripting part
         self.node.setTag("onWalked", self.onWalked)
         self.node.setTag("onPicked", self.onPicked)
+        #set unique id
+        self.node.setTag("id", self.uid)
         
         tex = loader.loadTexture(resourceManager.getResource(name)+'.png')
         tex.setWrapV(Texture.WM_clamp)
