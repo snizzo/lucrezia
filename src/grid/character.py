@@ -20,6 +20,11 @@ class Character(DirectObject):
             print "WARNING: url not defined, loading placeholder"
             self.name = name = 'misc/placeholder'
         
+        if attributes.has_key('id'):
+            self.uid = uid = attributes['id'].value
+        else:
+            self.uid = uid = 'all'
+        
         if attributes.has_key('inclination'):
             self.inclination = inclination = float(attributes['inclination'].value)
         else:
@@ -103,6 +108,10 @@ class Character(DirectObject):
         
         self.face(self.direction)
         
+        #set unique id
+        self.node.setTag("id", self.uid)
+        
+        #storing a pointer of the gamenode
         self.node.setPythonTag("gamenode", self)
         
         

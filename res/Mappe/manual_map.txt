@@ -14,7 +14,8 @@ camdistance:    set camera distance from playable character
             walkable:           set if ground can be walkable ("true" or "false", default: true)
             
             
-            CHARACTER           <character /> represents a character playable in the game or an NPC 
+            CHARACTER           <character /> represents a character playable in the game or an NPC
+            id:                 unique identification string
             url:                url of resource
             inclination:        inclination of character
             scale:              scale character
@@ -25,6 +26,7 @@ camdistance:    set camera distance from playable character
             
             
             OBJECT:             <object /> normal object in world, has collisions
+            id:                 unique identification string
             url:                url of the resource found by the resourcemanager
             walkable:           set if object can be walkable ("true" or "false", default: false)
             inclination:        inclination of object
@@ -48,6 +50,8 @@ camdistance:    set camera distance from playable character
 Events API:
 	    onWalked:           used for create the change Map events, must give the Map Name and the character position
                                 "messenger.send('changeMap', ['MapName.map','PositionX,PositionY'])"
+            onPicked:           used to trigger things that are close to the mai character and the player press action button
+                                (default: spacebar)
 	    
 	    
 	    
