@@ -3,7 +3,7 @@
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
-        <tile><ground url="sets/OggettiCamera/black" /><object url="sets/OggettiCamera/black1" inclination="0" elevation="0.0001" offsetvertical="-0.25" onWalked="messenger.send('changeMap', ['camera.map','5,6'])"/></tile>
+        <tile><ground url="sets/OggettiCamera/black" /><object url="sets/OggettiCamera/black1" inclination="0" elevation="0.0001" offsetvertical="-0.25" onWalked="messenger.send('changeMap', ['camera.map','5,5'])"/></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
@@ -18,7 +18,7 @@
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
-        <tile><ground url="sets/OggettiCamera/black" /><object url="sets/OggettiCamera/black1" inclination="0" elevation="0.0001" offsetvertical="-0.25" onWalked="messenger.send('changeMap', ['bagno.map','5,6'])"/></tile>
+        <tile><ground url="sets/OggettiCamera/black" /><object url="sets/OggettiCamera/black1" inclination="0" elevation="0.0001" offsetvertical="-0.25" onWalked="messenger.send('changeMap', ['bagno.map','3,4'])"/></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
@@ -30,17 +30,17 @@
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/pavimento" inclination="0" elevation="0.0002" offsetvertical="-0.25" walkable="true" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><character url="lucrezia" inclination="5" scale="11" playable="true" speed = "5" hitboxscale="0.8"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/pavimento" inclination="0" elevation="0.0002" offsetvertical="-0.25" walkable="true" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><light distance="1" color="255,150,10" attenuation="0.02" /><object url="sets/OggettiCamera/lampadone" inclination="6" collisionmode="3d"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/pavimento" inclination="0" elevation="0.0002" offsetvertical="-0.25" walkable="true" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/pianta" inclination="6" collisionmode="3d"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/pavimento" inclination="0" elevation="0.0002" offsetvertical="-0.25" walkable="true" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><light distance="1" color="255,150,10" attenuation="0.02" /><object url="sets/OggettiCamera/lampadone" inclination="6" collisionmode="3d"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/pavimento" inclination="0" elevation="0.0002" offsetvertical="-0.25" walkable="true" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>

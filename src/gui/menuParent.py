@@ -153,7 +153,7 @@ class MainMenu(Menu):
     #override
     def close(self):
         Sequence(
-            Func(messenger.send, 'changeMap', ['camera.map','5,6']), #using map api to change map
+            Func(messenger.send, 'changeMap', ['camera.map','4,1']), #using map api to change map
             Wait(1),
             Func(Menu.close, self)
             ).start()
