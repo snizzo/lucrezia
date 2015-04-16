@@ -22,7 +22,7 @@ class Baloon(DirectObject):
         self.pos = target.node.getPos()
         self.who = who
         self.message = list(message[::-1])
-        self.textapplied = []
+        self.textapplied = [who,':\n']
         self.speed = speed
         
         self.show()
@@ -54,18 +54,24 @@ class Baloon(DirectObject):
             return Task.again
     
     def show(self):
-        print self.pos
+        
+        #text
+        self.textbg = TextNode('baloontextnodebg')
+        self.textbg.setTextColor(0.5, 0.5, 0.5, 1)
+        self.textbg.setWordwrap(15.0)
+        self.textbg.setText(''.join([self.who,":\n"]+self.message))
+        
+        #card as background
+        self.textbg.setFrameColor(0.7, 0.7, 0.7, 0.7)
+        self.textbg.setFrameAsMargin(0.4, 0.4, 0.4, 0.4)
+        self.textbg.setCardColor(0.5, 0.5, 0.5, 1)
+        self.textbg.setCardAsMargin(0.4, 0.4, 0.4, 0.4)
+        self.textbg.setCardDecal(True)
+        
         #text
         self.text = TextNode('baloontextnode')
         self.text.setTextColor(1, 1, 1, 1)
         self.text.setWordwrap(15.0)
-        
-        #card as background
-        self.text.setFrameColor(0.7, 0.7, 0.7, 0.7)
-        self.text.setFrameAsMargin(0.4, 0.4, 0.4, 0.4)
-        self.text.setCardColor(0.5, 0.5, 0.5, 1)
-        self.text.setCardAsMargin(0.4, 0.4, 0.4, 0.4)
-        self.text.setCardDecal(True)
         
         self.textnp = render.attachNewNode(self.text)
         textradius = self.textnp.getBounds().getRadius()/2
@@ -73,5 +79,7 @@ class Baloon(DirectObject):
         self.textnp.setScale(0.37)
         self.textnp.setPos(self.pos.getX(),-1,self.pos.getZ()+2)
         self.textnp.setLightOff()
+        self.textbgnode = self.textnp.attachNewNode(self.textbg)
+        self.textbgnode.setY(0.1)
         
         self.textAnimation()
