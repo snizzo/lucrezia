@@ -34,6 +34,7 @@ class Baloon(DirectObject):
     
     def resumePause(self):
         messenger.send("resumeGameplay");
+        self.ignoreAll()
         self.textnp.remove_node()
         
     def canResumePause(self):

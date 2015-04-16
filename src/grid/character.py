@@ -90,6 +90,11 @@ class Character(DirectObject):
         self.sleft.reparentTo(self.node)
         self.sright.reparentTo(self.node)
         
+        self.leftdown = False
+        self.rightdown = False
+        self.downdown = False
+        self.topdown = False
+        
         if playable=="true":
             self.setPlayable(False) #seems nonsense, triggered on grid.changeMap event
             self.node.setTag("playable", "true") #setting this to make it recognizable from grid changeMap api
@@ -218,6 +223,7 @@ class Character(DirectObject):
             self.ignoreAll()
             self.node.setTag("playable", "false")
             self.setFollowedByCamera(False)
+            self.resetMovement() #reset every movement happening
             self.accept("resumeGameplay", self.setPlayable, [True]) #can resume play
     
     def hideAllSubnodes(self):
@@ -239,6 +245,28 @@ class Character(DirectObject):
                 if len(self.currentlydown) == 0:
                     taskMgr.remove(self.movtask)
                     self.movtask = 0
+    
+    '''
+    reset every movement actually happening
+    '''
+    def resetMovement(self):
+        if self.leftdown == True:
+            self.face("left")
+        if self.rightdown == True:
+            self.face("right")
+        if self.downdown == True:
+            self.face("down")
+        if self.topdown == True:
+            self.face("top")
+        
+        self.leftdown = False
+        self.rightdown = False
+        self.downdown = False
+        self.topdown = False
+        
+        self.currentlydown = []
+        
+        self.setMovement(False)
     
     def setAnim(self):
         self.hideAllSubnodes()
