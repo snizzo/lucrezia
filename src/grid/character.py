@@ -113,7 +113,7 @@ class Character(DirectObject):
         
         #storing a pointer of the gamenode
         self.node.setPythonTag("gamenode", self)
-        
+    
     def face(self, direction):
         if direction == "left":
             self.hideAllSubnodes()
@@ -213,10 +213,12 @@ class Character(DirectObject):
             self.accept("space", self.spaceDown)
             self.node.setTag("playable", "true")
             self.setFollowedByCamera(True)
+            self.accept("pauseGameplay", self.setPlayable, [False]) #can pause play
         else:
             self.ignoreAll()
             self.node.setTag("playable", "false")
             self.setFollowedByCamera(False)
+            self.accept("resumeGameplay", self.setPlayable, [True]) #can resume play
     
     def hideAllSubnodes(self):
         self.wtop.hide()

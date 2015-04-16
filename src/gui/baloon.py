@@ -23,18 +23,31 @@ class Baloon(DirectObject):
         self.who = who
         self.message = list(message[::-1])
         self.textapplied = []
-        self.startTime = 0.0
-        self.elapsedTime = 0.0
+        self.speed = speed
         
         self.show()
+        
+        self.requestPause()
+    
+    def requestPause(self):
+        messenger.send("pauseGameplay");
+    
+    def resumePause(self):
+        messenger.send("resumeGameplay");
+        self.textnp.remove_node()
+        
+    def canResumePause(self):
+        self.accept("space", self.resumePause);
     
     def textAnimation(self):
-        taskMgr.doMethodLater(0.1, self.addLetter, 'showletters')
+        taskMgr.doMethodLater(self.speed, self.addLetter, 'showletters')
         
     def addLetter(self, Task):
         self.textapplied.append(self.message.pop())
         self.text.setText(''.join(self.textapplied))
         if not self.message:
+            self.canResumePause()
+            print "now pause can be resumed"
             return Task.done
         else:
             return Task.again
@@ -53,11 +66,11 @@ class Baloon(DirectObject):
         self.text.setCardAsMargin(0.4, 0.4, 0.4, 0.4)
         self.text.setCardDecal(True)
         
-        textnp = render.attachNewNode(self.text)
-        textradius = textnp.getBounds().getRadius()/2
-        textnp.setY(-0.5)
-        textnp.setScale(0.37)
-        textnp.setPos(self.pos.getX(),-1,self.pos.getZ()+2)
-        textnp.setLightOff()
+        self.textnp = render.attachNewNode(self.text)
+        textradius = self.textnp.getBounds().getRadius()/2
+        self.textnp.setY(-0.5)
+        self.textnp.setScale(0.37)
+        self.textnp.setPos(self.pos.getX(),-1,self.pos.getZ()+2)
+        self.textnp.setLightOff()
         
         self.textAnimation()
