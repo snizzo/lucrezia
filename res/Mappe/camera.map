@@ -40,7 +40,7 @@
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/pianta" inclination="30" collisionmode="3d" onPicked="baloons.show('Ellen', 'Hello world, my name is Ellen!')" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/pianta" inclination="30" collisionmode="3d" onPicked="baloons.show('Ellen', 'Hello world, my name is Ellen!', 'ellen')" /></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
    </row>
    <row>
@@ -52,7 +52,7 @@
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
+		<tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
    </row>
    <row>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>

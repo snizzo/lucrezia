@@ -48,10 +48,18 @@ camdistance:    set camera distance from playable character
             GRASS:              <grass /> special grass object
             
 Events API:
-	    onWalked:           used for create the change Map events, must give the Map Name and the character position
+            onWalked:           used to create the change Map events, must give the Map Name and the character position
                                 "messenger.send('changeMap', ['MapName.map','PositionX,PositionY'])"
             onPicked:           used to trigger things that are close to the mai character and the player press action button
                                 (default: spacebar)
+                                
+Engine API:
+            baloons.show(speaker, text, id, speed)
+            shows a baloon with a message. Can feature speaker tag and animation speed.
+            speaker             that will say those words
+            text                message to be shown
+            id                  unique identification string
+            speed               animation speed at which the message will be shown
 	    
 	    
 	    

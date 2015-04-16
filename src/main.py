@@ -18,7 +18,7 @@ from extract.extract import ExtractTitle
 from configmanager.configmanager import ConfigManager
 from audio.audioManager import AudioManager
 from gui.menuParent import MainMenu
-from gui.baloon import BaloonManager
+from gui.baloonmanager import BaloonManager
 from camera.camera import CustomCamera
 from utils.fadeout import FadeOut
 from intro.intro import Intro
@@ -96,7 +96,7 @@ class MyApp(ShowBase):
         print r.getResource('misc/grass') # deve dire path assoluto = res/misc/grass.png
         """
         #f= FadeOut()
-        audioManager.playMusic("misc/crywolfstay.ogg")
+        #audioManager.playMusic("misc/crywolfstay.ogg")
         
         mainMenu.show()
         

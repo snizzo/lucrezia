@@ -1,11 +1,7 @@
 from pandac.PandaModules import *
 from direct.showbase.DirectObject import DirectObject
 from direct.gui.DirectGui import *
-#from pandac.PandaModules import TransparencyAttrib
-#from direct.task import Task
-#from direct.fsm import FSM
-#from panda3d.core import LVecBase4f, CardMaker, NodePath
-#Sequence
+from direct.task import Task
 from direct.interval.LerpInterval import LerpColorInterval
 from direct.interval.IntervalGlobal import *
 
@@ -17,42 +13,51 @@ from utils.misc import Misc
 import sys, os
 
 '''
-This class handles all baloons around the screen
+This class represent a single baloon, with text animation
 '''
-class BaloonManager(DirectObject):
-    def __init__(self):
-        print "new baloon spawned!"
+class Baloon(DirectObject):
+    def __init__(self, who, message, target, speed):
+        #text is in pure normal text
+        #owner is in 
+        self.pos = target.node.getPos()
+        self.who = who
+        self.message = list(message[::-1])
+        self.textapplied = []
+        self.startTime = 0.0
+        self.elapsedTime = 0.0
         
-        self.allBaloons = []
+        self.show()
     
-    def show(self, who, message):
-        print "attempt to show a baloon:"
-        print who
-        print message
+    def textAnimation(self):
+        taskMgr.doMethodLater(0.1, self.addLetter, 'showletters')
         
+    def addLetter(self, Task):
+        self.textapplied.append(self.message.pop())
+        self.text.setText(''.join(self.textapplied))
+        if not self.message:
+            return Task.done
+        else:
+            return Task.again
+    
+    def show(self):
+        print self.pos
         #text
-        text = TextNode('baloontextnode')
-        text.setTextColor(1, 1, 1, 1)
-        text.setWordwrap(15.0)
-        text.setText(message)
+        self.text = TextNode('baloontextnode')
+        self.text.setTextColor(1, 1, 1, 1)
+        self.text.setWordwrap(15.0)
         
         #card as background
-        text.setFrameColor(1, 1, 1, 1)
-        text.setFrameAsMargin(0.2, 0.2, 0.2, 0.1)
-        text.setCardColor(0,0,0,0.6)
-        text.setCardAsMargin(0.2, 0.2, 0.2, 0.1)
-        text.setCardDecal(True)
+        self.text.setFrameColor(0.7, 0.7, 0.7, 0.7)
+        self.text.setFrameAsMargin(0.4, 0.4, 0.4, 0.4)
+        self.text.setCardColor(0.5, 0.5, 0.5, 1)
+        self.text.setCardAsMargin(0.4, 0.4, 0.4, 0.4)
+        self.text.setCardDecal(True)
         
-        textnp = render.attachNewNode(text)
+        textnp = render.attachNewNode(self.text)
         textradius = textnp.getBounds().getRadius()/2
         textnp.setY(-0.5)
-        textnp.setScale(0.27)
+        textnp.setScale(0.37)
+        textnp.setPos(self.pos.getX(),-1,self.pos.getZ()+2)
+        textnp.setLightOff()
         
-        '''
-        #actually loading texture
-        tex = loader.loadTexture(resourceManager.getResource(name)+'.png')
-        tex.setWrapV(Texture.WM_clamp)
-        tex.setWrapU(Texture.WM_clamp)
-        '''
-        
-        #baloon.setTexture(tex)
+        self.textAnimation()

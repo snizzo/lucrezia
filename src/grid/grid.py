@@ -73,6 +73,13 @@ class Grid(DirectObject):
          Func(self.changedMap)
         ).start()
     
+    def getObjectsById(self, search):
+        l = self.node.findAllMatches("**/=id="+search)
+        s = []
+        for e in l:
+            s.append(e.getPythonTag("gamenode"))
+        return s
+    
     '''
     return the playable object of the game
     '''

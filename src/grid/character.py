@@ -114,7 +114,6 @@ class Character(DirectObject):
         #storing a pointer of the gamenode
         self.node.setPythonTag("gamenode", self)
         
-        
     def face(self, direction):
         if direction == "left":
             self.hideAllSubnodes()
@@ -356,8 +355,8 @@ class Character(DirectObject):
             self.pickCTrav.traverse(render)
         
         #entries python list
-        entries = self.collisionHandler.getEntries()
-        pickentries = self.pickCollisionHandler.getEntries()
+        entries = list(self.collisionHandler.getEntries())
+        pickentries = list(self.pickCollisionHandler.getEntries())
         
         for e in entries[:]:
             if e.getIntoNodePath().getName() == "characterPickTube":

@@ -29,6 +29,9 @@ class Tile:
         self.node = NodePath('tilenode')
         self.node.setTwoSided(True)
         
+        #storing gamenode address, mainly used for node searching
+        self.node.setPythonTag("gamenode", self)
+        
         #generating groundnode
         cm = CardMaker("tiletexture")
         cm.setFrame(0,1,0,1)
