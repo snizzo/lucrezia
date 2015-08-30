@@ -58,12 +58,6 @@ class Intro(DirectObject):
             Wait(1),
             f.fadeIn(2),
             Wait(2),
-            Func(self.showImage, "misc/crywolf.png"),
-            Wait(0.5),
-            f.fadeOut(2),
-            Wait(1),
-            f.fadeIn(2),
-            Wait(2),
             Func(self.clearAll),
             Func(mainMenu.show), #change this with a lucrezia apicall
             Wait(0.5),

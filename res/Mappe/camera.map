@@ -40,7 +40,7 @@
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/pianta" inclination="30" collisionmode="3d" onPicked="baloons.show('Ellen', 'Hello world, my name is Ellen!', 'ellen')" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/pianta" inclination="30" collisionmode="3d" onPicked="script.load('scripts/s01.py')" /></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
    </row>
    <row>

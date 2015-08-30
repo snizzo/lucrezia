@@ -22,6 +22,7 @@ from gui.baloonmanager import BaloonManager
 from camera.camera import CustomCamera
 from utils.fadeout import FadeOut
 from intro.intro import Intro
+from script.script import Script
 
 __builtin__.resourceManager = ResourceManager()
 __builtin__.configManager = ConfigManager()
@@ -71,6 +72,7 @@ class MyApp(ShowBase):
         #__builtin__.configManager = ConfigManager() 
         __builtin__.audioManager = AudioManager()
         __builtin__.customCamera = CustomCamera()
+        __builtin__.script = Script()
 
         # ===========================================
         #load the config class
@@ -91,7 +93,7 @@ class MyApp(ShowBase):
         lang = configManager.getData("LANGUAGE").lower()
         extract.extractTxt(lang)
         
-        """  
+        """
         r = ResourceManager()
         print r.getResource('misc/grass') # deve dire path assoluto = res/misc/grass.png
         """
@@ -100,11 +102,11 @@ class MyApp(ShowBase):
         
         mainMenu.show()
         
-        '''
+        
         #UNCOMMENT TO ENABLE INTRO
-        i = Intro()
-        i.start()
-        '''
+        #i = Intro()
+        #i.start()
+        
 
     def ping (self):
         print "main: PONG!"

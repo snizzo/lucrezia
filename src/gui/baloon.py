@@ -24,10 +24,6 @@ class Baloon(DirectObject):
         self.message = list(message[::-1])
         self.textapplied = [who,':\n']
         self.speed = speed
-        
-        self.show()
-        
-        self.requestPause()
     
     def requestPause(self):
         messenger.send("pauseGameplay");

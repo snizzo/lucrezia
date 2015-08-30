@@ -54,12 +54,12 @@ Events API:
                                 (default: spacebar)
                                 
 Engine API:
-            baloons.show(speaker, text, id, speed)
-            shows a baloon with a message. Can feature speaker tag and animation speed.
-            speaker             that will say those words
-            text                message to be shown
-            id                  unique identification string
-            speed               animation speed at which the message will be shown
+            baloons.push(speaker, text, id, speed)
+				shows a baloon with a message. Can feature speaker tag and animation speed.
+				speaker             that will say those words
+				text                message to be shown
+				id                  unique identification string
+				speed               animation speed at which the message will be shown
 	    
 	    
 	    
