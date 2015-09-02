@@ -20,6 +20,7 @@ import sys, os
 class BaloonManager(DirectObject):
     def __init__(self):
         self.lock = False
+        self.globalLock = False #very important for scripting engine
         self.queue = []
         
         self.accept("resumeGameplay", self.unlock)
@@ -31,9 +32,17 @@ class BaloonManager(DirectObject):
         for n in targetNodeList:
             b = Baloon(who, message, n, speed)
             self.queue.append(b)
-            
+            self.globalLock = True
+    
+    '''
+    Unlocks and broadcast singals across the engine
+    '''
     def unlock(self):
         self.lock = False
+        
+        #unlocking scripting engine
+        if len(self.queue) == 0:
+            self.globalLock = False
     
     ### DO RUN TASK
     def baloonTask(self, task):

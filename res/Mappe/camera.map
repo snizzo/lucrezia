@@ -12,7 +12,7 @@
     </row>
     <row>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /><light distance="1" color="255,150,10" attenuation="0.02" /><object url="sets/OggettiCamera/lampadone" inclination="6" collisionmode="3d" offsetvertical="0.1" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><light id="lamp1" on="false" distance="1" color="255,150,10" attenuation="0.02" /><object url="sets/OggettiCamera/lampadone" onPicked="script.load('scripts/lamp1.py')" inclination="6" collisionmode="3d" offsetvertical="0.1" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>

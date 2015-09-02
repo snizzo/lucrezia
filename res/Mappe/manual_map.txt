@@ -40,6 +40,8 @@ camdistance:    set camera distance from playable character
             avoidable:          can be "true" or "false" (default: "false"). Mark an object as intelligently avoidable when hitting just the corner
             
             LIGHT:              <light />
+            id:                 unique id
+            on:                 if light is on by default
             distance:           height from tile position
             color:              color expressed by an RGB string like "255,255,166"
             attenuation:        quadratic value at which light power decreases. Use very small values like 0.1, 0.05 or 0.2
@@ -53,13 +55,52 @@ Events API:
             onPicked:           used to trigger things that are close to the mai character and the player press action button
                                 (default: spacebar)
                                 
-Engine API:
+Scripting API:
+
+-----GENERAL SYNTAX
+
+            ###pause
+                requests a game engine pause to execute things like baloons and music etc.
+
+-----BROADCAST EVENTS
+            
+            messenger.send('changeMap', ['corridoio.map','3,1'])"
+                request a changemap with ['MapName.map','PositionX,PositionY']
+
+-----BALOONS
+
             baloons.push(speaker, text, id, speed)
 				shows a baloon with a message. Can feature speaker tag and animation speed.
 				speaker             that will say those words
 				text                message to be shown
 				id                  unique identification string
 				speed               animation speed at which the message will be shown
+
+-----LIGHTS
+            lamp.toggle()
+                realtime toggle
+            lamp.setOn()
+                realtime setting on
+            lamp.setOff()
+                realtime setting off
+
+-----AUDIO
+
+            audioManager.playMusic(resource_path)
+                plays background music in loop. Only one can be played at a time.
+            
+            audioManager.stopMusic()
+            
+            audioManager.playEffect(resource_path)
+                plays small sound effect without loop
+            
+            audioManager.playLongEffect(resource_path)
+                plays long sound effect on background (like rain or birds)
+            
+            audioManager.clearAllEffects()
+                auto called when changing map, clears all long effects playing
+            
+            
 	    
 	    
 	    

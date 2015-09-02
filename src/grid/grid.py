@@ -61,6 +61,7 @@ class Grid(DirectObject):
         if self.getPlayable() != None:
             self.getPlayable().setPlayable(False)
     
+    #apicall
     def changeMap(self, mapFile, position):
         f = FadeOut()
         
@@ -80,6 +81,12 @@ class Grid(DirectObject):
             s.append(e.getPythonTag("gamenode"))
         return s
     
+    def getObjectById(self, search):
+        l = self.node.findAllMatches("**/=id="+search)
+        if len(l) > 0:
+            s = l[0].getPythonTag("gamenode")
+        return s
+    
     '''
     return the playable object of the game
     '''
@@ -93,6 +100,10 @@ class Grid(DirectObject):
         #destroying every node
         for n in self.node.getChildren():
             n.removeNode()
+        
+        for c in self.characterset[:]:
+            c.destroy()
+            self.characterset.remove(c)
         
         tks = position.split(',')
         if len(tks) > 1:

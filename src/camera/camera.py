@@ -16,6 +16,7 @@ class CustomCamera(DirectObject):
     Set the object to follow
     '''
     def follow(self, obj):
+        self.dontFollow()
         if (obj != 0):
             self.obj = obj
             #storing for later use

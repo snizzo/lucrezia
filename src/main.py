@@ -32,7 +32,7 @@ __builtin__.configManager = ConfigManager()
 loadPrcFileData("","""
 gl-debug true
 fullscreen 0
-win-size 1366 768
+win-size 1920 1080
 text-encoding utf8
 show-frame-rate-meter 1
 sync-video #t

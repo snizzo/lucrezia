@@ -119,6 +119,19 @@ class Character(DirectObject):
         #storing a pointer of the gamenode
         self.node.setPythonTag("gamenode", self)
     
+    '''
+    write destroyfunction
+    '''
+    def destroy(self):
+        #not accepting events
+        self.ignoreAll()
+        #destroying everything down
+        self.node.remove_node()
+        #removing all tasks
+        if self.movtask != 0:
+            taskMgr.remove(self.movtask)
+            self.movtask = 0
+    
     def face(self, direction):
         if direction == "left":
             self.hideAllSubnodes()
@@ -158,6 +171,8 @@ class Character(DirectObject):
     #set if camera has to effectively follow the character
     #while it moves
     def setFollowedByCamera(self, value):
+        print "camera"
+        print value
         #camera follow
         if value:
             if self.currentlyfollowed!=True:
@@ -204,6 +219,7 @@ class Character(DirectObject):
     #used to set playability in real time
     #useful when we want to switch context/scripted scenes
     def setPlayable(self, value):
+        print "SETTING PLAYABLE"
         if value == True:
             #down events
             self.accept("arrow_left", self.arrowLeftDown)

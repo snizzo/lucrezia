@@ -50,6 +50,7 @@ class Baloon(DirectObject):
             return Task.again
     
     def show(self):
+        self.requestPause()
         
         #text
         self.textbg = TextNode('baloontextnodebg')
