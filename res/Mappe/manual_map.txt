@@ -36,6 +36,8 @@ camdistance:    set camera distance from playable character
             scale:              scale objects
             offsethorizontal:   place object horizontally pixel perfect
             offsetvertical:     place object vertically pixel perfect
+            offsetcollisionh:   place collision solid horizontally pixel perfect
+            offsetcollisionv:   place collision solid vertically pixel perfect
             collisionmode:      can be "3d" that let character go behind an object or "2d" for completely collide all image with very low inclination degrees
             avoidable:          can be "true" or "false" (default: "false"). Mark an object as intelligently avoidable when hitting just the corner
             

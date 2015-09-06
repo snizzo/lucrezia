@@ -48,7 +48,7 @@
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/letto" avoidable="true" inclination="2" offsetvertical="0.6"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/Esterno/barrel_and_bucket" offsetcollisionv="0.1" inclination="5" collisionmode="3d" scale="0.18" onPicked="baloons.push('Ellen', 'Chi ha messo una botte in mezzo alla stanza?', 'ellen')"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
@@ -60,7 +60,7 @@
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/piantina" inclination="2" offsetvertical="1" scale="0.5" elevation="0.1"/><object url="sets/OggettiCamera/comodino" inclination="2" offsetvertical="0.5" scale="0.8" /><object url="sets/OggettiCamera/moon" inclination="2" offsetvertical="1.9" offsethorizontal="-0.3" elevation="0.035"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><character id="chiara" url="lucrezia" inclination="5" scale="11" playable="false" hitboxscale="0.8" speed = "3" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/armadio" inclination="2" offsetvertical="0.5"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/armadio" inclination="2" offsetvertical="0.5"/></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>

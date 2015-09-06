@@ -68,6 +68,8 @@ class Grid(DirectObject):
         Sequence(
          Func(self.disablePlayable),
          f.fadeIn(1),
+         Func(audioManager.clearAllEffects),
+         Wait(1),
          Func(self.changeMapHelper, mapFile, position),
          Wait(1),
          f.fadeOut(1),
@@ -178,7 +180,7 @@ class Grid(DirectObject):
                                 c.setY(currenty)
                                 
                                 if res.attributes.has_key('playable'):
-                                    if res.attributes['playable'].value:
+                                    if c.isNPC!=False:
                                         if ((playable_pos.getX() != 0) and (playable_pos.getY() != 0)):
                                             print 'GRID: moving player to ' + str(playable_pos)
                                             c.setX(playable_pos.getX())

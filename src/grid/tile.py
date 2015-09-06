@@ -125,6 +125,16 @@ class Tile:
         else:
             offsethorizontal = 0.0
         
+        if attributes.has_key('offsetcollisionh'):
+            offsetcollisionh = float(attributes['offsetcollisionh'].value)
+        else:
+            offsetcollisionh = 0.0
+        
+        if attributes.has_key('offsetcollisionv'):
+            offsetcollisionv = float(attributes['offsetcollisionv'].value)
+        else:
+            offsetcollisionv = 0.0
+        
         if attributes.has_key('offsetvertical'):
             offsetvertical = float(attributes['offsetvertical'].value)
         else:
@@ -214,6 +224,8 @@ class Tile:
                 self.collisionNodeNp = self.node.attachNewNode(self.collisionNode)
                 self.collisionNodeNp.setX(offsethorizontal)
                 self.collisionNodeNp.setZ(offsetvertical)
+                self.collisionNodeNp.setX(self.collisionNodeNp.getX()+offsetcollisionh)
+                self.collisionNodeNp.setZ(self.collisionNodeNp.getZ()+offsetcollisionv)
                 
             elif collisionmode == "2d":
                 #must handle differently objects which are small and big
@@ -229,6 +241,8 @@ class Tile:
                 self.collisionNodeNp.setP(-(270-int(inclination)))
                 self.collisionNodeNp.setX(offsethorizontal)
                 self.collisionNodeNp.setZ(offsetvertical)
+                self.collisionNodeNp.setX(self.collisionNodeNp.getX()+offsetcollisionh)
+                self.collisionNodeNp.setZ(self.collisionNodeNp.getZ()+offsetcollisionv)
         
         geomnode = NodePath(cm.generate())
         if xscaled >= 1:

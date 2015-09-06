@@ -54,7 +54,10 @@ class Light():
         if ltype == 'point':
             self.plight = PointLight('plight')
             self.plight.setColor(realcolor)
-            self.plight.setAttenuation(attenuation)
+            if self.on == True:
+                self.plight.setAttenuation(attenuation)
+            else:
+                self.plight.setAttenuation(1.0)
             self.plnp = NodePath(self.plight)
             self.plnp.setPos(0.5, -distance, 0.5)
             #self.plnp.place()

@@ -45,10 +45,18 @@ class Character(DirectObject):
         else:
             self.speed = 1.0
         
+        #self.isNPC remains true while isPlayable is changable
         if attributes.has_key('playable'):
             self.playable = playable = attributes['playable'].value
+            if self.playable == 'false':                
+                self.isNPC = False
+                print "setting ", self.uid, " to ", self.isNPC
+            else:
+                self.isNPC = True
+                print "setting ", self.uid, " to ", self.isNPC
         else:
-            self.playable = playable = "false"
+            self.playable = playable = 'false'
+            self.isNPC = False
         
         if attributes.has_key('direction'):
             self.direction = attributes['direction'].value
@@ -103,6 +111,8 @@ class Character(DirectObject):
         else:
             self.setPlayable(False)
             self.node.setTag("playable", "false")
+            self.setCollisions(False)
+            self.setPickCollisions(False)
         
         #self.node.setX((-32/2)+0.5)
         self.node.setP(-(360-int(inclination)))
@@ -151,6 +161,7 @@ class Character(DirectObject):
             print "setting collisions"
             b = self.node.getBounds().getRadius()
             
+            print "INSTANTIATED"
             self.cTrav = CollisionTraverser()
             
             self.collisionTube = CollisionSphere(b/2,0,b/2,0.035*self.hitboxscale)
@@ -167,6 +178,12 @@ class Character(DirectObject):
                 # Uncomment this line to show a visual representation of the 
                 # collisions occuring
                 self.cTrav.showCollisions(render)
+        else:
+            b = self.node.getBounds().getRadius()
+            self.collisionTube = CollisionSphere(b/2,0,b/2,0.035*self.hitboxscale)
+            self.collisionNode = CollisionNode('characterTube')
+            self.collisionNode.addSolid(self.collisionTube)
+            self.collisionNodeNp = self.node.attachNewNode(self.collisionNode)
     
     #set if camera has to effectively follow the character
     #while it moves
@@ -220,27 +237,28 @@ class Character(DirectObject):
     #useful when we want to switch context/scripted scenes
     def setPlayable(self, value):
         print "SETTING PLAYABLE"
-        if value == True:
-            #down events
-            self.accept("arrow_left", self.arrowLeftDown)
-            self.accept("arrow_right", self.arrowRightDown)
-            self.accept("arrow_up", self.arrowUpDown)
-            self.accept("arrow_down", self.arrowDownDown)
-            #up events
-            self.accept("arrow_left-up", self.arrowLeftUp)
-            self.accept("arrow_right-up", self.arrowRightUp)
-            self.accept("arrow_up-up", self.arrowUpUp)
-            self.accept("arrow_down-up", self.arrowDownUp)
-            self.accept("space", self.spaceDown)
-            self.node.setTag("playable", "true")
-            self.setFollowedByCamera(True)
-            self.accept("pauseGameplay", self.setPlayable, [False]) #can pause play
-        else:
-            self.ignoreAll()
-            self.node.setTag("playable", "false")
-            self.setFollowedByCamera(False)
-            self.resetMovement() #reset every movement happening
-            self.accept("resumeGameplay", self.setPlayable, [True]) #can resume play
+        if self.isNPC != False:
+            if value == True:
+                #down events
+                self.accept("arrow_left", self.arrowLeftDown)
+                self.accept("arrow_right", self.arrowRightDown)
+                self.accept("arrow_up", self.arrowUpDown)
+                self.accept("arrow_down", self.arrowDownDown)
+                #up events
+                self.accept("arrow_left-up", self.arrowLeftUp)
+                self.accept("arrow_right-up", self.arrowRightUp)
+                self.accept("arrow_up-up", self.arrowUpUp)
+                self.accept("arrow_down-up", self.arrowDownUp)
+                self.accept("space", self.spaceDown)
+                self.node.setTag("playable", "true")
+                self.setFollowedByCamera(True)
+                self.accept("pauseGameplay", self.setPlayable, [False]) #can pause play
+            else:
+                self.ignoreAll()
+                self.node.setTag("playable", "false")
+                self.setFollowedByCamera(False)
+                self.resetMovement() #reset every movement happening
+                self.accept("resumeGameplay", self.setPlayable, [True]) #can resume play if not NPC
     
     def hideAllSubnodes(self):
         self.wtop.hide()

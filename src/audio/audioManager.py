@@ -45,6 +45,5 @@ class AudioManager(DirectObject):
     def clearAllEffects(self):
         for e in self.effects[:]:
             e.stop()
-            e.remove_node()
             self.effects.remove(e)
     
