@@ -2,6 +2,7 @@ DATA:           <data> defined map data
 tilesize:       set the size of ground images
 showcollisions: set if collisions can be che seen visually ("true" or "false")
 camdistance:    set camera distance from playable character
+onLoad:         apicall that defines a script to be called right after map is loaded
 
     ROW:        <row> starts a grid row
     

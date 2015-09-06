@@ -118,6 +118,9 @@ class Grid(DirectObject):
         
         self.loadMap(resourceManager.getResource('Mappe/'+mapFile),LPoint2i(x,y))
         self.getPlayable().setFollowedByCamera(True)
+        
+        if self.loadScript != False:
+            eval(self.loadScript)
     
     def loadMap(self,file,playable_pos=LPoint2i(0,0)):
         xmldoc = minidom.parse(file)
@@ -134,6 +137,11 @@ class Grid(DirectObject):
                         self.showCollisions = True
                 if d.attributes.has_key('camdistance'):
                     customCamera.setDistance(float(d.attributes['camdistance'].value))
+                if d.attributes.has_key('onLoad'):
+                    self.loadScript = d.attributes['onLoad'].value
+                else:
+                    self.loadScript = False
+
         
         rowsdata = xmldoc.getElementsByTagName('row')
         
