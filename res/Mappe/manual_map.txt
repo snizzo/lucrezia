@@ -107,7 +107,14 @@ Scripting API:
             audioManager.clearAllEffects()
                 auto called when changing map, clears all long effects playing
             
+------PERSISTENCE
             
+            persistence.save(key, value)
+                save a variable named <key> with <value> cross levels
+            persistence.load(key)
+                get a variable value with <key>
+            persistence.del(key)
+                delete a variable with <key>
 	    
 	    
 	    

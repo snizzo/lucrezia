@@ -32,14 +32,16 @@ class AudioManager(DirectObject):
         effect.play()
         
     #apicall
-    #name unused: fix this
     def playLongEffect(self, name, effect):
-        path = resourceManager.getResource(effect)
-        effect = base.loader.loadSfx(path)
-        effect.setVolume(1)
-        effect.setLoop(True)
-        self.effects[name] = effect
-        effect.play()
+        if self.effects.has_key(name) == False:
+            path = resourceManager.getResource(effect)
+            effect = base.loader.loadSfx(path)
+            effect.setVolume(1)
+            effect.setLoop(True)
+            self.effects[name] = effect
+            effect.play()
+        else:
+            print "AUDIOMANAGER: you have to stop", name, " long effect before spawning a new one!"
     
     #apicall
     def stopLongEffect(self, name):

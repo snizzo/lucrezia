@@ -23,6 +23,7 @@ from camera.camera import CustomCamera
 from utils.fadeout import FadeOut
 from intro.intro import Intro
 from script.script import Script
+from persistence.persistence import Persistence
 
 __builtin__.resourceManager = ResourceManager()
 __builtin__.configManager = ConfigManager()
@@ -73,6 +74,7 @@ class MyApp(ShowBase):
         __builtin__.audioManager = AudioManager()
         __builtin__.customCamera = CustomCamera()
         __builtin__.script = Script()
+        __builtin__.persistence = Persistence()
 
         # ===========================================
         #load the config class
