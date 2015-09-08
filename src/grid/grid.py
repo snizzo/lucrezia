@@ -50,6 +50,8 @@ class Grid(DirectObject):
         #automatic methods
         #self.generateEmptyTileset(20,20)
         #self.mergeMeshes()
+        self.unloadScript = False
+        self.loadScript = False
         
         self.acceptOnce("changeMap", self.changeMap)
     
@@ -68,8 +70,6 @@ class Grid(DirectObject):
         Sequence(
          Func(self.disablePlayable),
          f.fadeIn(1),
-         Func(audioManager.clearAllEffects),
-         Wait(1),
          Func(self.changeMapHelper, mapFile, position),
          Wait(1),
          f.fadeOut(1),
@@ -96,6 +96,10 @@ class Grid(DirectObject):
         return self.node.find("**/=playable=true").getPythonTag("gamenode")
     
     def changeMapHelper(self, mapFile, position):
+        #executing code before killing the map
+        if self.unloadScript != False:
+            eval(self.unloadScript)
+        
         #disabling all lights
         render.setLightOff()
         
@@ -130,17 +134,28 @@ class Grid(DirectObject):
             if d.attributes > 0:
                 if d.attributes.has_key('tilesize'):
                     self.tileDimension = float(d.attributes['tilesize'].value)
+                else:
+                    self.tileDimension = 32.0
                 if d.attributes.has_key('showcollisions'):
                     if d.attributes['showcollisions'].value == 'false':
                         self.showCollisions = False
                     else:
                         self.showCollisions = True
+                else:
+                    self.showCollisions = False
                 if d.attributes.has_key('camdistance'):
                     customCamera.setDistance(float(d.attributes['camdistance'].value))
+                else:
+                    customCamera.setDistance(15)
                 if d.attributes.has_key('onLoad'):
                     self.loadScript = d.attributes['onLoad'].value
                 else:
                     self.loadScript = False
+                    
+                if d.attributes.has_key('onUnload'):
+                    self.unloadScript = d.attributes['onUnload'].value
+                else:
+                    self.unloadScript = False
 
         
         rowsdata = xmldoc.getElementsByTagName('row')

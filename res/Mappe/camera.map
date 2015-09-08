@@ -1,4 +1,4 @@
-<data tilesize="32.0" showcollisions="false" camdistance="15.0" onLoad="audioManager.playLongEffect('rain_indoor', 'sfx/rain_indoor.ogg')">
+<data tilesize="32.0" showcollisions="false" camdistance="15.0" onLoad="audioManager.playLongEffect('rain', 'sfx/rain_indoor.ogg')">
     <row>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>

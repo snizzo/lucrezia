@@ -7,7 +7,7 @@ class AudioManager(DirectObject):
         self.mySound = False
         
         #for long effects
-        self.effects = []
+        self.effects = {}
         
     #apicall
     def playMusic(self, bgmusic):
@@ -38,8 +38,14 @@ class AudioManager(DirectObject):
         effect = base.loader.loadSfx(path)
         effect.setVolume(1)
         effect.setLoop(True)
-        self.effects.append(effect)
+        self.effects[name] = effect
         effect.play()
+    
+    #apicall
+    def stopLongEffect(self, name):
+        if self.effects.has_key(name):
+            self.effects[name].stop()
+            del self.effects[name]
     
     #apicall
     def clearAllEffects(self):

@@ -3,6 +3,7 @@ tilesize:       set the size of ground images
 showcollisions: set if collisions can be che seen visually ("true" or "false")
 camdistance:    set camera distance from playable character
 onLoad:         apicall that defines a script to be called right after map is loaded
+onUnload:       apicall that defines a script to be called right before the map is changed
 
     ROW:        <row> starts a grid row
     
@@ -97,8 +98,11 @@ Scripting API:
             audioManager.playEffect(resource_path)
                 plays small sound effect without loop
             
-            audioManager.playLongEffect(resource_path)
+            audioManager.playLongEffect(name, resource_path)
                 plays long sound effect on background (like rain or birds)
+            
+            audioManager.stopLongEffect(name)
+                stops and delete long effect based on name
             
             audioManager.clearAllEffects()
                 auto called when changing map, clears all long effects playing
