@@ -17,39 +17,44 @@ onUnload:       apicall that defines a script to be called right before the map 
             
             
             CHARACTER           <character /> represents a character playable in the game or an NPC
-            id:                 unique identification string
-            url:                url of resource
-            inclination:        inclination of character
-            scale:              scale character
-            playable:           defines if character is playable or not in an exact moment
-            hitboxscale:        defines the character collision
-            direction:          can be "left" "right" "top" "down"
+                
+                PROPERTIES:
+                id:                 unique identification string
+                url:                url of resource
+                inclination:        inclination of character
+                scale:              scale character
+                playable:           defines if character is playable or not in an exact moment
+                hitboxscale:        defines the character collision
+                direction:          can be "left" "right" "top" "down"
+                
+                APICALLS:
+                npc_push_walk(direction, unit): "up", "down", "left", "right", and units in integer as a tile
             
             
             
             OBJECT:             <object /> normal object in world, has collisions
-            id:                 unique identification string
-            url:                url of the resource found by the resourcemanager
-            walkable:           set if object can be walkable ("true" or "false", default: false)
-            inclination:        inclination of object
-            offsetwidth:        used to stretch collisions in 3d mode horizontally
-            offsetheight:       used to stretch collisions in 3d mode vertically
-            elevation:          set manually elevation of object
-            scale:              scale objects
-            offsethorizontal:   place object horizontally pixel perfect
-            offsetvertical:     place object vertically pixel perfect
-            offsetcollisionh:   place collision solid horizontally pixel perfect
-            offsetcollisionv:   place collision solid vertically pixel perfect
-            collisionmode:      can be "3d" that let character go behind an object or "2d" for completely collide all image with very low inclination degrees
-            avoidable:          can be "true" or "false" (default: "false"). Mark an object as intelligently avoidable when hitting just the corner
+                id:                 unique identification string
+                url:                url of the resource found by the resourcemanager
+                walkable:           set if object can be walkable ("true" or "false", default: false)
+                inclination:        inclination of object
+                offsetwidth:        used to stretch collisions in 3d mode horizontally
+                offsetheight:       used to stretch collisions in 3d mode vertically
+                elevation:          set manually elevation of object
+                scale:              scale objects
+                offsethorizontal:   place object horizontally pixel perfect
+                offsetvertical:     place object vertically pixel perfect
+                offsetcollisionh:   place collision solid horizontally pixel perfect
+                offsetcollisionv:   place collision solid vertically pixel perfect
+                collisionmode:      can be "3d" that let character go behind an object or "2d" for completely collide all image with very low inclination degrees
+                avoidable:          can be "true" or "false" (default: "false"). Mark an object as intelligently avoidable when hitting just the corner
             
             LIGHT:              <light />
-            id:                 unique id
-            on:                 if light is on by default
-            distance:           height from tile position
-            color:              color expressed by an RGB string like "255,255,166"
-            attenuation:        quadratic value at which light power decreases. Use very small values like 0.1, 0.05 or 0.2
-            type:               type of light used. can be "point" or "spot"
+                id:                 unique id
+                on:                 if light is on by default
+                distance:           height from tile position
+                color:              color expressed by an RGB string like "255,255,166"
+                attenuation:        quadratic value at which light power decreases. Use very small values like 0.1, 0.05 or 0.2
+                type:               type of light used. can be "point" or "spot"
             
             GRASS:              <grass /> special grass object
             
@@ -70,6 +75,12 @@ Scripting API:
             
             messenger.send('changeMap', ['corridoio.map','3,1'])"
                 request a changemap with ['MapName.map','PositionX,PositionY']
+
+-----SELECTORS
+            pGrid.getObjectById(id)
+                where id is a string. In case of multiple occurences, the first is returned
+            pGrid.getObjectsById(id)
+                where id is a string. Return a list of occurences. In case of single occurence, a list with one element is returned
 
 -----BALOONS
 
@@ -115,9 +126,6 @@ Scripting API:
                 get a variable value with <key>
             persistence.del(key)
                 delete a variable with <key>
-	    
-	    
-	    
 	    
 	    
 	    
