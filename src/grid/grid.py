@@ -71,7 +71,7 @@ class Grid(DirectObject):
          Func(self.disablePlayable),
          f.fadeIn(1),
          Func(self.changeMapHelper, mapFile, position),
-         Wait(1),
+         Wait(3),
          f.fadeOut(1),
          Func(self.changedMap)
         ).start()

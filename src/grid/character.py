@@ -80,14 +80,14 @@ class Character(DirectObject):
         self.node = NodePath("characternode")
         self.node.setTwoSided(True)
         
-        self.wtop = loader.loadModel(resourceManager.getResource(name)+'/wtop.egg')
-        self.wdown = loader.loadModel(resourceManager.getResource(name)+'/wdown.egg')
-        self.wleft = loader.loadModel(resourceManager.getResource(name)+'/wleft.egg')
-        self.wright = loader.loadModel(resourceManager.getResource(name)+'/wright.egg')
-        self.stop = loader.loadModel(resourceManager.getResource(name)+'/stop.egg')
-        self.sdown = loader.loadModel(resourceManager.getResource(name)+'/sdown.egg')
-        self.sleft = loader.loadModel(resourceManager.getResource(name)+'/sleft.egg')
-        self.sright = loader.loadModel(resourceManager.getResource(name)+'/sright.egg')
+        self.wtop = loader.loadModel(resourceManager.getResource(name)+'/wtop.bam')
+        self.wdown = loader.loadModel(resourceManager.getResource(name)+'/wdown.bam')
+        self.wleft = loader.loadModel(resourceManager.getResource(name)+'/wleft.bam')
+        self.wright = loader.loadModel(resourceManager.getResource(name)+'/wright.bam')
+        self.stop = loader.loadModel(resourceManager.getResource(name)+'/stop.bam')
+        self.sdown = loader.loadModel(resourceManager.getResource(name)+'/sdown.bam')
+        self.sleft = loader.loadModel(resourceManager.getResource(name)+'/sleft.bam')
+        self.sright = loader.loadModel(resourceManager.getResource(name)+'/sright.bam')
         
         self.wtop.reparentTo(self.node)
         self.wdown.reparentTo(self.node)
@@ -121,13 +121,110 @@ class Character(DirectObject):
         
         self.lastpos = self.node.getPos()
         
-        self.face(self.direction)
+        self.showAllSubnodes()
+        
+        taskMgr.doMethodLater(4, self.face, 'charload'+self.uid, [self.direction])
+        #self.face(self.direction)
         
         #set unique id
         self.node.setTag("id", self.uid)
         
         #storing a pointer of the gamenode
         self.node.setPythonTag("gamenode", self)
+        
+        self.npc_walk_stack = []
+        self.npc_walk_happening = False
+        self.globalLock = False
+    
+    '''
+    make the npc walk in direction for units
+    '''
+    def npc_push_walk(self, direction, units):
+        #locking script execution
+        self.globalLock = True
+        script.addOneCustomLock(self)
+        
+        #start the walking
+        self.npc_walk_stack.append([direction, units])
+        self.npc_walk_helper()
+        
+    #apicall
+    def npc_walk_helper(self):
+        x = self.node.getX()
+        y = self.node.getZ()
+        
+        #concurrent protection
+        if self.npc_walk_happening == True:
+            return
+        
+        #returning if no movement has to be performed
+        if len(self.npc_walk_stack) < 0:
+            return
+        
+        movement = self.npc_walk_stack.pop(0)
+        
+        direction = movement[0]
+        units = movement[1]
+        
+        self.npc_targetx = x
+        self.npc_targety = y
+        self.npc_direction = direction
+        
+        if(direction=="down"):
+            self.npc_targety = self.npc_targety - units
+        elif(direction=="up"):
+            self.npc_targety = self.npc_targety + units
+        elif(direction=="left"):
+            self.npc_targetx = self.npc_targetx - units
+        elif(direction=="right"):
+            self.npc_targetx = self.npc_targetx + units
+        
+        self.setAnim(direction)
+        
+        self.npc_walk_happening = True
+        self.npc_movtask = taskMgr.add(self.npc_walk_task, "npc_moveCharacterTask"+self.uid, uponDeath=self.npc_walk_callback)
+    
+    def npc_walk_task(self, task):
+        dt = globalClock.getDt()
+        
+        if(self.npc_direction=='left'):
+            self.node.setX(self.node.getX()-1*dt*self.speed)
+            currentx = self.node.getX()
+            
+            if currentx <= self.npc_targetx:
+                return task.done
+        if(self.npc_direction=='right'):
+            self.node.setX(self.node.getX()+1*dt*self.speed)
+            currentx = self.node.getX()
+            
+            if currentx >= self.npc_targetx:
+                return task.done
+        if(self.npc_direction=='up'):
+            self.node.setZ(self.node.getZ()+1*dt*self.speed)
+            currenty = self.node.getZ()
+            
+            if currenty <= self.npc_targety:
+                return task.done
+        if(self.npc_direction=='down'):
+            self.node.setZ(self.node.getZ()-1*dt*self.speed)
+            currenty = self.node.getZ()
+            
+            if currenty <= self.npc_targety:
+                return task.done
+        
+        return task.cont
+    
+    def npc_walk_callback(self, task):
+        self.face(self.npc_direction)
+        
+        #unlocking concurrent movement protection
+        self.npc_walk_happening = False
+        
+        if len(self.npc_walk_stack) > 0:
+            self.npc_walk_helper()
+        else: #character ended walking, unlock
+            self.globalLock = False
+            
     
     '''
     write destroyfunction
@@ -149,7 +246,7 @@ class Character(DirectObject):
         if direction == "right":
             self.hideAllSubnodes()
             self.sright.show()
-        if direction == "top":
+        if direction == "top" or direction == "up": #let's keep retrocompatibility
             self.hideAllSubnodes()
             self.stop.show()
         if direction == "down":
@@ -260,6 +357,18 @@ class Character(DirectObject):
                 self.resetMovement() #reset every movement happening
                 self.accept("resumeGameplay", self.setPlayable, [True]) #can resume play if not NPC
     
+    #estimate loading time 4 seconds... lol...
+    def showAllSubnodes(self):
+        self.wtop.show()
+        self.wdown.show()
+        self.wleft.show()
+        self.wright.show()
+        self.stop.show()
+        self.sdown.show()
+        self.sleft.show()
+        self.sright.show()
+        
+    
     def hideAllSubnodes(self):
         self.wtop.hide()
         self.wdown.hide()
@@ -302,17 +411,27 @@ class Character(DirectObject):
         
         self.setMovement(False)
     
-    def setAnim(self):
+    def setAnim(self, direction=''):
         self.hideAllSubnodes()
         
-        if len(self.currentlydown) > 0:
-            if self.currentlydown[-1] == 'left':
+        if direction=='':        
+            if len(self.currentlydown) > 0:
+                if self.currentlydown[-1] == 'left':
+                    self.wleft.show()
+                if self.currentlydown[-1] == 'right':
+                    self.wright.show()
+                if self.currentlydown[-1] == 'top':
+                    self.wtop.show()
+                if self.currentlydown[-1] == 'down':
+                    self.wdown.show()
+        else:
+            if direction=='left':
                 self.wleft.show()
-            if self.currentlydown[-1] == 'right':
+            if direction=='right':
                 self.wright.show()
-            if self.currentlydown[-1] == 'top':
+            if direction=='up':
                 self.wtop.show()
-            if self.currentlydown[-1] == 'down':
+            if direction=='down':
                 self.wdown.show()
     
     #pick request function
