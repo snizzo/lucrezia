@@ -1,4 +1,4 @@
-<data tilesize="32.0" showcollisions="false" camdistance="15.0" onLoad="script.load('scripts/onCameraLoad.py')">
+<data tilesize="32.0" showcollisions="true" camdistance="15.0" onLoad="script.load('scripts/onCameraLoad.py')">
     <row>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>

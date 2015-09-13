@@ -25,7 +25,7 @@ class MainMenu(DirectObject):
          f.fadeIn(1),
          Func(self.hideAll),
          Func(self.loadNewLevel),
-         f.fadeOut(1)
+         f.fadeOut(2)
         ).start()
     
     def loadNewLevel(self):
@@ -66,7 +66,6 @@ class MainMenu(DirectObject):
             self.ignoreAll()
         
     def enterDown(self):
-        print("ENTER")
         self.generateWorld()
         
 

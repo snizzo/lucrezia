@@ -1,4 +1,5 @@
 from direct.showbase.DirectObject import DirectObject
+from direct.interval.LerpInterval import LerpFunc
 
 class AudioManager(DirectObject):
     def __init__ (self):
@@ -20,8 +21,20 @@ class AudioManager(DirectObject):
         self.mySound.play()
         self.isPlaying = True
     
-    def stopMusic(self):
+    '''stop music fading in given time'''
+    def stopMusic(self, time):
         if(self.isPlaying):
+            i = LerpFunc(self.stopMusicLerp,
+             fromData=1,
+             toData=0,
+             duration=time,
+             blendType='noBlend',
+             extraArgs=[],
+             name=None).start()
+    
+    def stopMusicLerp(self, t):
+        self.mySound.setVolume(t)
+        if t==0:
             self.mySound.stop()
     
     #apicall
@@ -32,16 +45,30 @@ class AudioManager(DirectObject):
         effect.play()
         
     #apicall
-    def playLongEffect(self, name, effect):
+    def playLongEffect(self, name, effect, time=2):
         if self.effects.has_key(name) == False:
             path = resourceManager.getResource(effect)
             effect = base.loader.loadSfx(path)
-            effect.setVolume(1)
+            effect.setVolume(0)
             effect.setLoop(True)
             self.effects[name] = effect
             effect.play()
+            
+            i = LerpFunc(self.playLongEffectLerp,
+             fromData=0,
+             toData=1,
+             duration=time,
+             blendType='noBlend',
+             extraArgs=[effect],
+             name=None).start()
+            
         else:
             print "AUDIOMANAGER: you have to stop", name, " long effect before spawning a new one!"
+    
+    def playLongEffectLerp(self, t, effect):
+        effect.setVolume(t)
+        
+        
     
     #apicall
     def stopLongEffect(self, name):

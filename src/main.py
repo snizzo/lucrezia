@@ -99,15 +99,13 @@ class MyApp(ShowBase):
         r = ResourceManager()
         print r.getResource('misc/grass') # deve dire path assoluto = res/misc/grass.png
         """
-        #f= FadeOut()
-        #audioManager.playMusic("misc/crywolfstay.ogg")
         
         mainMenu.show()
         
         
         #UNCOMMENT TO ENABLE INTRO
-        #i = Intro()
-        #i.start()
+        i = Intro()
+        i.start()
         
 
     def ping (self):

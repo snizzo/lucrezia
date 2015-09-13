@@ -152,8 +152,10 @@ class MainMenu(Menu):
     
     #override
     def close(self):
+        audioManager.stopMusic(4)
         Sequence(
+            Wait(5),
             Func(messenger.send, 'changeMap', ['camera.map','4,1']), #using map api to change map
-            Wait(1),
+            Wait(2),
             Func(Menu.close, self)
             ).start()
