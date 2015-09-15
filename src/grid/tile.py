@@ -28,6 +28,7 @@ class Tile:
         
         self.node = NodePath('tilenode')
         self.node.setTwoSided(True)
+        self.onPicked = ''
         
         #storing gamenode address, mainly used for node searching
         self.node.setPythonTag("gamenode", self)
@@ -44,10 +45,10 @@ class Tile:
     #use just to paint the world basicly. Use addObject for every object that has to do with collision etc
     def addTexture(self, attributes):
         if attributes.has_key('url'):
-            name = attributes['url'].value
+            self.name = name = attributes['url'].value
         else:
             print "WARNING: url not defined, loading placeholder"
-            name = 'misc/placeholder'
+            self.name = name = 'misc/placeholder'
         
         if attributes.has_key('onWalked'):
             self.onWalked = attributes['onWalked'].value
@@ -55,9 +56,8 @@ class Tile:
             self.onWalked = ""
         
         if attributes.has_key('onPicked'):
-            self.onPicked = attributes['onPicked'].value
-        else:
-            self.onPicked = ""
+            if self.onPicked == '':
+                self.onPicked = attributes['onPicked'].value
         
         if attributes.has_key('walkable'):
             if attributes['walkable'].value == "true":
@@ -95,10 +95,10 @@ class Tile:
         #manage attributes directly in object creation,
         #this was many attributes are not mandatory
         if attributes.has_key('url'):
-            name = attributes['url'].value
+            self.name = name = attributes['url'].value
         else:
             print "WARNING: url not defined, loading placeholder"
-            name = 'misc/placeholder'
+            self.name = name = 'misc/placeholder'
         
         if attributes.has_key('id'):
             self.uid = attributes['id'].value
@@ -156,9 +156,8 @@ class Tile:
             self.onWalked = ""
         
         if attributes.has_key('onPicked'):
-            self.onPicked = attributes['onPicked'].value
-        else:
-            self.onPicked = ""
+            if self.onPicked == '':
+                self.onPicked = attributes['onPicked'].value
         
         if attributes.has_key('collisionmode'):
             collisionmode = attributes['collisionmode'].value

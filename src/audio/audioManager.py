@@ -49,7 +49,7 @@ class AudioManager(DirectObject):
         if self.effects.has_key(name) == False:
             path = resourceManager.getResource(effect)
             effect = base.loader.loadSfx(path)
-            effect.setVolume(0)
+            effect.setVolume(0.01)
             effect.setLoop(True)
             self.effects[name] = effect
             effect.play()

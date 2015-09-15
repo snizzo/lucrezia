@@ -128,5 +128,12 @@ Scripting API:
             persistence.del(key)
                 delete a variable with <key>
 	    
-	    
+
+SNIPPETS:
+baloons.push('Chiara', 'Ehi! Non toccare la mia pianta!', 'chiara')
+audioManager.playLongEffect('rain', 'sfx/rain_indoor.ogg')
+lamp = pGrid.getObjectById("lamp1")
+if persistence.load("cameraState") == 1:
+persistence.save("cameraState", 1)
+chiara.npc_push_walk("right", 1)
 	    

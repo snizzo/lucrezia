@@ -333,7 +333,6 @@ class Character(DirectObject):
     #used to set playability in real time
     #useful when we want to switch context/scripted scenes
     def setPlayable(self, value):
-        print "SETTING PLAYABLE"
         if self.isNPC != False:
             if value == True:
                 #down events
@@ -595,7 +594,10 @@ class Character(DirectObject):
                 if len(onPicked)>0:
                     eval(onPicked) #oh lol, danger detected again here
                 else:
-                    print "WARNING: picking on this object is not defined"
+                    if hasattr(objectNode.getPythonTag('gamenode'), 'name'):
+                        print "WARNING: picking on this object is not defined: ", objectNode.getPythonTag('gamenode').name
+                        print "X: ",objectNode.getX()
+                        print "Y: ",objectNode.getZ()
         
         #this is needed for empty pick
         if self.pickRequest == True:

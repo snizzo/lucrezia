@@ -51,12 +51,18 @@ class Intro(DirectObject):
         f = FadeOut()
         
         Sequence(
+            Wait(2),
             Func(audioManager.playMusic, "soundtrack/falling_apart.ogg"),
             f.fadeIn(2),
             Wait(2),
             Func(self.showImage, "misc/reavsoft.png"),
             f.fadeOut(2),
-            Wait(1),
+            Wait(4),
+            f.fadeIn(2),
+            Wait(2),
+            Func(self.showImage, "misc/lucas.png"),
+            f.fadeOut(2),
+            Wait(4),
             f.fadeIn(2),
             Wait(2),
             Func(self.clearAll),

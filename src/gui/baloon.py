@@ -25,6 +25,11 @@ class Baloon(DirectObject):
         self.textapplied = [who,':\n']
         self.speed = speed
         
+        '''
+        for i in range(len(self.message)):
+            self.textapplied.append(' ')
+        '''
+        
         #good default?
         self.openCloseSpeed = 0.2
     
