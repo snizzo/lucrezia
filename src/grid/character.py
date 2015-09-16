@@ -56,7 +56,7 @@ class Character(DirectObject):
                 print "setting ", self.uid, " to ", self.isNPC
         else:
             self.playable = playable = 'false'
-            self.isNPC = False
+            self.isNPC = True
         
         if attributes.has_key('direction'):
             self.direction = attributes['direction'].value
@@ -278,7 +278,13 @@ class Character(DirectObject):
         else:
             b = self.node.getBounds().getRadius()
             self.collisionTube = CollisionSphere(b/2,0,b/2,0.035*self.hitboxscale)
-            self.collisionNode = CollisionNode('characterTube')
+            
+            #allowing playables to collide with npcs
+            if self.isNPC == True: #TODO: fix because it's completely fucked up
+                self.collisionNode = CollisionNode('characterTube')
+            else:
+                self.collisionNode = CollisionNode('characterNPCTube')
+            
             self.collisionNode.addSolid(self.collisionTube)
             self.collisionNodeNp = self.node.attachNewNode(self.collisionNode)
     

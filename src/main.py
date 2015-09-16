@@ -32,7 +32,7 @@ __builtin__.configManager = ConfigManager()
 #fullscreen e grandezza finestra
 loadPrcFileData("","""
 gl-debug true
-fullscreen 1
+fullscreen 0
 win-size 1920 1080
 text-encoding utf8
 show-frame-rate-meter 1
@@ -104,8 +104,8 @@ class MyApp(ShowBase):
         
         
         #UNCOMMENT TO ENABLE INTRO
-        i = Intro()
-        i.start()
+        #i = Intro()
+        #i.start()
         
 
     def ping (self):
