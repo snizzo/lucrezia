@@ -10,7 +10,7 @@
     </row>
     <row>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/lavandini" inclination="5" collisionmode="3d" offsetheight="0.4" /><object url="sets/OggettiCamera/boccio" inclination="5" offsetvertical="0.55" scale="0.4" elevation="0.1" walkable="true" offsethorizontal="-0.3" /><object url="sets/OggettiCamera/saponetta" inclination="5" offsethorizontal="-0.3" offsetvertical="0.65" scale="0.4" elevation="0.1" walkable="true" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/lavandini" onPicked="script.load('scripts/bagno/lavandino.py')" inclination="5" collisionmode="3d" offsetheight="0.4" /><object url="sets/OggettiCamera/boccio" inclination="5" offsetvertical="0.55" scale="0.4" elevation="0.1" walkable="true" offsethorizontal="-0.3" /><object url="sets/OggettiCamera/saponetta" inclination="5" offsethorizontal="-0.3" offsetvertical="0.65" scale="0.4" elevation="0.1" walkable="true" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /><object url="sets/OggettiCamera/sapone" inclination="5" offsetvertical="0.63" scale="0.4" elevation="0.1" walkable="true" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /></tile>
         <tile><ground url="sets/OggettiCamera/pavbagno" /><character url="lucrezia" inclination="5" scale="11" playable="true" hitboxscale="0.8" speed = "5" /></tile>

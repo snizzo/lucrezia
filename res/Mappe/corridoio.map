@@ -1,4 +1,4 @@
-<data tilesize="32.0" showcollisions="false" camdistance="15.0">
+<data tilesize="32.0" showcollisions="false" camdistance="25.0">
     <row>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
@@ -28,7 +28,7 @@
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/pavimento" inclination="0" elevation="0.0002" offsetvertical="-0.25" walkable="true" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /><character url="lucrezia" inclination="5" scale="11" playable="true" speed = "5" hitboxscale="0.8"/></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><character id="ellen" url="lucrezia" inclination="5" scale="11" playable="true" speed = "3" hitboxscale="0.8"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><light distance="1" color="255,150,10" attenuation="0.02" /><object url="sets/OggettiCamera/lampadone" inclination="6" collisionmode="3d"/></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
@@ -54,16 +54,16 @@
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" walkable="collide" onWalked="script.load('scripts/corridoio/corridoio1.py')" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" walkable="collide" onWalked="script.load('scripts/corridoio/corridoio2.py')" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" walkable="collide" onWalked="script.load('scripts/corridoio/corridoio3.py')" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
@@ -78,16 +78,16 @@
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" walkable="collide" onWalked="script.load('scripts/corridoio/corridoio1.py')" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" walkable="collide" onWalked="script.load('scripts/corridoio/corridoio2.py')" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" walkable="collide" onWalked="script.load('scripts/corridoio/corridoio3.py')" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>

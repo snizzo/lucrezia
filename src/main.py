@@ -106,6 +106,7 @@ class MyApp(ShowBase):
         #UNCOMMENT TO ENABLE INTRO
         #i = Intro()
         #i.start()
+        persistence.save("gameState", 3)
         
 
     def ping (self):

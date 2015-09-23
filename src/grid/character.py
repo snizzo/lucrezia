@@ -557,9 +557,15 @@ class Character(DirectObject):
         if len(entries) == 0:
             self.lastpos = self.node.getPos()
         else:
-            self.node.setPos(self.lastpos)
             sp = entries[0].getSurfacePoint(self.node) #surface point
             objectNode = entries[0].getIntoNodePath().getParent() #into object node
+            groundNode = entries[0].getIntoNodePath() #into object node
+            
+            if objectNode.hasTag("collideandwalk"):
+                if objectNode.getTag("collideandwalk") != "yes":
+                    self.node.setPos(self.lastpos)
+            else:
+                self.node.setPos(self.lastpos)
             
             #if node is a real object (not a wall)
             if objectNode.hasTag("avoidable"):

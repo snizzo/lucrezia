@@ -64,12 +64,16 @@ class Tile:
                 self.walkable = True
             else:
                 self.walkable = False
+                self.groundnode.setTag("collideandwalk", "no")
+            if attributes['walkable'].value == "collide":
+                self.walkable = False
+                self.groundnode.setTag("collideandwalk", "yes")
         else:
             self.walkable = True
         
         #setting scripting part
-        self.node.setTag("onWalked", self.onWalked)
-        self.node.setTag("onPicked", self.onPicked)
+        self.groundnode.setTag("onWalked", self.onWalked)
+        self.groundnode.setTag("onPicked", self.onPicked)
         
         #setting walkable or not
         self.setWalkable(self.walkable)
