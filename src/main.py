@@ -33,7 +33,7 @@ __builtin__.configManager = ConfigManager()
 loadPrcFileData("","""
 gl-debug true
 fullscreen 0
-win-size 1920 1080
+win-size 1366 768
 text-encoding utf8
 show-frame-rate-meter 1
 sync-video #t
@@ -70,7 +70,7 @@ class MyApp(ShowBase):
         __builtin__.pGrid = Grid()
         __builtin__.extract = ExtractTitle()
         __builtin__.baloons = BaloonManager()
-        #__builtin__.configManager = ConfigManager() 
+        #__builtin__.configManager = ConfigManager()
         __builtin__.audioManager = AudioManager()
         __builtin__.customCamera = CustomCamera()
         __builtin__.script = Script()
@@ -104,9 +104,9 @@ class MyApp(ShowBase):
         
         
         #UNCOMMENT TO ENABLE INTRO
-        #i = Intro()
-        #i.start()
-        persistence.save("gameState", 3)
+        i = Intro()
+        i.start()
+        #persistence.save("gameState", 3)
         
 
     def ping (self):
