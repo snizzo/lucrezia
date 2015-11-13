@@ -14,7 +14,7 @@ class ResourceManager:
     
     def get_path(self):
         string1 = os.path.split(self.path)
-        return string1[0] + "/" + self.resource_folder + "/"
+        return string1[0] + "/lucrezia/" + self.resource_folder + "/"
     
     def getResource(self, key):
         #codice che torna Resource associato a suddetta key

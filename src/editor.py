@@ -1,12 +1,16 @@
 #panda imports
 from direct.showbase.ShowBase import ShowBase
-from panda3d.core import OrthographicLens, LightRampAttrib
-from panda3d.core import loadPrcFileData
+from panda3d.core import *
 from direct.filter.CommonFilters import CommonFilters
+from direct.task import Task
+
+# a bit of qts
+from PyQt4.QtCore import * 
+from PyQt4.QtGui import * 
 
 #libs imports
 import __builtin__
-import os
+import os, sys
 
 #lucrezia imports
 from grid.grid import Grid
@@ -29,6 +33,11 @@ from persistence.persistence import Persistence
 from editor.grid import ThreeAxisGrid
 from editor.editorcamera import EditorCamera
 
+#gui imports
+from editor.gui.QTTest import QTTest
+from editor.gui.GuiManager import GuiManager
+from editor.gui.SceneGraphBrowser import SceneGraphBrowser
+
 __builtin__.resourceManager = ResourceManager()
 __builtin__.configManager = ConfigManager()
 #configmanager.loadConfig()
@@ -37,7 +46,7 @@ __builtin__.configManager = ConfigManager()
 loadPrcFileData("","""
 gl-debug true
 fullscreen 0
-win-size 1920 1080
+win-size 1366 768
 text-encoding utf8
 show-frame-rate-meter 1
 sync-video #t
@@ -81,11 +90,28 @@ class MyApp(ShowBase):
         __builtin__.persistence = Persistence()
         
         self.prepareEditor()
+        
+    def pandaCallback(self):
+		taskMgr.step()
     
+    # this instantiates the three axis grid
     def prepareEditor(self):
         self.threeaxisgrid = ThreeAxisGrid(50,0,50,1,10)
         tagnodepath = self.threeaxisgrid.create()
         tagnodepath.reparentTo(render)
-        
-app = MyApp()
-app.run()
+
+w = MyApp()
+
+app = QApplication(sys.argv)
+
+# left panel
+q = QTTest(w.pandaCallback)
+q.show()
+
+# right panel
+s = SceneGraphBrowser()
+s.show()
+
+app.exec_()
+
+w.run()
