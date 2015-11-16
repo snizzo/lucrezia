@@ -6,147 +6,140 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>265</width>
-    <height>580</height>
+    <width>549</width>
+    <height>1031</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>P3D Editor</string>
+   <string>PandaRPG Engine Editor</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QTreeWidget" name="treeWidget">
-      <property name="animated">
-       <bool>true</bool>
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
       </property>
-      <column>
-       <property name="text">
-        <string>Tools</string>
+      <widget class="QTreeWidget" name="treeWidget">
+       <property name="animated">
+        <bool>true</bool>
        </property>
-      </column>
-      <item>
-       <property name="text">
-        <string>Lighting</string>
-       </property>
+       <column>
+        <property name="text">
+         <string>Tools</string>
+        </property>
+       </column>
        <item>
         <property name="text">
-         <string>add PointLight</string>
+         <string>Texturing</string>
         </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>add DirectionalLight</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>add Spotlight</string>
-        </property>
-       </item>
-      </item>
-      <item>
-       <property name="text">
-        <string>Modifiers</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>use model as Brush</string>
-        </property>
-       </item>
-      </item>
-     </widget>
-    </item>
-    <item>
-     <widget class="QTabWidget" name="tabWidget">
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-      <widget class="QWidget" name="objectsTab">
-       <attribute name="title">
-        <string>Objects</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QListWidget" name="eggPool">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="tabKeyNavigation">
-           <bool>false</bool>
-          </property>
-          <property name="resizeMode">
-           <enum>QListView::Fixed</enum>
-          </property>
-          <property name="spacing">
-           <number>0</number>
-          </property>
-          <property name="viewMode">
-           <enum>QListView::ListMode</enum>
-          </property>
-          <property name="sortingEnabled">
-           <bool>true</bool>
-          </property>
-         </widget>
+         <property name="text">
+          <string>add texture to ground</string>
+         </property>
         </item>
-       </layout>
+        <item>
+         <property name="text">
+          <string>clear textures</string>
+         </property>
+        </item>
+       </item>
+       <item>
+        <property name="text">
+         <string>Objects</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>add object with texture in tile</string>
+         </property>
+        </item>
+       </item>
+       <item>
+        <property name="text">
+         <string>Lightning</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>add Light</string>
+         </property>
+        </item>
+       </item>
       </widget>
-      <widget class="QWidget" name="terrainsTab">
-       <attribute name="title">
-        <string>Terrains</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_4">
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout">
-            <item>
-             <widget class="QPushButton" name="createTerrainButton">
-              <property name="text">
-               <string>Create</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="modifyTerrainButton">
-              <property name="text">
-               <string>Modify</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <widget class="QListWidget" name="terrainPool">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="tabKeyNavigation">
-             <bool>false</bool>
-            </property>
-            <property name="resizeMode">
-             <enum>QListView::Fixed</enum>
-            </property>
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <property name="viewMode">
-             <enum>QListView::ListMode</enum>
-            </property>
-            <property name="sortingEnabled">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
+      <widget class="QTabWidget" name="tabWidget">
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="texturesTab">
+        <attribute name="title">
+         <string>Textures</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLineEdit" name="texturesFilter">
+           <property name="placeholderText">
+            <string>filter string</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Image preview...</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QListWidget" name="texturePool">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="horizontalScrollBarPolicy">
+            <enum>Qt::ScrollBarAsNeeded</enum>
+           </property>
+           <property name="tabKeyNavigation">
+            <bool>false</bool>
+           </property>
+           <property name="textElideMode">
+            <enum>Qt::ElideLeft</enum>
+           </property>
+           <property name="verticalScrollMode">
+            <enum>QAbstractItemView::ScrollPerPixel</enum>
+           </property>
+           <property name="horizontalScrollMode">
+            <enum>QAbstractItemView::ScrollPerItem</enum>
+           </property>
+           <property name="resizeMode">
+            <enum>QListView::Fixed</enum>
+           </property>
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="viewMode">
+            <enum>QListView::ListMode</enum>
+           </property>
+           <property name="uniformItemSizes">
+            <bool>true</bool>
+           </property>
+           <property name="sortingEnabled">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="charactersTab">
+        <attribute name="title">
+         <string>Characters</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QListWidget" name="characterPool"/>
+         </item>
+        </layout>
+       </widget>
       </widget>
      </widget>
     </item>
@@ -157,8 +150,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>265</width>
-     <height>25</height>
+     <width>549</width>
+     <height>42</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

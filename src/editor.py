@@ -108,9 +108,6 @@ app = QApplication(sys.argv)
 q = QTTest(w.pandaCallback)
 q.show()
 
-# right panel
-s = SceneGraphBrowser()
-s.show()
 
 app.exec_()
 

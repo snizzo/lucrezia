@@ -23,4 +23,3 @@ class SceneGraphBrowser(QMainWindow):
 		
 		#object delegate to draw an manage what's going on on the object/s properties table
 		self.pt = PropertiesTable(self.ui.propertiesTable)
-		self.sga = SceneGraphAnalyzer(myApp.mainScene,self.ui.sgTree)

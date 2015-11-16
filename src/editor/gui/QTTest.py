@@ -8,50 +8,58 @@ from mainwindow import Ui_MainWindow
 
 from utilities import *
 
-from TerrainPool import TerrainPool
-
 import sys, os, string
 
 
-class QTTest(QMainWindow): 
-	def __init__(self,pandaCallback): 
-		QMainWindow.__init__(self)
-		self.ui = Ui_MainWindow()
-		self.ui.setupUi(self)
-		
-		#fills widget with found models on dataset folder
-		self.fillPool()
-		
-		self.setWidgetEvents()
-		
-		# this basically creates an idle task
-		self.timer = QTimer(self)
-		self.connect( self.timer, SIGNAL("timeout()"), pandaCallback )
-		self.timer.start(0)
-		
-		self.tp = TerrainPool(self.ui.terrainPool, self.ui.createTerrainButton, self.ui.modifyTerrainButton)
-		
-		self.ui.actionPPL.triggered.connect(myEventHandler.togglePerPixelLighting)
-		self.ui.actionAmbientOcclusion.triggered.connect(myEventHandler.toggleAmbientOcclusion)
-		self.ui.actionToonShading.triggered.connect(myEventHandler.toggleToonShading)
-		
-	def setWidgetEvents(self):
-		self.ui.eggPool.itemDoubleClicked.connect(self.sendNewModel)
-		self.ui.treeWidget.itemDoubleClicked.connect(self.toolTriggered)
-	
-	'''
-	gui requests will be broadcasted
-	'''
-	def toolTriggered(self, item, column):
-		print "broadcasting: ", item.text(0)
-		messenger.send(item.text(0).__str__())
-	
-	def fillPool(self):
-		self.ui.eggPool.clear()
-		files = Utilities.getFilesIn(resourceManager.get_path())
-		for e in files:
-			self.ui.eggPool.addItem(e)
-	
-	def sendNewModel(self,item):
-		filepath = str(item.text())  #casting due to compatibility issues
-		messenger.send("addobject", [filepath])
+class QTTest(QMainWindow):
+    def __init__(self,pandaCallback): 
+        QMainWindow.__init__(self)
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+        
+        #fills widget with found models on dataset folder
+        self.fillPool()
+        
+        self.setWidgetEvents()
+        
+        # this basically creates an idle task
+        self.timer = QTimer(self)
+        self.connect( self.timer, SIGNAL("timeout()"), pandaCallback )
+        self.timer.start(0)
+        
+    def setWidgetEvents(self):
+        #self.ui.texturePool.itemDoubleClicked.connect(self.sendNewModel)
+        self.ui.texturePool.currentItemChanged.connect(self.showPreview)
+        self.ui.texturesFilter.textChanged.connect(self.applyFilter)
+        self.ui.treeWidget.itemDoubleClicked.connect(self.toolTriggered)
+    
+    '''
+    gui requests will be broadcasted
+    '''
+    def toolTriggered(self, item, column):
+        print "broadcasting: ", item.text(0), self.ui.texturePool.currentItem().text()
+        messenger.send(item.text(0).__str__(), self.ui.texturePool.currentItem().text())
+    
+    def applyFilter(self, filt):
+        self.ui.texturePool.clear()
+        self.fillPool(filt)
+    
+    def showPreview(self, image, last):
+        filepath = str(image.text().replace('../res', resourceManager.get_path()))
+        pixmap = QPixmap(filepath)
+        self.ui.label.setPixmap(pixmap.scaled(150,150,Qt.KeepAspectRatio))
+    
+    def fillPool(self, filt = ""):
+        self.ui.texturePool.clear()
+        files = Utilities.getSubfilesIn(resourceManager.get_path(), ['.png','.jpg'])
+        for e in files:
+            if filt == "": #if filtering disabled add all
+                self.ui.texturePool.addItem(e)
+            else: #if filtering enabled filter
+                if e.find(filt) != -1:
+                    self.ui.texturePool.addItem(e)
+    
+    #refactor
+    def sendNewModel(self,item):
+        filepath = str(item.text())  #casting due to compatibility issues
+        messenger.send("addobject", [filepath])
