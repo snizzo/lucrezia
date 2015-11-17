@@ -52,10 +52,17 @@ show-frame-rate-meter 1
 sync-video #t
 """)
 
+'''
+ingoing:
+editor_loadmap [filename]
+outgoing:
+'''
 class MyApp(ShowBase):
 
     def __init__(self):
         ShowBase.__init__(self)
+        
+        self.editormode = True
         
         base.win.setClearColor((0, 0, 0, 1))
         base.win.setClearColorActive(True)
@@ -85,20 +92,34 @@ class MyApp(ShowBase):
         __builtin__.baloons = BaloonManager()
         #__builtin__.configManager = ConfigManager() 
         __builtin__.audioManager = AudioManager()
+        
+        
         __builtin__.editorCamera = EditorCamera()
+        __builtin__.customCamera = __builtin__.editorCamera
+        #careful, refactor? here for compatibility between game engine and editor engine
+        
         __builtin__.script = Script()
         __builtin__.persistence = Persistence()
         
         self.prepareEditor()
         
+        self.accept("editor_loadmap", self.loadMap)
+        
     def pandaCallback(self):
 		taskMgr.step()
     
+    def loadMap(self, filename):
+        pGrid.changeMapHelper(str(filename),'0,0')
+    
     # this instantiates the three axis grid
     def prepareEditor(self):
-        self.threeaxisgrid = ThreeAxisGrid(50,0,50,1,10)
+        self.threeaxisgrid = ThreeAxisGrid(50,0,50,1,1)
         tagnodepath = self.threeaxisgrid.create()
+        tagnodepath.setY(-0.1)
+        tagnodepath.setLightOff()
         tagnodepath.reparentTo(render)
+        tagnodepath.setLightOff()
+        base.setBackgroundColor(1,1,1)
 
 w = MyApp()
 
@@ -107,6 +128,10 @@ app = QApplication(sys.argv)
 # left panel
 q = QTTest(w.pandaCallback)
 q.show()
+
+# right panel
+s = SceneGraphBrowser()
+s.show()
 
 
 app.exec_()

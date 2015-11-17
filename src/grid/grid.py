@@ -17,6 +17,8 @@ from character import Character
 
 from utils.fadeout import FadeOut
 
+import os
+
 '''
 This class abstracts the 2D grid commoly used in 2D games
 to use with panda3d.
@@ -120,10 +122,15 @@ class Grid(DirectObject):
             x = 0
             y = 0
         
-        self.loadMap(resourceManager.getResource('Mappe/'+mapFile),LPoint2i(x,y))
-        self.getPlayable().setFollowedByCamera(True)
+        if not os.path.isfile(mapFile):
+            self.loadMap(resourceManager.getResource('Mappe/'+mapFile),LPoint2i(x,y))
+        else:
+            self.loadMap(mapFile,LPoint2i(x,y))
         
-        if self.loadScript != False:
+        if main.editormode == False:
+            self.getPlayable().setFollowedByCamera(True)
+        
+        if self.loadScript != False and main.editormode == False:
             eval(self.loadScript)
     
     def loadMap(self,file,playable_pos=LPoint2i(0,0)):
@@ -218,6 +225,17 @@ class Grid(DirectObject):
         
         self.grassnode.flattenStrong() #pumping performance for dynamic grass (like, 120x)
     
+    '''
+    Used to get Tile object from coordinates.
+    Very slow, linear, improvable.
+    Used only in editor mode.
+    '''
+    def getTile(self, x, y):
+        for t in self.tileset:
+            if t.getX() == x and t.getY() == y:
+                return t
+        
+        return -1
     '''
     This method generates an internal tileset.
     Seen with list of lists (multidim array)

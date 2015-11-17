@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>234</width>
-    <height>511</height>
+    <width>454</width>
+    <height>814</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,21 +18,33 @@
     <property name="spacing">
      <number>3</number>
     </property>
-    <property name="margin">
+    <property name="leftMargin">
      <number>4</number>
     </property>
+    <property name="topMargin">
+     <number>4</number>
+    </property>
+    <property name="rightMargin">
+     <number>4</number>
+    </property>
+    <property name="bottomMargin">
+     <number>4</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Current Tile: (0,0)</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QListWidget" name="tileObjects"/>
+    </item>
     <item>
      <widget class="QSplitter" name="splitter">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
-      <widget class="QTreeWidget" name="sgTree">
-       <column>
-        <property name="text">
-         <string>Current Scene</string>
-        </property>
-       </column>
-      </widget>
       <widget class="QTableWidget" name="propertiesTable"/>
      </widget>
     </item>
@@ -43,8 +55,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>234</width>
-     <height>25</height>
+     <width>454</width>
+     <height>42</height>
     </rect>
    </property>
   </widget>

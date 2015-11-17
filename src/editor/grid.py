@@ -84,9 +84,9 @@ class ThreeAxisGrid:
       self.subdivColor = VBase4(.35, .35, .35, 1)
       
       #Line thicknesses (in pixels)
-      self.axisThickness = 1
-      self.gridThickness = 1
-      self.subdivThickness = 1
+      self.axisThickness = 3
+      self.gridThickness = 3
+      self.subdivThickness = 3
 
       #Axis, grid, and subdiv lines must be seperate LineSeg
       #objects in order to allow different thicknesses.

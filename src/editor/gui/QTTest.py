@@ -10,7 +10,11 @@ from utilities import *
 
 import sys, os, string
 
+'''
 
+outgoing:
+editor_loadmap [filename]
+'''
 class QTTest(QMainWindow):
     def __init__(self,pandaCallback): 
         QMainWindow.__init__(self)
@@ -32,6 +36,11 @@ class QTTest(QMainWindow):
         self.ui.texturePool.currentItemChanged.connect(self.showPreview)
         self.ui.texturesFilter.textChanged.connect(self.applyFilter)
         self.ui.treeWidget.itemDoubleClicked.connect(self.toolTriggered)
+        self.ui.actionLoad.triggered.connect(self.loadMap)
+    
+    def loadMap(self):
+        filename = QFileDialog.getOpenFileName(self.ui.texturePool, 'Open Map', '', 'PandaRPG (*.map)')
+        messenger.send("editor_loadmap", [filename])
     
     '''
     gui requests will be broadcasted

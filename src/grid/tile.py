@@ -41,6 +41,12 @@ class Tile:
         self.groundnode.attachNewNode(cm.generate())
         self.groundnode.reparentTo(self.node)
     
+    def getNode(self):
+        return self.node
+        
+    def getGroundNode(self):
+        return self.groundnode
+    
     #add a static texture to basic 128x128 tile pixel image
     #use just to paint the world basicly. Use addObject for every object that has to do with collision etc
     def addTexture(self, attributes):
@@ -292,3 +298,9 @@ class Tile:
         if self.node != 0:
             self.node.setZ(y)
             self.innerY = y
+    
+    def getX(self):
+        return self.innerX
+    
+    def getY(self):
+        return self.innerY

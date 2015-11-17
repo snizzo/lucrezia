@@ -44,6 +44,8 @@ class MyApp(ShowBase):
     def __init__(self):
         ShowBase.__init__(self)
         
+        self.editormode = False
+        
         base.win.setClearColor((0, 0, 0, 1))
         base.win.setClearColorActive(True)
         lang="ita"

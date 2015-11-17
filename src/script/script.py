@@ -63,6 +63,10 @@ class Script(DirectObject):
         self.unlock()
     
     def load(self, resname):
+        #inhibit all scripts from running in editor mode
+        if main.editormode == True:
+            return
+        
         rl = resourceManager.getResource(resname)
         
         script = open(rl)
