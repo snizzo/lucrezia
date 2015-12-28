@@ -77,9 +77,9 @@ class ThreeAxisGrid:
       #self.YZPlaneAlpha = 1
       
       #Colors (RGBA passed as a VBase4 object)
-      self.XAxisColor = VBase4(1, 0, 0, 1)
-      self.YAxisColor = VBase4(0, 1, 0, 1)
-      self.ZAxisColor = VBase4(0, 0, 1, 1)
+      self.XAxisColor = VBase4(0, 0, 0, 1)
+      self.YAxisColor = VBase4(0, 0, 0, 1)
+      self.ZAxisColor = VBase4(0, 0, 0, 1)
       self.gridColor = VBase4(0, 0, 0, 1)
       self.subdivColor = VBase4(.35, .35, .35, 1)
       
@@ -116,14 +116,14 @@ class ThreeAxisGrid:
       if(self.XSize != 0):
          #Draw X axis line
          self.axisLines.setColor(self.XAxisColor)
-         self.axisLines.moveTo(-(self.XSize), 0, 0)
-         self.axisLines.drawTo(self.XSize, 0, 0)
+         self.axisLines.moveTo(-(self.XSize), 0, 0.001)
+         self.axisLines.drawTo(self.XSize, 0, 0.001)
       
       if(self.YSize != 0):
          #Draw Y axis line
          self.axisLines.setColor(self.YAxisColor)
-         self.axisLines.moveTo(0, -(self.YSize), 0)
-         self.axisLines.drawTo(0, self.YSize, 0)
+         self.axisLines.moveTo(0, -(self.YSize), 0.001)
+         self.axisLines.drawTo(0, self.YSize, 0.001)
          
       if(self.ZSize != 0):
          #Draw Z axis line
@@ -332,6 +332,8 @@ class ThreeAxisGrid:
       self.subdivLinesNode = self.subdivLines.create()
       self.subdivLinesNodePath = NodePath(self.subdivLinesNode)
       self.subdivLinesNodePath.reparentTo(self.parentNodePath)
+      
+      self.parentNodePath.setLightOff()
       
       return self.parentNodePath
 

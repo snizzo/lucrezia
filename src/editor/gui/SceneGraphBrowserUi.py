@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'sceneGraphWindow.ui'
 #
-# Created: Tue Nov 17 02:46:54 2015
+# Created: Tue Nov 17 23:10:11 2015
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -33,9 +33,9 @@ class Ui_sceneGraphBrowser(object):
         self.verticalLayout.setSpacing(3)
         self.verticalLayout.setMargin(4)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
-        self.label = QtGui.QLabel(self.centralwidget)
-        self.label.setObjectName(_fromUtf8("label"))
-        self.verticalLayout.addWidget(self.label)
+        self.cellinfo = QtGui.QLabel(self.centralwidget)
+        self.cellinfo.setObjectName(_fromUtf8("cellinfo"))
+        self.verticalLayout.addWidget(self.cellinfo)
         self.tileObjects = QtGui.QListWidget(self.centralwidget)
         self.tileObjects.setObjectName(_fromUtf8("tileObjects"))
         self.verticalLayout.addWidget(self.tileObjects)
@@ -58,5 +58,5 @@ class Ui_sceneGraphBrowser(object):
 
     def retranslateUi(self, sceneGraphBrowser):
         sceneGraphBrowser.setWindowTitle(_translate("sceneGraphBrowser", "Scene Graph Browser", None))
-        self.label.setText(_translate("sceneGraphBrowser", "Current Tile: (0,0)", None))
+        self.cellinfo.setText(_translate("sceneGraphBrowser", "Current Tile: (0,0)", None))
 
