@@ -97,7 +97,7 @@
             </sizepolicy>
            </property>
            <property name="horizontalScrollBarPolicy">
-            <enum>Qt::ScrollBarAsNeeded</enum>
+            <enum>Qt::ScrollBarAlwaysOff</enum>
            </property>
            <property name="tabKeyNavigation">
             <bool>false</bool>

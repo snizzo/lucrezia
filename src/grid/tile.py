@@ -19,6 +19,7 @@ class Tile:
         #public props
         self.walkable = True
         self.resources = []
+        self.textures = [] #list that holds every texture in the tile, ordered from bottom to top
         
         self.innerX = 0
         self.innerY = 0
@@ -43,13 +44,19 @@ class Tile:
     
     def getNode(self):
         return self.node
-        
+    
+    '''
+    return quad ground node
+    '''
     def getGroundNode(self):
         return self.groundnode
     
-    #add a static texture to basic 128x128 tile pixel image
-    #use just to paint the world basicly. Use addObject for every object that has to do with collision etc
+    '''
+    add a static texture to basic 128x128 tile pixel image
+    use just to paint the world basicly. Use addObject for every object that has to do with collision etc
+    '''
     def addTexture(self, attributes):
+        self.clearAllTextures()
         if attributes.has_key('url'):
             self.name = name = attributes['url'].value
         else:
@@ -89,8 +96,43 @@ class Tile:
         tex.setWrapV(Texture.WM_clamp)
         tex.setWrapU(Texture.WM_clamp)
         
+        #this is true pixel art
+        #change to FTLinear for linear interpolation between pixel colors
+        tex.setMagfilter(Texture.FTNearest)
+        tex.setMinfilter(Texture.FTNearest)
+        
         self.groundnode.setTexture(tex)
+        
+        self.textures.append(name)
     
+    '''
+    return the list of ground textures applied
+    '''
+    def getTextures(self):
+        return self.textures
+    
+    '''
+    clear all ground textures on the node
+    '''
+    def clearAllTextures(self):
+        self.groundnode.clearTexture()
+        self.textures = []
+
+    '''
+    Set a list of textures.
+    Destroy all textures and rebuilds all base on a new list
+    @param  tex  list of urls that points to textures
+    '''
+    def setTextures(self, tex):
+        self.textures = tex
+        for t in self.textures:
+            self.addTexture(t)
+    
+    '''
+    if true automatically create a collider that intersects with walking objects
+    same size as the tile (def 128x128 ground pixels)
+    @param  value   true or false
+    '''
     def setWalkable(self, value):
         if value == False:
             self.collisionTube = CollisionBox(LPoint3f(0,0,0),LPoint3f(1,1,1))
@@ -100,7 +142,10 @@ class Tile:
             self.collisionNodeNp = self.groundnode.attachNewNode(self.collisionNode)
         
     
-    #used to add objects to game that intersects (or not) walkability
+    '''
+    used to add objects to game that intersects (or not) walkability
+    @param attribues list of xml loaded attributes
+    '''
     def addObject(self, attributes):
         #manage attributes directly in object creation,
         #this was many attributes are not mandatory
@@ -202,6 +247,10 @@ class Tile:
         tex.setWrapV(Texture.WM_clamp)
         tex.setWrapU(Texture.WM_clamp)
         
+        #this is true pixel art
+        #change to FTLinear for linear interpolatino between pixel colors
+        tex.setMagfilter(Texture.FTNearest)
+        tex.setMinfilter(Texture.FTNearest)
         
         xorig = tex.getOrigFileXSize() / self.baseDimension
         yorig = tex.getOrigFileYSize() / self.baseDimension

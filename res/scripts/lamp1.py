@@ -59,7 +59,7 @@ if persistence.load("gameState") == 2:
     baloons.push('Kate', 'Non mi hai MAI MAI chiesto niente.', 'kate')
     baloons.push('Kate', 'A me, come, immagino, al resto dell\'umanità che ti sta intorno.', 'kate')
     baloons.push('Kate', 'Non la vedi; anzi la vedi solo lì, tutta riunita nell\'unico interesse di farti del male.', 'kate')
-    baloons.push('Kate', 'E non mi raccontare che sei timido perchè non ti si chiede di entrare nell\'intimità delle persone,', 'kate')
+    baloons.push('Kate', 'E non mi raccontare che sei timida perchè non ti si chiede di entrare nell\'intimità delle persone,', 'kate')
     baloons.push('Kate', 'solo di avere con loro un dialogo il cui soggetto non sia tu.', 'kate')
     baloons.push('Kate', 'Detto questo, non ho altro da aggiungere.', 'kate')
     baloons.push('Kate', 'Ci vedremo quando verrò occasionalmente, senza assolutamente alcun rancore', 'kate')
@@ -73,7 +73,7 @@ if persistence.load("gameState") == 2:
     baloons.push('Kate', 'Mi sembra di parlare al muro!', 'kate')
     baloons.push('Ellen', 'Se potessimo parlarne...', 'ellen')
     baloons.push('Kate', 'Vattene da qui.', 'kate')
-    baloons.push('Kate', 'Tornatene a casa, Kate.', 'kate', 0.1)
+    baloons.push('Kate', 'Tornatene a casa, Ellen.', 'kate', 0.1)
     baloons.push('Ellen', 'Come vuoi.', 'ellen', 0.1)
     ###pause
 if persistence.load("gameState") == 2:

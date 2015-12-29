@@ -2,8 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created: Mon Nov 16 05:09:04 2015
-#      by: PyQt4 UI code generator 4.11.3
+# Created by: PyQt4 UI code generator 4.11.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -62,13 +61,12 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.texturePool.sizePolicy().hasHeightForWidth())
         self.texturePool.setSizePolicy(sizePolicy)
-        self.texturePool.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.texturePool.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.texturePool.setTabKeyNavigation(False)
         self.texturePool.setTextElideMode(QtCore.Qt.ElideLeft)
         self.texturePool.setVerticalScrollMode(QtGui.QAbstractItemView.ScrollPerPixel)
         self.texturePool.setHorizontalScrollMode(QtGui.QAbstractItemView.ScrollPerItem)
         self.texturePool.setResizeMode(QtGui.QListView.Fixed)
-        self.texturePool.setSpacing(0)
         self.texturePool.setViewMode(QtGui.QListView.ListMode)
         self.texturePool.setUniformItemSizes(True)
         self.texturePool.setObjectName(_fromUtf8("texturePool"))

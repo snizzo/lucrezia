@@ -47,14 +47,14 @@ class QTTest(QMainWindow):
     '''
     def toolTriggered(self, item, column):
         print "broadcasting: ", item.text(0), self.ui.texturePool.currentItem().text()
-        messenger.send(item.text(0).__str__(), self.ui.texturePool.currentItem().text())
+        messenger.send(item.text(0).__str__(), [self.ui.texturePool.currentItem().text()])
     
     def applyFilter(self, filt):
         self.ui.texturePool.clear()
         self.fillPool(filt)
     
     def showPreview(self, image, last):
-        filepath = str(image.text().replace('../res', resourceManager.get_path()))
+        filepath = str(resourceManager.getResource(image.text()))
         pixmap = QPixmap(filepath)
         self.ui.label.setPixmap(pixmap.scaled(150,150,Qt.KeepAspectRatio))
     
@@ -62,6 +62,7 @@ class QTTest(QMainWindow):
         self.ui.texturePool.clear()
         files = Utilities.getSubfilesIn(resourceManager.get_path(), ['.png','.jpg'])
         for e in files:
+            e = e.replace('../res/','').replace('.png','').replace('.jpg','')
             if filt == "": #if filtering disabled add all
                 self.ui.texturePool.addItem(e)
             else: #if filtering enabled filter

@@ -31,11 +31,11 @@ __builtin__.configManager = ConfigManager()
 
 #fullscreen e grandezza finestra
 loadPrcFileData("","""
-gl-debug true
-fullscreen 0
-win-size 1366 768
+gl-debug false
+fullscreen 1
+win-size 2880 1620
 text-encoding utf8
-show-frame-rate-meter 1
+show-frame-rate-meter 0
 sync-video #t
 """)
 

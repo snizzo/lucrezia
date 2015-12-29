@@ -17,7 +17,6 @@ class ResourceManager:
         return string1[0] + "/lucrezia/" + self.resource_folder + "/"
     
     def getResource(self, key):
-        #codice che torna Resource associato a suddetta key
         
         object_path = self.path + "/" + self.resource_folder + "/" + key
         return object_path               #"full resource absoulute path (value)"

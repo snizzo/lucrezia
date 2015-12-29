@@ -2,8 +2,7 @@
 
 # Form implementation generated from reading ui file 'sceneGraphWindow.ui'
 #
-# Created: Tue Nov 17 23:10:11 2015
-#      by: PyQt4 UI code generator 4.11.3
+# Created by: PyQt4 UI code generator 4.11.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -30,15 +29,33 @@ class Ui_sceneGraphBrowser(object):
         self.centralwidget = QtGui.QWidget(sceneGraphBrowser)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.verticalLayout = QtGui.QVBoxLayout(self.centralwidget)
-        self.verticalLayout.setSpacing(3)
-        self.verticalLayout.setMargin(4)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
         self.cellinfo = QtGui.QLabel(self.centralwidget)
         self.cellinfo.setObjectName(_fromUtf8("cellinfo"))
         self.verticalLayout.addWidget(self.cellinfo)
         self.tileObjects = QtGui.QListWidget(self.centralwidget)
+        self.tileObjects.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.tileObjects.setAlternatingRowColors(True)
+        self.tileObjects.setTextElideMode(QtCore.Qt.ElideLeft)
+        self.tileObjects.setHorizontalScrollMode(QtGui.QAbstractItemView.ScrollPerItem)
+        self.tileObjects.setResizeMode(QtGui.QListView.Fixed)
+        self.tileObjects.setLayoutMode(QtGui.QListView.SinglePass)
+        self.tileObjects.setUniformItemSizes(False)
+        self.tileObjects.setWordWrap(False)
         self.tileObjects.setObjectName(_fromUtf8("tileObjects"))
         self.verticalLayout.addWidget(self.tileObjects)
+        self.horizontalLayout = QtGui.QHBoxLayout()
+        self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
+        self.deleteAllTexturesButton = QtGui.QPushButton(self.centralwidget)
+        self.deleteAllTexturesButton.setObjectName(_fromUtf8("deleteAllTexturesButton"))
+        self.horizontalLayout.addWidget(self.deleteAllTexturesButton)
+        self.moveUpButton = QtGui.QPushButton(self.centralwidget)
+        self.moveUpButton.setObjectName(_fromUtf8("moveUpButton"))
+        self.horizontalLayout.addWidget(self.moveUpButton)
+        self.moveDownButton = QtGui.QPushButton(self.centralwidget)
+        self.moveDownButton.setObjectName(_fromUtf8("moveDownButton"))
+        self.horizontalLayout.addWidget(self.moveDownButton)
+        self.verticalLayout.addLayout(self.horizontalLayout)
         self.splitter = QtGui.QSplitter(self.centralwidget)
         self.splitter.setOrientation(QtCore.Qt.Vertical)
         self.splitter.setObjectName(_fromUtf8("splitter"))
@@ -59,4 +76,7 @@ class Ui_sceneGraphBrowser(object):
     def retranslateUi(self, sceneGraphBrowser):
         sceneGraphBrowser.setWindowTitle(_translate("sceneGraphBrowser", "Scene Graph Browser", None))
         self.cellinfo.setText(_translate("sceneGraphBrowser", "Current Tile: (0,0)", None))
+        self.deleteAllTexturesButton.setText(_translate("sceneGraphBrowser", "Delete all tex", None))
+        self.moveUpButton.setText(_translate("sceneGraphBrowser", "Up", None))
+        self.moveDownButton.setText(_translate("sceneGraphBrowser", "Down", None))
 

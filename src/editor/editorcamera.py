@@ -60,32 +60,24 @@ class EditorCamera(CustomCamera):
         base.camera.setZ(self.selectedCellY + 0.5)
         self.currentCellNodePath.setZ(self.selectedCellY)
         self.analyzeCurrentCell()
-        print self.selectedCellY
-        print camera.getPos()
     
     def moveDown(self):
         self.selectedCellY -= 1
         base.camera.setZ(self.selectedCellY + 0.5)
         self.currentCellNodePath.setZ(self.selectedCellY)
         self.analyzeCurrentCell()
-        print self.selectedCellY
-        print camera.getPos()
     
     def moveLeft(self):
         self.selectedCellX -= 1
         base.camera.setX(self.selectedCellX + 0.5)
         self.currentCellNodePath.setX(self.selectedCellX)
         self.analyzeCurrentCell()
-        print self.selectedCellX
-        print camera.getPos()
     
     def moveRight(self):
         self.selectedCellX += 1
         base.camera.setX(self.selectedCellX + 0.5)
         self.currentCellNodePath.setX(self.selectedCellX)
         self.analyzeCurrentCell()
-        print self.selectedCellX
-        print camera.getPos()
     
     def analyzeCurrentCell(self):
         messenger.send("editor_analyzecell", [self.selectedCellX, self.selectedCellY])

@@ -1,6 +1,6 @@
 from pandac.PandaModules import CardMaker
 from pandac.PandaModules import TransparencyAttrib
-from panda3d.core import NodePath, TextureStage
+from panda3d.core import NodePath, TextureStage, Texture
 from panda3d.core import CollisionTraverser,CollisionNode,CollisionTube,BitMask32,CollisionSphere
 from panda3d.core import CollisionHandlerQueue,CollisionRay
 from panda3d.core import BoundingSphere, Point3
@@ -80,14 +80,16 @@ class Character(DirectObject):
         self.node = NodePath("characternode")
         self.node.setTwoSided(True)
         
-        self.wtop = loader.loadModel(resourceManager.getResource(name)+'/wtop.egg')
-        self.wdown = loader.loadModel(resourceManager.getResource(name)+'/wdown.egg')
-        self.wleft = loader.loadModel(resourceManager.getResource(name)+'/wleft.egg')
-        self.wright = loader.loadModel(resourceManager.getResource(name)+'/wright.egg')
-        self.stop = loader.loadModel(resourceManager.getResource(name)+'/stop.egg')
-        self.sdown = loader.loadModel(resourceManager.getResource(name)+'/sdown.egg')
-        self.sleft = loader.loadModel(resourceManager.getResource(name)+'/sleft.egg')
-        self.sright = loader.loadModel(resourceManager.getResource(name)+'/sright.egg')
+        self.wtop = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(name)+'/wtop.egg'))
+        self.wdown = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(name)+'/wdown.egg'))
+        self.wleft = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(name)+'/wleft.egg'))
+        self.wright = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(name)+'/wright.egg'))
+        self.stop = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(name)+'/stop.egg'))
+        self.sdown = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(name)+'/sdown.egg'))
+        self.sleft = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(name)+'/sleft.egg'))
+        self.sright = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(name)+'/sright.egg'))
+        
+        #Texture.FTNearest
         
         self.wtop.reparentTo(self.node)
         self.wdown.reparentTo(self.node)
@@ -135,6 +137,11 @@ class Character(DirectObject):
         self.npc_walk_stack = []
         self.npc_walk_happening = False
         self.globalLock = False
+    
+    def applyNearestFilter(self, model):
+        for tex in model.findAllTextures():
+            tex.setMinfilter(Texture.FT_nearest)
+        return model
     
     '''
     make the npc walk in direction for units

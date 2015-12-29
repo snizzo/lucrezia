@@ -12,13 +12,13 @@
     </row>
     <row>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /><light id="lamp1" on="true" distance="1" color="255,150,10" attenuation="0.02" /><object url="sets/OggettiCamera/lampadone" onPicked="script.load('scripts/lamp1.py')" inclination="6" collisionmode="3d" offsetvertical="0.1" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><light id="lamp1" on="false" distance="1" color="255,150,10" attenuation="0.02" /><object url="sets/OggettiCamera/lampadone" onPicked="script.load('scripts/lamp1.py')" inclination="6" collisionmode="3d" offsetvertical="0.1" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /></tile>
         <tile><ground url="sets/OggettiCamera/pavimento" /><object url="sets/OggettiCamera/sediadecente" inclination="6" collisionmode="3d" onPicked="script.load('scripts/camera/sedia.py')"/></tile>
-        <tile><ground url="sets/OggettiCamera/pavimento" /><object onPicked="script.load('scripts/camera/scrivania.py')" url="sets/OggettiCamera/scrivaniadecente" inclination="4" /><light id="minilamp" on="true" distance="0.5" color="255,150,10" attenuation="0.02" /><object url="sets/OggettiCamera/lampada" inclination="6" collisionmode="3d" elevation="0.03" offsetvertical="0.5" scale="0.7" /></tile>
+        <tile><ground url="sets/OggettiCamera/pavimento" /><object onPicked="script.load('scripts/camera/scrivania.py')" url="sets/OggettiCamera/scrivaniadecente" inclination="4" /><light id="minilamp" on="false" distance="0.5" color="255,150,10" attenuation="0.02" /><object url="sets/OggettiCamera/lampada" inclination="6" collisionmode="3d" elevation="0.03" offsetvertical="0.5" scale="0.7" /></tile>
         <tile><ground url="sets/OggettiCamera/black" walkable="false" /></tile>
    </row>
    <row>
