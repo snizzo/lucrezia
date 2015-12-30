@@ -21,6 +21,13 @@ class Tile:
         self.resources = []
         self.textures = [] #list that holds every texture in the tile, ordered from bottom to top
         
+        self.tileProperties = {
+            'url' : '',
+            'onWalked' : '',
+            'onPicked' : '',
+            'walkable' : ''
+        }
+        
         self.innerX = 0
         self.innerY = 0
         self.innerDimension = 0
@@ -42,6 +49,12 @@ class Tile:
         self.groundnode.attachNewNode(cm.generate())
         self.groundnode.reparentTo(self.node)
     
+    def getPropertyList(self):
+        return self.tileProperties
+    
+    def setProperty(self, key, value):
+        self.tileProperties[key] = value
+    
     def getNode(self):
         return self.node
     
@@ -58,41 +71,45 @@ class Tile:
     def addTexture(self, attributes):
         self.clearAllTextures()
         if attributes.has_key('url'):
-            self.name = name = attributes['url'].value
+            self.tileProperties['url'] = attributes['url'].value
         else:
             print "WARNING: url not defined, loading placeholder"
-            self.name = name = 'misc/placeholder'
+            self.tileProperties['url'] = 'misc/placeholder'
         
         if attributes.has_key('onWalked'):
-            self.onWalked = attributes['onWalked'].value
+            self.tileProperties['onWalked'] = attributes['onWalked'].value
         else:
-            self.onWalked = ""
+            self.tileProperties['onWalked'] = ""
         
         if attributes.has_key('onPicked'):
-            if self.onPicked == '':
-                self.onPicked = attributes['onPicked'].value
+            if self.tileProperties['onPicked'] == '':
+                self.tileProperties['onPicked'] = attributes['onPicked'].value
         
         if attributes.has_key('walkable'):
             if attributes['walkable'].value == "true":
                 self.walkable = True
+                self.tileProperties['walkable'] = 'true'
             else:
                 self.walkable = False
+                self.tileProperties['walkable'] = 'false'
                 self.groundnode.setTag("collideandwalk", "no")
             if attributes['walkable'].value == "collide":
                 self.walkable = False
+                self.tileProperties['walkable'] = 'false'
                 self.groundnode.setTag("collideandwalk", "yes")
         else:
+            self.tileProperties['walkable'] = 'true'
             self.walkable = True
         
         #setting scripting part
-        self.groundnode.setTag("onWalked", self.onWalked)
-        self.groundnode.setTag("onPicked", self.onPicked)
+        self.groundnode.setTag("onWalked", self.tileProperties['onWalked'])
+        self.groundnode.setTag("onPicked", self.tileProperties['onPicked'])
         
         #setting walkable or not
         self.setWalkable(self.walkable)
         
         #actually loading texture
-        tex = loader.loadTexture(resourceManager.getResource(name)+'.png')
+        tex = loader.loadTexture(resourceManager.getResource(self.tileProperties['url'])+'.png')
         tex.setWrapV(Texture.WM_clamp)
         tex.setWrapU(Texture.WM_clamp)
         
@@ -103,7 +120,9 @@ class Tile:
         
         self.groundnode.setTexture(tex)
         
-        self.textures.append(name)
+        self.textures.append(self.tileProperties['url'])
+        
+        print self.tileProperties
     
     '''
     return the list of ground textures applied

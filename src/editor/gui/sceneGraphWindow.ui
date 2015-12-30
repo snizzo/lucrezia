@@ -55,21 +55,7 @@
       <item>
        <widget class="QPushButton" name="deleteAllTexturesButton">
         <property name="text">
-         <string>Delete all tex</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="moveUpButton">
-        <property name="text">
-         <string>Up</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="moveDownButton">
-        <property name="text">
-         <string>Down</string>
+         <string>Delete all textures</string>
         </property>
        </widget>
       </item>
@@ -80,7 +66,47 @@
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
-      <widget class="QTableWidget" name="propertiesTable"/>
+      <widget class="QTableWidget" name="propertiesTable">
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="alternatingRowColors">
+        <bool>true</bool>
+       </property>
+       <property name="gridStyle">
+        <enum>Qt::SolidLine</enum>
+       </property>
+       <attribute name="horizontalHeaderVisible">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>150</number>
+       </attribute>
+       <attribute name="horizontalHeaderHighlightSections">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="horizontalHeaderStretchLastSection">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="verticalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+       <row>
+        <property name="text">
+         <string>r1</string>
+        </property>
+       </row>
+       <column>
+        <property name="text">
+         <string>c1</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>c2</string>
+        </property>
+       </column>
+      </widget>
      </widget>
     </item>
    </layout>

@@ -15,8 +15,6 @@ Scene graph window class
 ingoing:
 editor_analyzecell [x] [y]
 add texture to ground [texture]
-
-
 '''
 class SceneGraphBrowser(QMainWindow):
     
@@ -50,9 +48,16 @@ class SceneGraphBrowser(QMainWindow):
         self.handler.enable()
         
         self.ui.deleteAllTexturesButton.clicked.connect(self.clearCurrentTextures)
+        self.ui.tileObjects.itemClicked.connect(self.onItemClicked)
         
         #object delegate to draw an manage what's going on on the object/s properties table
         self.pt = PropertiesTable(self.ui.propertiesTable)
+    
+    def onItemClicked(self, item):
+        tile = pGrid.getTile(self.currentx, self.currenty)
+        position = self.ui.tileObjects.row(item)
+        if position == 0:
+            messenger.send("selected one", [tile])
     
     def addCurrentTexture(self, t):
         tile = pGrid.getTile(self.currentx, self.currenty)
@@ -81,6 +86,8 @@ class SceneGraphBrowser(QMainWindow):
             self.ui.cellinfo.setText("Current Tile: ("+str(x)+", "+str(y)+")")
             self.currentx = x
             self.currenty = y
+            
+            messenger.send("selected one", [tile])
             
             for t in tile.getTextures():
                 self.ui.tileObjects.addItem(t)

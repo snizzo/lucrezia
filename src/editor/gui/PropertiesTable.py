@@ -39,7 +39,7 @@ class PropertiesTable(DirectObject):
 		
 			#reload everything
 			self.oneobj(self.currentSelection[0])
-			messenger.send("refresh scenetree")
+			#messenger.send("refresh scenetree")
 	
 	def addPropertyRow(self, label, value):
 		#resizing table size
