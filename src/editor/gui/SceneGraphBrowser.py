@@ -50,14 +50,18 @@ class SceneGraphBrowser(QMainWindow):
         self.ui.deleteAllTexturesButton.clicked.connect(self.clearCurrentTextures)
         self.ui.tileObjects.itemClicked.connect(self.onItemClicked)
         
-        #object delegate to draw an manage what's going on on the object/s properties table
-        self.pt = PropertiesTable(self.ui.propertiesTable)
+        #object delegate to draw and manage what's going on on the object/s properties table
+        self.pt = PropertiesTable(self.ui.propertiesTable, self)
     
     def onItemClicked(self, item):
         tile = pGrid.getTile(self.currentx, self.currenty)
         position = self.ui.tileObjects.row(item)
-        if position == 0:
+        if position == 1:
             messenger.send("selected one", [tile])
+        if position > 2:
+            #position is position -2  because we have to delete 2 informative items
+            #('ground textures' and 'game objects') from the list
+            messenger.send("selected one", [tile.getObjectAt(position-3)])
     
     def addCurrentTexture(self, t):
         tile = pGrid.getTile(self.currentx, self.currenty)
@@ -89,5 +93,12 @@ class SceneGraphBrowser(QMainWindow):
             
             messenger.send("selected one", [tile])
             
+            self.ui.tileObjects.addItem('--Ground Texture--')
+            
             for t in tile.getTextures():
                 self.ui.tileObjects.addItem(t)
+            
+            self.ui.tileObjects.addItem('--Game Objects--')
+
+            for o in tile.getGameObjects():
+                self.ui.tileObjects.addItem(o.getName())

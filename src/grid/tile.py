@@ -5,6 +5,8 @@ from panda3d.core import Point3, CollisionPolygon, CollisionBox, LPoint3f
 from pandac.PandaModules import TransparencyAttrib
 from pandac.PandaModules import CardMaker
 
+from gameobject import GameObject
+
 '''
 TILE CLASS 
 
@@ -20,6 +22,7 @@ class Tile:
         self.walkable = True
         self.resources = []
         self.textures = [] #list that holds every texture in the tile, ordered from bottom to top
+        self.objects = [] #list that holds every object in the tile, ordered from bottom to top
         
         self.tileProperties = {
             'url' : '',
@@ -124,6 +127,17 @@ class Tile:
         
         print self.tileProperties
     
+    def getObjectAt(self, i):
+        print "position"
+        print i
+        return self.objects[i]
+    
+    '''
+    return the list of objects under the node
+    '''
+    def getGameObjects(self):
+        return self.objects
+    
     '''
     return the list of ground textures applied
     '''
@@ -166,193 +180,8 @@ class Tile:
     @param attribues list of xml loaded attributes
     '''
     def addObject(self, attributes):
-        #manage attributes directly in object creation,
-        #this was many attributes are not mandatory
-        if attributes.has_key('url'):
-            self.name = name = attributes['url'].value
-        else:
-            print "WARNING: url not defined, loading placeholder"
-            self.name = name = 'misc/placeholder'
-        
-        if attributes.has_key('id'):
-            self.uid = attributes['id'].value
-        else:
-            self.uid = 'all'
-        
-        if attributes.has_key('inclination'):
-            inclination = float(attributes['inclination'].value)
-        else:
-            inclination = 30.0
-        
-        if attributes.has_key('offsetwidth'):
-            offsetwidth = float(attributes['offsetwidth'].value)
-        else:
-            offsetwidth = 0.0
-        
-        if attributes.has_key('offsetheight'):
-            offsetheight = float(attributes['offsetheight'].value)
-        else:
-            offsetheight = 0.0
-        
-        if attributes.has_key('offsethorizontal'):
-            offsethorizontal = float(attributes['offsethorizontal'].value)
-        else:
-            offsethorizontal = 0.0
-        
-        if attributes.has_key('offsetcollisionh'):
-            offsetcollisionh = float(attributes['offsetcollisionh'].value)
-        else:
-            offsetcollisionh = 0.0
-        
-        if attributes.has_key('offsetcollisionv'):
-            offsetcollisionv = float(attributes['offsetcollisionv'].value)
-        else:
-            offsetcollisionv = 0.0
-        
-        if attributes.has_key('offsetvertical'):
-            offsetvertical = float(attributes['offsetvertical'].value)
-        else:
-            offsetvertical = 0.0
-        
-        if attributes.has_key('elevation'):
-            elevation = float(attributes['elevation'].value)
-        else:
-            elevation = 0.0
-        
-        if attributes.has_key('scale'):
-            scale = float(attributes['scale'].value)
-        else:
-            scale = 1.0
-        
-        if attributes.has_key('onWalked'):
-            self.onWalked = attributes['onWalked'].value
-        else:
-            self.onWalked = ""
-        
-        if attributes.has_key('onPicked'):
-            if self.onPicked == '':
-                self.onPicked = attributes['onPicked'].value
-        
-        if attributes.has_key('collisionmode'):
-            collisionmode = attributes['collisionmode'].value
-        else:
-            collisionmode = "2d"
-        
-        if attributes.has_key('walkable'):
-            if attributes['walkable'].value == "true":
-                walkable = True
-            else:
-                walkable = False
-        else:
-            walkable = False
-        
-        if attributes.has_key('avoidable'):
-            self.node.setTag("avoidable", attributes['avoidable'].value) #applying property also to node as tag
-            if attributes['avoidable'].value == "true":
-                self.avoidable = True
-            else:
-                self.avoidable = False
-        else:
-            self.node.setTag("avoidable", "false")
-            self.avoidable = False
-        
-        #setting scripting part
-        self.node.setTag("onWalked", self.onWalked)
-        self.node.setTag("onPicked", self.onPicked)
-        #set unique id
-        self.node.setTag("id", self.uid)
-        
-        tex = loader.loadTexture(resourceManager.getResource(name)+'.png')
-        tex.setWrapV(Texture.WM_clamp)
-        tex.setWrapU(Texture.WM_clamp)
-        
-        #this is true pixel art
-        #change to FTLinear for linear interpolatino between pixel colors
-        tex.setMagfilter(Texture.FTNearest)
-        tex.setMinfilter(Texture.FTNearest)
-        
-        xorig = tex.getOrigFileXSize() / self.baseDimension
-        yorig = tex.getOrigFileYSize() / self.baseDimension
-        xscaled = (tex.getOrigFileXSize() / self.baseDimension) * scale
-        yscaled = (tex.getOrigFileYSize() / self.baseDimension) * scale
-        
-        self.node.setTag("xscaled", str(xscaled))
-        self.node.setTag("yscaled", str(yscaled))
-        
-        cm = CardMaker("tileobject")
-        cm.setFrame(0,xorig,0,yorig)
-        
-        ts = TextureStage('ts')
-        ts.setMode(TextureStage.MDecal)
-        
-        # distinguish between 3d collisions (for objects with an height and sensible inclination)
-        # and 2d collisions for plain sprites
-        if walkable == False:
-            if collisionmode == "3d":
-                #must handle differently objects which are small and big
-                if xscaled < 1:
-                    self.collisionTube = CollisionBox(LPoint3f(0.5 - xscaled/2 - offsetwidth,0,0),LPoint3f(0.5 + xscaled/2 + offsetwidth,0.1,0.3 + offsetheight))
-                    
-                if xscaled >= 1:
-                    self.collisionTube = CollisionBox(LPoint3f(0 - offsetwidth,0,0),LPoint3f(xscaled + offsetwidth,0.1,0.3 + offsetheight))
-                
-                self.collisionNode = CollisionNode('objectSphere')
-                self.collisionNode.addSolid(self.collisionTube)
-                self.collisionNodeNp = self.node.attachNewNode(self.collisionNode)
-                self.collisionNodeNp.setX(offsethorizontal)
-                self.collisionNodeNp.setZ(offsetvertical)
-                self.collisionNodeNp.setX(self.collisionNodeNp.getX()+offsetcollisionh)
-                self.collisionNodeNp.setZ(self.collisionNodeNp.getZ()+offsetcollisionv)
-                
-            elif collisionmode == "2d":
-                #must handle differently objects which are small and big
-                if xscaled < 1:
-                    self.collisionTube = CollisionBox(LPoint3f(0.5 - xscaled/2,0,0),LPoint3f(0.5 + xscaled/2,yscaled,0.3))
-                    
-                if xscaled >= 1:
-                    self.collisionTube = CollisionBox(LPoint3f(0,0,0),LPoint3f(xscaled,yscaled,0.3))
-                
-                self.collisionNode = CollisionNode('objectSphere')
-                self.collisionNode.addSolid(self.collisionTube)
-                self.collisionNodeNp = self.node.attachNewNode(self.collisionNode)
-                self.collisionNodeNp.setP(-(270-int(inclination)))
-                self.collisionNodeNp.setX(offsethorizontal)
-                self.collisionNodeNp.setZ(offsetvertical)
-                self.collisionNodeNp.setX(self.collisionNodeNp.getX()+offsetcollisionh)
-                self.collisionNodeNp.setZ(self.collisionNodeNp.getZ()+offsetcollisionv)
-        
-        geomnode = NodePath(cm.generate())
-        if xscaled >= 1:
-            geomnode.setX(0)
-        if xscaled < 1:
-            geomnode.setX(0.5 - xscaled/2)
-        geomnode.setScale(scale)
-        geomnode.setX(geomnode.getX()+offsethorizontal)
-        geomnode.setZ(geomnode.getZ()+offsetvertical)
-        geomnode.setY(-elevation)
-        geomnode.setP(-(360-int(inclination)))
-        geomnode.setTexture(tex)
-        geomnode.setTransparency(TransparencyAttrib.MAlpha)
-        geomnode.reparentTo(self.node)
-        
-        '''
-        tex = loader.loadTexture('../res/'+name+'.png')
-        
-        xscaled = tex.getOrigFileXSize() / 128
-        yscaled = tex.getOrigFileYSize() / 128
-        
-        cm = CardMaker("tileobject")
-        cm.setFrame(-xscaled,xscaled,-yscaled,yscaled)
-        
-        ts = TextureStage('ts')
-        ts.setMode(TextureStage.MDecal)
-        
-        objectnode = self.node.attachNewNode('objectnode')
-        objectgeomnode = objectnode.attachNewNode(cm.generate())
-        objectnode.setP(300)
-        objectnode.setTexture(ts, tex)
-        objectnode.place()
-        '''
+        gameObject = GameObject(attributes, self, self.innerX, self.innerY, self.innerDimension, self.baseDimension)
+        self.objects.append(gameObject)
         
     def addCustomObject(self, o):
         o.getNode().reparentTo(self.node)
