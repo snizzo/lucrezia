@@ -201,3 +201,9 @@ class Tile:
     
     def getY(self):
         return self.innerY
+    
+    def destroy(self):
+        for o in self.objects[:]:
+            o.destroy()
+            self.objects.remove(o)
+        self.node.removeNode()

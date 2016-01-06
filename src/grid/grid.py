@@ -105,13 +105,19 @@ class Grid(DirectObject):
         #disabling all lights
         render.setLightOff()
         
-        #destroying every node
-        for n in self.node.getChildren():
-            n.removeNode()
+        #manually removing tiles
+        for t in self.tileset[:]:
+            t.destroy()
+            self.tileset.remove(t)
         
+        #manually removing characters
         for c in self.characterset[:]:
             c.destroy()
             self.characterset.remove(c)
+        
+        #destroying every node
+        for n in self.node.getChildren():
+            n.removeNode()
         
         tks = position.split(',')
         if len(tks) > 1:

@@ -228,3 +228,7 @@ class GameObject:
     #interface needed by PropertiesTable
     def setProperty(self, key, value):
         self.properties[key] = value
+    
+    #called before destruction
+    def destroy(self):
+        self.node.removeNode()
