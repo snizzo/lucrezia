@@ -3,8 +3,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import * 
 
 class PropertiesTable(DirectObject):
-    def __init__(self, table, parent):
-        self.parent = parent
+    def __init__(self, table):
         self.table = table
         
         self.currentSelection = []
@@ -14,8 +13,10 @@ class PropertiesTable(DirectObject):
         
         self.table.cellChanged.connect(self.cellChanged)
     
+    #holder is the object holding and using the props
     def oneobj(self, obj):
         self.clearTable()
+        self.currentSelection = []
         
         #adding properties
         for key, value in obj.getPropertyList().iteritems():
@@ -24,12 +25,13 @@ class PropertiesTable(DirectObject):
         #storing temporary selection in a cleared list
         self.currentSelection.append(obj)
     
+    #multiple selection / modifying still not supported
     def manyobj(self, object_list):
         pass
     
     def noneobj(self):
         self.clearTable()
-        
+    
     def cellChanged(self, row, column):
         if len(self.currentSelection)>0: #if something is selected, else is bogus
             
@@ -40,7 +42,7 @@ class PropertiesTable(DirectObject):
         
             #reload everything
             self.oneobj(self.currentSelection[0])
-            #messenger.send("refresh scenetree")
+            self.currentSelection[0].onPropertiesUpdated()
     
     def addPropertyRow(self, label, value):
         

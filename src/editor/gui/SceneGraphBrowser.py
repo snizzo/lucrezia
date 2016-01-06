@@ -51,7 +51,7 @@ class SceneGraphBrowser(QMainWindow):
         self.ui.tileObjects.itemClicked.connect(self.onItemClicked)
         
         #object delegate to draw and manage what's going on on the object/s properties table
-        self.pt = PropertiesTable(self.ui.propertiesTable, self)
+        self.pt = PropertiesTable(self.ui.propertiesTable)
     
     def onItemClicked(self, item):
         tile = pGrid.getTile(self.currentx, self.currenty)

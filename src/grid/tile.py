@@ -52,6 +52,9 @@ class Tile:
         self.groundnode.attachNewNode(cm.generate())
         self.groundnode.reparentTo(self.node)
     
+    def onPropertiesUpdated(self):
+        print "Tile.onPropertiesUpdated() called! Use this to modify live prop update behaviour!"
+    
     def getPropertyList(self):
         return self.tileProperties
     

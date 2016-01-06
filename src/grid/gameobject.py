@@ -18,6 +18,7 @@ class GameObject:
         self.innerY = innerY
         self.innerDimension = innerDimension
         self.baseDimension = baseDimension
+        self.parent = parent
         
         self.properties = {
             'url' : '',
@@ -26,9 +27,8 @@ class GameObject:
             'walkable' : ''
         }
         
-        self.node = NodePath('gameobjectnode')
-        self.node.setTwoSided(True)
-        self.node.reparentTo(parent.node)
+        self.node = None
+        self.collisionNodeNp = None
         #manage attributes directly in object creation,
         #this was many attributes are not mandatory
         if attributes.has_key('url'):
@@ -110,22 +110,39 @@ class GameObject:
             self.properties['walkable'] = walkable = False
         
         if attributes.has_key('avoidable'):
-            self.node.setTag("avoidable", attributes['avoidable'].value) #applying property also to node as tag
             if attributes['avoidable'].value == "true":
                 self.properties['avoidable'] = self.avoidable = True
             else:
                 self.properties['avoidable'] = self.avoidable = False
         else:
-            self.node.setTag("avoidable", "false")
             self.properties['avoidable'] = self.avoidable = False
+        
+        self.generateNode()
+    
+    def generateNode(self):
+        #clearing old node
+        if self.node != None:
+            self.node.removeNode()
+        
+        if self.collisionNodeNp != None:
+            self.collisionNodeNp.removeNode()
+        
+        self.node = NodePath('gameobjectnode')
+        self.node.setTwoSided(True)
+        self.node.reparentTo(self.parent.node)
+        
+        if self.properties['avoidable'] == True:
+            self.node.setTag("avoidable", 'true')
+        else:
+            self.node.setTag("avoidable", 'false')
         
         #setting scripting part
         self.node.setTag("onWalked", self.onWalked)
         self.node.setTag("onPicked", self.onPicked)
         #set unique id
-        self.node.setTag("id", self.uid)
+        self.node.setTag("id", self.properties['uid'])
         
-        tex = loader.loadTexture(resourceManager.getResource(name)+'.png')
+        tex = loader.loadTexture(resourceManager.getResource(self.properties['name'])+'.png')
         tex.setWrapV(Texture.WM_clamp)
         tex.setWrapU(Texture.WM_clamp)
         
@@ -150,7 +167,7 @@ class GameObject:
         
         # distinguish between 3d collisions (for objects with an height and sensible self.properties['inclination'])
         # and 2d collisions for plain sprites
-        if walkable == False:
+        if self.properties['walkable'] == False:
             if self.properties['collisionmode'] == "3d":
                 #must handle differently objects which are small and big
                 if xscaled < 1:
@@ -197,28 +214,31 @@ class GameObject:
         geomnode.setTexture(tex)
         geomnode.setTransparency(TransparencyAttrib.MAlpha)
         geomnode.reparentTo(self.node)
-        
-        '''
-        tex = loader.loadTexture('../res/'+name+'.png')
-        
-        xscaled = tex.getOrigFileXSize() / 128
-        yscaled = tex.getOrigFileYSize() / 128
-        
-        cm = CardMaker("tileobject")
-        cm.setFrame(-xscaled,xscaled,-yscaled,yscaled)
-        
-        ts = TextureStage('ts')
-        ts.setMode(TextureStage.MDecal)
-        
-        objectnode = self.node.attachNewNode('objectnode')
-        objectgeomnode = objectnode.attachNewNode(cm.generate())
-        objectnode.setP(300)
-        objectnode.setTexture(ts, tex)
-        objectnode.place()
-        '''
     
     def getName(self):
         return self.properties['name']
+    
+    '''
+    Sanitize properties data to be of correct type from string
+    '''
+    def sanitizeProperties(self):
+        #sanitizing data
+        self.properties['inclination'] = float(self.properties['inclination'])
+        self.properties['offsetwidth'] = float(self.properties['offsetwidth'])
+        self.properties['offsetheight'] = float(self.properties['offsetheight'])
+        self.properties['offsethorizontal'] = float(self.properties['offsethorizontal'])
+        self.properties['offsetcollisionh'] = float(self.properties['offsetcollisionh'])
+        self.properties['offsetcollisionv'] = float(self.properties['offsetcollisionv'])
+        self.properties['offsetvertical'] = float(self.properties['offsetvertical'])
+        self.properties['elevation'] = float(self.properties['elevation'])
+        self.properties['scale'] = float(self.properties['scale'])
+    
+    #interface needed by PropertiesTable
+    # regenerates the node at every change
+    def onPropertiesUpdated(self):
+        self.sanitizeProperties()
+        self.generateNode()
+        
     
     #interface needed by PropertiesTable
     #TODO: implement as real interface?
