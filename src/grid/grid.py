@@ -44,6 +44,7 @@ class Grid(DirectObject):
         
         #only used in editor as for now, contains just mapname
         self.currentMapName = ''
+        self.currentMapPath = ''
         
         #main nodes
         self.node = render.attachNewNode("tileset")
@@ -141,6 +142,7 @@ class Grid(DirectObject):
         if main.editormode == False:
             self.getPlayable().setFollowedByCamera(True)
         
+        self.currentMapPath = mapFile
         self.currentMapName = mapFile.split('/')[-1].replace('.map', '')
         
         if self.loadScript != False and main.editormode == False:
@@ -151,6 +153,12 @@ class Grid(DirectObject):
     '''
     def getCurrentMapName(self):
         return self.currentMapName
+    
+    '''
+    @return string current map filepath
+    '''
+    def getCurrentMapPath(self):
+        return self.currentMapPath
     
     def loadMap(self,file,playable_pos=LPoint2i(0,0)):
         xmldoc = minidom.parse(file)
@@ -243,6 +251,12 @@ class Grid(DirectObject):
             currenty += 1
         
         self.grassnode.flattenStrong() #pumping performance for dynamic grass (like, 120x)
+    
+    '''
+    @return list of all tiles
+    '''
+    def getAllTiles(self):
+        return self.tileset
     
     '''
     Used to get Tile object from coordinates.

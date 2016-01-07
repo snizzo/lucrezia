@@ -7,6 +7,7 @@ from PyQt4.QtGui import *
 from mainwindow import Ui_MainWindow
 
 from utilities import *
+from MapExporter import MapExporter
 
 import sys, os, string
 
@@ -37,6 +38,11 @@ class QTTest(QMainWindow):
         self.ui.texturesFilter.textChanged.connect(self.applyFilter)
         self.ui.treeWidget.itemDoubleClicked.connect(self.toolTriggered)
         self.ui.actionLoad.triggered.connect(self.loadMap)
+        self.ui.actionSave_Scene.triggered.connect(self.saveScene)
+    
+    def saveScene(self):
+        m = MapExporter()
+        m.save()
     
     def loadMap(self):
         filename = QFileDialog.getOpenFileName(self.ui.texturePool, 'Open Map', '', 'PandaRPG (*.map)')

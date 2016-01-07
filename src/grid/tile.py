@@ -6,6 +6,7 @@ from pandac.PandaModules import TransparencyAttrib
 from pandac.PandaModules import CardMaker
 
 from gameobject import GameObject
+from XMLExportable import XMLExportable
 
 '''
 TILE CLASS 
@@ -15,7 +16,7 @@ world. This will take care of anything from flags to textures to
 geometries attached to it. Please reference to this instead of the
 direct geometry in other parts of code.
 '''
-class Tile:
+class Tile( XMLExportable ):
     
     def __init__(self, baseDimension):
         #public props
@@ -52,6 +53,14 @@ class Tile:
         self.groundnode = NodePath('groundtilenode')
         self.groundnode.attachNewNode(cm.generate())
         self.groundnode.reparentTo(self.node)
+    
+    #TODO: implement
+    def xmlAttributes(self):
+        return []
+    
+    #TODO: implement
+    def xmlTypeName(self):
+        return
     
     def onPropertiesUpdated(self):
         print "Tile.onPropertiesUpdated() called! Use this to modify live prop update behaviour!"

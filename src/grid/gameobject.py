@@ -5,12 +5,16 @@ from panda3d.core import Point3, CollisionPolygon, CollisionBox, LPoint3f
 from pandac.PandaModules import TransparencyAttrib
 from pandac.PandaModules import CardMaker
 
-'''
-used to add objects to game that intersects (or not) walkability
-@param attribues list of xml loaded attributes
-'''
+from XMLExportable import XMLExportable
 
-class GameObject:
+'''
+@inherit XMLExportable
+'''
+class GameObject(XMLExportable):
+    '''
+    used to add objects to game that intersects (or not) walkability
+    @param attribues list of xml loaded attributes
+    '''
     def __init__(self, attributes, parent, innerX, innerY, innerDimension, baseDimension):
         self.onPicked = ''
         
@@ -237,6 +241,14 @@ class GameObject:
     
     def getName(self):
         return self.properties['name']
+    
+    #TODO: implement
+    def xmlAttributes(self):
+        return []
+    
+    #TODO: implement
+    def xmlTypeName(self):
+        return
     
     '''
     Sanitize properties data to be of correct type from string
