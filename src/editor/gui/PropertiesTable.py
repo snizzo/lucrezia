@@ -2,6 +2,8 @@ from direct.showbase.DirectObject import DirectObject
 from PyQt4.QtCore import * 
 from PyQt4.QtGui import * 
 
+import os, subprocess
+
 class PropertiesTable(DirectObject):
     def __init__(self, table):
         self.table = table
@@ -10,6 +12,8 @@ class PropertiesTable(DirectObject):
         
         self.accept("selected one", self.oneobj)
         self.accept("selected none", self.noneobj)
+        self.accept("open-editor-onPicked", self.onOpenEditor, ['onPicked'])
+        self.accept("open-editor-onWalked", self.onOpenEditor, ['onWalked'])
         
         self.table.cellChanged.connect(self.cellChanged)
     
@@ -24,6 +28,9 @@ class PropertiesTable(DirectObject):
         
         #storing temporary selection in a cleared list
         self.currentSelection.append(obj)
+        
+        #sort on first column alphabetically ascending
+        self.table.sortItems(0)
     
     #multiple selection / modifying still not supported
     def manyobj(self, object_list):
@@ -31,6 +38,30 @@ class PropertiesTable(DirectObject):
     
     def noneobj(self):
         self.clearTable()
+    
+    def onOpenEditor(self, event):
+        obj = self.currentSelection[0]
+        inlineCode = obj.getPropertyList()[event]
+        
+        #creates and opens new python script file
+        if inlineCode == '':
+            uid = obj.getPropertyList()['uid']
+            scriptMapDir = resourceManager.getResource('scripts/'+pGrid.getCurrentMapName())
+            
+            if not os.path.exists(scriptMapDir):
+                os.makedirs(scriptMapDir)
+            
+            path = resourceManager.getResource('scripts/'+pGrid.getCurrentMapName()+'/'+str(obj.getTileX())+'x'+str(obj.getTileY())+uid+event+'.py')
+            #creating file if not exists
+            open(path, 'a').close()
+            #opening file
+            subprocess.call(["xdg-open", path])
+        #opens already present script
+        else:
+            inlineCode = inlineCode.replace('script.load(\'', '')
+            inlineCode = inlineCode.replace('\')', '')
+            #TODO: this is linux dependant!!
+            subprocess.call(["xdg-open", resourceManager.getResource(inlineCode)])
     
     def cellChanged(self, row, column):
         if len(self.currentSelection)>0: #if something is selected, else is bogus
@@ -44,6 +75,9 @@ class PropertiesTable(DirectObject):
             self.oneobj(self.currentSelection[0])
             self.currentSelection[0].onPropertiesUpdated()
     
+    '''
+    Adds every property to prop table
+    '''
     def addPropertyRow(self, label, value):
         
         value = str(value)
@@ -59,7 +93,10 @@ class PropertiesTable(DirectObject):
         #attaching items to correct position
         self.table.setItem(self.table.rowCount()-1,0, namelabel)
         self.table.setItem(self.table.rowCount()-1,1, valuelabel)
-        
+    
+    '''
+    Clear all table
+    '''
     def clearTable(self):
         self.currentSelection = [] #clearing selection list
         self.table.clear()

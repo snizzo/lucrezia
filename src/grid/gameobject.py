@@ -24,7 +24,23 @@ class GameObject:
             'url' : '',
             'onWalked' : '',
             'onPicked' : '',
-            'walkable' : ''
+            'walkable' : '',
+            'uid' : '',
+            'scale' : '',
+            'name' : '',
+            'inclination' : '',
+            'elevation' : '',
+            'offsetheight' : '',
+            'offsetwidth' : '',
+            'offsethorizontal' : '',
+            'offsetvertical' : '',
+            'offsetcollisionh' : '',
+            'offsetcollisionv' : '',
+            'collisionmode' : '',
+            'walkable' : '',
+            'avoidable' : '',
+            'onPicked' : '',
+            'onWalked' : ''
         }
         
         self.node = None
@@ -256,3 +272,11 @@ class GameObject:
     #called before destruction
     def destroy(self):
         self.node.removeNode()
+    
+    #here for polymorph
+    def getTileX(self):
+        return self.parent.getX()
+    
+    #here for polymorph
+    def getTileY(self):
+        return self.parent.getY()

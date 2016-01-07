@@ -25,6 +25,7 @@ class Tile:
         self.objects = [] #list that holds every object in the tile, ordered from bottom to top
         
         self.tileProperties = {
+            'uid' : '', #still no used, polymorph
             'url' : '',
             'onWalked' : '',
             'onPicked' : '',
@@ -127,8 +128,6 @@ class Tile:
         self.groundnode.setTexture(tex)
         
         self.textures.append(self.tileProperties['url'])
-        
-        print self.tileProperties
     
     def getObjectAt(self, i):
         return self.objects[i]
@@ -201,9 +200,19 @@ class Tile:
             self.node.setZ(y)
             self.innerY = y
     
+    #here for polymorph
+    def getTileX(self):
+        return self.getX()
+    
+    #here for polymorph
+    def getTileY(self):
+        return self.getY()
+    
+    #real getX
     def getX(self):
         return self.innerX
     
+    #real getY
     def getY(self):
         return self.innerY
     

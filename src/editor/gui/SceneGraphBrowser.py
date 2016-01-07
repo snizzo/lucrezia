@@ -31,7 +31,7 @@ class SceneGraphBrowser(QMainWindow):
             self.ignoreAll()
     
     '''
-    used for minidom compatibility
+    used for minidom compatibility injection when creating new object
     '''
     class MiniValue:
         def __init__(self, s):
@@ -50,9 +50,23 @@ class SceneGraphBrowser(QMainWindow):
         
         self.ui.deleteCurrent.clicked.connect(self.onDeleteCurrent)
         self.ui.tileObjects.itemClicked.connect(self.onItemClicked)
+        self.ui.onPickedButton.clicked.connect(self.onPickedButtonClicked)
+        self.ui.onWalkedButton.clicked.connect(self.onWalkedButtonClicked)
         
         #object delegate to draw and manage what's going on on the object/s properties table
         self.pt = PropertiesTable(self.ui.propertiesTable)
+    
+    '''
+    Event will be handled by PropertiesTable
+    '''
+    def onPickedButtonClicked(self):
+        messenger.send('open-editor-onPicked')
+        
+    '''
+    Event will be handled by PropertiesTable
+    '''
+    def onWalkedButtonClicked(self):
+        messenger.send('open-editor-onWalked')
     
     def onDeleteCurrent(self):
         tile = pGrid.getTile(self.currentx, self.currenty)

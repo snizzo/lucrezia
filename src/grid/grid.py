@@ -42,6 +42,9 @@ class Grid(DirectObject):
         self.characterset = []
         self.scrollableset = [] #fix this shiet, scollables can't definitely sit here...
         
+        #only used in editor as for now, contains just mapname
+        self.currentMapName = ''
+        
         #main nodes
         self.node = render.attachNewNode("tileset")
         self.grassnode = self.node.attachNewNode("grassnodes")
@@ -78,6 +81,7 @@ class Grid(DirectObject):
          Func(self.changedMap)
         ).start()
     
+    #APICALL
     def getObjectsById(self, search):
         l = self.node.findAllMatches("**/=id="+search)
         s = []
@@ -85,6 +89,7 @@ class Grid(DirectObject):
             s.append(e.getPythonTag("gamenode"))
         return s
     
+    #APICALL
     def getObjectById(self, search):
         l = self.node.findAllMatches("**/=id="+search)
         if len(l) > 0:
@@ -136,8 +141,16 @@ class Grid(DirectObject):
         if main.editormode == False:
             self.getPlayable().setFollowedByCamera(True)
         
+        self.currentMapName = mapFile.split('/')[-1].replace('.map', '')
+        
         if self.loadScript != False and main.editormode == False:
             eval(self.loadScript)
+    
+    '''
+    @return string current map name
+    '''
+    def getCurrentMapName(self):
+        return self.currentMapName
     
     def loadMap(self,file,playable_pos=LPoint2i(0,0)):
         xmldoc = minidom.parse(file)
