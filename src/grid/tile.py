@@ -131,9 +131,11 @@ class Tile:
         print self.tileProperties
     
     def getObjectAt(self, i):
-        print "position"
-        print i
         return self.objects[i]
+        
+    def deleteObjectAt(self, pos):
+        self.objects[pos].destroy()
+        self.objects.remove(self.objects[pos])
     
     '''
     return the list of objects under the node

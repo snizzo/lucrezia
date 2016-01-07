@@ -25,6 +25,7 @@ class SceneGraphBrowser(QMainWindow):
         def enable(self):
             self.accept("editor_analyzecell", self.parent.loadCellInfo)
             self.accept("add texture to ground", self.parent.addCurrentTexture)
+            self.accept("add object with texture in tile", self.parent.addObjectToTile)
         
         def disable(self):
             self.ignoreAll()
@@ -47,11 +48,22 @@ class SceneGraphBrowser(QMainWindow):
         self.handler = SceneGraphBrowser.SceneGraphBrowserHandler(self)
         self.handler.enable()
         
-        self.ui.deleteAllTexturesButton.clicked.connect(self.clearCurrentTextures)
+        self.ui.deleteCurrent.clicked.connect(self.onDeleteCurrent)
         self.ui.tileObjects.itemClicked.connect(self.onItemClicked)
         
         #object delegate to draw and manage what's going on on the object/s properties table
         self.pt = PropertiesTable(self.ui.propertiesTable)
+    
+    def onDeleteCurrent(self):
+        tile = pGrid.getTile(self.currentx, self.currenty)
+        item = self.ui.tileObjects.currentItem()
+        position = self.ui.tileObjects.row(item)
+        if position == 1:
+            self.clearCurrentTextures()
+        if position > 2:
+            #position is position -2  because we have to delete 2 informative items
+            #('ground textures' and 'game objects') from the list
+            tile.deleteObjectAt(position-3)
     
     def onItemClicked(self, item):
         tile = pGrid.getTile(self.currentx, self.currenty)
@@ -68,6 +80,13 @@ class SceneGraphBrowser(QMainWindow):
         
         attributes = { 'url' : SceneGraphBrowser.MiniValue(t.__str__()) }
         tile.addTexture(attributes)
+    
+    def addObjectToTile(self, t):
+        tile = pGrid.getTile(self.currentx, self.currenty)
+        
+        attributes = { 'url' : SceneGraphBrowser.MiniValue(t.__str__()) }
+        tile.addObject(attributes)
+        self.loadCellInfo(self.currentx, self.currenty)
     
     def clearCurrentTextures(self):
         if self.currentx != -1 and self.currenty != -1:
