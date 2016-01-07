@@ -183,6 +183,8 @@ class GameObject:
                 self.collisionNodeNp.setZ(self.properties['offsetvertical'])
                 self.collisionNodeNp.setX(self.collisionNodeNp.getX()+self.properties['offsetcollisionh'])
                 self.collisionNodeNp.setZ(self.collisionNodeNp.getZ()+self.properties['offsetcollisionv'])
+                if main.editormode:
+                    self.collisionNodeNp.show()
                 
             elif self.properties['collisionmode'] == "2d":
                 #must handle differently objects which are small and big
@@ -200,6 +202,8 @@ class GameObject:
                 self.collisionNodeNp.setZ(self.properties['offsetvertical'])
                 self.collisionNodeNp.setX(self.collisionNodeNp.getX()+self.properties['offsetcollisionh'])
                 self.collisionNodeNp.setZ(self.collisionNodeNp.getZ()+self.properties['offsetcollisionv'])
+                if main.editormode:
+                    self.collisionNodeNp.show()
         
         geomnode = NodePath(cm.generate())
         if xscaled >= 1:
