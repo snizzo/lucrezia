@@ -222,9 +222,7 @@ class Grid(DirectObject):
                                 t.addCustomObject(g) #setting coordinates of tile
                                 g.getNode().wrtReparentTo(self.grassnode)
                             elif res.nodeName == 'light':
-                                l = Light(res.attributes) #creating object
-                                t.addCustomObject(l) #setting coordinates of tile
-                                l.getNode().wrtReparentTo(self.node)
+                                t.addLight(res.attributes)
                             elif res.nodeName == 'scrollable':
                                 c = Scrollable(res.attributes['url'].value, res.attributes['inclination'].value, self.tileDimension)
                                 c.setX(currentx)

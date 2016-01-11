@@ -5,8 +5,10 @@ from panda3d.core import Point3, CollisionPolygon, CollisionBox, LPoint3f
 from pandac.PandaModules import TransparencyAttrib
 from pandac.PandaModules import CardMaker
 
+from objects.light import Light
 from gameobject import GameObject
 from XMLExportable import XMLExportable
+from editor.gui.PropertiesTableAbstract import PropertiesTableAbstract
 
 '''
 TILE CLASS 
@@ -16,7 +18,7 @@ world. This will take care of anything from flags to textures to
 geometries attached to it. Please reference to this instead of the
 direct geometry in other parts of code.
 '''
-class Tile( XMLExportable ):
+class Tile(XMLExportable, PropertiesTableAbstract):
     
     def __init__(self, baseDimension):
         #public props
@@ -24,9 +26,11 @@ class Tile( XMLExportable ):
         self.resources = []
         self.textures = [] #list that holds every texture in the tile, ordered from bottom to top
         self.objects = [] #list that holds every object in the tile, ordered from bottom to top
+        self.lights = [] #list that holds every light in the tile, ordered from bottom to top
+        self.typeName = 'tile' #needed by xml
         
         self.tileProperties = {
-            'uid' : '', #still no used, polymorph
+            'id' : '', #still no used, polymorph
             'url' : '',
             'onWalked' : '',
             'onPicked' : '',
@@ -54,13 +58,11 @@ class Tile( XMLExportable ):
         self.groundnode.attachNewNode(cm.generate())
         self.groundnode.reparentTo(self.node)
     
-    #TODO: implement
     def xmlAttributes(self):
-        return []
+        return self.tileProperties
     
-    #TODO: implement
     def xmlTypeName(self):
-        return
+        return self.typeName
     
     def onPropertiesUpdated(self):
         print "Tile.onPropertiesUpdated() called! Use this to modify live prop update behaviour!"
@@ -195,7 +197,11 @@ class Tile( XMLExportable ):
     def addObject(self, attributes):
         gameObject = GameObject(attributes, self, self.innerX, self.innerY, self.innerDimension, self.baseDimension)
         self.objects.append(gameObject)
-        
+    
+    def addLight(self, attributes):
+        lightObject = Light(attributes, self)
+        self.objects.append(lightObject)
+    
     def addCustomObject(self, o):
         o.getNode().reparentTo(self.node)
     

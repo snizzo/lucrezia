@@ -6,11 +6,12 @@ from pandac.PandaModules import TransparencyAttrib
 from pandac.PandaModules import CardMaker
 
 from XMLExportable import XMLExportable
+from editor.gui.PropertiesTableAbstract import PropertiesTableAbstract
 
 '''
 @inherit XMLExportable
 '''
-class GameObject(XMLExportable):
+class GameObject(XMLExportable, PropertiesTableAbstract):
     '''
     used to add objects to game that intersects (or not) walkability
     @param attribues list of xml loaded attributes
@@ -23,13 +24,14 @@ class GameObject(XMLExportable):
         self.innerDimension = innerDimension
         self.baseDimension = baseDimension
         self.parent = parent
+        self.typeName = 'object'
         
         self.properties = {
             'url' : '',
             'onWalked' : '',
             'onPicked' : '',
             'walkable' : '',
-            'uid' : '',
+            'id' : '',
             'scale' : '',
             'name' : '',
             'inclination' : '',
@@ -58,9 +60,9 @@ class GameObject(XMLExportable):
             self.properties['name'] = name = 'misc/placeholder'
         
         if attributes.has_key('id'):
-            self.properties['uid'] = self.uid = attributes['id'].value
+            self.properties['id'] = self.uid = attributes['id'].value
         else:
-            self.properties['uid'] = self.uid = 'all'
+            self.properties['id'] = self.uid = 'all'
         
         if attributes.has_key('inclination'):
             self.properties['inclination'] = float(attributes['inclination'].value)
@@ -160,7 +162,7 @@ class GameObject(XMLExportable):
         self.node.setTag("onWalked", self.onWalked)
         self.node.setTag("onPicked", self.onPicked)
         #set unique id
-        self.node.setTag("id", self.properties['uid'])
+        self.node.setTag("id", self.properties['id'])
         
         tex = loader.loadTexture(resourceManager.getResource(self.properties['name'])+'.png')
         tex.setWrapV(Texture.WM_clamp)
@@ -242,13 +244,11 @@ class GameObject(XMLExportable):
     def getName(self):
         return self.properties['name']
     
-    #TODO: implement
     def xmlAttributes(self):
-        return []
+        return self.properties
     
-    #TODO: implement
     def xmlTypeName(self):
-        return
+        return self.typeName
     
     '''
     Sanitize properties data to be of correct type from string

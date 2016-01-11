@@ -45,7 +45,7 @@ class PropertiesTable(DirectObject):
         
         #creates and opens new python script file
         if inlineCode == '':
-            uid = obj.getPropertyList()['uid']
+            uid = obj.getPropertyList()['id']
             scriptMapDir = resourceManager.getResource('scripts/'+pGrid.getCurrentMapName())
             
             if not os.path.exists(scriptMapDir):
