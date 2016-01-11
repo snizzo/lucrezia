@@ -95,7 +95,7 @@ class Light(PropertiesTableAbstract, XMLExportable):
         self.plnp.setPythonTag("gamenode", self)
     
     def getName(self):
-        return self.properties['id']
+        return 'Point Light: '+self.properties['id']
     
     def xmlAttributes(self):
         return self.properties

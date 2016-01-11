@@ -28,9 +28,6 @@ class GameObject(XMLExportable, PropertiesTableAbstract):
         
         self.properties = {
             'url' : '',
-            'onWalked' : '',
-            'onPicked' : '',
-            'walkable' : '',
             'id' : '',
             'scale' : '',
             'name' : '',
@@ -54,10 +51,10 @@ class GameObject(XMLExportable, PropertiesTableAbstract):
         #manage attributes directly in object creation,
         #this was many attributes are not mandatory
         if attributes.has_key('url'):
-            self.properties['name'] = name = attributes['url'].value
+            self.properties['url'] = name = attributes['url'].value
         else:
             print "WARNING: url not defined, loading placeholder"
-            self.properties['name'] = name = 'misc/placeholder'
+            self.properties['url'] = name = 'misc/placeholder'
         
         if attributes.has_key('id'):
             self.properties['id'] = self.uid = attributes['id'].value
@@ -164,7 +161,7 @@ class GameObject(XMLExportable, PropertiesTableAbstract):
         #set unique id
         self.node.setTag("id", self.properties['id'])
         
-        tex = loader.loadTexture(resourceManager.getResource(self.properties['name'])+'.png')
+        tex = loader.loadTexture(resourceManager.getResource(self.properties['url'])+'.png')
         tex.setWrapV(Texture.WM_clamp)
         tex.setWrapU(Texture.WM_clamp)
         
@@ -204,7 +201,7 @@ class GameObject(XMLExportable, PropertiesTableAbstract):
                 self.collisionNodeNp.setX(self.properties['offsethorizontal'])
                 self.collisionNodeNp.setZ(self.properties['offsetvertical'])
                 self.collisionNodeNp.setX(self.collisionNodeNp.getX()+self.properties['offsetcollisionh'])
-                self.collisionNodeNp.setZ(self.collisionNodeNp.getZ()+self.properties['offsetcollisionv'])
+                self.collisionNodeNp.setZ(self.collisionNodeNp.getZ()+self.properties['offsetcollisionv']+0.1)
                 if main.editormode:
                     self.collisionNodeNp.show()
                 
@@ -223,7 +220,7 @@ class GameObject(XMLExportable, PropertiesTableAbstract):
                 self.collisionNodeNp.setX(self.properties['offsethorizontal'])
                 self.collisionNodeNp.setZ(self.properties['offsetvertical'])
                 self.collisionNodeNp.setX(self.collisionNodeNp.getX()+self.properties['offsetcollisionh'])
-                self.collisionNodeNp.setZ(self.collisionNodeNp.getZ()+self.properties['offsetcollisionv'])
+                self.collisionNodeNp.setZ(self.collisionNodeNp.getZ()+self.properties['offsetcollisionv']+0.1)
                 if main.editormode:
                     self.collisionNodeNp.show()
         
@@ -242,7 +239,7 @@ class GameObject(XMLExportable, PropertiesTableAbstract):
         geomnode.reparentTo(self.node)
     
     def getName(self):
-        return self.properties['name']
+        return self.properties['url']
     
     def xmlAttributes(self):
         return self.properties

@@ -12,6 +12,19 @@ from direct.showbase.DirectObject import DirectObject
 class Character(DirectObject):
     
     def __init__(self, attributes, showCollisions):
+        
+        self.properties = {
+            'url' : '',
+            'onWalked' : '',
+            'onPicked' : '',
+            'id' : '',
+            'scale' : '',
+            'hitboxscale' : '',
+            'speed' : '',
+            'playable' : '',
+            'direction' : ''
+        }
+        
         #name, inclination, scale, playable
         #res.attributes['url'].value, res.attributes['inclination'].value, res.attributes['scale'].value, res.attributes['playable'].value
         if attributes.has_key('url'):

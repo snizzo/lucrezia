@@ -42,15 +42,48 @@ class MapExporter:
                     self.addXMLLine('<row>',1)
                     rowcounter += 1
             
-            self.addXMLLine('<tile>',2)
+            #adding tiles
+            self.addXMLLine('<'+t.xmlTypeName()+'>',2)
             
-            self.addXMLLine('</tile>',2)
+            #adding ground
+            self.addXMLLine('<ground '+self.fromDictToXmlAttributes(t.xmlAttributes())+'/>',3)
+            
+            #adding objects
+            objects = t.getGameObjects()
+            for o in objects:
+                self.addXMLLine('<'+o.xmlTypeName()+' '+self.fromDictToXmlAttributes(o.xmlAttributes())+'/>',3)
+            
+            #closing tags
+            self.addXMLLine('</'+t.xmlTypeName()+'>',2)
         
         self.addXMLLine('</row>',1)
         self.addXMLLine('</data>',0)
             
         
         print self.xml
+    
+    def fromDictToXmlAttributes(self, l):
+        self.validateData(l)
+        xml = ''
+        for k,v in l.iteritems():
+            xml += k+'="'+str(v)+'" '
+        
+        return xml
+    
+    def validateData(self, l):
+        print "WOOOOOOOOOOOOOOOOOOOOO"
+        
+        for k,v in l.items():
+            if v == '':
+                del l[k]
+        
+        for e in l:
+            #correctly parsing bool values
+            if type(e) is bool:
+                if e == False:
+                    e = 'false'
+                if e == True:
+                    e = 'true'
     
     '''
     Clears everything
@@ -64,7 +97,8 @@ class MapExporter:
     @param s        string to be added
     @param depth    indentation depth
     '''
-    def addXMLLine(self, s, depth):
+    def addXMLLine(self, s, depth, ret=True):
         for i in range(depth):
             self.xml += "\t"
-        self.xml += s+"\n"
+        if ret == True:
+            self.xml += s+"\n"
