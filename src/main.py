@@ -32,8 +32,8 @@ __builtin__.configManager = ConfigManager()
 #fullscreen e grandezza finestra
 loadPrcFileData("","""
 gl-debug false
-fullscreen 1
-win-size 2880 1620
+fullscreen 0
+win-size 1920 1080
 text-encoding utf8
 show-frame-rate-meter 0
 sync-video #t
@@ -106,8 +106,8 @@ class MyApp(ShowBase):
         
         
         #UNCOMMENT TO ENABLE INTRO
-        i = Intro()
-        i.start()
+        #i = Intro()
+        #i.start()
         #persistence.save("gameState", 3)
         
 

@@ -7,6 +7,7 @@ from pandac.PandaModules import CardMaker
 
 from objects.light import Light
 from gameobject import GameObject
+from character import Character
 from XMLExportable import XMLExportable
 from editor.gui.PropertiesTableAbstract import PropertiesTableAbstract
 
@@ -201,6 +202,11 @@ class Tile(XMLExportable, PropertiesTableAbstract):
     def addLight(self, attributes):
         lightObject = Light(attributes, self)
         self.objects.append(lightObject)
+    
+    def addCharacter(self, attributes, showCollisions, currentx, currenty, playablepos):
+        characterObject = Character(attributes, showCollisions, currentx, currenty, playablepos)
+        characterObject.node.wrtReparentTo(self.node)
+        self.objects.append(characterObject)
     
     def addCustomObject(self, o):
         o.getNode().reparentTo(self.node)

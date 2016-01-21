@@ -9,15 +9,27 @@ from direct.task import Task
 
 from direct.showbase.DirectObject import DirectObject
 
-class Character(DirectObject):
+from XMLExportable import XMLExportable
+from editor.gui.PropertiesTableAbstract import PropertiesTableAbstract
+
+class Character(DirectObject, XMLExportable, PropertiesTableAbstract):
     
-    def __init__(self, attributes, showCollisions):
+    def __init__(self, attributes, showCollisions, grid_currentx, grid_currenty, grid_playable_pos):
+        
+        self.node = None
+        self.movtask = 0
+        self.showCollisions = showCollisions
+        self.grid_currentx = grid_currentx
+        self.grid_currenty = grid_currenty
+        self.grid_playable_pos = grid_playable_pos
+        self.attributes = attributes
         
         self.properties = {
             'url' : '',
             'onWalked' : '',
             'onPicked' : '',
             'id' : '',
+            'inclination' : '',
             'scale' : '',
             'hitboxscale' : '',
             'speed' : '',
@@ -25,56 +37,64 @@ class Character(DirectObject):
             'direction' : ''
         }
         
-        #name, inclination, scale, playable
-        #res.attributes['url'].value, res.attributes['inclination'].value, res.attributes['scale'].value, res.attributes['playable'].value
         if attributes.has_key('url'):
-            self.name = name = attributes['url'].value
+            self.properties['url'] = attributes['url'].value
         else:
             print "WARNING: url not defined, loading placeholder"
-            self.name = name = 'misc/placeholder'
+            self.properties['url'] = 'misc/placeholder'
         
         if attributes.has_key('id'):
-            self.uid = uid = attributes['id'].value
+            self.properties['id'] = attributes['id'].value
         else:
-            self.uid = uid = 'all'
+            self.properties['id'] = 'all'
         
         if attributes.has_key('inclination'):
-            self.inclination = inclination = float(attributes['inclination'].value)
+            self.properties['inclination'] = float(attributes['inclination'].value)
         else:
-            self.inclination = inclination = 30.0
+            self.properties['inclination'] = 30.0
         
         if attributes.has_key('scale'):
-            self.scale = scale = float(attributes['scale'].value)
+            self.properties['scale'] = float(attributes['scale'].value)
         else:
-            self.scale = scale = 1.0
+            self.properties['scale'] = 1.0
         
         if attributes.has_key('hitboxscale'):
-            self.hitboxscale = float(attributes['hitboxscale'].value)
+            self.properties['hitboxscale'] = float(attributes['hitboxscale'].value)
         else:
-            self.hitboxscale = 1.0
+            self.properties['hitboxscale'] = 1.0
         
         if attributes.has_key('speed'):
-            self.speed = float(attributes['speed'].value)
+            self.properties['speed'] = float(attributes['speed'].value)
         else:
-            self.speed = 1.0
+            self.properties['speed'] = 1.0
         
         #self.isNPC remains true while isPlayable is changable
         if attributes.has_key('playable'):
             self.playable = playable = attributes['playable'].value
             if self.playable == 'false':                
                 self.isNPC = False
-                print "setting ", self.uid, " to ", self.isNPC
+                print "setting ", self.properties['id'], " to ", self.isNPC
             else:
                 self.isNPC = True
-                print "setting ", self.uid, " to ", self.isNPC
+                print "setting ", self.properties['id'], " to ", self.isNPC
         else:
             self.playable = playable = 'false'
             self.isNPC = True
+        self.properties['playable'] = self.playable
+        
         
         if attributes.has_key('direction'):
-            self.direction = attributes['direction'].value
+            self.properties['direction'] = attributes['direction'].value
         else:
-            self.direction = "down"
+            self.properties['direction'] = "down"
+        
+        self.generateNode(showCollisions)
+        
+    def generateNode(self, showCollisions):
+        self.destroy()
+        
+        #setting local variable
+        attributes = self.attributes
         
         #defaulted to None
         self.pickCTrav = None
@@ -93,14 +113,14 @@ class Character(DirectObject):
         self.node = NodePath("characternode")
         self.node.setTwoSided(True)
         
-        self.wtop = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(name)+'/wtop.egg'))
-        self.wdown = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(name)+'/wdown.egg'))
-        self.wleft = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(name)+'/wleft.egg'))
-        self.wright = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(name)+'/wright.egg'))
-        self.stop = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(name)+'/stop.egg'))
-        self.sdown = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(name)+'/sdown.egg'))
-        self.sleft = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(name)+'/sleft.egg'))
-        self.sright = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(name)+'/sright.egg'))
+        self.wtop = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(self.properties['url'])+'/wtop.egg'))
+        self.wdown = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(self.properties['url'])+'/wdown.egg'))
+        self.wleft = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(self.properties['url'])+'/wleft.egg'))
+        self.wright = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(self.properties['url'])+'/wright.egg'))
+        self.stop = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(self.properties['url'])+'/stop.egg'))
+        self.sdown = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(self.properties['url'])+'/sdown.egg'))
+        self.sleft = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(self.properties['url'])+'/sleft.egg'))
+        self.sright = self.applyNearestFilter(loader.loadModel(resourceManager.getResource(self.properties['url'])+'/sright.egg'))
         
         #Texture.FTNearest
         
@@ -118,7 +138,7 @@ class Character(DirectObject):
         self.downdown = False
         self.topdown = False
         
-        if playable=="true":
+        if self.playable=="true":
             self.setPlayable(False) #seems nonsense, triggered on grid.changeMap event
             self.node.setTag("playable", "true") #setting this to make it recognizable from grid changeMap api
             self.setCollisions(True)
@@ -130,19 +150,19 @@ class Character(DirectObject):
             self.setPickCollisions(False)
         
         #self.node.setX((-32/2)+0.5)
-        self.node.setP(-(360-int(inclination)))
-        self.node.setScale(float(scale))
+        self.node.setP(-(360-int(self.properties['inclination'])))
+        self.node.setScale(float(self.properties['scale']))
         self.node.setTransparency(TransparencyAttrib.MAlpha)
         
         self.lastpos = self.node.getPos()
         
         self.showAllSubnodes()
         
-        taskMgr.doMethodLater(4, self.face, 'charload'+self.uid, [self.direction])
+        taskMgr.doMethodLater(4, self.face, 'charload'+self.properties['id'], [self.properties['direction']])
         #self.face(self.direction)
         
         #set unique id
-        self.node.setTag("id", self.uid)
+        self.node.setTag("id", self.properties['id'])
         
         #storing a pointer of the gamenode
         self.node.setPythonTag("gamenode", self)
@@ -150,6 +170,54 @@ class Character(DirectObject):
         self.npc_walk_stack = []
         self.npc_walk_happening = False
         self.globalLock = False
+        
+        self.setX(self.grid_currentx)
+        self.setY(self.grid_currenty)
+        
+        if attributes.has_key('playable'):
+            if self.isNPC!=False:
+                if ((self.grid_playable_pos.getX() != 0) and (self.grid_playable_pos.getY() != 0)):
+                    print 'GRID: moving player to ' + str(self.grid_playable_pos)
+                    self.setX(self.grid_playable_pos.getX())
+                    self.setY(self.grid_playable_pos.getY())
+    
+    def getName(self):
+        return 'Character: '+self.properties['id']
+    
+    def xmlAttributes(self):
+        return self.properties
+    
+    def xmlTypeName(self):
+        return self.typeName
+    
+    '''
+    Sanitize properties data to be of correct type from string
+    '''
+    def sanitizeProperties(self):
+        #sanitizing data
+        self.properties['inclination'] = float(self.properties['inclination'])
+        self.properties['hitboxscale'] = float(self.properties['hitboxscale'])
+        self.properties['speed'] = float(self.properties['speed'])
+        self.properties['scale'] = float(self.properties['scale'])
+    
+    #interface needed by PropertiesTable
+    # regenerates the node at every change
+    def onPropertiesUpdated(self):
+        self.sanitizeProperties()
+        self.generateNode(self.showCollisions)
+        
+    
+    #interface needed by PropertiesTable
+    #TODO: implement as real interface?
+    def getPropertyList(self):
+        return self.properties
+    
+    #interface needed by PropertiesTable
+    def setProperty(self, key, value):
+        self.properties[key] = value
+    
+    def setSpeed(self, s):
+        self.properties['speed'] = s
     
     def applyNearestFilter(self, model):
         for tex in model.findAllTextures():
@@ -202,31 +270,31 @@ class Character(DirectObject):
         self.setAnim(direction)
         
         self.npc_walk_happening = True
-        self.npc_movtask = taskMgr.add(self.npc_walk_task, "npc_moveCharacterTask"+self.uid, uponDeath=self.npc_walk_callback)
+        self.npc_movtask = taskMgr.add(self.npc_walk_task, "npc_moveCharacterTask"+self.properties['id'], uponDeath=self.npc_walk_callback)
     
     def npc_walk_task(self, task):
         dt = globalClock.getDt()
         
         if(self.npc_direction=='left'):
-            self.node.setX(self.node.getX()-1*dt*self.speed)
+            self.node.setX(self.node.getX()-1*dt*self.properties['speed'])
             currentx = self.node.getX()
             
             if currentx <= self.npc_targetx:
                 return task.done
         if(self.npc_direction=='right'):
-            self.node.setX(self.node.getX()+1*dt*self.speed)
+            self.node.setX(self.node.getX()+1*dt*self.properties['speed'])
             currentx = self.node.getX()
             
             if currentx >= self.npc_targetx:
                 return task.done
         if(self.npc_direction=='up'):
-            self.node.setZ(self.node.getZ()+1*dt*self.speed)
+            self.node.setZ(self.node.getZ()+1*dt*self.properties['speed'])
             currenty = self.node.getZ()
             
             if currenty <= self.npc_targety:
                 return task.done
         if(self.npc_direction=='down'):
-            self.node.setZ(self.node.getZ()-1*dt*self.speed)
+            self.node.setZ(self.node.getZ()-1*dt*self.properties['speed'])
             currenty = self.node.getZ()
             
             if currenty <= self.npc_targety:
@@ -253,7 +321,8 @@ class Character(DirectObject):
         #not accepting events
         self.ignoreAll()
         #destroying everything down
-        self.node.remove_node()
+        if self.node != None:
+            self.node.remove_node()
         #removing all tasks
         if self.movtask != 0:
             taskMgr.remove(self.movtask)
@@ -275,13 +344,11 @@ class Character(DirectObject):
     
     def setCollisions(self, value):
         if value == True:
-            print "setting collisions"
             b = self.node.getBounds().getRadius()
             
-            print "INSTANTIATED"
             self.cTrav = CollisionTraverser()
             
-            self.collisionTube = CollisionSphere(b/2,0,b/2,0.035*self.hitboxscale)
+            self.collisionTube = CollisionSphere(b/2,0,b/2,0.035*self.properties['hitboxscale'])
             self.collisionNode = CollisionNode('characterTube')
             self.collisionNode.addSolid(self.collisionTube)
             self.collisionNodeNp = self.node.attachNewNode(self.collisionNode)
@@ -297,7 +364,7 @@ class Character(DirectObject):
                 self.cTrav.showCollisions(render)
         else:
             b = self.node.getBounds().getRadius()
-            self.collisionTube = CollisionSphere(b/2,0,b/2,0.035*self.hitboxscale)
+            self.collisionTube = CollisionSphere(b/2,0,b/2,0.035*self.properties['hitboxscale'])
             
             #allowing playables to collide with npcs
             if self.isNPC == True: #TODO: fix because it's completely fucked up
@@ -311,12 +378,10 @@ class Character(DirectObject):
     #set if camera has to effectively follow the character
     #while it moves
     def setFollowedByCamera(self, value):
-        print "camera"
-        print value
         #camera follow
         if value:
             if self.currentlyfollowed!=True:
-                customCamera.follow(self.node)
+                customCamera.follow(self)
                 self.currentlyfollowed = True
         else:
             if self.currentlyfollowed!=False:
@@ -330,7 +395,7 @@ class Character(DirectObject):
             
             self.pickCTrav = CollisionTraverser()
             
-            self.pickCollisionTube = CollisionSphere(b/2,0,b/2,0.035*self.hitboxscale+0.01)
+            self.pickCollisionTube = CollisionSphere(b/2,0,b/2,0.035*self.properties['hitboxscale']+0.01)
             self.pickCollisionNode = CollisionNode('characterPickTube')
             self.pickCollisionNode.addSolid(self.pickCollisionTube)
             self.pickCollisionNodeNp = NodePath(self.pickCollisionNode)
@@ -382,7 +447,7 @@ class Character(DirectObject):
                 self.resetMovement() #reset every movement happening
                 self.accept("resumeGameplay", self.setPlayable, [True]) #can resume play if not NPC
     
-    #estimate loading time 4 seconds... lol...
+    #estimate loading time 4 seconds... lol... UPDATE: seems fixed in newer panda versions, inspect
     def showAllSubnodes(self):
         self.wtop.show()
         self.wdown.show()
@@ -547,13 +612,13 @@ class Character(DirectObject):
         dt = globalClock.getDt()
         if len(self.currentlydown) > 0:
             if self.currentlydown[-1] == 'left':
-                self.node.setX(self.node.getX()-1*dt*self.speed)
+                self.node.setX(self.node.getX()-1*dt*self.properties['speed'])
             if self.currentlydown[-1] == 'right':
-                self.node.setX(self.node.getX()+1*dt*self.speed)
+                self.node.setX(self.node.getX()+1*dt*self.properties['speed'])
             if self.currentlydown[-1] == 'top':
-                self.node.setZ(self.node.getZ()+1*dt*self.speed)
+                self.node.setZ(self.node.getZ()+1*dt*self.properties['speed'])
             if self.currentlydown[-1] == 'down':
-                self.node.setZ(self.node.getZ()-1*dt*self.speed)
+                self.node.setZ(self.node.getZ()-1*dt*self.properties['speed'])
         
         #check collisions
         if self.cTrav != None:
@@ -596,19 +661,19 @@ class Character(DirectObject):
                                 bottomObjPos = objectNode.getZ()-(float(objectNode.getTag("yscaled"))/2)
                                 topObjPos = objectNode.getZ()+(float(objectNode.getTag("yscaled"))/2)
                                 if self.node.getZ() < bottomObjPos:
-                                    self.node.setZ(self.node.getZ()-1*dt*self.speed)
+                                    self.node.setZ(self.node.getZ()-1*dt*self.properties['speed'])
                                 if self.node.getZ() > topObjPos:
-                                    self.node.setZ(self.node.getZ()+1*dt*self.speed)
+                                    self.node.setZ(self.node.getZ()+1*dt*self.properties['speed'])
                                 pass
                             if self.currentlydown[-1] == 'top' or self.currentlydown[-1] == 'down':
                                 leftObjPos = objectNode.getX()-(float(objectNode.getTag("xscaled"))/2)
                                 rightObjPos = objectNode.getX()+(float(objectNode.getTag("xscaled"))/2)
                                 
                                 if self.node.getX() < leftObjPos:
-                                    self.node.setX(self.node.getX()-1*dt*self.speed)
+                                    self.node.setX(self.node.getX()-1*dt*self.properties['speed'])
                                     
                                 if self.node.getX() > rightObjPos:
-                                    self.node.setX(self.node.getX()+1*dt*self.speed)
+                                    self.node.setX(self.node.getX()+1*dt*self.properties['speed'])
                             self.lastpos = self.node.getPos()
             
         
@@ -636,6 +701,9 @@ class Character(DirectObject):
             self.pickRequest = False #resetting request
         
         return Task.cont
+    
+    def getWorldPos(self):
+        return self.node.getPos(render)
     
     def setX(self, x):
         self.node.setX(x)

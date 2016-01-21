@@ -139,12 +139,7 @@ class GameObject(XMLExportable, PropertiesTableAbstract):
         self.generateNode()
     
     def generateNode(self):
-        #clearing old node
-        if self.node != None:
-            self.node.removeNode()
-        
-        if self.collisionNodeNp != None:
-            self.collisionNodeNp.removeNode()
+        self.destroy()
         
         self.node = NodePath('gameobjectnode')
         self.node.setTwoSided(True)
@@ -280,7 +275,12 @@ class GameObject(XMLExportable, PropertiesTableAbstract):
     
     #called before destruction
     def destroy(self):
-        self.node.removeNode()
+        #clearing old node
+        if self.node != None:
+            self.node.removeNode()
+        
+        if self.collisionNodeNp != None:
+            self.collisionNodeNp.removeNode()
     
     #here for polymorph
     def getTileX(self):

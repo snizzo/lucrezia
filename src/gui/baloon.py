@@ -19,7 +19,7 @@ class Baloon(DirectObject):
     def __init__(self, who, message, target, speed):
         #text is in pure normal text
         #owner is in 
-        self.pos = target.node.getPos()
+        self.pos = target.getWorldPos()
         self.who = who
         self.message = list(message[::-1])
         self.textapplied = [who,':\n']

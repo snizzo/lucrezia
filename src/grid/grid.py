@@ -229,20 +229,7 @@ class Grid(DirectObject):
                                 c.setY(currenty)
                                 self.scrollableset.append(c)
                             elif res.nodeName == 'character':
-                                c = Character(res.attributes, self.showCollisions)
-                                
-                                c.setX(currentx)
-                                c.setY(currenty)
-                                
-                                if res.attributes.has_key('playable'):
-                                    if c.isNPC!=False:
-                                        if ((playable_pos.getX() != 0) and (playable_pos.getY() != 0)):
-                                            print 'GRID: moving player to ' + str(playable_pos)
-                                            c.setX(playable_pos.getX())
-                                            c.setY(playable_pos.getY())
-                                
-                                c.node.reparentTo(self.node)
-                                self.characterset.append(c)
+                                t.addCharacter(res.attributes, self.showCollisions, currentx, currenty, playable_pos)
                             
                     t.node.reparentTo(self.node)
             currentx = 0

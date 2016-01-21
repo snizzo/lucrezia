@@ -71,8 +71,6 @@ class MapExporter:
         return xml
     
     def validateData(self, l):
-        print "WOOOOOOOOOOOOOOOOOOOOO"
-        
         for k,v in l.items():
             if v == '':
                 del l[k]
