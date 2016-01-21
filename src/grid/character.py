@@ -14,8 +14,9 @@ from editor.gui.PropertiesTableAbstract import PropertiesTableAbstract
 
 class Character(DirectObject, XMLExportable, PropertiesTableAbstract):
     
-    def __init__(self, attributes, showCollisions, grid_currentx, grid_currenty, grid_playable_pos):
+    def __init__(self, attributes, showCollisions, grid_currentx, grid_currenty, grid_playable_pos, parent):
         
+        self.parent = parent
         self.node = None
         self.movtask = 0
         self.showCollisions = showCollisions
@@ -180,6 +181,9 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract):
                     print 'GRID: moving player to ' + str(self.grid_playable_pos)
                     self.setX(self.grid_playable_pos.getX())
                     self.setY(self.grid_playable_pos.getY())
+        
+        #automatic reparenting (and showing) when (re)generating node
+        self.node.wrtReparentTo(self.parent.node)
     
     def getName(self):
         return 'Character: '+self.properties['id']
@@ -355,7 +359,7 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract):
             self.collisionHandler = CollisionHandlerQueue()
             self.cTrav.addCollider(self.collisionNodeNp, self.collisionHandler)
             
-            if self.showCollisions == True:
+            if self.showCollisions == True or main.editormode:
                 # Uncomment this line to see the collision rays
                 self.collisionNodeNp.show()
                 
