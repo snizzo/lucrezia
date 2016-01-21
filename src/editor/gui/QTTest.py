@@ -52,8 +52,12 @@ class QTTest(QMainWindow):
     gui requests will be broadcasted
     '''
     def toolTriggered(self, item, column):
-        print "broadcasting: ", item.text(0), self.ui.texturePool.currentItem().text()
-        messenger.send(item.text(0).__str__(), [self.ui.texturePool.currentItem().text()])
+        if self.ui.texturePool.currentItem() != None:
+            messenger.send(item.text(0).__str__(), [self.ui.texturePool.currentItem().text()])
+            print "broadcasting: ", item.text(0), self.ui.texturePool.currentItem().text()
+        else:
+            messenger.send(item.text(0).__str__())
+            print "broadcasting: ", item.text(0)
     
     def applyFilter(self, filt):
         self.ui.texturePool.clear()
