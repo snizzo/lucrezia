@@ -15,6 +15,7 @@ Scene graph window class
 ingoing:
 editor_analyzecell [x] [y]
 add texture to ground [texture]
+add Light
 '''
 class SceneGraphBrowser(QMainWindow):
     
@@ -26,6 +27,7 @@ class SceneGraphBrowser(QMainWindow):
             self.accept("editor_analyzecell", self.parent.loadCellInfo)
             self.accept("add texture to ground", self.parent.addCurrentTexture)
             self.accept("add object with texture in tile", self.parent.addObjectToTile)
+            self.accept("add Light", self.parent.addLightToTile)
         
         def disable(self):
             self.ignoreAll()
@@ -99,6 +101,17 @@ class SceneGraphBrowser(QMainWindow):
         tile = pGrid.getTile(self.currentx, self.currenty)
         
         attributes = { 'url' : SceneGraphBrowser.MiniValue(t.__str__()) }
+        tile.addObject(attributes)
+        self.loadCellInfo(self.currentx, self.currenty)
+    
+    def addLightToTile(self, t):
+        tile = pGrid.getTile(self.currentx, self.currenty)
+        
+        #on="true" distance="1" color="255,150,10" attenuation="0.02"
+        attributes = { 'on' : SceneGraphBrowser.MiniValue('true'),
+                        'distance' : SceneGraphBrowser.MiniValue('1'),
+                        'color' : SceneGraphBrowser.MiniValue('255,150,10'),
+                        'attenuation' : SceneGraphBrowser.MiniValue('0.02')}
         tile.addObject(attributes)
         self.loadCellInfo(self.currentx, self.currenty)
     

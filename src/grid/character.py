@@ -24,6 +24,7 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract):
         self.grid_currenty = grid_currenty
         self.grid_playable_pos = grid_playable_pos
         self.attributes = attributes
+        self.typeName = 'character'
         
         self.properties = {
             'url' : '',
@@ -159,8 +160,8 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract):
         
         self.showAllSubnodes()
         
-        taskMgr.doMethodLater(4, self.face, 'charload'+self.properties['id'], [self.properties['direction']])
-        #self.face(self.direction)
+        #taskMgr.doMethodLater(4, self.face, 'charload'+self.properties['id'], [self.properties['direction']])
+        self.face(self.properties['direction'])
         
         #set unique id
         self.node.setTag("id", self.properties['id'])
