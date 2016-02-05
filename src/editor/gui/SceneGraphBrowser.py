@@ -104,7 +104,7 @@ class SceneGraphBrowser(QMainWindow):
         tile.addObject(attributes)
         self.loadCellInfo(self.currentx, self.currenty)
     
-    def addLightToTile(self, t):
+    def addLightToTile(self):
         tile = pGrid.getTile(self.currentx, self.currenty)
         
         #on="true" distance="1" color="255,150,10" attenuation="0.02"
@@ -112,7 +112,7 @@ class SceneGraphBrowser(QMainWindow):
                         'distance' : SceneGraphBrowser.MiniValue('1'),
                         'color' : SceneGraphBrowser.MiniValue('255,150,10'),
                         'attenuation' : SceneGraphBrowser.MiniValue('0.02')}
-        tile.addObject(attributes)
+        tile.addLight(attributes)
         self.loadCellInfo(self.currentx, self.currenty)
     
     def clearCurrentTextures(self):
