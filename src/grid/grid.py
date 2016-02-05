@@ -147,6 +147,33 @@ class Grid(DirectObject):
         
         if self.loadScript != False and main.editormode == False:
             eval(self.loadScript)
+    '''
+    @return script to be executed when map is loaded
+    '''
+    def getOnLoad(self):
+        if self.loadScript == False:
+            return ''
+        return self.loadScript
+    
+    '''
+    @param script value of script to be executed when opening map
+    '''
+    def setOnLoad(self, script):
+        self.loadScript = script
+    
+    '''
+    @return script to be executed when map is unloaded
+    '''
+    def getOnUnload(self):
+        if self.unloadScript == False:
+            return ''
+        return self.unloadScript
+    
+    '''
+    @param script to be executed when map is unloaded
+    '''
+    def setOnUnload(self, script):
+        self.unloadScript = script
     
     '''
     @return string current map name

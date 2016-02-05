@@ -8,19 +8,20 @@ from mainwindow import Ui_MainWindow
 from utilities import *
 
 import sys, os, string
+from shutil import copyfile
 
 import xml.etree.cElementTree as ET
 
 class MapExporter:
     def __init__(self):
         self.clear()
+        self.mapPath = ''
         self.xml = ''
     
     def save(self):
-        print "attempt saving..."
-        print pGrid.getCurrentMapPath()
+        self.mapPath = pGrid.getCurrentMapPath()
         
-        self.addXMLLine('<data tilesize="32.0" showcollisions="false" camdistance="15.0">',0)
+        self.addXMLLine('<data tilesize="32.0" showcollisions="false" camdistance="15.0" onLoad="'+pGrid.getOnLoad()+'" onUnload="'+pGrid.getOnUnload()+'" >',0)
         
         tiles = pGrid.getAllTiles()
         
@@ -58,9 +59,24 @@ class MapExporter:
         
         self.addXMLLine('</row>',1)
         self.addXMLLine('</data>',0)
-            
         
+        #self.saveToFile()
         print self.xml
+    
+    def saveToFile(self):
+        #copyfile(self.mapPath,
+        path = os.path.dirname(self.mapPath)
+        name = os.path.basename(self.mapPath)
+        
+        backup = path+'/backup/'+name
+        
+        copyfile(self.mapPath, backup)
+        
+        savefile = open(self.mapPath, 'w')
+        savefile.truncate()
+        savefile.write(self.xml)
+        savefile.close()
+        
     
     def fromDictToXmlAttributes(self, l):
         self.validateData(l)

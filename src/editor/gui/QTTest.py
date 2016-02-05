@@ -39,6 +39,8 @@ class QTTest(QMainWindow):
         self.ui.treeWidget.itemDoubleClicked.connect(self.toolTriggered)
         self.ui.actionLoad.triggered.connect(self.loadMap)
         self.ui.actionSave_Scene.triggered.connect(self.saveScene)
+        self.ui.actionEdit_onLoad.triggered.connect(self.editOnLoad)
+        self.ui.actionEdit_onUnload.triggered.connect(self.editOnUnload)
     
     def saveScene(self):
         m = MapExporter()
@@ -47,6 +49,18 @@ class QTTest(QMainWindow):
     def loadMap(self):
         filename = QFileDialog.getOpenFileName(self.ui.texturePool, 'Open Map', '', 'PandaRPG (*.map)')
         messenger.send("editor_loadmap", [filename])
+    
+    '''
+    events handled by PropertiesTable
+    '''
+    def editOnLoad(self):
+        messenger.send("open-editor-onLoad")
+    
+    '''
+    events handled by PropertiesTable
+    '''
+    def editOnUnload(self):
+        messenger.send("open-editor-onUnload")
     
     '''
     gui requests will be broadcasted

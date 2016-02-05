@@ -14,6 +14,8 @@ class PropertiesTable(DirectObject):
         self.accept("selected none", self.noneobj)
         self.accept("open-editor-onPicked", self.onOpenEditor, ['onPicked'])
         self.accept("open-editor-onWalked", self.onOpenEditor, ['onWalked'])
+        self.accept("open-editor-onLoad", self.onOpenEditorMap, ['onLoad'])
+        self.accept("open-editor-onUnload", self.onOpenEditorMap, ['onUnload'])
         
         self.table.cellChanged.connect(self.cellChanged)
     
@@ -39,6 +41,50 @@ class PropertiesTable(DirectObject):
     def noneobj(self):
         self.clearTable()
     
+    '''
+    refreshes properties table with values from current selection object
+    '''
+    def refresh(self):
+        self.oneobj(self.currentSelection[0])
+    
+    '''
+    used only for maps
+    '''
+    def onOpenEditorMap(self, event):
+        obj = pGrid
+        if event == 'onLoad':
+            inlineCode = pGrid.getOnLoad()
+        elif event == 'onUnload':
+            inlineCode = pGrid.getOnUnload()
+        
+        #creates and opens new python script file
+        if inlineCode == '' or inlineCode == False:
+            scriptMapDir = resourceManager.getResource('scripts/'+pGrid.getCurrentMapName())
+            
+            if not os.path.exists(scriptMapDir):
+                os.makedirs(scriptMapDir)
+            
+            relpath = 'scripts/'+pGrid.getCurrentMapName()+'/'+pGrid.getCurrentMapName()+event+'.py'
+            path = resourceManager.getResource(relpath)
+            #creating file if not exists
+            open(path, 'a').close()
+            #opening file
+            subprocess.call(["xdg-open", path])
+            if event == 'onLoad':
+                inlineCode = pGrid.setOnLoad('script.load(\''+relpath+'\')')
+            elif event == 'onUnload':
+                inlineCode = pGrid.setOnUnload('script.load(\''+relpath+'\')')
+        #opens already present script
+        else:
+            inlineCode = inlineCode.replace('script.load(\'', '')
+            inlineCode = inlineCode.replace('\')', '')
+            #TODO: this is linux dependant!!
+            subprocess.call(["xdg-open", resourceManager.getResource(inlineCode)])
+        
+    
+    '''
+    used for every object
+    '''
     def onOpenEditor(self, event):
         obj = self.currentSelection[0]
         inlineCode = obj.getPropertyList()[event]
@@ -51,11 +97,15 @@ class PropertiesTable(DirectObject):
             if not os.path.exists(scriptMapDir):
                 os.makedirs(scriptMapDir)
             
-            path = resourceManager.getResource('scripts/'+pGrid.getCurrentMapName()+'/'+str(obj.getTileX())+'x'+str(obj.getTileY())+uid+event+'.py')
+            relpath = 'scripts/'+pGrid.getCurrentMapName()+'/'+str(obj.getTileX())+'x'+str(obj.getTileY())+uid+event+'.py'
+            path = resourceManager.getResource(relpath)
             #creating file if not exists
             open(path, 'a').close()
             #opening file
+            #TODO: linux dependant
             subprocess.call(["xdg-open", path])
+            obj.setProperty(event, 'script.load(\''+relpath+'\')')
+            self.refresh()
         #opens already present script
         else:
             inlineCode = inlineCode.replace('script.load(\'', '')

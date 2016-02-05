@@ -164,32 +164,15 @@
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
-   <widget class="QMenu" name="menuWorkspace">
+   <widget class="QMenu" name="menuMap">
     <property name="title">
-     <string>Workspace</string>
+     <string>Map</string>
     </property>
-    <addaction name="actionRefresh"/>
-   </widget>
-   <widget class="QMenu" name="menuSettings">
-    <property name="title">
-     <string>?</string>
-    </property>
-    <addaction name="actionAdvanced_featues"/>
-    <addaction name="separator"/>
-    <addaction name="actionAbout"/>
-   </widget>
-   <widget class="QMenu" name="menuShaders">
-    <property name="title">
-     <string>Shaders</string>
-    </property>
-    <addaction name="actionPPL"/>
-    <addaction name="actionToonShading"/>
-    <addaction name="actionAmbientOcclusion"/>
+    <addaction name="actionEdit_onLoad"/>
+    <addaction name="actionEdit_onUnload"/>
    </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuWorkspace"/>
-   <addaction name="menuShaders"/>
-   <addaction name="menuSettings"/>
+   <addaction name="menuMap"/>
   </widget>
   <action name="actionScene">
    <property name="text">
@@ -221,7 +204,7 @@
     <string>Refresh</string>
    </property>
   </action>
-  <action name="actionAdvanced_featues">
+  <action name="action">
    <property name="text">
     <string>Visit website...</string>
    </property>
@@ -256,6 +239,16 @@
    </property>
    <property name="text">
     <string>Ambient Occlusion</string>
+   </property>
+  </action>
+  <action name="actionEdit_onLoad">
+   <property name="text">
+    <string>Edit onLoad()</string>
+   </property>
+  </action>
+  <action name="actionEdit_onUnload">
+   <property name="text">
+    <string>Edit onUnload()</string>
    </property>
   </action>
  </widget>
