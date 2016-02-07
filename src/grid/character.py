@@ -24,6 +24,8 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract):
         self.grid_currenty = grid_currenty
         self.grid_playable_pos = grid_playable_pos
         self.attributes = attributes
+        self.onPicked = ''
+        self.onWalked = ''
         self.typeName = 'character'
         
         self.properties = {
@@ -75,10 +77,10 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract):
             self.playable = playable = attributes['playable'].value
             if self.playable == 'false':                
                 self.isNPC = False
-                print "setting ", self.properties['id'], " to ", self.isNPC
+                #print "setting ", self.properties['id'], " to ", self.isNPC
             else:
                 self.isNPC = True
-                print "setting ", self.properties['id'], " to ", self.isNPC
+                #print "setting ", self.properties['id'], " to ", self.isNPC
         else:
             self.playable = playable = 'false'
             self.isNPC = True
@@ -89,6 +91,14 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract):
             self.properties['direction'] = attributes['direction'].value
         else:
             self.properties['direction'] = "down"
+        
+        if attributes.has_key('onWalked'):
+            self.properties['onWalked'] = self.onWalked = attributes['onWalked'].value
+        else:
+            self.properties['onWalked'] = self.onWalked = ""
+        
+        if attributes.has_key('onPicked'):
+            self.properties['onPicked'] = self.onPicked = attributes['onPicked'].value
         
         self.generateNode(showCollisions)
         
@@ -165,6 +175,9 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract):
         
         #set unique id
         self.node.setTag("id", self.properties['id'])
+        #setting scripting part
+        self.node.setTag("onWalked", self.onWalked)
+        self.node.setTag("onPicked", self.onPicked)
         
         #storing a pointer of the gamenode
         self.node.setPythonTag("gamenode", self)
@@ -717,3 +730,11 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract):
     def setY(self, y):
         self.node.setZ(y)
         self.lastpos.setZ(y)
+    
+    #here for polymorph
+    def getTileX(self):
+        return self.parent.getX()
+    
+    #here for polymorph
+    def getTileY(self):
+        return self.parent.getY()

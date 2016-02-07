@@ -64,6 +64,16 @@
          </property>
         </item>
        </item>
+       <item>
+        <property name="text">
+         <string>Character</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>add character</string>
+         </property>
+        </item>
+       </item>
       </widget>
       <widget class="QTabWidget" name="tabWidget">
        <property name="currentIndex">

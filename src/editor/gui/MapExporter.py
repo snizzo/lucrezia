@@ -21,7 +21,10 @@ class MapExporter:
     def save(self):
         self.mapPath = pGrid.getCurrentMapPath()
         
-        self.addXMLLine('<data tilesize="32.0" showcollisions="false" camdistance="15.0" onLoad="'+pGrid.getOnLoad()+'" onUnload="'+pGrid.getOnUnload()+'" >',0)
+        self.onLoad = 'onLoad="'+pGrid.getOnLoad()+'"' if pGrid.getOnLoad() else ''
+        self.onUnload = 'onUnload="'+pGrid.getOnUnload()+'"' if pGrid.getOnUnload() else ''
+
+        self.addXMLLine('<data tilesize="32.0" showcollisions="false" camdistance="25.0" '+self.onLoad+' '+self.onUnload+' >',0)
         
         tiles = pGrid.getAllTiles()
         
@@ -60,8 +63,8 @@ class MapExporter:
         self.addXMLLine('</row>',1)
         self.addXMLLine('</data>',0)
         
-        #self.saveToFile()
-        print self.xml
+        self.saveToFile()
+        #print self.xml
     
     def saveToFile(self):
         #copyfile(self.mapPath,
@@ -100,8 +103,7 @@ class MapExporter:
                     e = 'true'
     
     '''
-    Clears everything
-    MODIFY self.xml set to empty
+    Clears everything and set to empty
     '''
     def clear(self):
         self.xml = ''

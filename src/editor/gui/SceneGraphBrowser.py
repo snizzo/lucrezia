@@ -28,6 +28,7 @@ class SceneGraphBrowser(QMainWindow):
             self.accept("add texture to ground", self.parent.addCurrentTexture)
             self.accept("add object with texture in tile", self.parent.addObjectToTile)
             self.accept("add Light", self.parent.addLightToTile)
+            self.accept("add character", self.parent.addCharacterToTile)
         
         def disable(self):
             self.ignoreAll()
@@ -102,6 +103,14 @@ class SceneGraphBrowser(QMainWindow):
         
         attributes = { 'url' : SceneGraphBrowser.MiniValue(t.__str__()) }
         tile.addObject(attributes)
+        self.loadCellInfo(self.currentx, self.currenty)
+    
+    def addCharacterToTile(self, t):
+        tile = pGrid.getTile(self.currentx, self.currenty)
+        
+        playablepos = Point3(self.currentx, self.currenty, 0)
+        attributes = { 'url' : SceneGraphBrowser.MiniValue(t.__str__()) }
+        tile.addCharacter(attributes, True, self.currentx, self.currenty, playablepos)
         self.loadCellInfo(self.currentx, self.currenty)
     
     def addLightToTile(self):

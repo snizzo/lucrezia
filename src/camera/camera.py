@@ -32,7 +32,6 @@ class CustomCamera(DirectObject):
     
     def followTask(self, task):
         if self.obj != 0:
-            print self.obj
             base.camera.setX(self.obj.getWorldPos().getX())
             base.camera.setZ(self.obj.getWorldPos().getZ())
         return Task.cont

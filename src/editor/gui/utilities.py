@@ -32,10 +32,12 @@ class Utilities:
         results = Utilities.getSubfilesTraverse(directory, filters)
         os.chdir(prevDir)
         
-        print directory
-        
         for i in range(len(results)):
             results[i] = results[i].replace(directory,"../res/")
+        
+        #characters filter
+        if ".egg" in filters:
+            results = Utilities.getFolderList(results)
         
         return results
     
@@ -49,13 +51,23 @@ class Utilities:
                 allowed += Utilities.getSubfilesTraverse(f, filters)
                 os.chdir("..")
             if os.path.isfile(f):
-                if f == "wtop_0.png":
+                if f == "wtop_0.png" and ".egg" not in filters:
                     return []
                 for i in filters:
                     if f.find(i) != -1:
                         allowed.append(os.getcwd() + "/" + f)
-        return allowed
         
+        return allowed
+    
+    @staticmethod
+    def getFolderList(l):
+        allowed = []
+        
+        for element in l:
+            directory = os.path.dirname(element)
+            if directory not in allowed:
+                allowed.append(directory)
+        return allowed
     
     @staticmethod
     def getEverythingIn(directory): #TODO: should this be set to be getDirectoryIn ?

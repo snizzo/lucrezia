@@ -122,11 +122,11 @@ class GameObject(XMLExportable, PropertiesTableAbstract):
         
         if attributes.has_key('walkable'):
             if attributes['walkable'].value == "true":
-                self.properties['walkable'] = walkable = True
+                self.properties['walkable'] = walkable = 'true'
             else:
-                self.properties['walkable'] = walkable = False
+                self.properties['walkable'] = walkable = 'false'
         else:
-            self.properties['walkable'] = walkable = False
+            self.properties['walkable'] = walkable = 'false'
         
         if attributes.has_key('avoidable'):
             if attributes['avoidable'].value == "true":
@@ -181,7 +181,7 @@ class GameObject(XMLExportable, PropertiesTableAbstract):
         
         # distinguish between 3d collisions (for objects with an height and sensible self.properties['inclination'])
         # and 2d collisions for plain sprites
-        if self.properties['walkable'] == False:
+        if self.properties['walkable'] == 'false':
             if self.properties['collisionmode'] == "3d":
                 #must handle differently objects which are small and big
                 if xscaled < 1:
