@@ -5,4 +5,4 @@ if persistence.load("gameState") == 3:
         persistence.save("corridoioTempState", 3)
         persistence.save("gameState", 4)
         ellen = pGrid.getObjectById("ellen")
-        ellen.speed = 1.5
+        ellen.setSpeed(1.5)

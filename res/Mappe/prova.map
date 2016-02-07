@@ -1,0 +1,157 @@
+<data tilesize="32.0" showcollisions="false" camdistance="15.0">
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/lavandini" offsethorizontal="0.0" offsetcollisionv="0.0" offsetvertical="0.0" offsetcollisionh="0.0" walkable="False" avoidable="False" onPicked="script.load('scripts/bagno/lavandino.py')" offsetheight="0.4" collisionmode="3d" inclination="5.0" offsetwidth="0.0" id="all" />
+			<object scale="0.4" elevation="0.1" url="sets/OggettiCamera/boccio" offsethorizontal="-0.3" offsetcollisionv="0.0" offsetvertical="0.55" offsetcollisionh="0.0" walkable="True" avoidable="False" offsetheight="0.0" collisionmode="2d" inclination="5.0" offsetwidth="0.0" id="all" />
+			<object scale="0.4" elevation="0.1" url="sets/OggettiCamera/saponetta" offsethorizontal="-0.3" offsetcollisionv="0.0" offsetvertical="0.65" offsetcollisionh="0.0" walkable="True" avoidable="False" offsetheight="0.0" collisionmode="2d" inclination="5.0" offsetwidth="0.0" id="all" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+			<object scale="0.4" elevation="0.1" url="sets/OggettiCamera/sapone" offsethorizontal="0.0" offsetcollisionv="0.0" offsetvertical="0.63" offsetcollisionh="0.0" walkable="True" avoidable="False" offsetheight="0.0" collisionmode="2d" inclination="5.0" offsetwidth="0.0" id="all" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+			<light distance="1.0" attenuation="0.02" color="255,150,10" type="point" id="light" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/lamp" offsethorizontal="0.0" offsetcollisionv="0.0" offsetvertical="0.1" offsetcollisionh="0.0" walkable="False" avoidable="False" offsetheight="0.0" collisionmode="3d" inclination="6.0" offsetwidth="0.0" id="all" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/cartadaculo" offsethorizontal="0.37" offsetcollisionv="0.0" offsetvertical="0.7" offsetcollisionh="0.0" walkable="False" avoidable="False" offsetheight="0.0" collisionmode="2d" inclination="2.0" offsetwidth="0.0" id="all" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/tendadoccia" offsethorizontal="0.0" offsetcollisionv="0.0" offsetvertical="0.5" offsetcollisionh="0.0" walkable="False" avoidable="False" offsetheight="0.0" collisionmode="3d" inclination="8.0" offsetwidth="0.0" id="all" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+			<object scale="0.8" elevation="0.0" url="sets/OggettiCamera/cesso" offsethorizontal="0.0" offsetcollisionv="0.0" offsetvertical="0.0" offsetcollisionh="0.0" walkable="False" avoidable="False" offsetheight="0.0" collisionmode="2d" inclination="2.0" offsetwidth="0.0" id="all" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/separemuro" offsethorizontal="0.65" offsetcollisionv="0.0" offsetvertical="-0.3" offsetcollisionh="0.0" walkable="False" avoidable="False" offsetheight="0.0" collisionmode="2d" inclination="2.0" offsetwidth="0.0" id="all" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+			<object scale="1.0" elevation="-0.1" url="sets/OggettiCamera/black" offsethorizontal="0.9" offsetcollisionv="0.0" offsetvertical="0.0" offsetcollisionh="0.0" walkable="False" avoidable="False" offsetheight="0.0" collisionmode="2d" inclination="0.0" offsetwidth="0.0" id="all" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/murobagno" offsethorizontal="0.0" offsetcollisionv="0.0" offsetvertical="0.0" offsetcollisionh="0.0" walkable="False" avoidable="False" offsetheight="0.0" collisionmode="2d" inclination="2.0" offsetwidth="0.0" id="all" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/murobagno" offsethorizontal="0.0" offsetcollisionv="0.0" offsetvertical="0.0" offsetcollisionh="0.0" walkable="False" avoidable="False" offsetheight="0.0" collisionmode="2d" inclination="2.0" offsetwidth="0.0" id="all" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/porta" offsethorizontal="0.0" offsetcollisionv="0.0" offsetvertical="0.0" offsetcollisionh="0.0" walkable="False" avoidable="False" offsetheight="0.0" collisionmode="2d" inclination="4.0" offsetwidth="0.0" id="all" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/murobagno" offsethorizontal="0.0" offsetcollisionv="0.0" offsetvertical="0.0" offsetcollisionh="0.0" walkable="False" avoidable="False" offsetheight="0.0" collisionmode="2d" inclination="2.0" offsetwidth="0.0" id="all" onWalked="messenger.send('changeMap', ['corridoio.map','18,1'])" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/murobagno" offsethorizontal="0.0" offsetcollisionv="0.0" offsetvertical="0.0" offsetcollisionh="0.0" walkable="False" avoidable="False" offsetheight="0.0" collisionmode="2d" inclination="2.0" offsetwidth="0.0" id="all" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavbagno" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/murobagno" offsethorizontal="0.0" offsetcollisionv="0.0" offsetvertical="0.0" offsetcollisionh="0.0" walkable="False" avoidable="False" offsetheight="0.0" collisionmode="2d" inclination="2.0" offsetwidth="0.0" id="all" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+	</row>
+</data>

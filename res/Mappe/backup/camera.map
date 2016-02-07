@@ -79,7 +79,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<character direction="up" scale="11.0" onPicked="script.load('scripts/camera/4x2katyonPicked.py')" url="lucrezia" hitboxscale="1.0" playable="false" inclination="5.0" speed="1.0" id="katy" />
+			<character direction="down" scale="11.0" onPicked="script.load('scripts/camera/4x2katyonPicked.py')" url="lucrezia" hitboxscale="1.0" playable="false" inclination="30.0" speed="1.0" id="katy" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />

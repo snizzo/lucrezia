@@ -4,4 +4,4 @@ if persistence.load("gameState") == 3:
         baloons.push('Ellen', 'Devo arrivare alle scale.', 'ellen')
         persistence.save("corridoioTempState", 2)
         ellen = pGrid.getObjectById("ellen")
-        ellen.speed = 2.0
+        ellen.setSpeed(2.0)

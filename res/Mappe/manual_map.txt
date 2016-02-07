@@ -26,9 +26,6 @@ onUnload:       apicall that defines a script to be called right before the map 
                 playable:           defines if character is playable or not in an exact moment
                 hitboxscale:        defines the character collision
                 direction:          can be "left" "right" "top" "down"
-                
-                APICALLS:
-                npc_push_walk(direction, unit): "up", "down", "left", "right", and units in integer as a tile
             
             
             
@@ -90,6 +87,12 @@ Scripting API:
 				text                message to be shown
 				id                  unique identification string
 				speed               animation speed at which the message will be shown
+
+-----CHARACTERS
+            character.npc_push_walk(direction, unit)
+                "up", "down", "left", "right", and units in integer as a tile
+            character.setSpeed(2.0)
+                set movement speed for character
 
 -----LIGHTS
             lamp.toggle()
