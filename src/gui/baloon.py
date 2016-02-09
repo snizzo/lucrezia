@@ -102,7 +102,7 @@ class Baloon(DirectObject):
         
         #card as background
         self.textbg.setFrameColor(0.7, 0.7, 0.7, 0.6)
-        self.textbg.setFrameAsMargin(0.4, 0.4, 0.4, 0.3)
+        self.textbg.setFrameAsMargin(0.4, 0.8, 0.4, 0.3)
         self.textbg.setCardColor(0.5, 0.5, 0.5, 0.67)
         self.textbg.setCardAsMargin(0.4, 0.8, 0.4, 0.3)
         self.textbg.setCardDecal(True)

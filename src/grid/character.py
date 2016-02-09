@@ -701,18 +701,20 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract):
             if len(onWalked)>0:
                 eval(onWalked) #oh lol, danger detected here
         
-        for entry in pickentries:
-            if self.pickRequest == True:
-                self.pickRequest = False #resetting request
+        evaluatedOnce = False
+        if self.pickRequest == True:
+            for entry in pickentries:
                 objectNode = entry.getIntoNodePath().getParent()
                 onPicked = objectNode.getTag("onPicked")
-                if len(onPicked)>0:
+                if len(onPicked)>0 and evaluatedOnce == False:
                     eval(onPicked) #oh lol, danger detected again here
+                    evaluatedOnce = True
                 else:
                     if hasattr(objectNode.getPythonTag('gamenode'), 'name'):
                         print "WARNING: picking on this object is not defined: ", objectNode.getPythonTag('gamenode').name
                         print "X: ",objectNode.getX()
                         print "Y: ",objectNode.getZ()
+            self.pickRequest = False #resetting request
         
         #this is needed for empty pick
         if self.pickRequest == True:
