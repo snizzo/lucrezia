@@ -10,7 +10,7 @@ from resourcemanager.resourcemanager import ResourceManager
 from utils.fadeout import FadeOut
 from utils.misc import Misc
 
-import sys, os
+import sys, os, math
 
 '''
 This class represent a single baloon, with text animation
@@ -50,7 +50,28 @@ class Baloon(DirectObject):
         self.ignoreAll()
         self.textnp.remove_node()
         '''
-        
+    
+    #TODO: implement
+    def setAutomaticWordwrap(self, minimum):
+        i = 0
+        j = 0
+        previous = 0
+        latest = 0
+        rmessage = self.message[::-1]
+        for letter in rmessage:
+            if letter == ' ':
+                previous = i
+                if j > minimum:
+                    if math.fabs(previous - i) < j:
+                        rmessage[previous] = '\n'
+                    else:
+                        rmessage[i] = '\n'
+                    j = 0
+                
+            i += 1
+            j += 1
+        self.message = rmessage[::-1]
+            
     def canResumePause(self):
         self.accept("space", self.resumePause);
     
@@ -71,23 +92,25 @@ class Baloon(DirectObject):
     def show(self):
         self.requestPause()
         
+        self.setAutomaticWordwrap(17)
+        
         #text
         self.textbg = TextNode('baloontextnodebg')
         self.textbg.setTextColor(0.5, 0.5, 0.5, 0)
-        self.textbg.setWordwrap(13.0)
+        #self.textbg.setWordwrap(13.0)
         self.textbg.setText(''.join([self.who,":\n"]+self.message))
         
         #card as background
         self.textbg.setFrameColor(0.7, 0.7, 0.7, 0.6)
         self.textbg.setFrameAsMargin(0.4, 0.4, 0.4, 0.3)
         self.textbg.setCardColor(0.5, 0.5, 0.5, 0.67)
-        self.textbg.setCardAsMargin(0.4, 0.4, 0.4, 0.3)
+        self.textbg.setCardAsMargin(0.4, 0.8, 0.4, 0.3)
         self.textbg.setCardDecal(True)
         
         #text
         self.text = TextNode('baloontextnode')
         self.text.setTextColor(1, 1, 1, 1)
-        self.text.setWordwrap(13.0)
+        #self.text.setWordwrap(13.0)
         
         self.textnp = render.attachNewNode(self.text)
         textradius = self.textnp.getBounds().getRadius()/2

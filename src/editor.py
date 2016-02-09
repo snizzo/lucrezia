@@ -50,6 +50,7 @@ win-size 1366 768
 text-encoding utf8
 show-frame-rate-meter 1
 sync-video 1
+framebuffer-srgb #t
 """)
 
 '''

@@ -37,6 +37,7 @@ win-size 1920 1080
 text-encoding utf8
 show-frame-rate-meter 0
 sync-video #t
+framebuffer-srgb #t
 """)
 
 class MyApp(ShowBase):
