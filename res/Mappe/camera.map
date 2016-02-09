@@ -42,6 +42,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="1.1" elevation="0.0" url="sets/OggettiCamera/side_bed_pink" offsethorizontal="-0.6" onPicked="script.load('scripts/camera/3x1allonPicked.py')" offsetcollisionh="0.0" walkable="false" offsetcollisionv="-0.4" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="5.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
@@ -51,13 +52,13 @@
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/sediadecente" offsethorizontal="0.0" onPicked="script.load('scripts/camera/sedia.py')" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="6.0" />
+			<object scale="0.8" elevation="0.0" url="sets/OggettiCamera/sediadecente" offsethorizontal="0.0" onPicked="script.load('scripts/camera/sedia.py')" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.2" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="6.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/scrivaniadecente" offsethorizontal="0.0" onPicked="script.load('scripts/camera/scrivania.py')" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="4.0" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/scrivaniadecente" offsethorizontal="0.0" onPicked="script.load('scripts/camera/scrivania.py')" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="1.0" />
 			<light distance="0.5" attenuation="0.02" on="true" color="255,150,10" type="point" id="minilamp" />
-			<object scale="0.7" elevation="0.03" url="sets/OggettiCamera/lampada" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.5" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="6.0" />
+			<object scale="0.65" elevation="0.01" url="sets/OggettiCamera/lampada" offsethorizontal="0.15" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.4" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="5.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/black" walkable="false" />
@@ -79,7 +80,6 @@
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<character direction="up" scale="11.0" onPicked="script.load('scripts/camera/4x2katyonPicked.py')" url="lucrezia" hitboxscale="1.0" playable="false" inclination="5.0" speed="1.0" id="katy" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
@@ -89,7 +89,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="0.5" elevation="0.1" url="sets/OggettiCamera/sveglia" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.25" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="3.0" />
+			<object scale="0.095" elevation="0.03" url="sets/livingroom/alarm" offsethorizontal="0.07" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.45" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="5.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/black" walkable="false" />
@@ -119,7 +119,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" onPicked="script.load('scripts/camera/pianta.py')" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object scale="0.7" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.1" onPicked="script.load('scripts/camera/pianta.py')" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.5" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="30.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/black" walkable="false" />
