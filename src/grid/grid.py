@@ -274,6 +274,7 @@ class Grid(DirectObject):
     Used to get Tile object from coordinates.
     Very slow, linear, improvable.
     Used only in editor mode.
+    @return Tile instance or -1 if tile is not found
     '''
     def getTile(self, x, y):
         for t in self.tileset:

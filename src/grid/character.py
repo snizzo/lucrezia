@@ -10,14 +10,14 @@ from direct.task import Task
 from direct.showbase.DirectObject import DirectObject
 
 from XMLExportable import XMLExportable
+from GameEntity import GameEntity
 from editor.gui.PropertiesTableAbstract import PropertiesTableAbstract
 
-class Character(DirectObject, XMLExportable, PropertiesTableAbstract):
+class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity):
     
     def __init__(self, attributes, showCollisions, grid_currentx, grid_currenty, grid_playable_pos, parent):
+        GameEntity.__init__(self, parent) #running parent constructor
         
-        self.parent = parent
-        self.node = None
         self.movtask = 0
         self.showCollisions = showCollisions
         self.grid_currentx = grid_currentx
@@ -217,6 +217,8 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract):
         self.properties['hitboxscale'] = float(self.properties['hitboxscale'])
         self.properties['speed'] = float(self.properties['speed'])
         self.properties['scale'] = float(self.properties['scale'])
+        
+        self.updateTilePosition()
     
     #interface needed by PropertiesTable
     # regenerates the node at every change

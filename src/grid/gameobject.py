@@ -6,24 +6,26 @@ from pandac.PandaModules import TransparencyAttrib
 from pandac.PandaModules import CardMaker
 
 from XMLExportable import XMLExportable
+from GameEntity import GameEntity
 from editor.gui.PropertiesTableAbstract import PropertiesTableAbstract
 
 '''
 @inherit XMLExportable
 '''
-class GameObject(XMLExportable, PropertiesTableAbstract):
+class GameObject(GameEntity, XMLExportable, PropertiesTableAbstract):
     '''
     used to add objects to game that intersects (or not) walkability
     @param attribues list of xml loaded attributes
     '''
     def __init__(self, attributes, parent, innerX, innerY, innerDimension, baseDimension):
+        GameEntity.__init__(self, parent) #running parent constructor
+        
         self.onPicked = ''
         
         self.innerX = innerX
         self.innerY = innerY
         self.innerDimension = innerDimension
         self.baseDimension = baseDimension
-        self.parent = parent
         self.typeName = 'object'
         
         self.properties = {
@@ -161,7 +163,7 @@ class GameObject(XMLExportable, PropertiesTableAbstract):
         tex.setWrapU(Texture.WM_clamp)
         
         #this is true pixel art
-        #change to FTLinear for linear interpolatino between pixel colors
+        #change to FTLinear for linear interpolation between pixel colors
         tex.setMagfilter(Texture.FTNearest)
         tex.setMinfilter(Texture.FTNearest)
         
@@ -256,6 +258,8 @@ class GameObject(XMLExportable, PropertiesTableAbstract):
         self.properties['offsetvertical'] = float(self.properties['offsetvertical'])
         self.properties['elevation'] = float(self.properties['elevation'])
         self.properties['scale'] = float(self.properties['scale'])
+        
+        self.updateTilePosition()
     
     #interface needed by PropertiesTable
     # regenerates the node at every change

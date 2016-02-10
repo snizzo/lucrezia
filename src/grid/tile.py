@@ -190,6 +190,21 @@ class Tile(XMLExportable, PropertiesTableAbstract):
             self.collisionNode.addSolid(self.collisionTube)
             self.collisionNodeNp = self.groundnode.attachNewNode(self.collisionNode)
         
+    '''
+    remove an object from the tile
+    @param target to be removed
+    '''
+    def removeObject(self, target):
+        if target in self.objects:
+            self.objects.remove(target)
+    
+    '''
+    Add already existent object into objects children list
+    @param target to be appended
+    '''
+    def addExistentObject(self, target):
+        self.objects.append(target)
+        target.reparentTo(self)
     
     '''
     used to add objects to game that intersects (or not) walkability
@@ -207,6 +222,9 @@ class Tile(XMLExportable, PropertiesTableAbstract):
         characterObject = Character(attributes, showCollisions, currentx, currenty, playablepos, self)
         self.objects.append(characterObject)
     
+    '''
+    Mostly broken with oop structure. Needed by grass and maybe some other.
+    '''
     def addCustomObject(self, o):
         o.getNode().reparentTo(self.node)
     
