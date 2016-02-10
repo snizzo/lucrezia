@@ -16,7 +16,7 @@ import sys, os, math
 This class represent a single baloon, with text animation
 '''
 class Baloon(DirectObject):
-    def __init__(self, who, message, target, speed):
+    def __init__(self, who, message, target, speed, thought):
         #text is in pure normal text
         #owner is in 
         self.pos = target.getWorldPos()
@@ -24,6 +24,7 @@ class Baloon(DirectObject):
         self.message = list(message[::-1])
         self.textapplied = [who,':\n']
         self.speed = speed
+        self.isThought = thought
         
         '''
         for i in range(len(self.message)):
@@ -31,7 +32,7 @@ class Baloon(DirectObject):
         '''
         
         #good default?
-        self.openCloseSpeed = 0.2
+        self.openCloseSpeed = 0.15
     
     def requestPause(self):
         messenger.send("pauseGameplay");
@@ -103,13 +104,19 @@ class Baloon(DirectObject):
         #card as background
         self.textbg.setFrameColor(0.7, 0.7, 0.7, 0.6)
         self.textbg.setFrameAsMargin(0.4, 0.8, 0.4, 0.3)
-        self.textbg.setCardColor(0.5, 0.5, 0.5, 0.67)
+        if self.isThought:
+            self.textbg.setCardColor(0.3, 0.3, 0.3, 0.75)
+        else:
+            self.textbg.setCardColor(0.5, 0.5, 0.5, 0.75)
         self.textbg.setCardAsMargin(0.4, 0.8, 0.4, 0.3)
         self.textbg.setCardDecal(True)
         
         #text
         self.text = TextNode('baloontextnode')
-        self.text.setTextColor(1, 1, 1, 1)
+        if self.isThought:
+            self.text.setTextColor(0.6, 0.6, 0.6, 1.0)
+        else:
+            self.text.setTextColor(1, 1, 1, 1)
         #self.text.setWordwrap(13.0)
         
         self.textnp = render.attachNewNode(self.text)

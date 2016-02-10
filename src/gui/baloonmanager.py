@@ -26,11 +26,21 @@ class BaloonManager(DirectObject):
         self.accept("resumeGameplay", self.unlock)
         taskMgr.add(self.baloonTask, "baloonspawntask")
     
+    #APICALL
+    def pushThought(self, who, message, node, speed=0.025):
+        targetNodeList = pGrid.getObjectsById(node)
+        
+        for n in targetNodeList:
+            b = Baloon(who, message, n, speed, True)
+            self.queue.append(b)
+            self.globalLock = True
+    
+    #APICALL
     def push(self, who, message, node, speed=0.025):
         targetNodeList = pGrid.getObjectsById(node)
         
         for n in targetNodeList:
-            b = Baloon(who, message, n, speed)
+            b = Baloon(who, message, n, speed, False)
             self.queue.append(b)
             self.globalLock = True
     
