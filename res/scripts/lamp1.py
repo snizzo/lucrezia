@@ -14,31 +14,27 @@ persistence.save("camera_lamp1_ison", lamp.on)
 
 
 if persistence.load("gameState") == 2:
-    baloons.push('Kate', 'Spegni la sveglia', 'kate')
+    baloons.push('Kate', 'Ciao Ellen.', 'kate')
     persistence.save("scrivaniaCameraState", 2)
     ###pause
 if persistence.load("gameState") == 2:
     kate = pGrid.getObjectById("kate")
     kate.npc_push_walk("down", 2)
-    kate.npc_push_walk("left", 3)
+    kate.npc_push_walk("left", 2)
     ###pause
 if persistence.load("gameState") == 2:
-    pGrid.getObjectById("kate").face('down')
+    pGrid.getObjectById("kate").face('left')
+    pGrid.getObjectById("ellen").face('right')
     baloons.push('Ellen', 'Oddio Kate! Mi farai venire un infarto.', 'ellen')
-    ###pause
-if persistence.load("gameState") == 2:
-    ellen = pGrid.getObjectById("ellen")
-    ellen.npc_push_walk("up", 2)
-    ###pause
-if persistence.load("gameState") == 2:
-    ellen = pGrid.getObjectById("ellen")
-    ###pause
-if persistence.load("gameState") == 2:
-    baloons.push('Ellen', 'Sai, pensavo che mi sarei potuta fermare qualche gior...', 'ellen')
-    audioManager.stopLongEffect('alarm')
-    baloons.push('Ellen', 'Finalmente...', 'ellen')
+    baloons.pushThought('Ellen', 'Ma da dove è spuntata?', 'ellen')
+    baloons.push('Ellen', 'Allora ehm... come stai?', 'ellen')
+    baloons.push('Kate', 'Oh mio dio ma non hai ancora capito?', 'kate')
+    baloons.pushThought('Ellen', 'Eh??', 'ellen')
+    baloons.push('Kate', 'Stammi a sentire perchè non lo ripeterò più.', 'kate')
     baloons.push('Kate', 'Avevo unicamente intenzione di dirti che non ho smesso di volerti bene o sia arrabbiata.', 'kate')
     baloons.push('Kate', 'Sono stufa.', 'kate')
+###pause
+if persistence.load("gameState") == 2:
     audioManager.playMusic('soundtrack/gone.ogg')
     baloons.push('Kate', 'Non ne posso più del tuo egocentrismo illimitato e in un paio di giorni in montagna', 'kate')
     baloons.push('Kate', 'mi hai veramente saturata.', 'kate')
@@ -55,6 +51,8 @@ if persistence.load("gameState") == 2:
     baloons.push('Kate', '...di quello che amano.', 'kate')
     baloons.push('Kate', 'Hai una vaga idea di cosa voglia fare all\'università l\'anno prossimo?', 'kate')
     baloons.push('Ellen', 'Io non...', 'ellen')
+    baloons.pushThought('Ellen', 'Ti voglio bene Kate!', 'ellen')
+    baloons.pushThought('Ellen', 'Dillo!', 'ellen')
     baloons.push('Ellen', '.....', 'ellen')
     baloons.push('Kate', 'Non mi hai mai mai chiesto niente.', 'kate')
     baloons.push('Kate', 'A me, come immagino, al resto dell\'umanità che ti sta intorno.', 'kate')
@@ -82,7 +80,7 @@ if persistence.load("gameState") == 2:
     ###pause
 if persistence.load("gameState") == 2:
     pGrid.getObjectById("kate").npc_push_walk("right", 4)
-    pGrid.getObjectById("kate").npc_push_walk("up", 3)
+    pGrid.getObjectById("kate").npc_push_walk("left", 3)
     ###pause
 if persistence.load("gameState") == 2:
     pGrid.getObjectById("kate").face('down')

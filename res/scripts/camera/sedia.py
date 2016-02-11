@@ -1,7 +1,6 @@
 if persistence.load('gameState') == 3:
-    baloons.push('Ellen', 'Ogni tanto mi sedevo a scrivere qualche pagina di un finto diario.', 'ellen')
-    baloons.push('Ellen', 'Raccontavo molte storie ispirate alla mia vita.', 'ellen')
-    baloons.push('Ellen', 'A quello che mi succedeva.', 'ellen')
-    baloons.push('Ellen', 'In fondo a ogni pagina c\'era sempre un messaggio per lei.', 'ellen')
-    baloons.push('Ellen', 'Anche se sapevo che non sarebbe mai arrivato a destinazione lo scrivevo lo stesso.', 'ellen')
-    baloons.push('Ellen', 'Sognavo.', 'ellen')
+    baloons.pushThought('Ellen', 'Ogni tanto mi sedevo a scrivere qualche pagina di un finto diario.', 'ellen')
+    baloons.pushThought('Ellen', 'Raccontavo delle mie insicurezze, dei miei dubbi.', 'ellen')
+    baloons.pushThought('Ellen', 'Ci sono tante cose che Kate non sa di me.', 'ellen')
+    baloons.pushThought('Ellen', 'Ma ormai è troppo tardi...', 'ellen')
+    

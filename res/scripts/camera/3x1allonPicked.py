@@ -1,4 +1,5 @@
 if persistence.load("gameState") > 2:
-    baloons.push('Ellen', 'Il letto di Kate.', 'ellen')
-    baloons.push('Ellen', 'La guardavo ogni sera prima di dormire...', 'ellen')
-    baloons.push('Ellen', '...e ogni mattina appena mi svegliavo.', 'ellen')
+    baloons.pushThought('Ellen', 'Pensavo non venisse.', 'ellen')
+    baloons.pushThought('Ellen', 'Volevo lasciarle un foglio sotto il cuscino.', 'ellen')
+    baloons.pushThought('Ellen', 'Così avrebbe avuto un bel ricordo, da toccare, da guardare.', 'ellen')
+    baloons.pushThought('Ellen', 'Volevo scriverle \"Ti voglio bene.\"', 'ellen')

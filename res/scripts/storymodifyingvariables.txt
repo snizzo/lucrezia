@@ -1,0 +1,1 @@
+hasAskedForHug - 'yes' or False
