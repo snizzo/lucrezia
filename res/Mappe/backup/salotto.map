@@ -1,4 +1,4 @@
-<data tilesize="32.0" showcollisions="false" camdistance="25.0"  >
+<data tilesize="32.0" showcollisions="false" camdistance="25.0" onLoad="#script.load('scripts/onCameraLoad.py')"  >
 	<row>
 		<tile>
 			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
@@ -47,7 +47,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-			<object scale="0.85" elevation="0.0" name="" url="sets/livingroom/up_stairs" offsethorizontal="0.0" onPicked="script.load('scripts/salotto/5x1allonPicked.py')" offsetcollisionh="0.5" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" onWalked="" offsetwidth="0.0" id="all" inclination="1.0" />
+			<object scale="0.85" elevation="0.0" name="" url="sets/livingroom/up_stairs" offsethorizontal="0.0" onPicked="" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" onWalked="" offsetwidth="0.0" id="all" inclination="1.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
