@@ -311,7 +311,7 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
             self.node.setZ(self.node.getZ()+1*dt*self.properties['speed'])
             currenty = self.node.getZ()
             
-            if currenty <= self.npc_targety:
+            if currenty >= self.npc_targety:
                 return task.done
         if(self.npc_direction=='down'):
             self.node.setZ(self.node.getZ()-1*dt*self.properties['speed'])

@@ -103,13 +103,15 @@ class MyApp(ShowBase):
         print r.getResource('misc/grass') # deve dire path assoluto = res/misc/grass.png
         """
         
+        self.entrypoint = ['corridoio.map', '3,3']
+        
         mainMenu.show()
         
         
         #UNCOMMENT TO ENABLE INTRO
         #i = Intro()
         #i.start()
-        #persistence.save("gameState", 3)
+        persistence.save("gameState", 3)
         
 
     def ping (self):

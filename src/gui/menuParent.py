@@ -155,7 +155,7 @@ class MainMenu(Menu):
         audioManager.stopMusic(4)
         Sequence(
             Wait(3),
-            Func(messenger.send, 'changeMap', ['camera.map','2,4']), #using map api to change map
+            Func(messenger.send, 'changeMap', main.entrypoint), #using map api to change map
             Wait(2),
             Func(Menu.close, self)
             ).start()
