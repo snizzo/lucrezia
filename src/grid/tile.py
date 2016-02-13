@@ -121,8 +121,10 @@ class Tile(XMLExportable, PropertiesTableAbstract):
             self.walkable = True
         
         #setting scripting part
-        self.groundnode.setTag("onWalked", self.tileProperties['onWalked'])
-        self.groundnode.setTag("onPicked", self.tileProperties['onPicked'])
+        if 'onWalked' in self.tileProperties:
+            self.groundnode.setTag("onWalked", self.tileProperties['onWalked'])
+        if 'onPicked' in self.tileProperties:
+            self.groundnode.setTag("onPicked", self.tileProperties['onPicked'])
         
         #setting walkable or not
         self.setWalkable(self.walkable)
