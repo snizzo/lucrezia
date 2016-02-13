@@ -114,7 +114,7 @@ class Tile(XMLExportable, PropertiesTableAbstract):
                 self.groundnode.setTag("collideandwalk", "no")
             if attributes['walkable'].value == "collide":
                 self.walkable = False
-                self.tileProperties['walkable'] = 'false'
+                self.tileProperties['walkable'] = 'collide'
                 self.groundnode.setTag("collideandwalk", "yes")
         else:
             self.tileProperties['walkable'] = 'true'
