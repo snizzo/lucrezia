@@ -93,7 +93,7 @@
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="collide" onWalked="script.load('scripts/corridoio/corridoio1.py')" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
 			<light distance="1.0" attenuation="0.01" color="255,150,50" type="point" id="light" />
 			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/lampadone" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="6.0" />
 		</tile>

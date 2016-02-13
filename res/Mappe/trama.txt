@@ -108,7 +108,7 @@ E: Ehi!
 P: Giochiamo?
 P: Giochiamooo??
 E: Mi dispiace non posso, devo tornare a casa.
-P: In che senso?
+P: Perchè?
 E: Devo prendere una corriera che mi porta a casa.
 E: Sai, quelle col motore.
 E: E le ruote.

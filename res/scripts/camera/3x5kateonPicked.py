@@ -40,4 +40,12 @@ if persistence.load("gameState") == 3:
         baloons.pushThought('Ellen', 'Ti prego Ellen, non mandare tutto in merda di nuovo!', 'ellen')
         baloons.push('Ellen', '.....', 'ellen')
         persistence.save("kateSpeak3", 1)
+###pause
+if persistence.load("gameState") == 9999:
+    baloons.pushThought('Ellen', 'Ti prego Ellen, non mandare tutto in merda di nuovo!', 'ellen')
+    kate = pGrid.getObjectById("kate")
+    kate.npc_push_walk("down", 2)
+    kate.npc_push_walk("left", 2)
+    kate.npc_push_walk("right", 2)
+    kate.npc_push_walk("up", 2)
 
