@@ -1,0 +1,129 @@
+<Comment> {
+  "egg-texture-cards -g0,1,0,1 -p384,384 -o wtop.egg -fps 4 wtop_0.png wtop_1.png wtop_2.png wtop_3.png"
+}
+<Texture> wtop_3 {
+  wtop_3.png
+}
+<Texture> wtop_2 {
+  wtop_2.png
+}
+<Texture> wtop_1 {
+  wtop_1.png
+}
+<Texture> wtop_0 {
+  wtop_0.png
+}
+<Group> {
+  <Switch> { 1 }
+  <Scalar> fps { 4 }
+  <VertexPool> vpool {
+    <Vertex> 0 {
+      0 0.125 0
+      <UV> { 0 1 }
+      <Normal> { 0 0 1 }
+    }
+    <Vertex> 1 {
+      0 0 0
+      <UV> { 0 0 }
+      <Normal> { 0 0 1 }
+    }
+    <Vertex> 2 {
+      0.0833333 0 0
+      <UV> { 1 0 }
+      <Normal> { 0 0 1 }
+    }
+    <Vertex> 3 {
+      0.0833333 0.125 0
+      <UV> { 1 1 }
+      <Normal> { 0 0 1 }
+    }
+    <Vertex> 4 {
+      0 0.125 0
+      <UV> { 0 1 }
+      <Normal> { 0 0 1 }
+    }
+    <Vertex> 5 {
+      0 0 0
+      <UV> { 0 0 }
+      <Normal> { 0 0 1 }
+    }
+    <Vertex> 6 {
+      0.0833333 0 0
+      <UV> { 1 0 }
+      <Normal> { 0 0 1 }
+    }
+    <Vertex> 7 {
+      0.0833333 0.125 0
+      <UV> { 1 1 }
+      <Normal> { 0 0 1 }
+    }
+    <Vertex> 8 {
+      0 0.125 0
+      <UV> { 0 1 }
+      <Normal> { 0 0 1 }
+    }
+    <Vertex> 9 {
+      0 0 0
+      <UV> { 0 0 }
+      <Normal> { 0 0 1 }
+    }
+    <Vertex> 10 {
+      0.0833333 0 0
+      <UV> { 1 0 }
+      <Normal> { 0 0 1 }
+    }
+    <Vertex> 11 {
+      0.0833333 0.125 0
+      <UV> { 1 1 }
+      <Normal> { 0 0 1 }
+    }
+    <Vertex> 12 {
+      0 0.125 0
+      <UV> { 0 1 }
+      <Normal> { 0 0 1 }
+    }
+    <Vertex> 13 {
+      0 0 0
+      <UV> { 0 0 }
+      <Normal> { 0 0 1 }
+    }
+    <Vertex> 14 {
+      0.0833333 0 0
+      <UV> { 1 0 }
+      <Normal> { 0 0 1 }
+    }
+    <Vertex> 15 {
+      0.0833333 0.125 0
+      <UV> { 1 1 }
+      <Normal> { 0 0 1 }
+    }
+  }
+  <Group> wtop_0 {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { wtop_0 }
+      <VertexRef> { 0 1 2 3 <Ref> { vpool } }
+    }
+  }
+  <Group> wtop_1 {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { wtop_1 }
+      <VertexRef> { 4 5 6 7 <Ref> { vpool } }
+    }
+  }
+  <Group> wtop_2 {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { wtop_2 }
+      <VertexRef> { 8 9 10 11 <Ref> { vpool } }
+    }
+  }
+  <Group> wtop_3 {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { wtop_3 }
+      <VertexRef> { 12 13 14 15 <Ref> { vpool } }
+    }
+  }
+}

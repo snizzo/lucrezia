@@ -13,8 +13,7 @@ class ResourceManager:
     """
     
     def get_path(self):
-        string1 = os.path.split(self.path)
-        return string1[0] + "/lucrezia/" + self.resource_folder + "/"
+        return self.path + "/" + self.resource_folder + "/"
     
     def getResource(self, key):
         

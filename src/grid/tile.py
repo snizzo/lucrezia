@@ -228,6 +228,7 @@ class Tile(XMLExportable, PropertiesTableAbstract):
     Mostly broken with oop structure. Needed by grass and maybe some other.
     '''
     def addCustomObject(self, o):
+        self.objects.append(o)
         o.getNode().reparentTo(self.node)
     
     def setX(self, x):

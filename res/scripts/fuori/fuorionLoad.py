@@ -1,0 +1,5 @@
+audioManager.stopMusic(0.5)
+audioManager.playEffect('sfx/closed_door.ogg')
+audioManager.playLongEffect('wind', 'sfx/wind_town.ogg')
+baloons.pushThought("Ellen", "Le chiavi...", "ellen")
+baloons.pushThought("Ellen", "Dove le ho messe?", "ellen")

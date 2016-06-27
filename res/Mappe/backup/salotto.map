@@ -1,221 +1,224 @@
-<data tilesize="32.0" showcollisions="false" camdistance="25.0" onLoad="#script.load('scripts/onCameraLoad.py')"  >
+<data tilesize="32.0" showcollisions="false" camdistance="25.0"   >
 	<row>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 	</row>
 	<row>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-			<object scale="1.2" elevation="0.0" name="" url="sets/livingroom/browncouch" offsethorizontal="0.0" onPicked="" offsetcollisionh="0.0" walkable="false" offsetcollisionv="-0.45" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" onWalked="" offsetwidth="0.0" id="all" inclination="1.0" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="1.2" elevation="0.0" url="sets/livingroom/browncouch" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="-0.45" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="1.0" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-			<object scale="0.85" elevation="0.0" name="" url="sets/livingroom/up_stairs" offsethorizontal="0.0" onPicked="" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" onWalked="" offsetwidth="0.0" id="all" inclination="1.0" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="0.85" elevation="0.0" url="sets/livingroom/up_stairs" offsethorizontal="0.0" onPicked="script.load('scripts/salotto/5x1allonPicked.py')" offsetcollisionh="0.5" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="1.0" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
-		</tile>
-	</row>
-	<row>
-		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 	</row>
 	<row>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-			<object scale="0.7" elevation="0.0" name="" url="sets/OggettiCamera/tappeto" offsethorizontal="0.3" onPicked="" offsetcollisionh="0.0" walkable="true" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.3" offsetheight="0.0" collisionmode="2d" onWalked="" offsetwidth="0.0" id="all" inclination="1.0" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/livingroom/book" offsethorizontal="0.0" onPicked="script.load('scripts/salotto/1x2libroterra_salottoonPicked.py')" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.4" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="libroterra_salotto" inclination="1.0" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
-		</tile>
-	</row>
-	<row>
-		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-			<character direction="down" scale="11.0" onPicked="" url="lucrezia" hitboxscale="0.8" playable="true" inclination="5.0" speed="2.5" id="ellen" onWalked="" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 	</row>
 	<row>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-			<object scale="0.7" elevation="0.0" name="" url="sets/livingroom/tv_table_on" offsethorizontal="0.0" onPicked="" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" onWalked="" offsetwidth="0.0" id="all" inclination="5.0" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="0.7" elevation="0.01" url="sets/OggettiCamera/tappeto" offsethorizontal="0.3" offsetcollisionh="0.0" walkable="true" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.3" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="0.0" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-			<object scale="1.0" elevation="0.0" name="" url="sets/OggettiCamera/lamp" offsethorizontal="0.15" onPicked="" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.4" offsetheight="0.0" collisionmode="2d" onWalked="" offsetwidth="0.0" id="all" inclination="30.0" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-			<character direction="down" scale="11.0" onPicked="" url="lucrezia" hitboxscale="0.8" playable="false" inclination="5.0" speed="2.5" id="kate" onWalked="" />
-			<light distance="1.0" attenuation="0.01" on="true" color="255,150,80" type="point" id="light" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 	</row>
 	<row>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-			<object scale="1.0" elevation="0.0" name="" url="sets/OggettiCamera/muro" offsethorizontal="0.0" onPicked="" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" onWalked="" offsetwidth="0.0" id="all" inclination="2.0" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-			<object scale="1.0" elevation="0.0" name="" url="sets/OggettiCamera/muro" offsethorizontal="0.0" onPicked="" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" onWalked="" offsetwidth="0.0" id="all" inclination="2.0" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<character direction="down" scale="11.0" url="lucrezia" hitboxscale="0.8" playable="true" inclination="5.0" speed="2.5" id="ellen" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-			<object scale="1.0" elevation="0.0" name="" url="sets/OggettiCamera/muro" offsethorizontal="0.0" onPicked="" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" onWalked="" offsetwidth="0.0" id="all" inclination="2.0" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-			<object scale="1.0" elevation="0.0" name="" url="sets/OggettiCamera/muro" offsethorizontal="0.0" onPicked="" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" onWalked="" offsetwidth="0.0" id="all" inclination="2.0" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-			<object scale="1.0" elevation="0.0" name="" url="sets/OggettiCamera/muro" offsethorizontal="0.0" onPicked="" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" onWalked="" offsetwidth="0.0" id="all" inclination="2.0" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-			<object scale="1.0" elevation="0.0" name="" url="sets/OggettiCamera/muro" offsethorizontal="0.0" onPicked="" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" onWalked="" offsetwidth="0.0" id="all" inclination="2.0" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" onPicked="" id="" onWalked="" />
-			<object scale="1.0" elevation="0.0" name="" url="sets/OggettiCamera/porta" offsethorizontal="0.0" onPicked="" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.02" offsetheight="0.0" collisionmode="2d" onWalked="" offsetwidth="0.0" id="all" inclination="4.0" />
-			<object scale="1.0" elevation="0.0" name="" url="sets/OggettiCamera/muro" offsethorizontal="0.0" onPicked="" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" onWalked="messenger.send('changeMap', ['corridoio.map','3,1'])" offsetwidth="0.0" id="all" inclination="2.0" />
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/comodino" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="1.0" />
+			<object scale="0.6" elevation="0.1" url="sets/OggettiCamera/libro" offsethorizontal="-0.25" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.45" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="libro" inclination="4.0" />
 		</tile>
 		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" onPicked="" id="" onWalked="" />
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="0.7" elevation="0.0" url="sets/livingroom/tv_table_on" offsethorizontal="0.0" onPicked="script.load('scripts/salotto/1x5tvtableonPicked.py')" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="tvtable" inclination="5.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/lamp" offsethorizontal="0.15" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.4" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="10.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<light distance="0.5" attenuation="0.01" on="true" color="255,150,80" type="point" id="light" />
+			<character direction="down" scale="11.0" onPicked="script.load('scripts/salotto/3x5luigionPicked.py')" url="luigi" hitboxscale="1.0" playable="false" inclination="5.0" speed="1.0" id="luigi" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/porta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.02" offsetheight="0.0" collisionmode="2d" onWalked="script.load('scripts/salotto/7x6allonWalked.py')" offsetwidth="0.0" id="all" inclination="4.0" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" onWalked="script.load('scripts/salotto/7x6allonWalked.py')" offsetwidth="0.0" id="all" inclination="2.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
 		</tile>
 	</row>
 </data>

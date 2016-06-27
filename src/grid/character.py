@@ -242,6 +242,7 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
     def applyNearestFilter(self, model):
         for tex in model.findAllTextures():
             tex.setMinfilter(Texture.FT_nearest)
+            tex.setMagfilter(Texture.FT_nearest)
         return model
     
     '''

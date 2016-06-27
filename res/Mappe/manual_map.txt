@@ -87,12 +87,16 @@ Scripting API:
 				text                message to be shown
 				id                  unique identification string
 				speed               animation speed at which the message will be shown
+            baloons.pushThought(speaker, text, id, speed)
+                same....
 
 -----CHARACTERS
             character.npc_push_walk(direction, unit)
                 "up", "down", "left", "right", and units in integer as a tile
             character.setSpeed(2.0)
                 set movement speed for character
+            character.face(direction)
+                set face to direction
 
 -----LIGHTS
             lamp.toggle()

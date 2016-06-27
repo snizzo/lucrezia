@@ -1,0 +1,37 @@
+<Comment> {
+  "egg-texture-cards -g0,1,0,1 -p384,384 -o stop.egg wtop_0.png"
+}
+<Texture> wtop_0 {
+  wtop_0.png
+}
+<Group> {
+  <VertexPool> vpool {
+    <Vertex> 0 {
+      0 0.125 0
+      <UV> { 0 1 }
+      <Normal> { 0 0 1 }
+    }
+    <Vertex> 1 {
+      0 0 0
+      <UV> { 0 0 }
+      <Normal> { 0 0 1 }
+    }
+    <Vertex> 2 {
+      0.0833333 0 0
+      <UV> { 1 0 }
+      <Normal> { 0 0 1 }
+    }
+    <Vertex> 3 {
+      0.0833333 0.125 0
+      <UV> { 1 1 }
+      <Normal> { 0 0 1 }
+    }
+  }
+  <Group> wtop_0 {
+    <Polygon> {
+      <RGBA> { 1 1 1 1 }
+      <TRef> { wtop_0 }
+      <VertexRef> { 0 1 2 3 <Ref> { vpool } }
+    }
+  }
+}

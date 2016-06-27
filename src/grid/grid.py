@@ -48,7 +48,7 @@ class Grid(DirectObject):
         
         #main nodes
         self.node = render.attachNewNode("tileset")
-        self.grassnode = self.node.attachNewNode("grassnodes")
+        self.grassnode = render.attachNewNode("grassnodes")
         
         #default value, just for fun
         self.tileDimension = 128.0

@@ -121,6 +121,7 @@ class Light(PropertiesTableAbstract, XMLExportable):
             print "ERROR: please define a correct color for light. (example: r,g,b,a in float values)!"
         realcolor = VBase4(float(rgba[0])/255,float(rgba[1])/255,float(rgba[2])/255,1.0)
         
+        self.plnp.setY(-self.properties['distance'])
         self.plight.setColor(realcolor)
         self.plight.setAttenuation((self.properties['attenuation']))
     
