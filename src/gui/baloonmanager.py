@@ -45,7 +45,7 @@ class BaloonManager(DirectObject):
             self.globalLock = True
     
     '''
-    Unlocks and broadcast singals across the engine
+    Unlocks and broadcast signals across the engine
     '''
     def unlock(self):
         self.lock = False

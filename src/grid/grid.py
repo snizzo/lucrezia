@@ -2,6 +2,7 @@
 from panda3d.core import NodePath, LPoint2i
 from direct.showbase.DirectObject import DirectObject
 from direct.interval.IntervalGlobal import *
+from direct.gui.OnscreenText import OnscreenText
 
 #standard python
 from xml.dom import minidom

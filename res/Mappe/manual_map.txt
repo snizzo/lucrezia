@@ -68,6 +68,10 @@ Scripting API:
             ###pause
                 requests a game engine pause to execute things like baloons and music etc.
 
+-----GUI
+            fadingtext.spawn(text <x,z,scale,r,g,b>)
+                spawn a text that will fade in 9 seconds
+
 -----BROADCAST EVENTS
             
             messenger.send('changeMap', ['corridoio.map','3,1'])"

@@ -1,0 +1,7 @@
+<data tilesize="32.0" showcollisions="false" camdistance="25.0"   >
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+        </tile>
+    </row>
+</data>

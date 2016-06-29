@@ -6,6 +6,7 @@ from panda3d.core import CollisionHandlerQueue,CollisionRay
 from panda3d.core import BoundingSphere, Point3
 from panda3d.core import UvScrollNode
 from direct.task import Task
+from direct.gui.OnscreenText import OnscreenText
 
 from direct.showbase.DirectObject import DirectObject
 

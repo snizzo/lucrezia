@@ -119,3 +119,6 @@ class Grass(GameEntity, PropertiesTableAbstract, XMLExportable):
     
     def setProperty(self, key, value):
         self.properties[key] = value
+    
+    def destroy(self):
+        self.node.remove_node()

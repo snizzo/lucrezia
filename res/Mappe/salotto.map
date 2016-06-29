@@ -1,4 +1,4 @@
-<data tilesize="32.0" showcollisions="false" camdistance="25.0"   >
+<data tilesize="32.0" showcollisions="false" camdistance="25.0"  onUnload="script.load('scripts/salotto/salottoonUnload.py')" >
 	<row>
 		<tile>
 			<ground url="sets/OggettiCamera/black" walkable="false" />

@@ -1,4 +1,5 @@
 from direct.showbase.DirectObject import DirectObject
+from gui.fadingtext import FadingText
 
 class Script(DirectObject):
     def __init__(self):

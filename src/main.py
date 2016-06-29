@@ -19,6 +19,7 @@ from configmanager.configmanager import ConfigManager
 from audio.audioManager import AudioManager
 from gui.menuParent import MainMenu
 from gui.baloonmanager import BaloonManager
+from gui.fadingtext import FadingTextManager
 from camera.camera import CustomCamera
 from utils.fadeout import FadeOut
 from intro.intro import Intro
@@ -32,7 +33,7 @@ __builtin__.configManager = ConfigManager()
 #fullscreen e grandezza finestra
 loadPrcFileData("","""
 gl-debug false
-fullscreen 0
+fullscreen 1
 win-size 1920 1080
 text-encoding utf8
 show-frame-rate-meter 0
@@ -75,9 +76,11 @@ class MyApp(ShowBase):
         __builtin__.baloons = BaloonManager()
         #__builtin__.configManager = ConfigManager()
         __builtin__.audioManager = AudioManager()
+        __builtin__.fadingtext = FadingTextManager()
         __builtin__.customCamera = CustomCamera()
         __builtin__.script = Script()
         __builtin__.persistence = Persistence()
+        __builtin__.fademanager = FadeOut()
 
         # ===========================================
         #load the config class
@@ -103,15 +106,15 @@ class MyApp(ShowBase):
         print r.getResource('misc/grass') # deve dire path assoluto = res/misc/grass.png
         """
         
-        #self.entrypoint = ['fuori.map', '27,30']
-        self.entrypoint = ['camera.map', '2,4']
+        self.entrypoint = ['incidente.map', '20,11']
+        #self.entrypoint = ['camera.map', '2,4']
         mainMenu.show()
         
         
         #UNCOMMENT TO ENABLE INTRO
-        i = Intro()
-        i.start()
-        #persistence.save("gameState", 3)
+        #i = Intro()
+        #i.start()
+        persistence.save("gameState", 3)
 
     def ping (self):
         print "main: PONG!"
