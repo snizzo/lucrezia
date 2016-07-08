@@ -1,0 +1,334 @@
+<data tilesize="32.0" showcollisions="false" camdistance="25.0" onLoad="script.load('scripts/black/blackonLoad.py')"  >
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+			<character direction="down" scale="1.0" url="lucrezia" hitboxscale="1.0" playable="false" inclination="30.0" speed="1.0" id="0x0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+			<character direction="down" scale="1.0" url="lucrezia" hitboxscale="1.0" playable="false" inclination="30.0" speed="1.0" id="2x1" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+			<character direction="down" scale="1.0" url="lucrezia" hitboxscale="1.0" playable="false" inclination="30.0" speed="1.0" id="8x1" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+			<character direction="down" scale="1.0" url="lucrezia" hitboxscale="1.0" playable="false" inclination="30.0" speed="1.0" id="6x2" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+			<character direction="down" scale="1.0" url="lucrezia" hitboxscale="1.0" playable="false" inclination="30.0" speed="1.0" id="3x3" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+			<character direction="down" scale="1.0" url="lucrezia" hitboxscale="1.0" playable="true" inclination="30.0" speed="0.0" id="4x4" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+			<character direction="down" scale="1.0" url="lucrezia" hitboxscale="1.0" playable="false" inclination="30.0" speed="1.0" id="8x4" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+			<character direction="down" scale="1.0" url="lucrezia" hitboxscale="1.0" playable="false" inclination="30.0" speed="1.0" id="1x5" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+			<light distance="1.0" attenuation="0.5" on="true" color="255,150,10" type="point" id="light" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+			<character direction="down" scale="1.0" url="lucrezia" hitboxscale="1.0" playable="false" inclination="30.0" speed="1.0" id="8x6" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+			<character direction="down" scale="1.0" url="lucrezia" hitboxscale="1.0" playable="false" inclination="30.0" speed="1.0" id="2x7" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+			<character direction="down" scale="1.0" url="lucrezia" hitboxscale="1.0" playable="false" inclination="30.0" speed="1.0" id="6x7" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+	</row>
+</data>

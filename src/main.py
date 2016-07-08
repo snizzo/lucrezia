@@ -106,15 +106,17 @@ class MyApp(ShowBase):
         print r.getResource('misc/grass') # deve dire path assoluto = res/misc/grass.png
         """
         
-        self.entrypoint = ['incidente.map', '20,11']
-        #self.entrypoint = ['camera.map', '2,4']
+        #self.entrypoint = ['incidente.map', '20,11']
+        #self.entrypoint = ['macchinadasola.map', '2,2']
+        #self.entrypoint = ['black.map', '5,5']
+        self.entrypoint = ['camera.map', '2,4']
         mainMenu.show()
         
         
         #UNCOMMENT TO ENABLE INTRO
-        #i = Intro()
-        #i.start()
-        persistence.save("gameState", 3)
+        i = Intro()
+        i.start()
+        #persistence.save("gameState", 3)
 
     def ping (self):
         print "main: PONG!"

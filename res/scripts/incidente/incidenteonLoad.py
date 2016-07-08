@@ -17,3 +17,10 @@ baloons.pushThought("Ellen","A..i...u...-","ellen", 0.5)
 baloons.pushThought("Ellen","----","ellen", 0.6)
 audioManager.playLongEffect('wind', 'sfx/wind_town.ogg')
 audioManager.playLongEffect('birds', 'sfx/birds_chirp.ogg')
+
+def incidenteOnEmptyMessages():
+	#audioManager.stopLongEffect('wind')
+	#audioManager.stopLongEffect('birds')
+	messenger.send('changeMap', ['black.map','4,4'])
+
+baloons.setOnEmptyCallback(incidenteOnEmptyMessages)

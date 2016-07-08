@@ -15,16 +15,28 @@ from gui.baloon import Baloon
 from utils.fadeout import FadeOut
 from utils.misc import Misc
 
-import sys, os
+import sys, os, collections
 
 class BaloonManager(DirectObject):
     def __init__(self):
+        #callback
+        self.callback = None
+        #module
         self.lock = False
         self.globalLock = False #very important for scripting engine
         self.queue = []
         
         self.accept("resumeGameplay", self.unlock)
         taskMgr.add(self.baloonTask, "baloonspawntask")
+    
+    #APICALL
+    #sets a function to be called when the message stack
+    #reaches emptiness
+    def setOnEmptyCallback(self, fun):
+        self.callback = fun
+    
+    def clearCallback(self):
+        self.callback = None
     
     #APICALL
     def pushThought(self, who, message, node, speed=0.025):
@@ -61,6 +73,12 @@ class BaloonManager(DirectObject):
             self.lock = True
             baloon.show()
             baloon.requestPause()
+        #onEmpty event
+        if self.lock == False and len(self.queue) == 0:
+            if isinstance(self.callback, collections.Callable):
+                self.callback()
+                self.clearCallback()
+                
         return task.cont
     '''
     self.show()
