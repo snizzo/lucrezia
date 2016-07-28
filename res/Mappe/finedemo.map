@@ -1,0 +1,36 @@
+<data tilesize="32.0" showcollisions="false" camdistance="25.0" onLoad="script.load('scripts/finedemo/finedemoonLoad.py')"  >
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+			<character direction="down" scale="11.0" url="lucrezia" hitboxscale="1.0" playable="true" inclination="30.0" speed="0.0" id="ellen" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+		</tile>
+	</row>
+</data>

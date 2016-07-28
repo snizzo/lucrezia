@@ -6689,7 +6689,6 @@
 		<tile>
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
-			<object scale="0.5" elevation="2.0" url="sets/Esterno/tegole" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="true" offsetcollisionv="0.0" avoidable="False" offsetvertical="-0.3" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="0.0" />
 		</tile>
 		<tile>
 			<ground url="misc/grass" walkable="true" />

@@ -1,0 +1,1640 @@
+<data tilesize="32.0" showcollisions="false" camdistance="25.0" onLoad="script.load('scripts/parcogiochi/parcogiochionLoad.py')"  >
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/ground2" walkable="false" />
+			<object scale="0.75" elevation="0.0" url="sets/Esterno/altalena" offsethorizontal="0.0" onPicked="script.load('scripts/parcogiochi/8x8allonPicked.py')" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.49" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="30.0" />
+		</tile>
+		<tile>
+			<ground url="misc/ground2" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="misc/ground2" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+			<character direction="up" scale="8.0" onPicked="script.load('scripts/parcogiochi/9x10amyonPicked.py')" url="amy" hitboxscale="1.0" playable="false" inclination="30.0" speed="1.0" id="amy" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+			<character direction="down" scale="11.0" url="lucrezia" hitboxscale="1.0" playable="true" inclination="5.0" speed="2.5" id="ellen" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/ground2" walkable="false" />
+			<object scale="1.0" elevation="0.0" url="sets/Esterno/panca" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="5.0" />
+		</tile>
+		<tile>
+			<ground url="misc/ground2" walkable="false" />
+			<object scale="0.5" elevation="0.1" url="sets/OggettiCamera/libro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.1" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="5.0" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+		<tile>
+			<ground url="misc/grass" walkable="true" />
+			<grass maxuniform="0.5" minuniform="0.35" density="8" />
+		</tile>
+	</row>
+</data>

@@ -5,6 +5,9 @@ def blackOnEmptyMessages():
     elif persistence.load("blackstate")==1:
         persistence.save("blackstate", 2)
         messenger.send('changeMap', ['black.map','5,5'])
+    elif persistence.load("blackstate")==2:
+        audioManager.stopMusic(0.1)
+        messenger.send('changeMap', ['parcogiochi.map','9,12'])
 
 if persistence.load("blackstate")==0:
     taskMgr.doMethodLater(1.01, baloons.push, 'selfspeak', extraArgs = ["Escursionista","Non me ne andrò di qui fino a quando  non avrò visto almeno uno scoiattolo.","8x1"])
@@ -95,7 +98,6 @@ if persistence.load("blackstate")==2:
     baloons.pushThought("Ellen", "La lasciai volendole bene.", "4x4")
     baloons.pushThought("Ellen", "Ho perso questo.", "4x4")
     baloons.pushThought("Ellen", "È chiaro e lampante adesso.", "4x4")
-    baloons.pushThought("Ellen", "Ed è incredibilmente irrecuperabile quanto irrilevante.", "4x4")
     baloons.pushThought("Ellen", "...", "4x4")
     baloons.pushThought("Ellen", "Tornai da Luis.", "4x4")
     baloons.pushThought("Ellen", "I giorni successivi sono stati un lento trascinarsi di apatia e rassegnazione.", "4x4")
@@ -113,4 +115,7 @@ if persistence.load("blackstate")==2:
     baloons.pushThought("Ellen", "Sono al capolinea, questo è quanto.", "4x4")
     baloons.pushThought("Ellen", "Sono pronta a morire.", "4x4")
     baloons.pushThought("Ellen", "...", "4x4")
+    baloons.pushThought("Ellen", "!!!", "4x4")
+    baloons.pushThought("Ellen", "Questo profumo!!", "4x4")
+    baloons.pushThought("Ellen", "L'erba fresca!!", "4x4")
 taskMgr.doMethodLater(2, baloons.setOnEmptyCallback, 'setcallback', extraArgs = [blackOnEmptyMessages])

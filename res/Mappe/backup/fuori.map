@@ -268,7 +268,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -538,7 +538,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -808,7 +808,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -1080,7 +1080,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -1352,7 +1352,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -1624,7 +1624,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -1895,7 +1895,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -2169,7 +2169,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -2441,7 +2441,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -2713,7 +2713,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -2987,7 +2987,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -3260,7 +3260,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -3531,7 +3531,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -3802,7 +3802,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -4074,7 +4074,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -4345,7 +4345,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -4616,7 +4616,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -4888,7 +4888,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -5160,7 +5160,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -5432,7 +5432,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -5708,7 +5708,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -5996,7 +5996,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -6273,7 +6273,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -6545,7 +6545,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -6825,7 +6825,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -7097,7 +7097,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -7374,7 +7374,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -7648,7 +7648,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -7925,7 +7925,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -8197,7 +8197,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -8487,7 +8487,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -8760,7 +8760,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -9032,7 +9032,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -9305,7 +9305,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -9577,7 +9577,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -9851,7 +9851,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -10123,7 +10123,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -10398,7 +10398,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -10672,7 +10672,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -10946,7 +10946,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -11220,7 +11220,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -11494,7 +11494,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -11768,7 +11768,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -12041,7 +12041,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -12315,7 +12315,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -12590,7 +12590,7 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 	<row>
 		<tile>
 			<ground url="misc/grass" walkable="true" />
@@ -12860,5 +12860,5 @@
 			<ground url="misc/grass" walkable="true" />
 			<grass maxuniform="0.5" minuniform="0.35" density="8" />
 		</tile>
-		</row>
+	</row>
 </data>

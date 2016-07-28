@@ -1,0 +1,31 @@
+audioManager.playMusic("soundtrack/justus.ogg")
+amy = pGrid.getObjectById("amy")
+ellen = pGrid.getObjectById("ellen")
+ellen.face("down")
+baloons.pushThought("Ellen", "Ma...", "ellen")
+baloons.pushThought("Ellen", "Ma... cosa?", "ellen")
+baloons.push("Amy", "Guarda che bella!", "amy")
+baloons.push("Amy", "Questa è la farfalla più bella che io abbia mai visto!", "amy")
+baloons.push("Amy", "Vieni a vederla sorellina!", "amy")
+###pause
+amy = pGrid.getObjectById("amy")
+ellen = pGrid.getObjectById("ellen")
+amy.npc_push_walk("right", 2)
+amy.npc_push_walk("left", 2)
+amy.npc_push_walk("right", 2)
+###pause
+baloons.push("Ellen", "Ah-ha!", "ellen")
+###pause
+amy = pGrid.getObjectById("amy")
+ellen = pGrid.getObjectById("ellen")
+amy.npc_push_walk("left", 2)
+amy.npc_push_walk("right", 2)
+amy.npc_push_walk("left", 2)
+###pause
+baloons.push("Amy", "Noo non scappare, farfallina vieni quaaaa!", "amy")
+baloons.push("Amy", "Ellen dammi una mano ad acchiapparla!", "amy")
+###pause
+amy = pGrid.getObjectById("amy")
+ellen = pGrid.getObjectById("ellen")
+amy.npc_push_walk("left", 2)
+amy.npc_push_walk("right", 2)
