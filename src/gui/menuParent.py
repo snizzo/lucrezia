@@ -133,9 +133,9 @@ class MainMenu(Menu):
         
         #MAIN FRAME
         Menu.__init__(self,lang,'menu/mainmenubg.png')
-        self.addButton("New game", self.onNewGame)
-        self.addButton("Load game", self.onLoadGame)
-        self.addButton("Wake up", self.onWakeUp)
+        self.addButton("Start", self.onNewGame)
+        self.addButton("Credits", self.onLoadGame)
+        self.addButton("Exit to Desktop", self.onWakeUp)
         
         self.setX(-1.0)
         

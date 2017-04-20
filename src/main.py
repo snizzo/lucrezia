@@ -33,8 +33,8 @@ __builtin__.configManager = ConfigManager()
 #fullscreen e grandezza finestra
 loadPrcFileData("","""
 gl-debug false
-fullscreen 1
-win-size 1920 1080
+fullscreen 0
+win-size 1280 800
 text-encoding utf8
 show-frame-rate-meter 0
 sync-video #t
@@ -111,13 +111,13 @@ class MyApp(ShowBase):
         #self.entrypoint = ['incidente.map', '20,11']
         #self.entrypoint = ['macchinadasola.map', '2,2']
         #self.entrypoint = ['black.map', '5,5']
-        self.entrypoint = ['camera.map', '2,4']
+        self.entrypoint = ['fuori_scuola.map', '1,3']
         mainMenu.show()
         
         
         #UNCOMMENT TO ENABLE INTRO
-        i = Intro()
-        i.start()
+        #i = Intro()
+        #i.start()
         #persistence.save("blackstate", 1)
 
     def ping (self):

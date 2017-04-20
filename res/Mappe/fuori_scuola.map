@@ -1,0 +1,89 @@
+<data tilesize="32.0" showcollisions="false" camdistance="25.0"   >
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="misc/ground2" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="misc/ground2" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="misc/ground2" walkable="true" />
+			<character direction="left" scale="11.0" url="ellenmum" hitboxscale="1.0" playable="false" inclination="30.0" speed="1.0" id="npc" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="misc/ground2" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="misc/ground2" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="misc/ground2" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="misc/ground2" walkable="true" />
+			<character direction="down" scale="11.0" url="luigi" hitboxscale="1.0" playable="true" inclination="30.0" speed="1.0" id="mainplayer" />
+		</tile>
+		<tile>
+			<ground url="misc/ground2" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="misc/ground2" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+	</row>
+</data>
