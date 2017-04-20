@@ -220,8 +220,8 @@ class Tile(XMLExportable, PropertiesTableAbstract):
         lightObject = Light(attributes, self)
         self.objects.append(lightObject)
     
-    def addCharacter(self, attributes, showCollisions, currentx, currenty, playablepos):
-        characterObject = Character(attributes, showCollisions, currentx, currenty, playablepos, self)
+    def addCharacter(self, attributes, showCollisions, playablepos):
+        characterObject = Character(attributes, showCollisions, self.innerX, self.innerY, playablepos, self)
         self.objects.append(characterObject)
     
     '''

@@ -257,7 +257,7 @@ class Grid(DirectObject):
                                 c.setY(currenty)
                                 self.scrollableset.append(c)
                             elif res.nodeName == 'character':
-                                t.addCharacter(res.attributes, self.showCollisions, currentx, currenty, playable_pos)
+                                t.addCharacter(res.attributes, self.showCollisions, playable_pos)
                             
                     t.node.reparentTo(self.node)
             currentx = 0

@@ -190,6 +190,9 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
         self.setX(self.grid_currentx)
         self.setY(self.grid_currenty)
         
+        if self.isNPC!=True:
+            print "attempting creation of NPC in ", self.grid_currentx, "-", self.grid_currenty
+        
         if attributes.has_key('playable'):
             if self.isNPC!=False:
                 if ((self.grid_playable_pos.getX() != 0) and (self.grid_playable_pos.getY() != 0)):
