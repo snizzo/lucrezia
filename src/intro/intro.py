@@ -52,7 +52,7 @@ class Intro(DirectObject):
         
         Sequence(
             Wait(2),
-            Func(audioManager.playMusic, "soundtrack/falling_apart.ogg"),
+            Func(audioManager.playMusic, "soundtrack/intro.ogg"),
             f.fadeIn(2),
             Wait(2),
             Func(self.showImage, "misc/reavsoft.png"),

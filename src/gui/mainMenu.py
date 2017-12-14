@@ -18,20 +18,6 @@ menuPlayable = True
 
 class MainMenu(DirectObject):
     
-    def generateWorld(self):
-        f = FadeOut()
-        
-        Sequence(
-         f.fadeIn(1),
-         Func(self.hideAll),
-         Func(self.loadNewLevel),
-         f.fadeOut(2)
-        ).start()
-    
-    def loadNewLevel(self):
-        print "sending message..."
-        messenger.send('changeMap', ['camera.map','5,6'])
-    
     def __init__(self,lang):
         wp = WindowProperties()
         wp.setTitle("Menu Testing")
@@ -58,7 +44,21 @@ class MainMenu(DirectObject):
             self.setKey(True)
         else:
             self.setKey(False)
-            
+    
+    def generateWorld(self):
+        f = FadeOut()
+        
+        Sequence(
+         f.fadeIn(1),
+         Func(self.hideAll),
+         Func(self.loadNewLevel),
+         f.fadeOut(2)
+        ).start()
+    
+    def loadNewLevel(self):
+        print "sending message..."
+        messenger.send('changeMap', ['camera.map','5,6'])
+          
     def setKey(self, value):
         if value==True :
             self.accept("enter", self.enterDown)

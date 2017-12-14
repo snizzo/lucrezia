@@ -116,8 +116,8 @@ class MyApp(ShowBase):
         
         
         #UNCOMMENT TO ENABLE INTRO
-        #i = Intro()
-        #i.start()
+        i = Intro()
+        i.start()
         #persistence.save("blackstate", 1)
 
     def ping (self):

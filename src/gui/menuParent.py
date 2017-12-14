@@ -6,7 +6,7 @@ from direct.gui.DirectGui import *
 #from direct.fsm import FSM
 #from panda3d.core import LVecBase4f, CardMaker, NodePath
 #Sequence
-from direct.interval.LerpInterval import LerpColorInterval
+from direct.interval.LerpInterval import LerpColorInterval, LerpPosInterval
 from direct.interval.IntervalGlobal import *
 
 from resourcemanager.resourcemanager import ResourceManager
@@ -18,7 +18,7 @@ import sys, os
 
 #menu superclass (virtual)
 class Menu(DirectObject):
-    def __init__(self,lang,image):
+    def __init__(self,lang):
         self.frame = DirectFrame(frameColor=(0, 0, 0, 1),
                       frameSize=(-2, 2, -2, 2),
                       pos=(0, 0, 0))
@@ -26,21 +26,85 @@ class Menu(DirectObject):
         x = float(configManager.getData("XSCREEN"))
         y = float(configManager.getData("YSCREEN"))
         
+        self.background = None
+        self.backgrounds = [] #list of moving backgrounds to iterate from
+        self.backgroundsCursor = -1
+        
         self.cursor = 0   # tracks the currently selected button
         self.buttons = [] # list of buttons
         self.ratio = x/y  # used to set correctly quads
         self.currenty = 0 # used to set correctly button vertical position
         self.spacebetweenbuttons = 0.3 # space offset between buttons
         
-        #background
-        self.background = OnscreenImage(image = resourceManager.getResource(image), pos = (0, 0, 0), scale = (self.ratio, 1, 1))
-        self.background.reparentTo(self.frame)
+        self.cm = CardMaker('animbgcard')
+        self.background = self.frame.attachNewNode(self.cm.generate())
+        self.background.setPos(-1.61,0,-1)
+        self.background.setScale(3.23,3.23,3.23)
+        tex = loader.loadTexture(resourceManager.getResource('menu/mainmenubg.png'))
+        self.background.setTexture(tex)
+        
+        self.f = FadeOut()
+        self.f.cmnode.reparentTo(self.frame)
+        self.f.fadeIn(0.01)
         
         self.buttonMaps = loader.loadModel(resourceManager.getResource('misc/button_maps.egg'))
         self.frame.hide()
         
         #first refresh ever
         self.refreshKeyState()
+    
+    '''
+    Do not use both static and moving background!
+    '''
+    def changeStaticBackground(self, image):
+		tex = loader.loadTexture(resourceManager.getResource(image))
+		self.background.setTexture(tex)
+    
+    def addMovingBackground(self, image):
+		self.backgrounds.append(image)
+		self.bgCursor = 0 #setting this to zero for every image added (at least one)
+    
+    def enableMovingBackground(self):
+		if self.bgCursor < 0:
+			print "Error: moving backgrounds must be populated with addMovingBackgrounds before activating them!"
+			return
+		else:
+			taskMgr.doMethodLater(0.01, self.movingBackgroundTask, 'bgAnimTask') 
+    
+    '''
+    This cursor will iterate over the list restarting from zero when len is too long
+    '''
+    def incrementBgCursor(self):
+		self.bgCursor += 1
+		if len(self.backgrounds) == self.bgCursor:
+			self.bgCursor = 0
+    
+    '''
+    Iterate over multiple images as backgrounds
+    '''
+    def movingBackgroundTask(self, task):
+		self.background.setPos(-1.61,0,-1)
+		self.changeStaticBackground(self.backgrounds[self.bgCursor])
+		self.incrementBgCursor()
+		
+		moveImage = LerpPosInterval(self.background,
+                    13.7,
+                    Point3(-1.61, 0, -2.0),
+                    startPos=Point3(-1.61,0,-1),
+                    other=None,
+                    blendType='easeInOut',
+                    bakeInStart=1,
+                    fluid=0,
+                    name=None)
+		
+		Sequence(
+            self.f.fadeOut(0.5),
+            moveImage,
+            self.f.fadeIn(0.5)
+        ).start()
+		
+		taskMgr.doMethodLater(15, self.movingBackgroundTask, 'bgAnimTask')
+		return task.done
     
     def disableAll(self):
         for button in self.buttons:
@@ -61,6 +125,7 @@ class Menu(DirectObject):
             self.accept("enter", self.onEnter)
             self.accept("arrow_up", self.onArrowUp)
             self.accept("arrow_down", self.onArrowDown)
+            self.accept("s", self.changeStaticBackground, ["intro/pic1.jpg"])
         else:
             self.ignoreAll()
     
@@ -132,7 +197,14 @@ class MainMenu(Menu):
     def __init__(self,lang):
         
         #MAIN FRAME
-        Menu.__init__(self,lang,'menu/mainmenubg.png')
+        Menu.__init__(self,lang)
+        
+        self.addMovingBackground("intro/pic1.jpg")
+        self.addMovingBackground("intro/pic2.jpg")
+        self.addMovingBackground("intro/pic3.jpg")
+        self.addMovingBackground("intro/pic4.jpg")
+        self.enableMovingBackground()
+        
         self.addButton("Start", self.onNewGame)
         self.addButton("Credits", self.onLoadGame)
         self.addButton("Exit to Desktop", self.onWakeUp)
@@ -140,7 +212,7 @@ class MainMenu(Menu):
         self.setX(-1.0)
         
         self.show()
-        
+    
     def onNewGame(self):
         self.close()
         
