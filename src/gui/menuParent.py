@@ -125,7 +125,6 @@ class Menu(DirectObject):
             self.accept("enter", self.onEnter)
             self.accept("arrow_up", self.onArrowUp)
             self.accept("arrow_down", self.onArrowDown)
-            self.accept("s", self.changeStaticBackground, ["intro/pic1.jpg"])
         else:
             self.ignoreAll()
     
