@@ -225,7 +225,6 @@ class MainMenu(Menu):
     def close(self):
         audioManager.stopMusic(4)
         Sequence(
-            Wait(3),
             Func(messenger.send, 'changeMap', main.entrypoint), #using map api to change map
             Wait(2),
             Func(Menu.close, self)
