@@ -113,7 +113,7 @@ class SceneGraphBrowser(QMainWindow):
         tile.addCharacter(attributes, True, self.currentx, self.currenty, playablepos)
         self.loadCellInfo(self.currentx, self.currenty)
     
-    def addLightToTile(self):
+    def addLightToTile(self, dummy_param=None):
         tile = pGrid.getTile(self.currentx, self.currenty)
         
         #on="true" distance="1" color="255,150,10" attenuation="0.02"
