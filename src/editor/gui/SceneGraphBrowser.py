@@ -56,20 +56,52 @@ class SceneGraphBrowser(QMainWindow):
         self.ui.onPickedButton.clicked.connect(self.onPickedButtonClicked)
         self.ui.onWalkedButton.clicked.connect(self.onWalkedButtonClicked)
         
+        #increase propertis
+        self.ui.increaseButton.clicked.connect(self.onIncreaseButtonClicked)
+        self.ui.increase2Button.clicked.connect(self.onIncrease2ButtonClicked)
+        self.ui.increase3Button.clicked.connect(self.onIncrease3ButtonClicked)
+        
+        #decrease properties
+        self.ui.decreaseButton.clicked.connect(self.onDecreaseButtonClicked)
+        self.ui.decrease2Button.clicked.connect(self.onDecrease2ButtonClicked)
+        self.ui.decrease3Button.clicked.connect(self.onDecrease3ButtonClicked)
+        
+        self.ui.colorPickerButton.clicked.connect(self.onColorPickerButtonClicked)
+        
         #object delegate to draw and manage what's going on on the object/s properties table
         self.pt = PropertiesTable(self.ui.propertiesTable)
+    '''
+    All these events will be handled by PropertiesTable!
+    '''
+    def onIncreaseButtonClicked(self):
+        messenger.send('increaseProperty', [1])
     
-    '''
-    Event will be handled by PropertiesTable
-    '''
+    def onIncrease2ButtonClicked(self):
+        messenger.send('increaseProperty', [7])
+        
+    def onIncrease3ButtonClicked(self):
+        messenger.send('increaseProperty', [20])
+    
+    def onDecreaseButtonClicked(self):
+        messenger.send('decreaseProperty', [1])
+    
+    def onDecrease2ButtonClicked(self):
+        messenger.send('decreaseProperty', [7])
+    
+    def onDecrease3ButtonClicked(self):
+        messenger.send('decreaseProperty', [20])
+    
+    def onColorPickerButtonClicked(self):
+        messenger.send('colorPicker')
+    
     def onPickedButtonClicked(self):
         messenger.send('open-editor-onPicked')
         
-    '''
-    Event will be handled by PropertiesTable
-    '''
     def onWalkedButtonClicked(self):
         messenger.send('open-editor-onWalked')
+    '''
+    End of events handled by prop tables
+    '''
     
     def onDeleteCurrent(self):
         tile = pGrid.getTile(self.currentx, self.currenty)

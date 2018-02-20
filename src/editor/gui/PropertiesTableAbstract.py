@@ -30,3 +30,19 @@ class PropertiesTableAbstract( object ):
     @abc.abstractmethod
     def setProperty(self, key, value):
         return
+    
+    '''
+    use to quickly decrease property values
+    using key "-"
+    '''
+    @abc.abstractmethod
+    def decreaseProperty(self, key, multiplier):
+        return
+    
+    '''
+    use to quickly increase property values
+    using key "+"
+    '''
+    @abc.abstractmethod
+    def increaseProperty(self, key, multiplier):
+        return

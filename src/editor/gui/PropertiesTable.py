@@ -9,6 +9,7 @@ class PropertiesTable(DirectObject):
         self.table = table
         
         self.currentSelection = []
+        self.lastPropertyRowSelected = None
         
         self.accept("selected one", self.oneobj)
         self.accept("selected none", self.noneobj)
@@ -16,8 +17,12 @@ class PropertiesTable(DirectObject):
         self.accept("open-editor-onWalked", self.onOpenEditor, ['onWalked'])
         self.accept("open-editor-onLoad", self.onOpenEditorMap, ['onLoad'])
         self.accept("open-editor-onUnload", self.onOpenEditorMap, ['onUnload'])
+        self.accept("increaseProperty", self.increaseProperty)
+        self.accept("decreaseProperty", self.decreaseProperty)
+        self.accept("colorPicker", self.colorPicker)
         
         self.table.cellChanged.connect(self.cellChanged)
+        self.table.cellClicked.connect(self.cellClicked)
     
     #holder is the object holding and using the props
     def oneobj(self, obj):
@@ -113,6 +118,9 @@ class PropertiesTable(DirectObject):
             #TODO: this is linux dependant!!
             subprocess.call(["xdg-open", resourceManager.getResource(inlineCode)])
     
+    def cellClicked(self, row, column):
+        self.lastPropertyRowSelected = row
+    
     def cellChanged(self, row, column):
         if len(self.currentSelection)>0: #if something is selected, else is bogus
             
@@ -124,6 +132,49 @@ class PropertiesTable(DirectObject):
             #reload everything
             self.oneobj(self.currentSelection[0])
             self.currentSelection[0].onPropertiesUpdated()
+    
+    '''
+    Increase value of current selected property
+    '''
+    def increaseProperty(self, multiplier):
+        if len(self.currentSelection)>0: #if something is selected, else is bogus
+            if self.lastPropertyRowSelected != None:
+                row = self.lastPropertyRowSelected
+                
+                key = self.table.item(row,0).text().__str__()
+                value = self.table.item(row,1).text().__str__()
+            
+                self.currentSelection[0].increaseProperty(key, multiplier)
+            
+                self.reloadSelection()
+    
+    '''
+    Decrease value of current selected property
+    '''
+    def decreaseProperty(self, multiplier):
+        if len(self.currentSelection)>0: #if something is selected, else is bogus
+            if self.lastPropertyRowSelected != None:
+                row = self.lastPropertyRowSelected
+                key = self.table.item(row,0).text().__str__()
+                value = self.table.item(row,1).text().__str__()
+            
+                self.currentSelection[0].decreaseProperty(key, multiplier)
+                
+                self.reloadSelection()
+    
+    '''
+    Open graphical color picker
+    '''
+    def colorPicker(self):
+        pass
+    
+    def reloadSelection(self):
+        if len(self.currentSelection)>0: #if something is selected, else is bogus
+            #reload everything
+            self.oneobj(self.currentSelection[0])
+            self.currentSelection[0].onPropertiesUpdated()
+        else:
+            print "Warning: attempted reloading selected PropertiesTable selected object, but nothing is selected."
     
     '''
     Adds every property to prop table

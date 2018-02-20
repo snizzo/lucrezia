@@ -19,6 +19,11 @@ class Light(PropertiesTableAbstract, XMLExportable):
             'id' : ''
         }
         
+        self.propertiesUpdateFactor = {
+            'distance' : 0.1,
+            'attenuation' : 0.01
+        }
+        
         if attributes.has_key('distance'):
             self.properties['distance'] = distance = float(attributes['distance'].value)
         else:
@@ -55,6 +60,13 @@ class Light(PropertiesTableAbstract, XMLExportable):
             self.properties['id'] = self.uid = uid = 'light'
         
         self.generateNode()
+    
+    '''
+    Used in editor mode to add an object that visibly represents the light
+    '''
+    def showVisibleObject():
+        pass
+        #TODO IMPLEMENT!!
     
     def destroy(self):
         if self.plnp != -1:
@@ -130,6 +142,14 @@ class Light(PropertiesTableAbstract, XMLExportable):
     
     def setProperty(self, key, value):
         self.properties[key] = value
+    
+    def increaseProperty(self, key, multiplier):
+        if key in self.propertiesUpdateFactor:
+            self.setProperty(key, self.properties[key]+self.propertiesUpdateFactor[key]*multiplier)
+        
+    def decreaseProperty(self, key, multiplier):
+        if key in self.propertiesUpdateFactor:
+            self.setProperty(key, self.properties[key]-self.propertiesUpdateFactor[key]*multiplier)
     
     def getNode(self):
         return self.plnp

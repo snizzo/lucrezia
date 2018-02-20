@@ -42,6 +42,13 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
             'direction' : ''
         }
         
+        self.propertiesUpdateFactor = {
+            'inclination' : 0.2,
+            'scale' : 0.1,
+            'hitboxscale' : 0.1,
+            'speed' : 0.1
+        }
+        
         if attributes.has_key('url'):
             self.properties['url'] = attributes['url'].value
         else:
@@ -239,6 +246,14 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
     #interface needed by PropertiesTable
     def setProperty(self, key, value):
         self.properties[key] = value
+    
+    def increaseProperty(self, key, multiplier):
+        if key in self.propertiesUpdateFactor:
+            self.setProperty(key, self.properties[key]+self.propertiesUpdateFactor[key]*multiplier)
+        
+    def decreaseProperty(self, key, multiplier):
+        if key in self.propertiesUpdateFactor:
+            self.setProperty(key, self.properties[key]-self.propertiesUpdateFactor[key]*multiplier)
     
     def setSpeed(self, s):
         self.properties['speed'] = s

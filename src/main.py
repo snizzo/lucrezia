@@ -65,6 +65,10 @@ class MyApp(ShowBase):
         render.setShaderAuto()
         #base.oobe()
         
+        #filters -- experimental
+        filters = CommonFilters(base.win, base.cam)
+        
+        
         #defining global variables
         # TAKE CARE: these must be objects created form classes which
         # structure has been built with globalness in mind!!
@@ -81,6 +85,7 @@ class MyApp(ShowBase):
         __builtin__.script = Script()
         __builtin__.persistence = Persistence()
         __builtin__.fademanager = FadeOut()
+        __builtin__.myfilters = filters
 
         # ===========================================
         #load the config class
@@ -111,14 +116,14 @@ class MyApp(ShowBase):
         #self.entrypoint = ['incidente.map', '20,11']
         #self.entrypoint = ['macchinadasola.map', '2,2']
         #self.entrypoint = ['black.map', '5,5']
-        self.entrypoint = ['fuori_scuola.map', '1,3']
+        self.entrypoint = ['tetto.map', '1,3']
         mainMenu.show()
         
         
         #UNCOMMENT TO ENABLE INTRO
-        i = Intro()
-        i.start()
-        #persistence.save("blackstate", 1)
+        #i = Intro()
+        #i.start()
+        persistence.save("blackstate", 1)
 
     def ping (self):
         print "main: PONG!"

@@ -74,6 +74,12 @@ class Tile(XMLExportable, PropertiesTableAbstract):
     def setProperty(self, key, value):
         self.tileProperties[key] = value
     
+    def decreaseProperty(self, key):
+        return
+    
+    def increaseProperty(self, key):
+        return
+    
     def getNode(self):
         return self.node
     

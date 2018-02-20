@@ -48,6 +48,18 @@ class GameObject(GameEntity, XMLExportable, PropertiesTableAbstract):
             'onWalked' : ''
         }
         
+        self.propertiesUpdateFactor = {
+            'scale' : 0.1,
+            'inclination' : 0.2,
+            'elevation' : 0.02,
+            'offsetheight' : 0.02,
+            'offsetwidth' : 0.02,
+            'offsethorizontal' : 0.02,
+            'offsetvertical' : 0.02,
+            'offsetcollisionh' : 0.02,
+            'offsetcollisionv' : 0.02
+        }
+        
         self.node = None
         self.collisionNodeNp = None
         #manage attributes directly in object creation,
@@ -276,6 +288,14 @@ class GameObject(GameEntity, XMLExportable, PropertiesTableAbstract):
     #interface needed by PropertiesTable
     def setProperty(self, key, value):
         self.properties[key] = value
+    
+    def increaseProperty(self, key, multiplier):
+        if key in self.propertiesUpdateFactor:
+            self.setProperty(key, self.properties[key]+self.propertiesUpdateFactor[key]*multiplier)
+        
+    def decreaseProperty(self, key, multiplier):
+        if key in self.propertiesUpdateFactor:
+            self.setProperty(key, self.properties[key]-self.propertiesUpdateFactor[key]*multiplier)
     
     #called before destruction
     def destroy(self):
