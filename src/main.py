@@ -116,7 +116,7 @@ class MyApp(ShowBase):
         #self.entrypoint = ['incidente.map', '20,11']
         #self.entrypoint = ['macchinadasola.map', '2,2']
         #self.entrypoint = ['black.map', '5,5']
-        self.entrypoint = ['tetto.map', '1,3']
+        self.entrypoint = ['tetto.map', '7,1']
         mainMenu.show()
         
         

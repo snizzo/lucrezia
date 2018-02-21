@@ -297,6 +297,15 @@ class GameObject(GameEntity, XMLExportable, PropertiesTableAbstract):
         if key in self.propertiesUpdateFactor:
             self.setProperty(key, self.properties[key]-self.propertiesUpdateFactor[key]*multiplier)
     
+    def copyProperties(self):
+        return self.getPropertyList()
+    
+    def pasteProperties(self, props):
+        for key, value in props.iteritems():
+            if key in self.properties:
+                self.properties[key] = value
+        self.onPropertiesUpdated()
+    
     #called before destruction
     def destroy(self):
         #clearing old node

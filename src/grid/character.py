@@ -255,6 +255,15 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
         if key in self.propertiesUpdateFactor:
             self.setProperty(key, self.properties[key]-self.propertiesUpdateFactor[key]*multiplier)
     
+    def copyProperties(self):
+        return self.getPropertyList()
+    
+    def pasteProperties(self, props):
+        for key, value in props.iteritems():
+            if key in self.properties:
+                self.properties[key] = value
+        self.onPropertiesUpdated()
+    
     def setSpeed(self, s):
         self.properties['speed'] = s
     

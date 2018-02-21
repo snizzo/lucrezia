@@ -11,6 +11,8 @@ class PropertiesTable(DirectObject):
         self.currentSelection = []
         self.lastPropertyRowSelected = None
         
+        self.copiedProperties = {}
+        
         self.accept("selected one", self.oneobj)
         self.accept("selected none", self.noneobj)
         self.accept("open-editor-onPicked", self.onOpenEditor, ['onPicked'])
@@ -20,6 +22,8 @@ class PropertiesTable(DirectObject):
         self.accept("increaseProperty", self.increaseProperty)
         self.accept("decreaseProperty", self.decreaseProperty)
         self.accept("colorPicker", self.colorPicker)
+        self.accept("copyProperties", self.copyProperties)
+        self.accept("pasteProperties", self.pasteProperties)
         
         self.table.cellChanged.connect(self.cellChanged)
         self.table.cellClicked.connect(self.cellClicked)
@@ -51,6 +55,14 @@ class PropertiesTable(DirectObject):
     '''
     def refresh(self):
         self.oneobj(self.currentSelection[0])
+    
+    def copyProperties(self):
+        if len(self.currentSelection)>0: #if something is selected
+            self.copiedProperties = self.currentSelection[0].copyProperties()
+    
+    def pasteProperties(self):
+        if len(self.currentSelection)>0: #if something is selected
+            self.currentSelection[0].pasteProperties(self.copiedProperties)
     
     '''
     used only for maps
@@ -122,7 +134,7 @@ class PropertiesTable(DirectObject):
         self.lastPropertyRowSelected = row
     
     def cellChanged(self, row, column):
-        if len(self.currentSelection)>0: #if something is selected, else is bogus
+        if len(self.currentSelection)>0: #if something is selected
             
             key = self.table.item(row,0).text().__str__()
             value = self.table.item(row,1).text().__str__()
@@ -137,7 +149,7 @@ class PropertiesTable(DirectObject):
     Increase value of current selected property
     '''
     def increaseProperty(self, multiplier):
-        if len(self.currentSelection)>0: #if something is selected, else is bogus
+        if len(self.currentSelection)>0: #if something is selected
             if self.lastPropertyRowSelected != None:
                 row = self.lastPropertyRowSelected
                 
@@ -152,7 +164,7 @@ class PropertiesTable(DirectObject):
     Decrease value of current selected property
     '''
     def decreaseProperty(self, multiplier):
-        if len(self.currentSelection)>0: #if something is selected, else is bogus
+        if len(self.currentSelection)>0: #if something is selected
             if self.lastPropertyRowSelected != None:
                 row = self.lastPropertyRowSelected
                 key = self.table.item(row,0).text().__str__()
@@ -169,7 +181,7 @@ class PropertiesTable(DirectObject):
         pass
     
     def reloadSelection(self):
-        if len(self.currentSelection)>0: #if something is selected, else is bogus
+        if len(self.currentSelection)>0: #if something is selected
             #reload everything
             self.oneobj(self.currentSelection[0])
             self.currentSelection[0].onPropertiesUpdated()

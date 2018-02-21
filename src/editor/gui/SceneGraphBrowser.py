@@ -66,6 +66,10 @@ class SceneGraphBrowser(QMainWindow):
         self.ui.decrease2Button.clicked.connect(self.onDecrease2ButtonClicked)
         self.ui.decrease3Button.clicked.connect(self.onDecrease3ButtonClicked)
         
+        #copy/paste
+        self.ui.copyButton.clicked.connect(self.onCopyButtonClicked)
+        self.ui.pasteButton.clicked.connect(self.onPasteButtonClicked)
+        
         self.ui.colorPickerButton.clicked.connect(self.onColorPickerButtonClicked)
         
         #object delegate to draw and manage what's going on on the object/s properties table
@@ -73,6 +77,12 @@ class SceneGraphBrowser(QMainWindow):
     '''
     All these events will be handled by PropertiesTable!
     '''
+    def onCopyButtonClicked(self):
+        messenger.send('copyProperties')
+    
+    def onPasteButtonClicked(self):
+        messenger.send('pasteProperties')
+    
     def onIncreaseButtonClicked(self):
         messenger.send('increaseProperty', [1])
     

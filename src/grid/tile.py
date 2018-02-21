@@ -80,6 +80,12 @@ class Tile(XMLExportable, PropertiesTableAbstract):
     def increaseProperty(self, key):
         return
     
+    def copyProperties(self):
+        return
+    
+    def pasteProperties(self, props):
+        return
+    
     def getNode(self):
         return self.node
     

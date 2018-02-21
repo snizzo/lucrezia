@@ -46,3 +46,18 @@ class PropertiesTableAbstract( object ):
     @abc.abstractmethod
     def increaseProperty(self, key, multiplier):
         return
+        
+    '''
+    @return dictionary containing the properties that can be copied from this object
+    '''
+    @abc.abstractmethod
+    def copyProperties(self):
+        return
+    
+    '''
+    Paste properties into object
+    @param props properties that are pasted into this object 
+    '''
+    @abc.abstractmethod
+    def pasteProperties(self, props):
+        return
