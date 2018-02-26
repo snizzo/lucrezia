@@ -1,4 +1,4 @@
-<data tilesize="32.0" showcollisions="false" camdistance="18.5"   >
+<data tilesize="32.0" showcollisions="false" camdistance="18.5" bgimage="sets/bgimages/cielo" >
 	<row>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
@@ -224,7 +224,7 @@
 		</tile>
 		<tile>
 			<ground url="misc/ground_gray" walkable="true" />
-			<light distance="3.2" attenuation="0.31" on="true" color="0,0,0" type="point" id="light" />
+			<light distance="3.2" attenuation="0.31" on="true" color="0,251,255" type="point" id="light" />
 		</tile>
 		<tile>
 			<ground url="misc/ground_gray" walkable="true" />

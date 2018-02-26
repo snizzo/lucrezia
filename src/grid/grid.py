@@ -184,10 +184,13 @@ class Grid(DirectObject):
     def getCurrentMapName(self):
         return self.currentMapName
     
+    def getBackgroundImage(self):
+        return self.bgImage
     '''
     set a background image to be used into the map as borders goes away
     '''
     def setBackgroundImage(self, imageurl):
+        self.bgImage = imageurl
         imageurl = resourceManager.getResource(imageurl)+'.png'
         self.background = OnscreenImage(parent=render2dp, image=imageurl)
         base.cam2dp.node().getDisplayRegion(0).setSort(-20)
