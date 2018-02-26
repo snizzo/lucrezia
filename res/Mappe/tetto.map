@@ -1,4 +1,4 @@
-<data tilesize="32.0" showcollisions="false" camdistance="18.5"   >
+<data tilesize="32.0" showcollisions="false" camdistance="18.5" bgimage="sets/bgimages/cielo">
 	<row>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />

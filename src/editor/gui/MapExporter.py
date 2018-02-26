@@ -23,8 +23,9 @@ class MapExporter:
         
         self.onLoad = 'onLoad="'+pGrid.getOnLoad()+'"' if pGrid.getOnLoad() else ''
         self.onUnload = 'onUnload="'+pGrid.getOnUnload()+'"' if pGrid.getOnUnload() else ''
+        self.bgImage = 'bgimage="'+pGrid.getBackgroundImage()+'"' if pGrid.getBackgroundImage() else ''
 
-        self.addXMLLine('<data tilesize="32.0" showcollisions="false" camdistance="18.5" '+self.onLoad+' '+self.onUnload+' >',0)
+        self.addXMLLine('<data tilesize="32.0" showcollisions="false" camdistance="18.5" '+self.onLoad+' '+self.onUnload+' '+self.bgImage+'>',0)
         
         tiles = pGrid.getAllTiles()
         
