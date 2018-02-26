@@ -57,108 +57,49 @@
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-		</tile>
-	</row>
-	<row>
-		<tile>
-			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-			<object scale="0.26" elevation="0.0" url="sets/random/lampione" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
-			<light distance="1.7" attenuation="0.31" on="true" color="255,250,105" type="point" id="light" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-			<object scale="0.26" elevation="0.0" url="sets/random/lampione" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
-			<light distance="1.7" attenuation="0.31" on="true" color="255,250,105" type="point" id="light" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
@@ -169,50 +110,109 @@
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<object scale="0.26" elevation="0.0" url="sets/random/lampione" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
+			<light distance="1.7" attenuation="0.31" on="true" color="255,250,105" type="point" id="light" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<object scale="0.26" elevation="0.0" url="sets/random/lampione" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
+			<light distance="1.7" attenuation="0.31" on="true" color="255,250,105" type="point" id="light" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<object scale="1.8" elevation="0.0" url="sets/tetto/scale2" offsethorizontal="0.42" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 			<character direction="up" scale="11.0" url="luigi" hitboxscale="0.8" playable="true" inclination="15.0" speed="2.0" id="mainplayer" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
@@ -223,52 +223,51 @@
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-			<light distance="3.2" attenuation="0.31" on="true" color="0,0,0" type="point" id="light" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<light distance="3.2" attenuation="0.31" on="true" color="0,251,255" type="point" id="light" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-			<object scale="1.1" elevation="0.0" url="sets/Esterno/panca6" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 			<object scale="1.1" elevation="0.0" url="sets/Esterno/panca7" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 			<light distance="3.2" attenuation="0.31" on="true" color="0,251,255" type="point" id="light" />
 		</tile>
 		<tile>
@@ -280,49 +279,49 @@
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
@@ -333,108 +332,54 @@
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 			<object scale="0.26" elevation="0.0" url="sets/random/lampione" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
 			<light distance="1.7" attenuation="0.31" on="true" color="255,250,105" type="point" id="light" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 			<object scale="0.26" elevation="0.0" url="sets/random/lampione" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
 			<light distance="1.7" attenuation="0.31" on="true" color="255,250,105" type="point" id="light" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-		</tile>
-	</row>
-	<row>
-		<tile>
-			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
@@ -445,105 +390,103 @@
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 			<object scale="1.1" elevation="0.0" url="sets/Esterno/panca9" offsethorizontal="-0.1" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-		</tile>
-	</row>
-	<row>
-		<tile>
-			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
@@ -554,54 +497,106 @@
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 			<light distance="3.2" attenuation="0.31" on="true" color="0,251,255" type="point" id="light" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="misc/ground_gray" walkable="true" />
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 			<light distance="3.2" attenuation="0.31" on="true" color="0,251,255" type="point" id="light" />
 		</tile>
 		<tile>
@@ -614,42 +609,49 @@
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="30.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="30.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="30.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="30.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="30.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="30.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="30.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
