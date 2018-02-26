@@ -151,7 +151,6 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
@@ -172,7 +171,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.7" elevation="0.0" url="sets/tetto/scale2" offsethorizontal="0.42" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
+			<object scale="1.7" elevation="0.0" url="sets/tetto/scale2" offsethorizontal="0.42" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="1.0" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
@@ -261,7 +260,6 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.1" elevation="0.0" url="sets/Esterno/panca7" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
@@ -373,7 +371,6 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
@@ -462,7 +459,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.1" elevation="0.0" url="sets/Esterno/panca9" offsethorizontal="-0.1" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
+			<object scale="1.0" elevation="0.0" url="sets/tetto/panca" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="1.0" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
@@ -534,7 +531,6 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
@@ -586,11 +582,9 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
