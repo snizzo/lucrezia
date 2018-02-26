@@ -4,6 +4,7 @@ showcollisions: set if collisions can be che seen visually ("true" or "false")
 camdistance:    set camera distance from playable character
 onLoad:         apicall that defines a script to be called right after map is loaded
 onUnload:       apicall that defines a script to be called right before the map is changed
+bgimage:        resource url to image to be places as background
 
     ROW:        <row> starts a grid row
     
@@ -58,7 +59,7 @@ onUnload:       apicall that defines a script to be called right before the map 
 Events API:
             onWalked:           used to create the change Map events, must give the Map Name and the character position
                                 "messenger.send('changeMap', ['MapName.map','PositionX,PositionY'])"
-            onPicked:           used to trigger things that are close to the mai character and the player press action button
+            onPicked:           used to trigger things that are close to the main character and the player press action button
                                 (default: spacebar)
                                 
 Scripting API:

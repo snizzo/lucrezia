@@ -3,6 +3,7 @@ from direct.showbase.ShowBase import ShowBase
 from panda3d.core import OrthographicLens, LightRampAttrib
 from panda3d.core import loadPrcFileData
 from direct.filter.CommonFilters import CommonFilters
+from direct.gui.OnscreenImage import OnscreenImage
 
 #libs imports
 import __builtin__
@@ -68,7 +69,6 @@ class MyApp(ShowBase):
         #filters -- experimental
         filters = CommonFilters(base.win, base.cam)
         
-        
         #defining global variables
         # TAKE CARE: these must be objects created form classes which
         # structure has been built with globalness in mind!!
@@ -116,7 +116,7 @@ class MyApp(ShowBase):
         #self.entrypoint = ['incidente.map', '20,11']
         #self.entrypoint = ['macchinadasola.map', '2,2']
         #self.entrypoint = ['black.map', '5,5']
-        self.entrypoint = ['tetto.map', '7,1']
+        self.entrypoint = ['tetto.map', '8,1']
         mainMenu.show()
         
         

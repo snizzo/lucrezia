@@ -3,6 +3,7 @@ from panda3d.core import NodePath, LPoint2i
 from direct.showbase.DirectObject import DirectObject
 from direct.interval.IntervalGlobal import *
 from direct.gui.OnscreenText import OnscreenText
+from direct.gui.OnscreenImage import OnscreenImage
 
 #standard python
 from xml.dom import minidom
@@ -50,6 +51,7 @@ class Grid(DirectObject):
         #main nodes
         self.node = render.attachNewNode("tileset")
         self.grassnode = render.attachNewNode("grassnodes")
+        self.bgimage = None
         
         #default value, just for fun
         self.tileDimension = 128.0
@@ -183,6 +185,14 @@ class Grid(DirectObject):
         return self.currentMapName
     
     '''
+    set a background image to be used into the map as borders goes away
+    '''
+    def setBackgroundImage(self, imageurl):
+        imageurl = resourceManager.getResource(imageurl)+'.png'
+        self.background = OnscreenImage(parent=render2dp, image=imageurl)
+        base.cam2dp.node().getDisplayRegion(0).setSort(-20)
+    
+    '''
     @return string current map filepath
     '''
     def getCurrentMapPath(self):
@@ -207,6 +217,10 @@ class Grid(DirectObject):
                     self.showCollisions = False
                 if d.attributes.has_key('camdistance'):
                     customCamera.setDistance(float(d.attributes['camdistance'].value))
+                else:
+                    customCamera.setDistance(15)
+                if d.attributes.has_key('bgimage'):
+                    self.setBackgroundImage(d.attributes['bgimage'].value)
                 else:
                     customCamera.setDistance(15)
                 if d.attributes.has_key('onLoad'):

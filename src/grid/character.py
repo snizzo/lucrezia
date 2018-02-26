@@ -63,7 +63,7 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
         if attributes.has_key('inclination'):
             self.properties['inclination'] = float(attributes['inclination'].value)
         else:
-            self.properties['inclination'] = 30.0
+            self.properties['inclination'] = 2.0
         
         if attributes.has_key('scale'):
             self.properties['scale'] = float(attributes['scale'].value)

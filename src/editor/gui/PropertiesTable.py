@@ -178,7 +178,20 @@ class PropertiesTable(DirectObject):
     Open graphical color picker
     '''
     def colorPicker(self):
-        pass
+        if len(self.currentSelection)>0: #if something is selected
+            if self.lastPropertyRowSelected != None:
+                row = self.lastPropertyRowSelected
+                
+                key = self.table.item(row,0).text().__str__()
+                value = self.table.item(row,1).text().__str__()
+                
+                if key == 'color':
+                    color = QColorDialog.getColor()
+                
+                stringcolor = str(color.red())+','+str(color.green())+','+str(color.blue())
+                
+                self.currentSelection[0].setProperty('color', stringcolor)
+                self.reloadSelection()
     
     def reloadSelection(self):
         if len(self.currentSelection)>0: #if something is selected
