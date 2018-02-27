@@ -152,6 +152,7 @@ class Tile(XMLExportable, PropertiesTableAbstract):
         tex.setMinfilter(Texture.FTNearest)
         
         self.groundnode.setTexture(tex)
+        self.groundnode.setTransparency(TransparencyAttrib.MAlpha)
         
         self.textures.append(self.tileProperties['url'])
     
