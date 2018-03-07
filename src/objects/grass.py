@@ -122,3 +122,15 @@ class Grass(GameEntity, PropertiesTableAbstract, XMLExportable):
     
     def destroy(self):
         self.node.remove_node()
+    
+    def decreaseProperty(self, key, multiplier):
+        return
+    
+    def increaseProperty(self, key, multiplier):
+        return
+        
+    def copyProperties(self):
+        return
+    
+    def pasteProperties(self, props):
+        return

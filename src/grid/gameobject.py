@@ -217,10 +217,10 @@ class GameObject(GameEntity, XMLExportable, PropertiesTableAbstract):
             elif self.properties['collisionmode'] == "2d":
                 #must handle differently objects which are small and big
                 if xscaled < 1:
-                    self.collisionTube = CollisionBox(LPoint3f(0.5 - xscaled/2,0,0),LPoint3f(0.5 + xscaled/2,yscaled,0.3))
+                    self.collisionTube = CollisionBox(LPoint3f(0.5 - xscaled/2 - self.properties['offsetwidth'],0,0),LPoint3f(0.5 + xscaled/2 + self.properties['offsetwidth'],yscaled + self.properties['offsetheight'],0.3))
                     
                 if xscaled >= 1:
-                    self.collisionTube = CollisionBox(LPoint3f(0,0,0),LPoint3f(xscaled,yscaled,0.3))
+                    self.collisionTube = CollisionBox(LPoint3f(0 - self.properties['offsetwidth'],0,0),LPoint3f(xscaled + self.properties['offsetwidth'],yscaled + self.properties['offsetheight'],0.3))
                 
                 self.collisionNode = CollisionNode('objectSphere')
                 self.collisionNode.addSolid(self.collisionTube)
