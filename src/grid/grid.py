@@ -51,7 +51,7 @@ class Grid(DirectObject):
         #main nodes
         self.node = render.attachNewNode("tileset")
         self.grassnode = render.attachNewNode("grassnodes")
-        self.bgimage = None
+        self.bgImage = None
         
         #default value, just for fun
         self.tileDimension = 128.0
@@ -222,8 +222,8 @@ class Grid(DirectObject):
                     customCamera.setDistance(float(d.attributes['camdistance'].value))
                 else:
                     customCamera.setDistance(15)
-                if d.attributes.has_key('bgimage'):
-                    self.setBackgroundImage(d.attributes['bgimage'].value)
+                if d.attributes.has_key('bgImage'):
+                    self.setBackgroundImage(d.attributes['bgImage'].value)
                 else:
                     customCamera.setDistance(15)
                 if d.attributes.has_key('onLoad'):
