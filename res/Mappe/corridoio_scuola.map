@@ -1,0 +1,368 @@
+<data tilesize="32.0" showcollisions="false" camdistance="18.5"   >
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+			<object scale="1.0" elevation="0.0001" url="sets/OggettiCamera/black1" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="-0.25" offsetheight="0.0" collisionmode="2d" onWalked="messenger.send('changeMap', ['camera.map','5,5'])" offsetwidth="0.0" id="all" inclination="0.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+			<object scale="1.0" elevation="0.0001" url="sets/OggettiCamera/black1" offsethorizontal="0.0" onPicked="script.load('scripts/corridoio/8x0allonPicked.py')" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="-0.25" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="0.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+			<object scale="1.0" elevation="0.0001" url="sets/OggettiCamera/black1" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="-0.25" offsetheight="0.0" collisionmode="2d" onWalked="messenger.send('changeMap', ['cameragen.map','5,6'])" offsetwidth="0.0" id="all" inclination="0.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="true" />
+			<object scale="1.0" elevation="0.0001" url="sets/OggettiCamera/black1" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="-0.25" offsetheight="0.0" collisionmode="2d" onWalked="messenger.send('changeMap', ['bagno.map','3,4'])" offsetwidth="0.0" id="all" inclination="0.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+			<object scale="1.0" elevation="0.0002" url="sets/corridoio/parquet" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="true" offsetcollisionv="0.0" avoidable="False" offsetvertical="-0.25" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="0.0" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="collide" onWalked="script.load('scripts/corridoio/corridoio1.py')" />
+			<light distance="1.0" attenuation="0.011" on="true" color="255,222,173" type="point" id="light" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+			<object scale="1.0" elevation="0.0002" url="sets/corridoio/parquet" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="true" offsetcollisionv="0.0" avoidable="False" offsetvertical="-0.25" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="0.0" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="collide" onWalked="script.load('scripts/corridoio/corridoio2.py')" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+			<object scale="1.0" elevation="0.0002" url="sets/corridoio/parquet" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="true" offsetcollisionv="0.0" avoidable="False" offsetvertical="-0.25" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="0.0" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="collide" onWalked="script.load('scripts/corridoio/corridoio3.py')" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+			<light distance="1.0" attenuation="0.011" on="true" color="255,222,173" type="point" id="light" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+			<object scale="1.0" elevation="0.0002" url="sets/corridoio/parquet" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="true" offsetcollisionv="0.0" avoidable="False" offsetvertical="-0.25" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="0.0" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+			<object scale="1.0" elevation="0.001" url="sets/OggettiCamera/scalescendere" offsethorizontal="0.0" offsetcollisionh="0.5" walkable="false" offsetcollisionv="-0.3" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" onWalked="script.load('scripts/corridoio/20x1allonPicked.py')" offsetwidth="0.0" id="all" inclination="0.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="collide" onWalked="script.load('scripts/corridoio/corridoio1.py')" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="collide" onWalked="script.load('scripts/corridoio/corridoio2.py')" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="collide" onWalked="script.load('scripts/corridoio/corridoio3.py')" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/corrimano" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="-0.2" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="1.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="collide" onWalked="script.load('scripts/corridoio/corridoio1.py')" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="collide" onWalked="script.load('scripts/corridoio/corridoio2.py')" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="collide" onWalked="script.load('scripts/corridoio/corridoio3.py')" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+			<object scale="0.83" elevation="0.0" url="sets/corridoio/muro_corr1" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="30.0" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+			<object scale="0.83" elevation="0.0" url="sets/corridoio/muro_corr1" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object scale="0.4" elevation="0.0" url="sets/corridoio/porta_corr" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="31.0" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+			<object scale="0.83" elevation="0.0" url="sets/corridoio/muro_corr4" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="30.0" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+			<object scale="0.83" elevation="0.0" url="sets/corridoio/muro_corr1" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="30.0" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+			<object scale="0.4" elevation="0.0" url="sets/corridoio/porta_corr" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="31.0" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+			<object scale="0.83" elevation="0.0" url="sets/corridoio/muro_corr3" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="30.0" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+			<object scale="0.83" elevation="0.0" url="sets/corridoio/muro_corr1" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="30.0" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+			<object scale="0.83" elevation="0.0" url="sets/corridoio/muro_corr1" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object scale="0.4" elevation="0.0" url="sets/corridoio/porta_corr" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="31.0" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+			<object scale="0.83" elevation="0.0" url="sets/corridoio/muro_corr2" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="30.0" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+			<object scale="0.83" elevation="0.0" url="sets/corridoio/muro_corr1" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="30.0" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+			<object scale="0.4" elevation="0.0" url="sets/corridoio/porta_corr" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="31.0" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+			<object scale="0.83" elevation="0.0" url="sets/corridoio/muro_corr1" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="30.0" />
+		</tile>
+		<tile>
+			<ground url="sets/corridoio/parquet" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+	</row>
+</data>
