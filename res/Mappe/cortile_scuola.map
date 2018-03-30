@@ -1,0 +1,328 @@
+<data tilesize="32.0" showcollisions="false" camdistance="18.5"   >
+	<row>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+			<object scale="0.9" elevation="0.0" url="sets/cortile/panca4" offsethorizontal="0.26" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.42" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="5.0" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/cortile/ciliegio1" offsethorizontal="0.16" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/piastrella_esterno" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/cortile/panca9" offsethorizontal="-0.14" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.42" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="5.0" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/cortile/ciliegio2" offsethorizontal="0.18" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.46" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="15.0" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+			<object scale="1.5" elevation="0.0" url="sets/cortile/empty_table" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="5.0" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/cortile/panca4" offsethorizontal="-0.12" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="5.0" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/cortile/erba_fiori" walkable="true" />
+		</tile>
+	</row>
+</data>
