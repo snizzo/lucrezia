@@ -33,10 +33,16 @@ os.system("mv image-13.png wtop1.png")
 os.system("mv image-14.png wtop2.png")
 os.system("mv image-15.png wtop3.png")
 
-print "Baking eggs..."
+print "Baking animation eggs..."
 os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o wdown.egg -fps 4 wdown*.png")
 os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o wright.egg -fps 4 wright*.png")
 os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o wleft.egg -fps 4 wleft*.png")
 os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o wtop.egg -fps 4 wtop*.png")
+
+print "Baking static eggs..."
+os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o sdown.egg wdown0.png")
+os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o sright.egg wright0.png")
+os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o sleft.egg wleft0.png")
+os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o stop.egg wtop0.png")
 
 print "Done!"
