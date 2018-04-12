@@ -1,6 +1,7 @@
 from panda3d.core import CollisionTraverser,CollisionNode,CollisionTube,BitMask32,CollisionSphere
 from panda3d.core import NodePath, TextureStage, Texture
 from panda3d.core import Point3, CollisionPolygon, CollisionBox, LPoint3f
+from panda3d.core import GeomVertexWriter, GeomVertexReader
 
 from pandac.PandaModules import TransparencyAttrib
 from pandac.PandaModules import CardMaker
@@ -8,6 +9,9 @@ from pandac.PandaModules import CardMaker
 from XMLExportable import XMLExportable
 from GameEntity import GameEntity
 from editor.gui.PropertiesTableAbstract import PropertiesTableAbstract
+from geometries.CustomQuad import CustomQuad
+
+import math
 
 '''
 @inherit XMLExportable
@@ -35,6 +39,7 @@ class GameObject(GameEntity, XMLExportable, PropertiesTableAbstract):
             'name' : '',
             'inclination' : '',
             'elevation' : '',
+            'rotation' : '',
             'offsetheight' : '',
             'offsetwidth' : '',
             'offsethorizontal' : '',
@@ -52,6 +57,7 @@ class GameObject(GameEntity, XMLExportable, PropertiesTableAbstract):
             'scale' : 0.1,
             'inclination' : 0.2,
             'elevation' : 0.02,
+            'rotation' : 1.0,
             'offsetheight' : 0.02,
             'offsetwidth' : 0.02,
             'offsethorizontal' : 0.02,
@@ -79,6 +85,11 @@ class GameObject(GameEntity, XMLExportable, PropertiesTableAbstract):
             self.properties['inclination'] = float(attributes['inclination'].value)
         else:
             self.properties['inclination'] = 30.0
+        
+        if attributes.has_key('rotation'):
+            self.properties['rotation'] = float(attributes['rotation'].value)
+        else:
+            self.properties['rotation'] = 0.0
         
         if attributes.has_key('offsetwidth'):
             self.properties['offsetwidth'] = float(attributes['offsetwidth'].value)
@@ -152,7 +163,7 @@ class GameObject(GameEntity, XMLExportable, PropertiesTableAbstract):
         
         self.generateNode()
     
-    def generateNode(self):
+    def generateNode(self):        
         self.destroy()
         
         self.node = NodePath('gameobjectnode')
@@ -234,6 +245,43 @@ class GameObject(GameEntity, XMLExportable, PropertiesTableAbstract):
                     self.collisionNodeNp.show()
         
         geomnode = NodePath(cm.generate())
+        if geomnode.node().isGeomNode():
+            vdata = geomnode.node().modifyGeom(0).modifyVertexData()
+            writer = GeomVertexWriter(vdata, 'vertex')
+            reader = GeomVertexReader(vdata, 'vertex')
+            
+            '''
+            this part apply rotation flattening to the perspective view
+            by modifying directly structure vertices
+            '''
+            i = 0 #counter
+            while not reader.isAtEnd():
+                v = reader.getData3f()
+                x = v[0]
+                y = v[1]
+                z = v[2]
+                newx = x
+                newy = y
+                newz = z
+                if self.properties['rotation'] == -90.0:
+                    if i == 0:
+                        newx = math.fabs(math.cos(math.radians(self.properties['inclination']))) * z
+                        newz = 0
+                        ssen = math.fabs(math.sin(math.radians(self.properties['inclination']))) * z
+                        sparsen = math.fabs(math.sin(math.radians(self.properties['inclination']))) * ssen
+                        spercos = math.fabs(math.cos(math.radians(self.properties['inclination']))) * ssen
+                        newy -= spercos
+                        newz += sparsen
+                    if i == 2:
+                        newx += math.fabs(math.cos(math.radians(self.properties['inclination']))) * z
+                        newz = 0
+                        ssen = math.fabs(math.sin(math.radians(self.properties['inclination']))) * z
+                        sparsen = math.fabs(math.sin(math.radians(self.properties['inclination']))) * ssen
+                        spercos = math.fabs(math.cos(math.radians(self.properties['inclination']))) * ssen
+                        newy -= spercos
+                        newz += sparsen
+                    writer.setData3f(newx, newy, newz)
+                i += 1 #increase vertex counter
         if xscaled >= 1:
             geomnode.setX(0)
         if xscaled < 1:
@@ -242,10 +290,11 @@ class GameObject(GameEntity, XMLExportable, PropertiesTableAbstract):
         geomnode.setX(geomnode.getX()+self.properties['offsethorizontal'])
         geomnode.setZ(geomnode.getZ()+self.properties['offsetvertical'])
         geomnode.setY(-self.properties['elevation'])
-        geomnode.setP(-(360-int(self.properties['inclination'])))
+        geomnode.setP(int(self.properties['inclination'])-360)
         geomnode.setTexture(tex)
         geomnode.setTransparency(TransparencyAttrib.MAlpha)
         geomnode.reparentTo(self.node)
+        self.node.setR(self.properties['rotation'])
     
     def getName(self):
         return self.properties['url']
@@ -262,6 +311,7 @@ class GameObject(GameEntity, XMLExportable, PropertiesTableAbstract):
     def sanitizeProperties(self):
         #sanitizing data
         self.properties['inclination'] = float(self.properties['inclination'])
+        self.properties['rotation'] = float(self.properties['rotation'])
         self.properties['offsetwidth'] = float(self.properties['offsetwidth'])
         self.properties['offsetheight'] = float(self.properties['offsetheight'])
         self.properties['offsethorizontal'] = float(self.properties['offsethorizontal'])

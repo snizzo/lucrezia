@@ -7,7 +7,7 @@ class CustomCamera(DirectObject):
     def __init__(self):
         base.disableMouse()
         self.setDistance(7.5)
-        base.camera.setP(3)
+        base.camera.setP(1.5)
         self.obj = 0
         self.t = 0
         pass #nothing for now?
