@@ -1,4 +1,4 @@
-<data tilesize="32.0" showcollisions="false" camdistance="18.5"   >
+<data tilesize="32.0" showcollisions="false" camdistance="18.5" bgImage="sets/bgimages/cielo" >
 	<row>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
@@ -188,7 +188,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<character direction="up" scale="11.0" url="luigi" hitboxscale="0.8" playable="true" inclination="15.0" speed="2.0" id="mainplayer" />
+			<character direction="up" scale="11.0" url="lear" hitboxscale="0.8" playable="true" inclination="15.0" speed="2.0" id="mainplayer" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />

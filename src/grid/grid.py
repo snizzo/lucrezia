@@ -186,6 +186,7 @@ class Grid(DirectObject):
     
     def getBackgroundImage(self):
         return self.bgImage
+    
     '''
     set a background image to be used into the map as borders goes away
     '''
