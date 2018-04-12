@@ -1,6 +1,15 @@
 import os
 import sys
 
+'''
+Fix correct lighting by applying correct normals to every vertex manually
+'''
+def apply_normals(filename):
+    os.system("sed -i '/<UV> { 0 1 }/a<Normal> { 0 0 1 }' "+filename)
+    os.system("sed -i '/<UV> { 1 1 }/a<Normal> { 0 0 1 }' "+filename)
+    os.system("sed -i '/<UV> { 1 0 }/a<Normal> { 0 0 1 }' "+filename)
+    os.system("sed -i '/<UV> { 0 0 }/a<Normal> { 0 0 1 }' "+filename)
+
 charname = sys.argv[1]
 filename = charname + ".png"
 
@@ -39,10 +48,23 @@ os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o wright.egg -fps 4 wright*.pn
 os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o wleft.egg -fps 4 wleft*.png")
 os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o wtop.egg -fps 4 wtop*.png")
 
+print "Applying normals to animations..."
+apply_normals("wdown.egg")
+apply_normals("wleft.egg")
+apply_normals("wtop.egg")
+apply_normals("wright.egg")
+
 print "Baking static eggs..."
 os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o sdown.egg wdown0.png")
 os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o sright.egg wright0.png")
 os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o sleft.egg wleft0.png")
 os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o stop.egg wtop0.png")
+
+print "Applying normals to statics..."
+
+apply_normals("sdown.egg")
+apply_normals("sleft.egg")
+apply_normals("stop.egg")
+apply_normals("sright.egg")
 
 print "Done!"
