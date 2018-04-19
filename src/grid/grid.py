@@ -26,13 +26,14 @@ This class abstracts the 2D grid commoly used in 2D games
 to use with panda3d.
 
 INTERNAL TILESET EXAMPLE GRAPH:
-       x
-  O------------>
+  ^
+  |
   |
 y |
   |
   |
-  v
+  O------------>
+        x
 '''
 class Grid(DirectObject):
     '''
@@ -42,7 +43,7 @@ class Grid(DirectObject):
         #variables initialization
         self.tileset = []
         self.characterset = []
-        self.scrollableset = [] #fix this shiet, scollables can't definitely sit here...
+        self.scrollableset = [] #FIXME: scrollables can't definitely sit here...
         
         #only used in editor as for now, contains just mapname
         self.currentMapName = ''
@@ -70,7 +71,7 @@ class Grid(DirectObject):
     
     def disablePlayable(self):
         if self.getPlayable() != None:
-            self.getPlayable().setPlayable(False)
+            self.getPlayable().pauseGameplay()
     
     #apicall
     def changeMap(self, mapFile, position):
@@ -80,7 +81,7 @@ class Grid(DirectObject):
          Func(self.disablePlayable),
          f.fadeIn(1),
          Func(self.changeMapHelper, mapFile, position),
-         Wait(3),
+         Wait(2),
          f.fadeOut(1),
          Func(self.changedMap)
         ).start()
@@ -195,6 +196,16 @@ class Grid(DirectObject):
         imageurl = resourceManager.getResource(imageurl)+'.png'
         self.background = OnscreenImage(parent=render2dp, image=imageurl)
         base.cam2dp.node().getDisplayRegion(0).setSort(-20)
+    
+    '''
+    Real time map modifiers
+    TODO: implement this
+    '''
+    def addRow(self, currentx, currenty):
+        pass
+    
+    def addColumn(self):
+        pass
     
     '''
     @return string current map filepath

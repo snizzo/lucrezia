@@ -13,12 +13,17 @@ from direct.showbase.DirectObject import DirectObject
 from XMLExportable import XMLExportable
 from GameEntity import GameEntity
 from editor.gui.PropertiesTableAbstract import PropertiesTableAbstract
+from Pausable import Pausable
 
-class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity):
+import sys
+
+class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity, Pausable):
     
     def __init__(self, attributes, showCollisions, grid_currentx, grid_currenty, grid_playable_pos, parent):
         GameEntity.__init__(self, parent) #running parent constructor
         
+        self.playable = False #defaulting to false
+        self.pausedState = False #defaulting to false
         self.movtask = 0
         self.showCollisions = showCollisions
         self.grid_currentx = grid_currentx
@@ -351,6 +356,26 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
         
         return task.cont
     
+    
+    '''
+    Resume past state of playable when
+    resumeGameplay is catched 
+    '''
+    def resumeGameplay(self):
+        print "resuming with", self.pausedState
+        self.setPlayable(self.pausedState)
+    
+    
+    '''
+    Resume past state of playable when
+    resumeGameplay is catched 
+    '''
+    def pauseGameplay(self):
+        print "pausing with", self.playable
+        self.pausedState = self.playable
+        self.setPlayable(False)
+    
+    
     def npc_walk_callback(self, task):
         self.face(self.npc_direction)
         
@@ -364,7 +389,7 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
             
     
     '''
-    write destroyfunction
+    write destroy function
     '''
     def destroy(self):
         #not accepting events
@@ -473,8 +498,10 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
     #used to set playability in real time
     #useful when we want to switch context/scripted scenes
     def setPlayable(self, value):
+        print "setPlayable called by ", sys._getframe().f_back.f_code.co_name
         if self.isNPC != False:
             if value == True:
+                self.playable = True
                 #down events
                 self.accept("arrow_left", self.arrowLeftDown)
                 self.accept("arrow_right", self.arrowRightDown)
@@ -488,13 +515,14 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
                 self.accept("space", self.spaceDown)
                 self.node.setTag("playable", "true")
                 self.setFollowedByCamera(True)
-                self.accept("pauseGameplay", self.setPlayable, [False]) #can pause play
+                self.accept("pauseGameplay", self.pauseGameplay) #can pause play
             else:
+                self.playable = False
                 self.ignoreAll()
                 self.node.setTag("playable", "false")
                 self.setFollowedByCamera(False)
                 self.resetMovement() #reset every movement happening
-                self.accept("resumeGameplay", self.setPlayable, [True]) #can resume play if not NPC
+                self.accept("resumeGameplay", self.resumeGameplay) #can resume play if not NPC
     
     #estimate loading time 4 seconds... lol... UPDATE: seems fixed in newer panda versions, inspect
     def showAllSubnodes(self):
