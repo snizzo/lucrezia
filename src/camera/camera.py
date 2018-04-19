@@ -1,4 +1,8 @@
 from direct.showbase.DirectObject import DirectObject
+from pandac.PandaModules import *
+from direct.gui.DirectGui import *
+from direct.interval.LerpInterval import LerpPosInterval
+from direct.interval.IntervalGlobal import *
 
 #importing task
 from direct.task import Task
@@ -10,7 +14,15 @@ class CustomCamera(DirectObject):
         base.camera.setP(1.5)
         self.obj = 0
         self.t = 0
-        pass #nothing for now?
+        
+        #blocking for lerp direction scripting
+        self.globalLock = False #very important for scripting engine
+    
+    def lock(self):
+        self.globalLock = True
+    
+    def unlock(self):
+        self.globalLock = False
     
     '''
     Set the object to follow
@@ -35,4 +47,43 @@ class CustomCamera(DirectObject):
             base.camera.setX(self.obj.getWorldPos().getX())
             base.camera.setZ(self.obj.getWorldPos().getZ())
         return Task.cont
+    
+    def moveCameraAtPoint(self, x, y):
+        #blocking scripting engine from executing the next code block
+        self.lock()
+        script.addOneCustomLock(self)
+        cameraLerp = LerpPosInterval(base.camera,
+                    2,
+                    Point3(x,base.camera.getY(),y),
+                    startPos=Point3(base.camera.getX(),base.camera.getY(),base.camera.getZ()),
+                    other=None,
+                    blendType='easeInOut',
+                    bakeInStart=1,
+                    fluid=0,
+                    name=None)
+        Sequence(
+            cameraLerp,
+            Func(self.unlock)
+        ).start()
+    
+    def moveCameraAtObject(self, obj):
+        #blocking scripting engine from executing the next code block
+        self.lock()
+        script.addOneCustomLock(self)
+        i = LerpPosInterval(base.camera,
+                    2,
+                    Point3(obj.getX(),base.camera.getY(),obj.getZ()),
+                    startPos=Point3(base.camera.getX(),base.camera.getY(),base.camera.getZ()),
+                    other=None,
+                    blendType='easeInOut',
+                    bakeInStart=1,
+                    fluid=0,
+                    name=None)
+        Sequence(
+            cameraLerp,
+            Func(self.unlock)
+        ).start()
+    
+    def moveCameraAtObjects(self, p1, p2):
+        pass
         
