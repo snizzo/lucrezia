@@ -781,6 +781,18 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
         
         return Task.cont
     
+    def getX(self):
+        return self.node.getX()
+        
+    def getY(self):
+        return self.node.getY()
+    
+    def getZ(self):
+        return self.node.getZ()
+    
+    def getNode(self):
+        return self.node
+    
     def getWorldPos(self):
         return self.node.getPos(render)
     

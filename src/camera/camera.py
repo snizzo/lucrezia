@@ -67,12 +67,15 @@ class CustomCamera(DirectObject):
         ).start()
     
     def moveCameraAtObject(self, obj):
+        pos = obj.getWorldPos()
+        pos.setY(base.camera.getY())
+        print pos
         #blocking scripting engine from executing the next code block
         self.lock()
         script.addOneCustomLock(self)
-        i = LerpPosInterval(base.camera,
+        cameraLerp = LerpPosInterval(base.camera,
                     2,
-                    Point3(obj.getX(),base.camera.getY(),obj.getZ()),
+                    pos,
                     startPos=Point3(base.camera.getX(),base.camera.getY(),base.camera.getZ()),
                     other=None,
                     blendType='easeInOut',
@@ -84,6 +87,6 @@ class CustomCamera(DirectObject):
             Func(self.unlock)
         ).start()
     
-    def moveCameraAtObjects(self, p1, p2):
+    def moveCameraBetweenObjects(self, o1, o2):
         pass
         

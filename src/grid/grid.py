@@ -19,7 +19,7 @@ from character import Character
 
 from utils.fadeout import FadeOut
 
-import os
+import os, sys
 
 '''
 This class abstracts the 2D grid commoly used in 2D games
@@ -96,10 +96,15 @@ class Grid(DirectObject):
     
     #APICALL
     def getObjectById(self, search):
+        s = None
         l = self.node.findAllMatches("**/=id="+search)
         if len(l) > 0:
             s = l[0].getPythonTag("gamenode")
-        return s
+        if s != None:
+            return s
+        else:
+            print "ERROR: getObjecyById("+search+") -- can't find any object with id: "+search
+            sys.exit()
     
     '''
     return the playable object of the game
