@@ -1,8 +1,8 @@
 <Comment> {
-  "egg-texture-cards -g0,1,0,1 -p384,384 -o sright.egg wright3.png"
+  "egg-texture-cards -g0,1,0,1 -p384,384 -o sleft.egg wleft0.png"
 }
-<Texture> wright3 {
-  wright3.png
+<Texture> wleft0 {
+  wleft0.png
 }
 <Group> {
   <VertexPool> vpool {
@@ -27,10 +27,10 @@
 <Normal> { 0 0 1 }
     }
   }
-  <Group> wright3 {
+  <Group> wleft0 {
     <Polygon> {
       <RGBA> { 1 1 1 1 }
-      <TRef> { wright3 }
+      <TRef> { wleft0 }
       <VertexRef> { 0 1 2 3 <Ref> { vpool } }
     }
   }
