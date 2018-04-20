@@ -23,7 +23,7 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
         GameEntity.__init__(self, parent) #running parent constructor
         
         self.playable = False #defaulting to false
-        self.pausedState = False #defaulting to false
+        self.cinematic = False #defaulting to false
         self.movtask = 0
         self.showCollisions = showCollisions
         self.grid_currentx = grid_currentx
@@ -208,7 +208,7 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
         if attributes.has_key('playable'):
             if self.isNPC!=False:
                 if ((self.grid_playable_pos.getX() != 0) and (self.grid_playable_pos.getY() != 0)):
-                    print 'GRID: moving player to ' + str(self.grid_playable_pos)
+                    #print 'GRID: moving player to ' + str(self.grid_playable_pos)
                     self.setX(self.grid_playable_pos.getX())
                     self.setY(self.grid_playable_pos.getY()+0.5)
         
@@ -356,14 +356,15 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
         
         return task.cont
     
+    def setCinematic(self, value):
+        self.cinematic = value
     
     '''
     Resume past state of playable when
     resumeGameplay is catched 
     '''
     def resumeGameplay(self):
-        print "resuming with", self.pausedState
-        self.setPlayable(self.pausedState)
+        self.setPlayable(True)
     
     
     '''
@@ -371,8 +372,6 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
     resumeGameplay is catched 
     '''
     def pauseGameplay(self):
-        print "pausing with", self.playable
-        self.pausedState = self.playable
         self.setPlayable(False)
     
     
@@ -498,7 +497,8 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
     #used to set playability in real time
     #useful when we want to switch context/scripted scenes
     def setPlayable(self, value):
-        print "setPlayable called by ", sys._getframe().f_back.f_code.co_name
+        if self.cinematic == True:
+            value = False
         if self.isNPC != False:
             if value == True:
                 self.playable = True

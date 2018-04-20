@@ -71,7 +71,7 @@ class Grid(DirectObject):
     
     def disablePlayable(self):
         if self.getPlayable() != None:
-            self.getPlayable().pauseGameplay()
+            messenger.send("pauseGameplay")
     
     #apicall
     def changeMap(self, mapFile, position):
@@ -194,7 +194,7 @@ class Grid(DirectObject):
         return self.bgImage
     
     '''
-    set a background image to be used into the map as borders goes away
+    set a background image to be used into the map as borders go away
     '''
     def setBackgroundImage(self, imageurl):
         self.bgImage = imageurl

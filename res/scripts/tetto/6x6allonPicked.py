@@ -1,10 +1,11 @@
 lear = pGrid.getObjectById('mainplayer')
-lear.setPlayable(False)
+lear.setCinematic(True)
 baloons.push('Lear', 'Eccoti finalmente!', 'mainplayer')
 baloons.push('Lear', 'È un\'ora che ti cerco.', 'mainplayer')
 ###pause
 luna = pGrid.getObjectById('luna')
-customCamera.moveCameraAtObject(luna)
+lear = pGrid.getObjectById('mainplayer')
+customCamera.moveCameraBetweenObjects(luna, lear)
 ###pause
 baloons.push('Luna', 'Non sapevo dove altro andare.', 'luna')
 ###pause
@@ -13,4 +14,4 @@ customCamera.moveCameraAtObject(lear)
 ###pause
 lear = pGrid.getObjectById('mainplayer')
 baloons.push('Lear', 'Ti stanno aspettando i dottori!', 'mainplayer')
-lear.setPlayable(True)
+lear.setCinematic(False)

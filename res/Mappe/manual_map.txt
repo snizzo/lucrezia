@@ -102,6 +102,8 @@ Scripting API:
                 set movement speed for character
             character.face(direction)
                 set face to direction
+            character.setCinematic(True|False)
+                while cinematic mode is True, Character is flagged as playable but won't be allowing for longer cinematics
 
 -----LIGHTS
             lamp.toggle()

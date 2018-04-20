@@ -36,6 +36,8 @@ class Baloon(DirectObject):
     
     def requestPause(self):
         messenger.send("pauseGameplay");
+        print pGrid.getPlayable()
+        print "requesting pause..."
     
     def resumePause(self):
         closeInterval = self.textnp.scaleInterval(self.openCloseSpeed, 0.0001, 0.37)
@@ -85,7 +87,7 @@ class Baloon(DirectObject):
         self.text.setText(''.join(self.textapplied))
         if not self.message:
             self.canResumePause()
-            print "now pause can be resumed"
+            #print "now pause can be resumed"
             return Task.done
         else:
             return Task.again

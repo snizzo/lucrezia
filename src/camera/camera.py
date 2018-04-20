@@ -88,5 +88,24 @@ class CustomCamera(DirectObject):
         ).start()
     
     def moveCameraBetweenObjects(self, o1, o2):
-        pass
+        pos1 = o1.getWorldPos()
+        pos2 = o2.getWorldPos()
+        pos = (pos1 + pos2)/2
+        pos.setY(base.camera.getY())
+        #blocking scripting engine from executing the next code block
+        self.lock()
+        script.addOneCustomLock(self)
+        cameraLerp = LerpPosInterval(base.camera,
+                    2,
+                    pos,
+                    startPos=Point3(base.camera.getX(),base.camera.getY(),base.camera.getZ()),
+                    other=None,
+                    blendType='easeInOut',
+                    bakeInStart=1,
+                    fluid=0,
+                    name=None)
+        Sequence(
+            cameraLerp,
+            Func(self.unlock)
+        ).start()
         
