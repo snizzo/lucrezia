@@ -1,5 +1,0 @@
---- per eggare i chars ---
-egg-texture-cards -g0,1,0,1 -p384,384 -o wdown.egg -fps 4 wdown*.png 
-
---- per i character rpg maker partendo da 128x192 ---
-convert image.png -crop 32x48 image-%d.jpg

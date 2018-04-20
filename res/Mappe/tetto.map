@@ -504,6 +504,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<character direction="up" scale="11.0" url="luna" hitboxscale="1.0" playable="false" inclination="2.0" speed="1.0" id="luna" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
