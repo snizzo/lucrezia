@@ -68,7 +68,7 @@ apply_normals("wright.egg")
 
 print "Baking static eggs..."
 os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o sdown.egg wdown0.png")
-os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o sright.egg wright3.png")
+os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o sright.egg wright0.png")
 os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o sleft.egg wleft0.png")
 os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o stop.egg wtop0.png")
 
