@@ -26,8 +26,14 @@ class BaloonManager(DirectObject):
         self.globalLock = False #very important for scripting engine
         self.queue = []
         
+        #loading font once
+        self.font = loader.loadFont(resourceManager.getResource('fonts/gnu-freefont_freesans/FreeSans.ttf'))
+        
         self.accept("resumeGameplay", self.unlock)
         taskMgr.add(self.baloonTask, "baloonspawntask")
+    
+    def getFont(self):
+        return self.font
     
     #APICALL
     #sets a function to be called when the message stack
@@ -43,7 +49,7 @@ class BaloonManager(DirectObject):
         targetNodeList = pGrid.getObjectsById(node)
         
         for n in targetNodeList:
-            b = Baloon(who, message, n, speed, True)
+            b = Baloon(self, who, message, n, speed, True)
             self.queue.append(b)
             self.globalLock = True
     
@@ -52,7 +58,7 @@ class BaloonManager(DirectObject):
         targetNodeList = pGrid.getObjectsById(node)
         
         for n in targetNodeList:
-            b = Baloon(who, message, n, speed, False)
+            b = Baloon(self, who, message, n, speed, False)
             self.queue.append(b)
             self.globalLock = True
     

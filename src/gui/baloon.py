@@ -16,7 +16,7 @@ import sys, os, math
 This class represent a single baloon, with text animation
 '''
 class Baloon(DirectObject):
-    def __init__(self, who, message, target, speed, thought):
+    def __init__(self, parent, who, message, target, speed, thought):
         #text is in pure normal text
         #owner is in 
         self.pos = target.getWorldPos()
@@ -25,6 +25,7 @@ class Baloon(DirectObject):
         self.textapplied = [who,':\n']
         self.speed = speed
         self.isThought = thought
+        self.parent = parent
         
         '''
         for i in range(len(self.message)):
@@ -95,11 +96,12 @@ class Baloon(DirectObject):
     def show(self):
         self.requestPause()
         
-        self.setAutomaticWordwrap(17)
+        self.setAutomaticWordwrap(30)
         
         #text
         self.textbg = TextNode('baloontextnodebg')
         self.textbg.setTextColor(0.5, 0.5, 0.5, 0)
+        self.textbg.setFont(self.parent.getFont())
         #self.textbg.setWordwrap(13.0)
         self.textbg.setText(''.join([self.who,":\n"]+self.message))
         
@@ -112,9 +114,16 @@ class Baloon(DirectObject):
             self.textbg.setCardColor(0.5, 0.5, 0.5, 0.75)
         self.textbg.setCardAsMargin(0.4, 0.8, 0.4, 0.3)
         self.textbg.setCardDecal(True)
+        self.height = self.textbg.getHeight()
+        self.width = self.textbg.getWidth()
+        
+        print self.height
+        print self.width
         
         #text
         self.text = TextNode('baloontextnode')
+        self.text.setFont(self.parent.getFont())
+        self.text.setShadow(0.05, 0.05)
         if self.isThought:
             self.text.setTextColor(0.6, 0.6, 0.6, 1.0)
         else:
@@ -122,11 +131,11 @@ class Baloon(DirectObject):
         #self.text.setWordwrap(13.0)
         
         self.textnp = render.attachNewNode(self.text)
-        textradius = self.textnp.getBounds().getRadius()/2
         self.textnp.setY(-0.5)
         self.textnp.setScale(0.0001)
-        self.textnp.setPos(self.pos.getX()+0.5,-1,self.pos.getZ()+2.25)
+        self.textnp.setPos(self.pos.getX()+0.5-self.width/6,-1,self.pos.getZ()+1+self.height/2)
         self.textnp.setLightOff()
+        self.textnp.setDepthTest(False)
         self.textbgnode = self.textnp.attachNewNode(self.textbg)
         self.textbgnode.setY(0.1)
         
