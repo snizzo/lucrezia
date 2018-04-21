@@ -372,3 +372,6 @@ class GameObject(GameEntity, XMLExportable, PropertiesTableAbstract):
     #here for polymorph
     def getTileY(self):
         return self.parent.getY()
+    
+    def getWorldPos(self):
+        return self.node.getPos(render)

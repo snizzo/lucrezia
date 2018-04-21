@@ -19,7 +19,7 @@ from character import Character
 
 from utils.fadeout import FadeOut
 
-import os
+import os, sys
 
 '''
 This class abstracts the 2D grid commoly used in 2D games
@@ -71,7 +71,7 @@ class Grid(DirectObject):
     
     def disablePlayable(self):
         if self.getPlayable() != None:
-            self.getPlayable().pauseGameplay()
+            messenger.send("pauseGameplay")
     
     #apicall
     def changeMap(self, mapFile, position):
@@ -96,10 +96,15 @@ class Grid(DirectObject):
     
     #APICALL
     def getObjectById(self, search):
+        s = None
         l = self.node.findAllMatches("**/=id="+search)
         if len(l) > 0:
             s = l[0].getPythonTag("gamenode")
-        return s
+        if s != None:
+            return s
+        else:
+            print "ERROR: getObjecyById("+search+") -- can't find any object with id: "+search
+            sys.exit()
     
     '''
     return the playable object of the game
@@ -189,7 +194,7 @@ class Grid(DirectObject):
         return self.bgImage
     
     '''
-    set a background image to be used into the map as borders goes away
+    set a background image to be used into the map as borders go away
     '''
     def setBackgroundImage(self, imageurl):
         self.bgImage = imageurl

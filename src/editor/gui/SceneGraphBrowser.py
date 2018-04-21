@@ -152,7 +152,7 @@ class SceneGraphBrowser(QMainWindow):
         
         playablepos = Point3(self.currentx, self.currenty, 0)
         attributes = { 'url' : SceneGraphBrowser.MiniValue(t.__str__()) }
-        tile.addCharacter(attributes, True, self.currentx, self.currenty, playablepos)
+        tile.addCharacter(attributes, True, playablepos)
         self.loadCellInfo(self.currentx, self.currenty)
     
     def addLightToTile(self, dummy_param=None):

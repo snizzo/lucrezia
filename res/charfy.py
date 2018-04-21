@@ -1,4 +1,5 @@
 import os
+import os.path
 import sys
 
 '''
@@ -20,8 +21,19 @@ if charname == "--help":
     print " <charname>/<charname>.png\n"
     sys.exit()
 
-print "Cropping image..."
+print "Changing directory..."
+if not os.path.exists(charname):
+    print "ERROR: Couldn't find a folder called "+charname+"!"
+    sys.exit()
 os.chdir(charname)
+
+print "Clearing previous files..."
+if not os.path.exists(filename):
+    print "ERROR: Couldn't find a tileable image called "+filename+"!"
+    sys.exit()
+os.system("find . ! -name '"+filename+"' -type f -exec rm -f {} +")
+
+print "Cropping image..."
 os.system("convert "+filename+" -crop 32x48 image-%d.png")
 
 print "Renaming images..."
@@ -56,7 +68,7 @@ apply_normals("wright.egg")
 
 print "Baking static eggs..."
 os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o sdown.egg wdown0.png")
-os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o sright.egg wright3.png")
+os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o sright.egg wright0.png")
 os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o sleft.egg wleft0.png")
 os.system("egg-texture-cards -g0,1,0,1 -p384,384 -o stop.egg wtop0.png")
 

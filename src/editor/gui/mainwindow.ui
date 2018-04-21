@@ -161,7 +161,7 @@
      <x>0</x>
      <y>0</y>
      <width>549</width>
-     <height>42</height>
+     <height>32</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -181,8 +181,21 @@
     <addaction name="actionEdit_onLoad"/>
     <addaction name="actionEdit_onUnload"/>
    </widget>
+   <widget class="QMenu" name="menuGrid">
+    <property name="title">
+     <string>Grid</string>
+    </property>
+    <addaction name="actionSet_background_image"/>
+    <addaction name="separator"/>
+    <addaction name="actionAdd_column"/>
+    <addaction name="actionAdd_row"/>
+    <addaction name="separator"/>
+    <addaction name="actionRemove_column"/>
+    <addaction name="actionRemove_row"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuMap"/>
+   <addaction name="menuGrid"/>
   </widget>
   <action name="actionScene">
    <property name="text">
@@ -259,6 +272,31 @@
   <action name="actionEdit_onUnload">
    <property name="text">
     <string>Edit onUnload()</string>
+   </property>
+  </action>
+  <action name="actionSet_background_image">
+   <property name="text">
+    <string>Set background image</string>
+   </property>
+  </action>
+  <action name="actionAdd_column">
+   <property name="text">
+    <string>Add column</string>
+   </property>
+  </action>
+  <action name="actionAdd_row">
+   <property name="text">
+    <string>Add row</string>
+   </property>
+  </action>
+  <action name="actionRemove_column">
+   <property name="text">
+    <string>Remove column</string>
+   </property>
+  </action>
+  <action name="actionRemove_row">
+   <property name="text">
+    <string>Remove row</string>
    </property>
   </action>
  </widget>
