@@ -175,7 +175,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.7" elevation="0.12" url="sets/tetto/scale2" offsethorizontal="-0.42" offsetcollisionh="-0.3" walkable="false" offsetcollisionv="0.08" avoidable="False" offsetvertical="0.0" offsetheight="-0.3" collisionmode="2d" rotation="0.0" offsetwidth="-0.34" id="all" inclination="1.0" />
+			<object scale="1.7" elevation="0.12" url="sets/tetto/scale2" offsethorizontal="-0.1" offsetcollisionh="-0.3" walkable="false" offsetcollisionv="0.08" avoidable="False" offsetvertical="0.24" offsetheight="-0.3" collisionmode="2d" rotation="0.0" offsetwidth="-0.34" id="all" inclination="1.0" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
@@ -188,7 +188,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<character direction="up" scale="11.0" url="lear" hitboxscale="0.8" playable="true" inclination="15.0" speed="2.0" id="mainplayer" />
+			<character direction="down" scale="11.0" url="lear" hitboxscale="0.8" playable="true" inclination="15.0" speed="2.0" id="mainplayer" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />

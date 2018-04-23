@@ -13,6 +13,8 @@ lear.npc_push_walk("left", 2)
 lear.npc_push_walk("up", 2)
 lear.npc_push_walk("right", 1)
 ###pause
+flow.wait(3)
+###pause
 baloons.push('Luna', 'Non sapevo dove altro andare.', 'luna')
 ###pause
 lear = pGrid.getObjectById('mainplayer')
