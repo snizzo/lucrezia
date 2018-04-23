@@ -24,6 +24,7 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
         
         self.playable = False #defaulting to false
         self.cinematic = False #defaulting to false
+        self.footSound = None
         self.movtask = 0
         self.showCollisions = showCollisions
         self.grid_currentx = grid_currentx
@@ -44,7 +45,8 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
             'hitboxscale' : '',
             'speed' : '',
             'playable' : '',
-            'direction' : ''
+            'direction' : '',
+            'footsteps' : ''
         }
         
         self.propertiesUpdateFactor = {
@@ -104,6 +106,11 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
             self.properties['direction'] = attributes['direction'].value
         else:
             self.properties['direction'] = "down"
+        
+        if attributes.has_key('footsteps'):
+            self.properties['footsteps'] = attributes['footsteps'].value
+        else:
+            self.properties['footsteps'] = "sfx/footsteps_default0.ogg"
         
         if attributes.has_key('onWalked'):
             self.properties['onWalked'] = self.onWalked = attributes['onWalked'].value
@@ -205,6 +212,12 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
         if self.isNPC!=True:
             print "attempting creation of NPC in ", self.grid_currentx, "-", self.grid_currenty
         
+        if self.properties['footsteps'] != "":
+            path = resourceManager.getResource(self.properties['footsteps'])
+            self.footSound = base.loader.loadSfx(path)
+            self.footSound.setVolume(1)
+            self.footSound.setLoop(True)
+        
         if attributes.has_key('playable'):
             if self.isNPC!=False:
                 if ((self.grid_playable_pos.getX() != 0) and (self.grid_playable_pos.getY() != 0)):
@@ -278,6 +291,14 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
             tex.setMagfilter(Texture.FT_nearest)
         return model
     
+    def startFootsteps(self):
+        if self.footSound != None:
+            self.footSound.play()
+    
+    def stopFootsteps(self):
+        if self.footSound != None:
+            self.footSound.stop()
+    
     '''
     make the npc walk in direction for units
     '''
@@ -325,6 +346,8 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
         
         self.npc_walk_happening = True
         self.npc_movtask = taskMgr.add(self.npc_walk_task, "npc_moveCharacterTask"+self.properties['id'], uponDeath=self.npc_walk_callback)
+        #footsteps call
+        self.startFootsteps()
     
     def npc_walk_task(self, task):
         dt = globalClock.getDt()
@@ -380,6 +403,9 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
         
         #unlocking concurrent movement protection
         self.npc_walk_happening = False
+        
+        #stopping footsteps
+        self.stopFootsteps()
         
         if len(self.npc_walk_stack) > 0:
             self.npc_walk_helper()
@@ -548,9 +574,11 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
     
     def setMovement(self, value):
         if value == True:
+            self.startFootsteps() #playing footsteps
             if self.movtask == 0:
                 self.movtask = taskMgr.add(self.moveCharacter, "moveCharacterTask")
         if value == False:
+            self.stopFootsteps() #stopping footsteps
             if self.movtask != 0:
                 if len(self.currentlydown) == 0:
                     taskMgr.remove(self.movtask)
