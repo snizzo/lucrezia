@@ -1,4 +1,4 @@
-<data tilesize="32.0" showcollisions="false" camdistance="18.5"   bgImage="sets/bgimages/cielo">
+<data tilesize="32.0" showcollisions="false" camdistance="18.5" onLoad="script.load('scripts/tetto/tettoonLoad.py')"  bgImage="sets/bgimages/cielo">
 	<row>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
@@ -175,7 +175,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.7" elevation="0.12" url="sets/tetto/scale2" offsethorizontal="-0.42" offsetcollisionh="-0.3" walkable="false" offsetcollisionv="0.08" avoidable="False" offsetvertical="0.0" offsetheight="-0.3" collisionmode="2d" rotation="0.0" offsetwidth="-0.34" id="all" inclination="1.0" />
+			<object scale="1.7" elevation="0.12" url="sets/tetto/scale2" offsethorizontal="-0.1" offsetcollisionh="-0.3" walkable="false" offsetcollisionv="0.08" avoidable="False" offsetvertical="0.24" offsetheight="-0.3" collisionmode="2d" rotation="0.0" offsetwidth="-0.34" id="all" inclination="1.0" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
@@ -188,7 +188,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<character direction="down" scale="11.0" url="lear" hitboxscale="0.8" playable="true" inclination="15.0" speed="2.0" id="mainplayer" />
+			<character direction="down" hitboxscale="0.8" speed="1.75" id="mainplayer" scale="11.0" url="lear" playable="true" footsteps="sfx/footsteps_default0.ogg" inclination="15.0" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
@@ -241,12 +241,14 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.28" offsetheight="0.0" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="15.0" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" onWalked="script.load('scripts/cinematics/tetto_dottori.py')" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.28" offsetheight="0.0" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="15.0" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
@@ -504,7 +506,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<character direction="up" scale="11.0" url="luna" hitboxscale="1.0" playable="false" inclination="2.0" speed="1.0" id="luna" />
+			<character direction="up" hitboxscale="1.0" speed="1.0" id="luna" scale="11.0" url="luna" playable="false" footsteps="sfx/footsteps_default0.ogg" inclination="2.0" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />

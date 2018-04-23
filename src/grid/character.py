@@ -215,7 +215,7 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
         if self.properties['footsteps'] != "":
             path = resourceManager.getResource(self.properties['footsteps'])
             self.footSound = base.loader.loadSfx(path)
-            self.footSound.setVolume(1)
+            self.footSound.setVolume(0.75)
             self.footSound.setLoop(True)
         
         if attributes.has_key('playable'):

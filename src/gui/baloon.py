@@ -109,7 +109,7 @@ class Baloon(DirectObject):
         self.textbg.setFrameColor(0.7, 0.7, 0.7, 0.6)
         self.textbg.setFrameAsMargin(0.4, 0.8, 0.4, 0.3)
         if self.isThought:
-            self.textbg.setCardColor(0.3, 0.3, 0.3, 0.75)
+            self.textbg.setCardColor(0.2, 0.2, 0.2, 0.4)
         else:
             self.textbg.setCardColor(0.5, 0.5, 0.5, 0.75)
         self.textbg.setCardAsMargin(0.4, 0.8, 0.4, 0.3)
@@ -125,7 +125,7 @@ class Baloon(DirectObject):
         self.text.setFont(self.parent.getFont())
         self.text.setShadow(0.05, 0.05)
         if self.isThought:
-            self.text.setTextColor(0.6, 0.6, 0.6, 1.0)
+            self.text.setTextColor(0.4, 0.4, 0.4, 0.7)
         else:
             self.text.setTextColor(1, 1, 1, 1)
         #self.text.setWordwrap(13.0)

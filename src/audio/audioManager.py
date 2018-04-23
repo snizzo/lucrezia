@@ -11,15 +11,26 @@ class AudioManager(DirectObject):
         self.effects = {}
         
     #apicall
-    def playMusic(self, bgmusic):
+    def playMusic(self, bgmusic, seconds):
         if(self.isPlaying):
             self.mySound.stop()
         path = resourceManager.getResource(bgmusic)
         self.mySound = base.loader.loadSfx(path)
-        self.mySound.setVolume(1)
+        self.mySound.setVolume(0)
         self.mySound.setLoop(True)
         self.mySound.play()
         self.isPlaying = True
+        
+        i = LerpFunc(self.playMusicLerp,
+             fromData=0,
+             toData=1,
+             duration=seconds,
+             blendType='noBlend',
+             extraArgs=[],
+             name=None).start()
+    
+    def playMusicLerp(self, t):
+        self.mySound.setVolume(t)
     
     '''stop music fading in given time'''
     def stopMusic(self, time):

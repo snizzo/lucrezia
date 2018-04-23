@@ -115,8 +115,8 @@ Scripting API:
 
 -----AUDIO
 
-            audioManager.playMusic(resource_path)
-                plays background music in loop. Only one can be played at a time.
+            audioManager.playMusic(resource_path, s)
+                plays background music in loop. Only one can be played at a time, fading in s seconds
             
             audioManager.stopMusic(time)
                 stop background music smoothing with given time
