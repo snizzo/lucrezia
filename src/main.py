@@ -26,6 +26,7 @@ from utils.fadeout import FadeOut
 from intro.intro import Intro
 from script.script import Script
 from persistence.persistence import Persistence
+from cinematics.flow import Flow
 
 __builtin__.resourceManager = ResourceManager()
 __builtin__.configManager = ConfigManager()
@@ -85,6 +86,7 @@ class MyApp(ShowBase):
         __builtin__.script = Script()
         __builtin__.persistence = Persistence()
         __builtin__.fademanager = FadeOut()
+        __builtin__.flow = Flow()
         __builtin__.myfilters = filters
 
         # ===========================================
@@ -116,7 +118,7 @@ class MyApp(ShowBase):
         #self.entrypoint = ['incidente.map', '20,11']
         #self.entrypoint = ['macchinadasola.map', '2,2']
         #self.entrypoint = ['black.map', '5,5']
-        self.entrypoint = ['tetto.map', '8,1']
+        self.entrypoint = ['tetto.map', '4,2']
         mainMenu.show()
         
         
