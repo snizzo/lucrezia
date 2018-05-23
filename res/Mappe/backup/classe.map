@@ -90,7 +90,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/classe/parquet" walkable="false" />
-			<character direction="up" hitboxscale="1.0" speed="1.0" id="lear" scale="11.0" url="lear" playable="true" footsteps="sfx/footsteps_default0.ogg" inclination="2.0" />
+			<character direction="up" hitboxscale="1.0" speed="1.0" id="lear" scale="11.0" url="lear" playable="false" footsteps="sfx/footsteps_default0.ogg" inclination="2.0" />
 		</tile>
 		<tile>
 			<ground url="sets/classe/parquet" walkable="false" />

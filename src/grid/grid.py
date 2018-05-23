@@ -77,14 +77,18 @@ class Grid(DirectObject):
     def changeMap(self, mapFile, position):
         f = FadeOut()
         
-        Sequence(
+        callback = Sequence(
+            Func(self.changedMap)
+        )
+        
+        change = Sequence(
          Func(self.disablePlayable),
-         f.fadeIn(1),
-         Func(self.changeMapHelper, mapFile, position),
-         Wait(2),
-         f.fadeOut(1),
-         Func(self.changedMap)
-        ).start()
+         #f.fadeIn(1),
+         Func(self.changeMapHelper, mapFile, position, callback)
+         #f.fadeOut(1),
+        )
+        
+        change.start()
     
     #APICALL
     def getObjectsById(self, search):
@@ -112,7 +116,7 @@ class Grid(DirectObject):
     def getPlayable(self):
         return self.node.find("**/=playable=true").getPythonTag("gamenode")
     
-    def changeMapHelper(self, mapFile, position):
+    def changeMapHelper(self, mapFile, position, callback):
         #executing code before killing the map
         if self.unloadScript != False:
             eval(self.unloadScript)
@@ -156,6 +160,8 @@ class Grid(DirectObject):
         
         if self.loadScript != False and main.editormode == False:
             eval(self.loadScript)
+        
+        callback.start()
     '''
     @return script to be executed when map is loaded
     '''

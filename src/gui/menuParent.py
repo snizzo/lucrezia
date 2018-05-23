@@ -53,6 +53,14 @@ class Menu(DirectObject):
         #first refresh ever
         self.refreshKeyState()
     
+    def addStaticImage(self, image, x,y,z):
+        cm = CardMaker('customimage')
+        customimage = self.frame.attachNewNode(cm.generate())
+        customimage.setPos(x,y,z)
+        tex = loader.loadTexture(resourceManager.getResource(image))
+        customimage.setTexture(tex)
+        customimage.setTransparency(TransparencyAttrib.MAlpha)
+    
     '''
     Do not use both static and moving background!
     '''
@@ -207,6 +215,8 @@ class MainMenu(Menu):
         self.addButton("Start", self.onNewGame)
         self.addButton("Credits", self.onLoadGame)
         self.addButton("Exit to Desktop", self.onWakeUp)
+        
+        self.addStaticImage('intro/bmw.png', -1.44,0,-0.08)
         
         self.setX(-1.0)
         

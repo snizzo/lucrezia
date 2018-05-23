@@ -11,7 +11,7 @@ class AudioManager(DirectObject):
         self.effects = {}
         
     #apicall
-    def playMusic(self, bgmusic, seconds):
+    def playMusic(self, bgmusic, seconds=0):
         if(self.isPlaying):
             self.mySound.stop()
         path = resourceManager.getResource(bgmusic)

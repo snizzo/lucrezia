@@ -109,8 +109,12 @@ class MyApp(ShowBase):
     def pandaCallback(self):
 		taskMgr.step()
     
+    class EmptyCallback():
+        def start(self):
+            pass
+    
     def loadMap(self, filename):
-        pGrid.changeMapHelper(str(filename),'0,0')
+        pGrid.changeMapHelper(str(filename),'0,0', self.EmptyCallback())
     
     # this instantiates the three axis grid
     def prepareEditor(self):

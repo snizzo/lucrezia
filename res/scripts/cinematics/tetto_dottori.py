@@ -61,7 +61,7 @@ baloons.push('Lear', 'We all kind of suck, in the end.', 'mainplayer')
 ###pause
 flow.wait(1)
 ###pause
-baloons.push('Lear', 'All we could do is stay close to people', 'mainplayer that are not complete trash to us.', 'mainplayer')
+baloons.push('Lear', 'All we could do is stay close to people that are not complete trash to us.', 'mainplayer')
 ###pause
 lear = pGrid.getObjectById('mainplayer')
 lear.npc_push_walk("up", 1)
@@ -126,4 +126,4 @@ baloons.push('Lear', 'Sometimes we don\'t realize how much people around us love
 ###pause
 flow.wait(3)
 ###pause
-baloons.push('Lear', 'Like me.', 'mainplayer')
+baloons.pushThought('Lear', 'Like me.', 'mainplayer')

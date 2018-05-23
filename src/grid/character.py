@@ -223,7 +223,7 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
                 if ((self.grid_playable_pos.getX() != 0) and (self.grid_playable_pos.getY() != 0)):
                     #print 'GRID: moving player to ' + str(self.grid_playable_pos)
                     self.setX(self.grid_playable_pos.getX())
-                    self.setY(self.grid_playable_pos.getY()+0.5)
+                    self.setY(self.grid_playable_pos.getY())
         
         #automatic reparenting (and showing) when (re)generating node
         self.node.wrtReparentTo(self.parent.node)

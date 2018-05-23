@@ -113,19 +113,25 @@ class MyApp(ShowBase):
         print r.getResource('misc/grass') # deve dire path assoluto = res/misc/grass.png
         """
         
+        self.entrypoint = ['camera.map', '3,3']
         #self.entrypoint = ['finedemo.map', '1,1']
         #self.entrypoint = ['parcogiochi.map', '9,12']
         #self.entrypoint = ['incidente.map', '20,11']
         #self.entrypoint = ['macchinadasola.map', '2,2']
         #self.entrypoint = ['black.map', '5,5']
-        self.entrypoint = ['tetto.map', '4,2']
+        
+        #cinematica
+        #self.entrypoint = ['tetto.map', '4,2']
+        
+        #inizio vero
+        #self.entrypoint = ['classe.map', '5,1']
         mainMenu.show()
         
         
         #UNCOMMENT TO ENABLE INTRO
         #i = Intro()
         #i.start()
-        persistence.save("blackstate", 1)
+        persistence.save("gamestate", 3)
 
     def ping (self):
         print "main: PONG!"
