@@ -74,9 +74,8 @@ Scripting API:
                 spawn a text that will fade in 9 seconds
 
 -----BROADCAST EVENTS
-            
-            messenger.send('changeMap', ['corridoio.map','3,1'])"
-                request a changemap with ['MapName.map','PositionX,PositionY']
+            messenger.send('changeMap', ['corridoio.map','3,1','up'])"
+                request a changemap with ['MapName.map','PositionX,PositionY','directionofplayer']
 
 -----SELECTORS
             pGrid.getObjectById(id)

@@ -74,7 +74,7 @@ class Grid(DirectObject):
             messenger.send("pauseGameplay")
     
     #apicall
-    def changeMap(self, mapFile, position):
+    def changeMap(self, mapFile, position, face="down"):
         f = FadeOut()
         
         callback = Sequence(
@@ -84,7 +84,7 @@ class Grid(DirectObject):
         change = Sequence(
          Func(self.disablePlayable),
          #f.fadeIn(1),
-         Func(self.changeMapHelper, mapFile, position, callback)
+         Func(self.changeMapHelper, mapFile, position, callback, face)
          #f.fadeOut(1),
         )
         
@@ -116,7 +116,7 @@ class Grid(DirectObject):
     def getPlayable(self):
         return self.node.find("**/=playable=true").getPythonTag("gamenode")
     
-    def changeMapHelper(self, mapFile, position, callback):
+    def changeMapHelper(self, mapFile, position, callback, face="down"):
         #executing code before killing the map
         if self.unloadScript != False:
             eval(self.unloadScript)
@@ -154,6 +154,7 @@ class Grid(DirectObject):
         
         if main.editormode == False:
             self.getPlayable().setFollowedByCamera(True)
+            self.getPlayable().face(face)
         
         self.currentMapPath = mapFile
         self.currentMapName = mapFile.split('/')[-1].replace('.map', '')

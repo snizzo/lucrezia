@@ -45,7 +45,7 @@ class BaloonManager(DirectObject):
         self.callback = None
     
     #APICALL
-    def pushThought(self, who, message, node, speed=0.025):
+    def pushThought(self, who, message, node, speed=0.015):
         targetNodeList = pGrid.getObjectsById(node)
         
         for n in targetNodeList:
@@ -54,7 +54,7 @@ class BaloonManager(DirectObject):
             self.globalLock = True
     
     #APICALL
-    def push(self, who, message, node, speed=0.025):
+    def push(self, who, message, node, speed=0.015):
         targetNodeList = pGrid.getObjectsById(node)
         
         for n in targetNodeList:
