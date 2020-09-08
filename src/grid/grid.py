@@ -1,9 +1,11 @@
 #panda3d
-from panda3d.core import NodePath, LPoint2i
+from panda3d.core import NodePath, LPoint2i, Point3
 from direct.showbase.DirectObject import DirectObject
+from direct.showbase.ShowBase import ShowBase
 from direct.interval.IntervalGlobal import *
 from direct.gui.OnscreenText import OnscreenText
 from direct.gui.OnscreenImage import OnscreenImage
+from direct.interval.LerpInterval import LerpPosInterval
 
 #standard python
 from xml.dom import minidom
@@ -14,8 +16,8 @@ from utils.toggle import Toggle
 from utils.once import Once
 from objects.grass import Grass
 from objects.light import Light
-from tile import Tile
-from character import Character
+from grid.tile import Tile
+from grid.character import Character
 
 from utils.fadeout import FadeOut
 
@@ -74,7 +76,7 @@ class Grid(DirectObject):
             messenger.send("pauseGameplay")
     
     #apicall
-    def changeMap(self, mapFile, position, face="down"):
+    def changeMap(self, mapFile, position, face="down", animation='none'):
         f = FadeOut()
         
         callback = Sequence(
@@ -88,7 +90,30 @@ class Grid(DirectObject):
          #f.fadeOut(1),
         )
         
-        change.start()
+        if animation=='flyall':
+            tiles = pGrid.getAllTiles()
+            totSequence = Sequence()
+            flyallParallel = Parallel()
+            flyallParallel.append(Func(self.disablePlayable))
+            delay = 0
+            delayFactor = 0.045
+            for t in tiles:
+                gameObjects = t.getGameObjects()
+                for o in gameObjects:
+                    node = o.getNode()
+                    if o!=self.getPlayable():
+                        s = Sequence()
+                        nodeint = node.posInterval(2.0,Point3(node.getX(),node.getY()-15,node.getZ()+10),startPos = Point3(node.getX(),node.getY(),node.getZ()), blendType = 'easeIn', bakeInStart=1)
+                        s.append(Wait(delay))
+                        s.append(nodeint)
+                        delay += delayFactor
+                        flyallParallel.append(s)
+            totSequence.append(flyallParallel)
+            totSequence.append(Func(self.changeMapHelper, mapFile, position, callback, face))
+            totSequence.start()
+        
+        if animation=='none':
+            change.start()
     
     #APICALL
     def getObjectsById(self, search):
@@ -107,7 +132,7 @@ class Grid(DirectObject):
         if s != None:
             return s
         else:
-            print "ERROR: getObjecyById("+search+") -- can't find any object with id: "+search
+            print("ERROR: getObjecyById("+search+") -- can't find any object with id: "+search)
             sys.exit()
     
     '''
@@ -143,7 +168,7 @@ class Grid(DirectObject):
             x = int(tks[0])
             y = int(tks[1])
         else:
-            print 'ERROR: please define a correct position in .map file, resetting to 0,0'
+            print('ERROR: please define a correct position in .map file, resetting to 0,0')
             x = 0
             y = 0
         
@@ -229,33 +254,34 @@ class Grid(DirectObject):
         xmldoc = minidom.parse(file)
         
         data = xmldoc.getElementsByTagName('data')
+        
         for d in data:
-            if d.attributes > 0:
-                if d.attributes.has_key('tilesize'):
+            if len(d.attributes) > 0:
+                if 'tilesize' in d.attributes:
                     self.tileDimension = float(d.attributes['tilesize'].value)
                 else:
                     self.tileDimension = 32.0
-                if d.attributes.has_key('showcollisions'):
+                if 'showcollisions' in d.attributes:
                     if d.attributes['showcollisions'].value == 'false':
                         self.showCollisions = False
                     else:
                         self.showCollisions = True
                 else:
                     self.showCollisions = False
-                if d.attributes.has_key('camdistance'):
+                if 'camdistance' in d.attributes:
                     customCamera.setDistance(float(d.attributes['camdistance'].value))
                 else:
                     customCamera.setDistance(15)
-                if d.attributes.has_key('bgImage'):
+                if 'bgImage' in d.attributes:
                     self.setBackgroundImage(d.attributes['bgImage'].value)
                 else:
                     customCamera.setDistance(15)
-                if d.attributes.has_key('onLoad'):
+                if 'onLoad' in d.attributes:
                     self.loadScript = d.attributes['onLoad'].value
                 else:
                     self.loadScript = False
                     
-                if d.attributes.has_key('onUnload'):
+                if 'onUnload' in d.attributes:
                     self.unloadScript = d.attributes['onUnload'].value
                 else:
                     self.unloadScript = False
@@ -371,10 +397,10 @@ class Grid(DirectObject):
     '''
     def printTileset(self):
         for i in range(len(self.tileset)):
-            print self.tileset[i]
+            print(self.tileset[i])
     
     '''
     Debug method used to verify correct memory instantiation
     '''
     def ping(self):
-        print "GRID: pong!"
+        print("GRID: pong!")

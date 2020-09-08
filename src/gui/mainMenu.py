@@ -56,7 +56,7 @@ class MainMenu(DirectObject):
         ).start()
     
     def loadNewLevel(self):
-        print "sending message..."
+        print("sending message...")
         messenger.send('changeMap', ['camera.map','5,6'])
           
     def setKey(self, value):

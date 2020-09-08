@@ -57,7 +57,7 @@ class AudioManager(DirectObject):
         
     #apicall
     def playLongEffect(self, name, effect, time=2):
-        if self.effects.has_key(name) == False:
+        if name in self.effects == False:
             path = resourceManager.getResource(effect)
             effect = base.loader.loadSfx(path)
             effect.setVolume(0.01)
@@ -74,7 +74,7 @@ class AudioManager(DirectObject):
              name=None).start()
             
         else:
-            print "AUDIOMANAGER: you have to stop", name, " long effect before spawning a new one!"
+            print("AUDIOMANAGER: you have to stop", name, " long effect before spawning a new one!")
     
     def playLongEffectLerp(self, t, effect):
         effect.setVolume(t)
@@ -83,7 +83,7 @@ class AudioManager(DirectObject):
     
     #apicall
     def stopLongEffect(self, name):
-        if self.effects.has_key(name):
+        if name in self.effects:
             self.effects[name].stop()
             del self.effects[name]
     

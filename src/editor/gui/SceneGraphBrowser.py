@@ -1,14 +1,15 @@
 from direct.showbase.DirectObject import DirectObject 
 from panda3d.core import *
 
-from PyQt4.QtCore import * 
-from PyQt4.QtGui import * 
+from PyQt5.QtCore import * 
+from PyQt5.QtWidgets import * 
+from PyQt5.QtGui import * 
 
 #custom imports
-from SceneGraphBrowserUi import Ui_sceneGraphBrowser
+from editor.gui.SceneGraphBrowserUi import Ui_sceneGraphBrowser
 
-from PropertiesTable import PropertiesTable
-from SceneGraphAnalyzer import SceneGraphAnalyzer
+from editor.gui.PropertiesTable import PropertiesTable
+from editor.gui.SceneGraphAnalyzer import SceneGraphAnalyzer
 
 '''
 Scene graph window class
@@ -171,7 +172,7 @@ class SceneGraphBrowser(QMainWindow):
             tile = pGrid.getTile(self.currentx, self.currenty)
             tile.clearAllTextures()
         else:
-            print "Warning: attempted deleting textures on non-existent cell"
+            print("Warning: attempted deleting textures on non-existent cell")
     
     def loadCellInfo(self, x, y):
         self.ui.tileObjects.clear() #clearing texture list

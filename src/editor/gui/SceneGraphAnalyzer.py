@@ -1,10 +1,10 @@
 from direct.showbase.DirectObject import DirectObject 
 from panda3d.core import *
 
-from PyQt4.QtCore import * 
-from PyQt4.QtGui import * 
+from PyQt5.QtCore import * 
+from PyQt5.QtGui import * 
 
-from utilities import *
+from editor.gui.utilities import *
 
 '''
 Object that analyze and build up the scene graph in

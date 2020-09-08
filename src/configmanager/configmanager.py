@@ -1,5 +1,4 @@
 import os
-import __builtin__
 import shutil                   #for copyfile
 import getpass                  #for user name of the pc
 from panda3d.core import loadPrcFileData
@@ -9,7 +8,7 @@ from extract.extractor import Extractor
 
 class ConfigManager:
     
-    def __init__(self):
+    def __init__(self, resourceManager):
         #setting for the folders
         self.folderConfig = "config"                    #configurations
         self.folderLang = 'lang'                        #languages
@@ -24,7 +23,7 @@ class ConfigManager:
         
         # directory is the directory of the UserConfig file
         self.directory = resourceManager.getResource(self.folderConfig + "/" + self.pc_name +"Config.var")
-        __builtin__.extractor = Extractor()
+        extractor = Extractor()
         
         # setting the list of all the config file
         self.config = extractor.extractText(self.directory)
@@ -58,7 +57,7 @@ class ConfigManager:
         for coppia in self.config:
             if coppia[0] == pointer:
                 coppia[1] = value
-                print coppia[1]
+                print(coppia[1])
     
     
     

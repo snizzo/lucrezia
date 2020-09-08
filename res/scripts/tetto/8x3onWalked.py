@@ -1,1 +1,1 @@
-print "triggered!"
+print("triggered!")

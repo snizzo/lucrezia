@@ -24,22 +24,22 @@ class Light(PropertiesTableAbstract, XMLExportable):
             'attenuation' : 0.01
         }
         
-        if attributes.has_key('distance'):
+        if 'distance' in attributes:
             self.properties['distance'] = distance = float(attributes['distance'].value)
         else:
             distance = 1.0
         
-        if attributes.has_key('attenuation'):
+        if 'attenuation' in attributes:
             self.properties['attenuation'] = self.attenuation = attenuation = float(attributes['attenuation'].value)
         else:
             self.properties['attenuation'] = self.attenuation = attenuation = 0.0
             
-        if attributes.has_key('type'):
+        if 'type' in attributes:
             self.properties['type'] = ltype = attributes['type'].value
         else:
             self.properties['type'] = ltype = 'point'
         
-        if attributes.has_key('on'):
+        if 'on' in attributes:
             if attributes['on'].value == "false":
                 self.properties['on'] = 'false'
                 self.on = False
@@ -49,12 +49,12 @@ class Light(PropertiesTableAbstract, XMLExportable):
         else:
             self.on = True
         
-        if attributes.has_key('color'):
+        if 'color' in attributes:
             self.properties['color'] = color = attributes['color'].value
         else:
             color = '1,1,1,1'
         
-        if attributes.has_key('id'):
+        if 'id' in attributes:
             self.properties['id'] = self.uid = uid = attributes['id'].value
         else:
             self.properties['id'] = self.uid = uid = 'light'
@@ -75,7 +75,7 @@ class Light(PropertiesTableAbstract, XMLExportable):
     def generateNode(self):
         rgba = self.properties['color'].split(',')
         if len(rgba) < 3:
-            print "ERROR: please define a correct color for light. (example: r,g,b,a in float values)!"
+            print("ERROR: please define a correct color for light. (example: r,g,b,a in float values)!")
         realcolor = VBase4(float(rgba[0])/255,float(rgba[1])/255,float(rgba[2])/255,1.0)
         
         if self.properties['type'] == 'spot':
@@ -130,7 +130,7 @@ class Light(PropertiesTableAbstract, XMLExportable):
         
         rgba = self.properties['color'].split(',')
         if len(rgba) < 3:
-            print "ERROR: please define a correct color for light. (example: r,g,b,a in float values)!"
+            print("ERROR: please define a correct color for light. (example: r,g,b,a in float values)!")
         realcolor = VBase4(float(rgba[0])/255,float(rgba[1])/255,float(rgba[2])/255,1.0)
         
         self.plnp.setY(-self.properties['distance'])
@@ -155,7 +155,7 @@ class Light(PropertiesTableAbstract, XMLExportable):
         return self.getPropertyList()
     
     def pasteProperties(self, props):
-        for key, value in props.iteritems():
+        for key, value in props.items():
             if key in self.properties:
                 self.properties[key] = value
         self.onPropertiesUpdated()

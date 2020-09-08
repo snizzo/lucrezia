@@ -6,8 +6,8 @@ from panda3d.core import GeomVertexWriter, GeomVertexReader
 from pandac.PandaModules import TransparencyAttrib
 from pandac.PandaModules import CardMaker
 
-from XMLExportable import XMLExportable
-from GameEntity import GameEntity
+from grid.XMLExportable import XMLExportable
+from grid.GameEntity import GameEntity
 from editor.gui.PropertiesTableAbstract import PropertiesTableAbstract
 from geometries.CustomQuad import CustomQuad
 
@@ -70,82 +70,82 @@ class GameObject(GameEntity, XMLExportable, PropertiesTableAbstract):
         self.collisionNodeNp = None
         #manage attributes directly in object creation,
         #this was many attributes are not mandatory
-        if attributes.has_key('url'):
+        if 'url' in attributes:
             self.properties['url'] = name = attributes['url'].value
         else:
-            print "WARNING: url not defined, loading placeholder"
+            print("WARNING: url not defined, loading placeholder")
             self.properties['url'] = name = 'misc/placeholder'
         
-        if attributes.has_key('id'):
+        if 'id' in attributes:
             self.properties['id'] = self.uid = attributes['id'].value
         else:
             self.properties['id'] = self.uid = 'all'
         
-        if attributes.has_key('inclination'):
+        if 'inclination' in attributes:
             self.properties['inclination'] = float(attributes['inclination'].value)
         else:
             self.properties['inclination'] = 30.0
         
-        if attributes.has_key('rotation'):
+        if 'rotation' in attributes:
             self.properties['rotation'] = float(attributes['rotation'].value)
         else:
             self.properties['rotation'] = 0.0
         
-        if attributes.has_key('offsetwidth'):
+        if 'offsetwidth' in attributes:
             self.properties['offsetwidth'] = float(attributes['offsetwidth'].value)
         else:
             self.properties['offsetwidth'] = 0.0
         
-        if attributes.has_key('offsetheight'):
+        if 'offsetheight' in attributes:
             self.properties['offsetheight'] = float(attributes['offsetheight'].value)
         else:
             self.properties['offsetheight'] = 0.0
         
-        if attributes.has_key('offsethorizontal'):
+        if 'offsethorizontal' in attributes:
             self.properties['offsethorizontal'] = float(attributes['offsethorizontal'].value)
         else:
             self.properties['offsethorizontal'] = 0.0
         
-        if attributes.has_key('offsetcollisionh'):
+        if 'offsetcollisionh' in attributes:
             self.properties['offsetcollisionh'] = float(attributes['offsetcollisionh'].value)
         else:
             self.properties['offsetcollisionh'] = 0.0
         
-        if attributes.has_key('offsetcollisionv'):
+        if 'offsetcollisionv' in attributes:
             self.properties['offsetcollisionv'] = float(attributes['offsetcollisionv'].value)
         else:
             self.properties['offsetcollisionv'] = 0.0
         
-        if attributes.has_key('offsetvertical'):
+        if 'offsetvertical' in attributes:
             self.properties['offsetvertical'] = float(attributes['offsetvertical'].value)
         else:
             self.properties['offsetvertical'] = 0.0
         
-        if attributes.has_key('elevation'):
+        if 'elevation' in attributes:
             self.properties['elevation'] = float(attributes['elevation'].value)
         else:
             self.properties['elevation'] = 0.0
         
-        if attributes.has_key('scale'):
+        if 'scale' in attributes:
             self.properties['scale'] = float(attributes['scale'].value)
         else:
             self.properties['scale'] = 1.0
         
-        if attributes.has_key('onWalked'):
+        if 'onWalked' in attributes:
             self.properties['onWalked'] = self.onWalked = attributes['onWalked'].value
         else:
             self.properties['onWalked'] = self.onWalked = ""
         
-        if attributes.has_key('onPicked'):
+        if 'onPicked' in attributes:
             if self.onPicked == '':
                 self.properties['onPicked'] = self.onPicked = attributes['onPicked'].value
         
-        if attributes.has_key('collisionmode'):
+        if 'collisionmode' in attributes:
             self.properties['collisionmode'] = attributes['collisionmode'].value
         else:
             self.properties['collisionmode'] = "2d"
         
-        if attributes.has_key('walkable'):
+        if 'walkable' in attributes:
             if attributes['walkable'].value == "true":
                 self.properties['walkable'] = walkable = 'true'
             else:
@@ -153,7 +153,7 @@ class GameObject(GameEntity, XMLExportable, PropertiesTableAbstract):
         else:
             self.properties['walkable'] = walkable = 'false'
         
-        if attributes.has_key('avoidable'):
+        if 'avoidable' in attributes:
             if attributes['avoidable'].value == "true":
                 self.properties['avoidable'] = self.avoidable = True
             else:
@@ -351,7 +351,7 @@ class GameObject(GameEntity, XMLExportable, PropertiesTableAbstract):
         return self.getPropertyList()
     
     def pasteProperties(self, props):
-        for key, value in props.iteritems():
+        for key, value in props.items():
             if key in self.properties:
                 self.properties[key] = value
         self.onPropertiesUpdated()
@@ -375,3 +375,7 @@ class GameObject(GameEntity, XMLExportable, PropertiesTableAbstract):
     
     def getWorldPos(self):
         return self.node.getPos(render)
+    
+    #directly returning panda nodepath
+    def getNode(self):
+        return self.node

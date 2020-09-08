@@ -13,11 +13,11 @@ class Persistence(DirectObject):
         self.data[key] = value
     
     def load(self, key):
-        if self.data.has_key(key):
+        if key in self.data:
             return self.data[key]
         else:
             return False
     
     def delete(self, key):
-        if self.data.has_key(key):
+        if key in self.data:
             del self.data[key]

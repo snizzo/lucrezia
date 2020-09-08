@@ -6,7 +6,7 @@ from direct.filter.CommonFilters import CommonFilters
 from direct.gui.OnscreenImage import OnscreenImage
 
 #libs imports
-import __builtin__
+import builtins
 import os
 
 #lucrezia imports
@@ -28,8 +28,8 @@ from script.script import Script
 from persistence.persistence import Persistence
 from cinematics.flow import Flow
 
-__builtin__.resourceManager = ResourceManager()
-__builtin__.configManager = ConfigManager()
+__builtins__.resourceManager = ResourceManager()
+__builtins__.configManager = ConfigManager(resourceManager)
 #configmanager.loadConfig()
 
 #fullscreen e grandezza finestra
@@ -75,19 +75,19 @@ class MyApp(ShowBase):
         # structure has been built with globalness in mind!!
         #
         # for completeness: add minus 'p' before class name for naming variables
-        __builtin__.main = self
-        __builtin__.pGrid = Grid()
-        __builtin__.extract = ExtractTitle()
-        __builtin__.baloons = BaloonManager()
-        #__builtin__.configManager = ConfigManager()
-        __builtin__.audioManager = AudioManager()
-        __builtin__.fadingtext = FadingTextManager()
-        __builtin__.customCamera = CustomCamera()
-        __builtin__.script = Script()
-        __builtin__.persistence = Persistence()
-        __builtin__.fademanager = FadeOut()
-        __builtin__.flow = Flow()
-        __builtin__.myfilters = filters
+        __builtins__.main = self
+        __builtins__.pGrid = Grid()
+        __builtins__.extract = ExtractTitle()
+        __builtins__.baloons = BaloonManager()
+        #__builtins__.configManager = ConfigManager()
+        __builtins__.audioManager = AudioManager()
+        __builtins__.fadingtext = FadingTextManager()
+        __builtins__.customCamera = CustomCamera()
+        __builtins__.script = Script()
+        __builtins__.persistence = Persistence()
+        __builtins__.fademanager = FadeOut()
+        __builtins__.flow = Flow()
+        __builtins__.myfilters = filters
 
         # ===========================================
         #load the config class
@@ -95,14 +95,14 @@ class MyApp(ShowBase):
         #lang = configmanager.getData("LANGUAGE").lower()
         # ===========================================
                  
-        __builtin__.mainMenu = MainMenu(lang)
+        __builtins__.mainMenu = MainMenu(lang)
         
         lang = configManager.getData("LANGUAGE").lower()
         
         #extract.extractTxt("ita")
         extract.extractTxt(lang)
         #DEBUG for the getResource
-        #print resourceManager.getResource("misc/grass.png")
+        #print(resourceManager.getResource("misc/grass.png"))
         
         configManager.saveConfig("LANGUAGE","ITA")
         lang = configManager.getData("LANGUAGE").lower()
@@ -110,10 +110,10 @@ class MyApp(ShowBase):
         
         """
         r = ResourceManager()
-        print r.getResource('misc/grass') # deve dire path assoluto = res/misc/grass.png
+        print(r.getResource('misc/grass') # deve dire path assoluto = res/misc/grass.png)
         """
         
-        self.entrypoint = ['camera.map', '3,3']
+        #self.entrypoint = ['camera.map', '3,3']
         #self.entrypoint = ['finedemo.map', '1,1']
         #self.entrypoint = ['parcogiochi.map', '9,12']
         #self.entrypoint = ['incidente.map', '20,11']
@@ -121,20 +121,20 @@ class MyApp(ShowBase):
         #self.entrypoint = ['black.map', '5,5']
         
         #cinematica
-        #self.entrypoint = ['tetto.map', '4,2']
+        self.entrypoint = ['tetto.map', '4,2']
         
         #inizio vero
-        #self.entrypoint = ['classe.map', '5,1']
+        #self.entrypoint = ['classe.map', '5,2', 'up']
         mainMenu.show()
         
         
         #UNCOMMENT TO ENABLE INTRO
-        #i = Intro()
-        #i.start()
-        persistence.save("gamestate", 3)
+        i = Intro()
+        i.start()
+        #persistence.save("gamestate", 3)
 
     def ping (self):
-        print "main: PONG!"
+        print("main: PONG!")
         
 app = MyApp()
 app.run()

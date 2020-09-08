@@ -41,10 +41,10 @@ class Script(DirectObject):
         if hasattr(lock, 'globalLock'):
             self.customLocks.append(lock)
         else:
-            print "WARNING: attempt to add a blocking object without 'globalLock' property"
-            print "WARNING: object:", lock
+            print("WARNING: attempt to add a blocking object without 'globalLock' property")
+            print("WARNING: object:", lock)
             if hasattr(lock, 'uid'):
-                print "WARNING: uid:", lock.uid
+                print("WARNING: uid:", lock.uid)
     
     '''
     insert here the manager of the locking objects

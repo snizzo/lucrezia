@@ -74,8 +74,11 @@ Scripting API:
                 spawn a text that will fade in 9 seconds
 
 -----BROADCAST EVENTS
-            messenger.send('changeMap', ['corridoio.map','3,1','up'])"
-                request a changemap with ['MapName.map','PositionX,PositionY','directionofplayer']
+            messenger.send('changeMap', ['corridoio.map','3,1','up','flyall'])"
+                request a changemap with ['MapName.map','PositionX,PositionY','directionofplayer','animation']
+            possible animation types:
+                - 'none'    : default animation type involving no animation at all [DONE]
+                - 'flyall'  : all objects are going to fly up in the space leaving only ground that fades and reloads as map changes [WIP]
 
 -----SELECTORS
             pGrid.getObjectById(id)

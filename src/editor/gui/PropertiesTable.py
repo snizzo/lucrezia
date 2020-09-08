@@ -1,6 +1,7 @@
 from direct.showbase.DirectObject import DirectObject
-from PyQt4.QtCore import * 
-from PyQt4.QtGui import * 
+from PyQt5.QtCore import * 
+from PyQt5.QtGui import * 
+from PyQt5.QtWidgets import *
 
 import os, subprocess
 
@@ -34,7 +35,8 @@ class PropertiesTable(DirectObject):
         self.currentSelection = []
         
         #adding properties
-        for key, value in obj.getPropertyList().iteritems():
+        print(obj)
+        for key, value in obj.getPropertyList().items():
             self.addPropertyRow(key, value)
         
         #storing temporary selection in a cleared list
@@ -199,7 +201,7 @@ class PropertiesTable(DirectObject):
             self.oneobj(self.currentSelection[0])
             self.currentSelection[0].onPropertiesUpdated()
         else:
-            print "Warning: attempted reloading selected PropertiesTable selected object, but nothing is selected."
+            print("Warning: attempted reloading selected PropertiesTable selected object, but nothing is selected.")
     
     '''
     Adds every property to prop table

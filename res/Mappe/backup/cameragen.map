@@ -48,7 +48,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<character direction="top" scale="11.0" url="lucrezia" hitboxscale="0.8" playable="true" inclination="5.0" speed="5.0" id="ellen" />
+			<character direction="top" scale="11.0" url="lucrezia" hitboxscale="0.8" playable="true" inclination="5.0" speed="2.5" id="ellen" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />

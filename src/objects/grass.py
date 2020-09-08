@@ -27,21 +27,21 @@ class Grass(GameEntity, PropertiesTableAbstract, XMLExportable):
         }
         
         #local override
-        if attributes.has_key('minuniform'):
+        if 'minuniform' in attributes:
             self.properties['minuniform'] = float(attributes['minuniform'].value)
             self.properties['minuniform'] = 0.35
         else:
             self.properties['minuniform'] = 0.35
         
         #local override
-        if attributes.has_key('maxuniform'):
+        if 'maxuniform' in attributes:
             self.properties['maxuniform'] = float(attributes['maxuniform'].value)
             self.properties['maxuniform'] = 0.5
         else:
             self.properties['maxuniform'] = 0.5
         
         #local override
-        if attributes.has_key('density'):
+        if 'density' in attributes:
             self.properties['density'] = int(attributes['density'].value)
             self.properties['density'] = 8
         else:

@@ -10,10 +10,10 @@ from direct.gui.OnscreenText import OnscreenText
 
 from direct.showbase.DirectObject import DirectObject
 
-from XMLExportable import XMLExportable
-from GameEntity import GameEntity
+from grid.XMLExportable import XMLExportable
+from grid.GameEntity import GameEntity
 from editor.gui.PropertiesTableAbstract import PropertiesTableAbstract
-from Pausable import Pausable
+from grid.Pausable import Pausable
 
 import sys
 
@@ -56,68 +56,68 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
             'speed' : 0.1
         }
         
-        if attributes.has_key('url'):
+        if 'url' in attributes:
             self.properties['url'] = attributes['url'].value
         else:
-            print "WARNING: url not defined, loading placeholder"
+            print("WARNING: url not defined, loading placeholder")
             self.properties['url'] = 'misc/placeholder'
         
-        if attributes.has_key('id'):
+        if 'id' in attributes:
             self.properties['id'] = attributes['id'].value
         else:
             self.properties['id'] = 'all'
         
-        if attributes.has_key('inclination'):
+        if 'inclination' in attributes:
             self.properties['inclination'] = float(attributes['inclination'].value)
         else:
             self.properties['inclination'] = 2.0
         
-        if attributes.has_key('scale'):
+        if 'scale' in attributes:
             self.properties['scale'] = float(attributes['scale'].value)
         else:
             self.properties['scale'] = 1.0
         
-        if attributes.has_key('hitboxscale'):
+        if 'hitboxscale' in attributes:
             self.properties['hitboxscale'] = float(attributes['hitboxscale'].value)
         else:
             self.properties['hitboxscale'] = 1.0
         
-        if attributes.has_key('speed'):
+        if 'speed' in attributes:
             self.properties['speed'] = float(attributes['speed'].value)
         else:
             self.properties['speed'] = 1.0
         
         #self.isNPC remains true while isPlayable is changable
-        if attributes.has_key('playable'):
+        if 'playable' in attributes:
             self.playable = playable = attributes['playable'].value
             if self.playable == 'false':                
                 self.isNPC = False
-                #print "setting ", self.properties['id'], " to ", self.isNPC
+                #print("setting ", self.properties['id'], " to ", self.isNPC)
             else:
                 self.isNPC = True
-                #print "setting ", self.properties['id'], " to ", self.isNPC
+                #print("setting ", self.properties['id'], " to ", self.isNPC)
         else:
             self.playable = playable = 'false'
             self.isNPC = True
         self.properties['playable'] = self.playable
         
         
-        if attributes.has_key('direction'):
+        if 'direction' in attributes:
             self.properties['direction'] = attributes['direction'].value
         else:
             self.properties['direction'] = "down"
         
-        if attributes.has_key('footsteps'):
+        if 'footsteps' in attributes:
             self.properties['footsteps'] = attributes['footsteps'].value
         else:
             self.properties['footsteps'] = "sfx/footsteps_default0.ogg"
         
-        if attributes.has_key('onWalked'):
+        if 'onWalked' in attributes:
             self.properties['onWalked'] = self.onWalked = attributes['onWalked'].value
         else:
             self.properties['onWalked'] = self.onWalked = ""
         
-        if attributes.has_key('onPicked'):
+        if 'onPicked' in attributes:
             self.properties['onPicked'] = self.onPicked = attributes['onPicked'].value
         
         self.generateNode(showCollisions)
@@ -210,7 +210,7 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
         self.setY(self.grid_currenty)
         
         if self.isNPC!=True:
-            print "attempting creation of NPC in ", self.grid_currentx, "-", self.grid_currenty
+            print("attempting creation of NPC in ", self.grid_currentx, "-", self.grid_currenty)
         
         if self.properties['footsteps'] != "":
             path = resourceManager.getResource(self.properties['footsteps'])
@@ -218,10 +218,10 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
             self.footSound.setVolume(0.75)
             self.footSound.setLoop(True)
         
-        if attributes.has_key('playable'):
+        if 'playable' in attributes:
             if self.isNPC!=False:
                 if ((self.grid_playable_pos.getX() != 0) and (self.grid_playable_pos.getY() != 0)):
-                    #print 'GRID: moving player to ' + str(self.grid_playable_pos)
+                    #print('GRID: moving player to ' + str(self.grid_playable_pos))
                     self.setX(self.grid_playable_pos.getX())
                     self.setY(self.grid_playable_pos.getY())
         
@@ -277,7 +277,7 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
         return self.getPropertyList()
     
     def pasteProperties(self, props):
-        for key, value in props.iteritems():
+        for key, value in props.items():
             if key in self.properties:
                 self.properties[key] = value
         self.onPropertiesUpdated()
@@ -489,7 +489,7 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
     
     def setPickCollisions(self, value):
         if value:
-            print "setting pick collisions"
+            print("setting pick collisions")
             b = self.node.getBounds().getRadius()
             
             self.pickCTrav = CollisionTraverser()
@@ -798,9 +798,9 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
                     evaluatedOnce = True
                 else:
                     if hasattr(objectNode.getPythonTag('gamenode'), 'name'):
-                        print "WARNING: picking on this object is not defined: ", objectNode.getPythonTag('gamenode').name
-                        print "X: ",objectNode.getX()
-                        print "Y: ",objectNode.getZ()
+                        print("WARNING: picking on this object is not defined: ", objectNode.getPythonTag('gamenode').name)
+                        print("X: ",objectNode.getX())
+                        print("Y: ",objectNode.getZ())
             self.pickRequest = False #resetting request
         
         #this is needed for empty pick

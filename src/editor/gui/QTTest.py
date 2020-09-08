@@ -2,12 +2,13 @@
 from direct.task import Task
 from direct.showbase.DirectObject import DirectObject
 
-from PyQt4.QtCore import * 
-from PyQt4.QtGui import * 
-from mainwindow import Ui_MainWindow
+from PyQt5.QtCore import * 
+from PyQt5.QtWidgets import * 
+from PyQt5.QtGui import * 
+from editor.gui.mainwindow import Ui_MainWindow
 
-from utilities import *
-from MapExporter import MapExporter
+from editor.gui.utilities import *
+from editor.gui.MapExporter import MapExporter
 
 import sys, os, string
 
@@ -32,7 +33,8 @@ class QTTest(QMainWindow):
         
         # this basically creates an idle task
         self.timer = QTimer(self)
-        self.connect( self.timer, SIGNAL("timeout()"), pandaCallback )
+        #self.connect( self.timer, SIGNAL("timeout()"), pandaCallback )
+        self.timer.timeout.connect(pandaCallback)
         self.timer.start(0)
         
     def setWidgetEvents(self):
@@ -50,7 +52,9 @@ class QTTest(QMainWindow):
         m.save()
     
     def loadMap(self):
-        filename = QFileDialog.getOpenFileName(self.ui.texturePool, 'Open Map', '', 'PandaRPG (*.map)')
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        filename, _ = QFileDialog.getOpenFileName(None, 'Open Map', resourceManager.get_path()+"/Mappe", 'PandaRPG (*.map)', options=options)
         messenger.send("editor_loadmap", [filename])
     
     '''
@@ -71,15 +75,15 @@ class QTTest(QMainWindow):
     def toolTriggered(self, item, column):
         if item.text(0).__str__() == "add character":
             messenger.send(item.text(0).__str__(), [self.ui.characterPool.currentItem().text()])
-            #print "broadcasting: ", item.text(0), self.ui.characterPool.currentItem().text()
+            #print("broadcasting: ", item.text(0), self.ui.characterPool.currentItem().text())
             return
         if self.ui.texturePool.currentItem() != None:
             messenger.send(item.text(0).__str__(), [self.ui.texturePool.currentItem().text()])
-            #print "broadcasting: ", item.text(0), self.ui.texturePool.currentItem().text()
+            #print("broadcasting: ", item.text(0), self.ui.texturePool.currentItem().text())
             return
         else:
             messenger.send(item.text(0).__str__())
-            #print "broadcasting: ", item.text(0)
+            #print("broadcasting: ", item.text(0))
             return
     
     def applyFilter(self, filt):
@@ -94,7 +98,7 @@ class QTTest(QMainWindow):
     def fillCharacterPool(self, filt = ""):
         self.ui.characterPool.clear()
         files = Utilities.getSubfilesIn(resourceManager.get_path(), ['.egg'])
-        print files
+        print(files)
         for e in files:
             e = e.replace('../res/','').replace('.egg','')
             if filt == "": #if filtering disabled add all

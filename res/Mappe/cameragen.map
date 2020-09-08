@@ -1,4 +1,4 @@
-<data tilesize="32.0" showcollisions="false" camdistance="25.0" onLoad="script.load('scripts/cameragen/cameragenonLoad.py')"  >
+<data tilesize="32.0" showcollisions="false" camdistance="18.5" onLoad="script.load('scripts/cameragen/cameragenonLoad.py')"  >
 	<row>
 		<tile>
 			<ground url="sets/OggettiCamera/black" walkable="false" />
@@ -37,31 +37,31 @@
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/scrivaniaorizzontale" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/scrivaniaorizzontale" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" rotation="0.0" offsetwidth="0.0" id="all" inclination="2.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="0.7" elevation="0.1" url="sets/OggettiCamera/piantina" offsethorizontal="-0.5" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.5" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<character direction="top" scale="11.0" url="lucrezia" hitboxscale="0.8" playable="true" inclination="5.0" speed="2.5" id="ellen" />
+			<object scale="0.7" elevation="0.1" url="sets/OggettiCamera/piantina" offsethorizontal="-0.5" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.5" offsetheight="0.0" collisionmode="2d" rotation="0.0" offsetwidth="0.0" id="all" inclination="2.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<character direction="top" hitboxscale="0.8" speed="2.5" id="ellen" scale="11.0" url="lucrezia" playable="true" footsteps="sfx/footsteps_default0.ogg" inclination="5.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/lampadone" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="6.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/lampadone" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="6.0" />
 			<light distance="1.0" attenuation="0.005" color="255,150,50" type="point" id="light" />
 		</tile>
 		<tile>
@@ -74,43 +74,11 @@
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/sediaorizzontale" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.33" collisionmode="3d" offsetwidth="0.5" id="all" inclination="5.0" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/sediaorizzontale" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.33" collisionmode="3d" rotation="0.0" offsetwidth="0.5" id="all" inclination="5.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/sediaorizzontale" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.33" collisionmode="3d" offsetwidth="0.0" id="all" inclination="5.0" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" />
-		</tile>
-	</row>
-	<row>
-		<tile>
-			<ground url="sets/OggettiCamera/black" walkable="false" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/sediaorizzontale" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.33" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="5.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
@@ -161,7 +129,6 @@
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/armadioverticale" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.27" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/black" walkable="false" />
@@ -194,7 +161,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/armadioverticale" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.65" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/armadioverticale" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.27" offsetheight="0.0" collisionmode="2d" rotation="0.0" offsetwidth="0.0" id="all" inclination="2.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/black" walkable="false" />
@@ -206,21 +173,54 @@
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="0.8" elevation="0.0" url="sets/OggettiCamera/comodino" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.5" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
-			<object scale="0.4" elevation="0.03" url="sets/OggettiCamera/abatjoure" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="1.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="6.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/letto" offsethorizontal="0.0" onPicked="script.load('scripts/cameragen/3x6letto2onPicked.py')" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="-0.4" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="letto1" inclination="2.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/letto" offsethorizontal="0.0" onPicked="script.load('scripts/cameragen/3x6letto2onPicked.py')" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="-0.4" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="letto2" inclination="2.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="0.8" elevation="0.0" url="sets/OggettiCamera/comodino" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.5" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
-			<object scale="0.4" elevation="0.03" url="sets/OggettiCamera/abatjoure" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="1.0" offsetheight="0.0" collisionmode="3d" offsetwidth="0.0" id="all" inclination="6.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/armadioverticale" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.65" offsetheight="0.0" collisionmode="2d" rotation="0.0" offsetwidth="0.0" id="all" inclination="2.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/black" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="0.8" elevation="0.0" url="sets/OggettiCamera/comodino" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.5" offsetheight="0.0" collisionmode="2d" rotation="0.0" offsetwidth="0.0" id="all" inclination="2.0" />
+			<object scale="0.4" elevation="0.03" url="sets/OggettiCamera/abatjoure" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="1.0" offsetheight="0.0" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="6.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/letto" offsethorizontal="0.0" onPicked="script.load('scripts/cameragen/3x6letto2onPicked.py')" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="-0.4" offsetheight="0.0" collisionmode="2d" rotation="0.0" offsetwidth="0.0" id="letto1" inclination="2.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/letto" offsethorizontal="0.0" onPicked="script.load('scripts/cameragen/3x6letto2onPicked.py')" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="-0.4" offsetheight="0.0" collisionmode="2d" rotation="0.0" offsetwidth="0.0" id="letto2" inclination="2.0" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
+			<object scale="0.8" elevation="0.0" url="sets/OggettiCamera/comodino" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.5" offsetheight="0.0" collisionmode="2d" rotation="0.0" offsetwidth="0.0" id="all" inclination="2.0" />
+			<object scale="0.4" elevation="0.03" url="sets/OggettiCamera/abatjoure" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="1.0" offsetheight="0.0" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="6.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
@@ -244,39 +244,39 @@
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" rotation="0.0" offsetwidth="0.0" id="all" inclination="2.0" />
 			<light distance="0.2" attenuation="0.35" color="255,150,50" type="point" id="light" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" rotation="0.0" offsetwidth="0.0" id="all" inclination="2.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" rotation="0.0" offsetwidth="0.0" id="all" inclination="2.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" rotation="0.0" offsetwidth="0.0" id="all" inclination="2.0" />
 			<light distance="0.2" attenuation="0.35" color="255,150,50" type="point" id="light" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/porta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.02" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="4.0" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" onWalked="messenger.send('changeMap', ['corridoio.map','13,1'])" offsetwidth="0.0" id="all" inclination="2.0" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/porta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.02" offsetheight="0.0" collisionmode="2d" rotation="0.0" offsetwidth="0.0" id="all" inclination="4.0" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" rotation="0.0" onWalked="messenger.send('changeMap', ['corridoio.map','13,1','down','flyall'])" offsetwidth="0.0" id="all" inclination="2.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
-			<object scale="1.0" elevation="0.035" url="sets/OggettiCamera/quadro" offsethorizontal="0.05" onPicked="script.load('scripts/cameragen/6x7allonPicked.py')" offsetcollisionh="0.0" walkable="false" offsetcollisionv="-0.55" avoidable="False" offsetvertical="0.5" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" rotation="0.0" offsetwidth="0.0" id="all" inclination="2.0" />
+			<object scale="1.0" elevation="0.035" url="sets/OggettiCamera/quadro" offsethorizontal="0.05" onPicked="script.load('scripts/cameragen/6x7allonPicked.py')" offsetcollisionh="0.0" walkable="false" offsetcollisionv="-0.55" avoidable="False" offsetvertical="0.5" offsetheight="0.0" collisionmode="2d" rotation="0.0" offsetwidth="0.0" id="all" inclination="2.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" rotation="0.0" offsetwidth="0.0" id="all" inclination="2.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/pavimento" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" offsetwidth="0.0" id="all" inclination="2.0" />
+			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/muro" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" rotation="0.0" offsetwidth="0.0" id="all" inclination="2.0" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/black" walkable="false" />

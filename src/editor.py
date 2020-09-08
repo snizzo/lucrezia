@@ -5,12 +5,14 @@ from direct.filter.CommonFilters import CommonFilters
 from direct.task import Task
 
 # a bit of qts
-from PyQt4.QtCore import * 
-from PyQt4.QtGui import * 
+from PyQt5.QtCore import * 
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import * 
 
 #libs imports
-import __builtin__
+#import __builtin__
 import os, sys
+import builtins
 
 #lucrezia imports
 from grid.grid import Grid
@@ -38,8 +40,6 @@ from editor.gui.QTTest import QTTest
 from editor.gui.GuiManager import GuiManager
 from editor.gui.SceneGraphBrowser import SceneGraphBrowser
 
-__builtin__.resourceManager = ResourceManager()
-__builtin__.configManager = ConfigManager()
 #configmanager.loadConfig()
 
 #fullscreen e grandezza finestra
@@ -58,6 +58,13 @@ ingoing:
 editor_loadmap [filename]
 outgoing:
 '''
+
+#defining global variables
+# TAKE CARE: these must be objects created form classes which
+# structure has been built with globalness in mind!!
+#
+# for completeness: add minus 'p' before class name for naming variables
+
 class MyApp(ShowBase):
 
     def __init__(self):
@@ -77,37 +84,37 @@ class MyApp(ShowBase):
         base.cam.setY(-5)
         base.cam.setP(-355)
         '''
-        
+
+        __builtins__.resourceManager = ResourceManager()
+        __builtins__.configManager = ConfigManager(resourceManager)
+
+        __builtins__.pGrid = Grid()
+        __builtins__.extract = ExtractTitle()
+        __builtins__.baloons = BaloonManager()
+        #__builtins__.configManager = ConfigManager() 
+        __builtins__.audioManager = AudioManager()
+
+
+        __builtins__.editorCamera = EditorCamera()
+        __builtins__.customCamera = editorCamera #TODO: why?!
+        #careful, refactor? here for compatibility between game engine and editor engine
+
+        __builtins__.script = Script()
+        __builtins__.persistence = Persistence()
+
+
+        __builtins__.main = self
+
         #enabling shader system (and ppl)
         render.setShaderAuto()
         #base.oobe()
-        
-        #defining global variables
-        # TAKE CARE: these must be objects created form classes which
-        # structure has been built with globalness in mind!!
-        #
-        # for completeness: add minus 'p' before class name for naming variables
-        __builtin__.main = self
-        __builtin__.pGrid = Grid()
-        __builtin__.extract = ExtractTitle()
-        __builtin__.baloons = BaloonManager()
-        #__builtin__.configManager = ConfigManager() 
-        __builtin__.audioManager = AudioManager()
-        
-        
-        __builtin__.editorCamera = EditorCamera()
-        __builtin__.customCamera = __builtin__.editorCamera
-        #careful, refactor? here for compatibility between game engine and editor engine
-        
-        __builtin__.script = Script()
-        __builtin__.persistence = Persistence()
         
         self.prepareEditor()
         
         self.accept("editor_loadmap", self.loadMap)
         
     def pandaCallback(self):
-		taskMgr.step()
+        taskMgr.step()
     
     class EmptyCallback():
         def start(self):

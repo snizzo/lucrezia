@@ -65,37 +65,37 @@ class Menu(DirectObject):
     Do not use both static and moving background!
     '''
     def changeStaticBackground(self, image):
-		tex = loader.loadTexture(resourceManager.getResource(image))
-		self.background.setTexture(tex)
+        tex = loader.loadTexture(resourceManager.getResource(image))
+        self.background.setTexture(tex)
     
     def addMovingBackground(self, image):
-		self.backgrounds.append(image)
-		self.bgCursor = 0 #setting this to zero for every image added (at least one)
+        self.backgrounds.append(image)
+        self.bgCursor = 0 #setting this to zero for every image added (at least one)
     
     def enableMovingBackground(self):
-		if self.bgCursor < 0:
-			print "Error: moving backgrounds must be populated with addMovingBackgrounds before activating them!"
-			return
-		else:
-			taskMgr.doMethodLater(0.01, self.movingBackgroundTask, 'bgAnimTask') 
+        if self.bgCursor < 0:
+            print("Error: moving backgrounds must be populated with addMovingBackgrounds before activating them!")
+            return
+        else:
+            taskMgr.doMethodLater(0.01, self.movingBackgroundTask, 'bgAnimTask') 
     
     '''
     This cursor will iterate over the list restarting from zero when len is too long
     '''
     def incrementBgCursor(self):
-		self.bgCursor += 1
-		if len(self.backgrounds) == self.bgCursor:
-			self.bgCursor = 0
+        self.bgCursor += 1
+        if len(self.backgrounds) == self.bgCursor:
+            self.bgCursor = 0
     
     '''
     Iterate over multiple images as backgrounds
     '''
     def movingBackgroundTask(self, task):
-		self.background.setPos(-1.61,0,-1)
-		self.changeStaticBackground(self.backgrounds[self.bgCursor])
-		self.incrementBgCursor()
-		
-		moveImage = LerpPosInterval(self.background,
+        self.background.setPos(-1.61,0,-1)
+        self.changeStaticBackground(self.backgrounds[self.bgCursor])
+        self.incrementBgCursor()
+        
+        moveImage = LerpPosInterval(self.background,
                     13.7,
                     Point3(-1.61, 0, -2.0),
                     startPos=Point3(-1.61,0,-1),
@@ -104,15 +104,15 @@ class Menu(DirectObject):
                     bakeInStart=1,
                     fluid=0,
                     name=None)
-		
-		Sequence(
+        
+        Sequence(
             self.f.fadeOut(0.5),
             moveImage,
             self.f.fadeIn(0.5)
         ).start()
-		
-		taskMgr.doMethodLater(15, self.movingBackgroundTask, 'bgAnimTask')
-		return task.done
+        
+        taskMgr.doMethodLater(15, self.movingBackgroundTask, 'bgAnimTask')
+        return task.done
     
     def disableAll(self):
         for button in self.buttons:
@@ -126,7 +126,7 @@ class Menu(DirectObject):
     
     def printButtonState(self):
         for button in self.buttons:
-                print button['state']
+                print(button['state'])
     
     def setKey(self, value):
         if value == True:
@@ -226,10 +226,10 @@ class MainMenu(Menu):
         self.close()
         
     def onLoadGame(self):
-        print "loadgame triggered"
+        print("loadgame triggered")
     
     def onWakeUp(self):
-        print "wakeup triggered"
+        print("wakeup triggered")
     
     #override
     def close(self):

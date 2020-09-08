@@ -6,9 +6,9 @@ from pandac.PandaModules import TransparencyAttrib
 from pandac.PandaModules import CardMaker
 
 from objects.light import Light
-from gameobject import GameObject
-from character import Character
-from XMLExportable import XMLExportable
+from grid.gameobject import GameObject
+from grid.character import Character
+from grid.XMLExportable import XMLExportable
 from editor.gui.PropertiesTableAbstract import PropertiesTableAbstract
 
 '''
@@ -66,7 +66,7 @@ class Tile(XMLExportable, PropertiesTableAbstract):
         return self.typeName
     
     def onPropertiesUpdated(self):
-        print "Tile.onPropertiesUpdated() called! Use this to modify live prop update behaviour!"
+        print("Tile.onPropertiesUpdated() called! Use this to modify live prop update behaviour!")
     
     def getPropertyList(self):
         return self.tileProperties
@@ -101,22 +101,22 @@ class Tile(XMLExportable, PropertiesTableAbstract):
     '''
     def addTexture(self, attributes):
         self.clearAllTextures()
-        if attributes.has_key('url'):
+        if 'url' in attributes:
             self.tileProperties['url'] = attributes['url'].value
         else:
-            print "WARNING: url not defined, loading placeholder"
+            print("WARNING: url not defined, loading placeholder")
             self.tileProperties['url'] = 'misc/placeholder'
         
-        if attributes.has_key('onWalked'):
+        if 'onWalked' in attributes:
             self.tileProperties['onWalked'] = attributes['onWalked'].value
         else:
             self.tileProperties['onWalked'] = ""
         
-        if attributes.has_key('onPicked'):
+        if 'onPicked' in attributes:
             if self.tileProperties['onPicked'] == '':
                 self.tileProperties['onPicked'] = attributes['onPicked'].value
         
-        if attributes.has_key('walkable'):
+        if 'walkable' in attributes:
             if attributes['walkable'].value == "true":
                 self.walkable = True
                 self.tileProperties['walkable'] = 'true'

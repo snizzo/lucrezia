@@ -69,7 +69,7 @@ class CustomCamera(DirectObject):
     def moveCameraAtObject(self, obj):
         pos = obj.getWorldPos()
         pos.setY(base.camera.getY())
-        print pos
+        print(pos)
         #blocking scripting engine from executing the next code block
         self.lock()
         script.addOneCustomLock(self)

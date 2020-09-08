@@ -10,7 +10,7 @@ debug = True
 
 def debug(s,v=""):
     if debug == True:
-        print s,v
+        print(s,v)
 
 class Utilities:
     def __init(self):

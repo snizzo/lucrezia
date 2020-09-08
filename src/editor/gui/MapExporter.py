@@ -1,11 +1,12 @@
 from direct.task import Task
 from direct.showbase.DirectObject import DirectObject
 
-from PyQt4.QtCore import * 
-from PyQt4.QtGui import * 
-from mainwindow import Ui_MainWindow
+from PyQt5.QtCore import * 
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import * 
+from editor.gui.mainwindow import Ui_MainWindow
 
-from utilities import *
+from editor.gui.utilities import *
 
 import sys, os, string
 from shutil import copyfile
@@ -65,7 +66,7 @@ class MapExporter:
         self.addXMLLine('</data>',0)
         
         self.saveToFile()
-        #print self.xml
+        #print(self.xml)
     
     def saveToFile(self):
         #copyfile(self.mapPath,
@@ -85,7 +86,7 @@ class MapExporter:
     def fromDictToXmlAttributes(self, l):
         self.validateData(l)
         xml = ''
-        for k,v in l.iteritems():
+        for k,v in l.items():
             xml += k+'="'+str(v)+'" '
         
         return xml
