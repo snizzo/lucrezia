@@ -92,7 +92,7 @@ class MapExporter:
         return xml
     
     def validateData(self, l):
-        for k,v in l.items():
+        for k,v in list(l.items()):
             if v == '':
                 del l[k]
         

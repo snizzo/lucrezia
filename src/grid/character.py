@@ -10,6 +10,7 @@ from direct.gui.OnscreenText import OnscreenText
 
 from direct.showbase.DirectObject import DirectObject
 
+from grid.CharacterEmotions import CharacterEmotions
 from grid.XMLExportable import XMLExportable
 from grid.GameEntity import GameEntity
 from editor.gui.PropertiesTableAbstract import PropertiesTableAbstract
@@ -17,7 +18,7 @@ from grid.Pausable import Pausable
 
 import sys
 
-class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity, Pausable):
+class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity, Pausable, CharacterEmotions):
     
     def __init__(self, attributes, showCollisions, grid_currentx, grid_currenty, grid_playable_pos, parent):
         GameEntity.__init__(self, parent) #running parent constructor
@@ -121,6 +122,7 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
             self.properties['onPicked'] = self.onPicked = attributes['onPicked'].value
         
         self.generateNode(showCollisions)
+        CharacterEmotions.__init__(self)
         
     def generateNode(self, showCollisions):
         self.destroy()
@@ -195,6 +197,7 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
         
         #set unique id
         self.node.setTag("id", self.properties['id'])
+
         #setting scripting part
         self.node.setTag("onWalked", self.onWalked)
         self.node.setTag("onPicked", self.onPicked)
@@ -632,7 +635,7 @@ class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity
     #pick request function
     def spaceDown(self):
         self.pickRequest = True
-        
+
     #movement related functions
     def arrowLeftDown(self):
         #track key down

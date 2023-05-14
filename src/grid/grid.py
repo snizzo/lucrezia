@@ -96,7 +96,7 @@ class Grid(DirectObject):
             flyallParallel = Parallel()
             flyallParallel.append(Func(self.disablePlayable))
             delay = 0
-            delayFactor = 0.045
+            delayFactor = 0.7
             for t in tiles:
                 gameObjects = t.getGameObjects()
                 for o in gameObjects:

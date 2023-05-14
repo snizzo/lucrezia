@@ -69,6 +69,7 @@ class MyApp(ShowBase):
         
         #filters -- experimental
         filters = CommonFilters(base.win, base.cam)
+        #filters.setAmbientOcclusion()
         
         #defining global variables
         # TAKE CARE: these must be objects created form classes which
@@ -125,7 +126,7 @@ class MyApp(ShowBase):
         
         #inizio vero
         #self.entrypoint = ['classe.map', '5,2', 'up']
-        mainMenu.show()
+        #mainMenu.show()
         
         
         #UNCOMMENT TO ENABLE INTRO

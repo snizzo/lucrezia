@@ -1,1 +1,5 @@
 *.pyc
+promo
+.vscode
+res/soundtrack
+res/sfx

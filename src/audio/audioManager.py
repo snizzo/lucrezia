@@ -11,7 +11,10 @@ class AudioManager(DirectObject):
         self.effects = {}
         
     #apicall
-    def playMusic(self, bgmusic, seconds=0):
+    def playMusic(self, bgmusic, seconds=0, volume=100):
+        
+        volume = volume / 100.0
+
         if(self.isPlaying):
             self.mySound.stop()
         path = resourceManager.getResource(bgmusic)
@@ -23,7 +26,7 @@ class AudioManager(DirectObject):
         
         i = LerpFunc(self.playMusicLerp,
              fromData=0,
-             toData=1,
+             toData=volume,
              duration=seconds,
              blendType='noBlend',
              extraArgs=[],
@@ -56,8 +59,11 @@ class AudioManager(DirectObject):
         effect.play()
         
     #apicall
-    def playLongEffect(self, name, effect, time=2):
-        if name in self.effects == False:
+    def playLongEffect(self, name, effect, time=2, volume=100):
+        
+        volume = volume / 100.0
+
+        if not name in self.effects:
             path = resourceManager.getResource(effect)
             effect = base.loader.loadSfx(path)
             effect.setVolume(0.01)
@@ -66,8 +72,8 @@ class AudioManager(DirectObject):
             effect.play()
             
             i = LerpFunc(self.playLongEffectLerp,
-             fromData=0,
-             toData=1,
+             fromData=effect.getVolume(),
+             toData=volume,
              duration=time,
              blendType='noBlend',
              extraArgs=[effect],
@@ -79,13 +85,26 @@ class AudioManager(DirectObject):
     def playLongEffectLerp(self, t, effect):
         effect.setVolume(t)
         
-        
+    
     
     #apicall
     def stopLongEffect(self, name):
         if name in self.effects:
             self.effects[name].stop()
             del self.effects[name]
+
+            i = LerpFunc(self.stopMusicLerp,
+             fromData=1,
+             toData=0,
+             duration=time,
+             blendType='noBlend',
+             extraArgs=[],
+             name=None).start()
+    
+    def stopLongEffectLerp(self, effect, t):
+        effect.setVolume(t)
+        if t==0:
+            effect.stop()
     
     #apicall
     def clearAllEffects(self):

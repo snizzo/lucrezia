@@ -50,7 +50,7 @@ class Intro(DirectObject):
     def start(self):
         f = FadeOut()
         
-        speed = 0.4
+        speed = 1.0
 
         Sequence(
             Wait(2*speed),

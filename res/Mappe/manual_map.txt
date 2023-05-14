@@ -89,11 +89,11 @@ Scripting API:
 -----BALOONS
 
             baloons.push(speaker, text, id, speed)
-				shows a baloon with a message. Can feature speaker tag and animation speed.
-				speaker             that will say those words
-				text                message to be shown
-				id                  unique identification string
-				speed               animation speed at which the message will be shown
+            shows a baloon with a message. Can feature speaker tag and animation speed.
+            speaker             that will say those words
+            text                message to be shown
+            id                  unique identification string
+            speed               animation speed at which the message will be shown
             baloons.pushThought(speaker, text, id, speed)
                 same....
 
@@ -117,8 +117,9 @@ Scripting API:
 
 -----AUDIO
 
-            audioManager.playMusic(resource_path, s)
+            audioManager.playMusic(<resource_path>, <fading seconds>, <volume=100>)
                 plays background music in loop. Only one can be played at a time, fading in s seconds
+                volume = 0 to 100
             
             audioManager.stopMusic(time)
                 stop background music smoothing with given time

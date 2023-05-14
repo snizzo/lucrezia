@@ -33,7 +33,7 @@ class Baloon(DirectObject):
         '''
         
         #good default?
-        self.openCloseSpeed = 0.15
+        self.openCloseSpeed = 0.25 #0.25
     
     def requestPause(self):
         messenger.send("pauseGameplay");
@@ -41,7 +41,7 @@ class Baloon(DirectObject):
         print("requesting pause...")
     
     def resumePause(self):
-        closeInterval = self.textnp.scaleInterval(self.openCloseSpeed, 0.0001, 0.37)
+        closeInterval = self.textnp.scaleInterval(self.openCloseSpeed, 0.0001, 0.25)
         Sequence(
             closeInterval,
             Func(messenger.send, "resumeGameplay"),
@@ -81,7 +81,7 @@ class Baloon(DirectObject):
     
     def textAnimation(self):
         taskMgr.doMethodLater(self.speed, self.addLetter, 'showletters')
-        self.textnp.scaleInterval(self.openCloseSpeed, 0.37, 0.0001).start()
+        self.textnp.scaleInterval(self.openCloseSpeed, 0.25, 0.0001).start()
         
     def addLetter(self, Task):
         self.textapplied.append(self.message.pop())

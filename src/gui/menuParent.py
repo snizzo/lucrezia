@@ -46,6 +46,9 @@ class Menu(DirectObject):
         self.f = FadeOut()
         self.f.cmnode.reparentTo(self.frame)
         self.f.fadeIn(0.01)
+
+        #used internally for testing purposes
+        self.skipAnim = False
         
         self.buttonMaps = loader.loadModel(resourceManager.getResource('misc/button_maps.egg'))
         self.frame.hide()
@@ -53,6 +56,9 @@ class Menu(DirectObject):
         #first refresh ever
         self.refreshKeyState()
     
+    def setSkipAnim(self, value):
+        self.skipAnim = value
+
     def addStaticImage(self, image, x,y,z):
         cm = CardMaker('customimage')
         customimage = self.frame.attachNewNode(cm.generate())
@@ -234,8 +240,13 @@ class MainMenu(Menu):
     #override
     def close(self):
         audioManager.stopMusic(4)
-        Sequence(
-            Func(messenger.send, 'changeMap', main.entrypoint), #using map api to change map
-            Wait(2),
-            Func(Menu.close, self)
-            ).start()
+        if self.skipAnim:
+            Menu.close(self)
+            messenger.send('changeMap', main.entrypoint)
+            return
+        else:
+            Sequence(
+                Func(messenger.send, 'changeMap', main.entrypoint), #using map api to change map
+                Wait(2),
+                Func(Menu.close, self)
+                ).start()

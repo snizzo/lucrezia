@@ -55,57 +55,57 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="-0.2" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="30.0" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="-90.0" offsetwidth="0.0" id="rete_ruotata" inclination="30.0" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="0.0" offsetheight="-0.2" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
+			<object url="sets/tetto/rete" id="rete_ruotata" scale="1.0" inclination="30.0" elevation="0.0" rotation="-90.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="-0.2" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="0.0" offsetheight="-0.2" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="-0.2" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="0.0" offsetheight="-0.2" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="-0.2" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="0.0" offsetheight="-0.2" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="-0.2" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="0.0" offsetheight="-0.2" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="-0.2" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="0.0" offsetheight="-0.2" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="-0.2" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="0.0" offsetheight="-0.2" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="-0.36" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="-90.0" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="-90.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="-0.36" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 	</row>
 	<row>
@@ -129,8 +129,8 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="0.26" elevation="0.0" url="sets/random/lampione" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="0.0" offsetwidth="-0.16" id="all" inclination="15.0" />
-			<light distance="1.7" attenuation="0.31" on="true" color="255,250,105" type="point" id="light" />
+			<object url="sets/random/lampione" id="all" scale="0.26" inclination="15.0" elevation="0.0" rotation="0.0" offsetheight="0.0" offsetwidth="-0.16" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" onPicked="script.load('scripts/tetto/6x2allonPicked.py')" />
+			<light distance="1.7" attenuation="0.31" type="point" on="true" color="255,250,105" id="light" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
@@ -143,115 +143,8 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="0.26" elevation="0.0" url="sets/random/lampione" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="0.0" offsetwidth="-0.16" id="all" inclination="15.0" />
-			<light distance="1.7" attenuation="0.31" on="true" color="255,250,105" type="point" id="light" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-		</tile>
-	</row>
-	<row>
-		<tile>
-			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="-90.0" offsetwidth="0.0" id="all" inclination="30.0" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.7" elevation="0.12" url="sets/tetto/scale2" offsethorizontal="-0.1" offsetcollisionh="-0.3" walkable="false" offsetcollisionv="0.08" avoidable="False" offsetvertical="0.24" offsetheight="-0.3" collisionmode="2d" rotation="0.0" offsetwidth="-0.34" id="all" inclination="1.0" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<character direction="down" hitboxscale="0.8" speed="1.75" id="mainplayer" scale="11.0" url="lear" playable="true" footsteps="sfx/footsteps_default0.ogg" inclination="15.0" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="-0.36" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="-90.0" offsetwidth="0.0" id="all" inclination="30.0" />
-		</tile>
-	</row>
-	<row>
-		<tile>
-			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<light distance="3.2" attenuation="0.31" on="true" color="0,251,255" type="point" id="light" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.28" offsetheight="0.0" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="15.0" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="false" onWalked="script.load('scripts/cinematics/tetto_dottori.py')" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/OggettiCamera/pianta" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.28" offsetheight="0.0" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="15.0" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<object url="sets/random/lampione" id="all" scale="0.26" inclination="15.0" elevation="0.0" rotation="0.0" offsetheight="0.0" offsetwidth="-0.16" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" onPicked="script.load('scripts/tetto/10x2allonPicked.py')" />
+			<light distance="1.7" attenuation="0.31" type="point" on="true" color="255,250,105" id="light" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
@@ -275,7 +168,14 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="-90.0" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="-90.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<object url="sets/tetto/scale2" id="all" scale="1.7" inclination="1.0" elevation="0.12" rotation="0.0" offsetheight="-0.3" offsetwidth="-0.34" offsethorizontal="-0.1" offsetvertical="0.24" offsetcollisionh="-0.3" offsetcollisionv="0.08" collisionmode="2d" walkable="false" avoidable="False" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
@@ -288,12 +188,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<character url="lear" id="mainplayer" inclination="15.0" scale="11.0" hitboxscale="0.8" speed="1.75" playable="true" direction="down" footsteps="sfx/footsteps_default0.ogg" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
@@ -318,7 +213,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="-0.36" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="-90.0" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="-90.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="-0.36" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 	</row>
 	<row>
@@ -327,61 +222,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="0.26" elevation="0.0" url="sets/random/lampione" offsethorizontal="0.0" onPicked="script.load('scripts/tetto/6x6allonPicked.py')" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="0.0" offsetwidth="-0.16" id="all" inclination="15.0" />
-			<light distance="1.7" attenuation="0.31" on="true" color="255,250,105" type="point" id="light" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="0.26" elevation="0.0" url="sets/random/lampione" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="0.0" offsetwidth="-0.16" id="all" inclination="15.0" />
-			<light distance="1.7" attenuation="0.31" on="true" color="255,250,105" type="point" id="light" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-		</tile>
-	</row>
-	<row>
-		<tile>
-			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="-90.0" offsetwidth="0.0" id="all" inclination="30.0" />
+			<light distance="3.2" attenuation="0.31" type="point" on="true" color="0,251,255" id="light" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
@@ -400,64 +241,14 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<object url="sets/OggettiCamera/pianta" id="all" scale="1.0" inclination="15.0" elevation="0.0" rotation="0.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.28" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" onWalked="script.load('scripts/cinematics/tetto_dottori.py')" walkable="false" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="-0.36" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="-90.0" offsetwidth="0.0" id="all" inclination="30.0" />
-		</tile>
-	</row>
-	<row>
-		<tile>
-			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/panca" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="2d" rotation="0.0" offsetwidth="0.0" id="all" inclination="1.0" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-		</tile>
-		<tile>
-			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<object url="sets/OggettiCamera/pianta" id="all" scale="1.0" inclination="15.0" elevation="0.0" rotation="0.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.28" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
@@ -484,7 +275,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="-90.0" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="-90.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
@@ -506,7 +297,6 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<character direction="up" hitboxscale="1.0" speed="1.0" id="luna" scale="11.0" url="luna" playable="false" footsteps="sfx/footsteps_default0.ogg" inclination="2.0" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
@@ -528,7 +318,7 @@
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="-0.36" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="-90.0" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="-90.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="-0.36" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 	</row>
 	<row>
@@ -537,7 +327,61 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<light distance="3.2" attenuation="0.31" on="true" color="0,251,255" type="point" id="light" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<object url="sets/random/lampione" id="all" scale="0.26" inclination="15.0" elevation="0.0" rotation="0.0" offsetheight="0.0" offsetwidth="-0.16" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" onPicked="script.load('scripts/tetto/6x6allonPicked.py')" />
+			<light distance="1.7" attenuation="0.31" type="point" on="true" color="255,250,105" id="light" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<object url="sets/random/lampione" id="all" scale="0.26" inclination="15.0" elevation="0.0" rotation="0.0" offsetheight="0.0" offsetwidth="-0.16" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
+			<light distance="1.7" attenuation="0.31" type="point" on="true" color="255,250,105" id="light" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="-90.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
@@ -577,7 +421,163 @@
 		</tile>
 		<tile>
 			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
-			<light distance="3.2" attenuation="0.31" on="true" color="0,251,255" type="point" id="light" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="-90.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="-0.36" collisionmode="3d" walkable="false" avoidable="False" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<object url="sets/tetto/panca" id="all" scale="1.0" inclination="1.0" elevation="0.0" rotation="0.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="2d" walkable="false" avoidable="False" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="-90.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<character url="luna" id="luna" inclination="2.0" scale="11.0" hitboxscale="1.0" speed="1.0" playable="false" direction="up" footsteps="sfx/footsteps_default0.ogg" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="-90.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="-0.36" collisionmode="3d" walkable="false" avoidable="False" />
+		</tile>
+	</row>
+	<row>
+		<tile>
+			<ground url="sets/OggettiCamera/alpha" walkable="false" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<light distance="3.2" attenuation="0.31" type="point" on="true" color="0,251,255" id="light" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+		</tile>
+		<tile>
+			<ground url="sets/tetto/grey_roof_tile" walkable="true" />
+			<light distance="3.2" attenuation="0.31" type="point" on="true" color="0,251,255" id="light" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
@@ -589,49 +589,49 @@
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="0.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="0.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="0.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="0.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="0.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="0.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />
-			<object scale="1.0" elevation="0.0" url="sets/tetto/rete" offsethorizontal="0.0" offsetcollisionh="0.0" walkable="false" offsetcollisionv="0.0" avoidable="False" offsetvertical="0.0" offsetheight="0.0" collisionmode="3d" rotation="0.0" offsetwidth="0.0" id="all" inclination="30.0" />
+			<object url="sets/tetto/rete" id="all" scale="1.0" inclination="30.0" elevation="0.0" rotation="0.0" offsetheight="0.0" offsetwidth="0.0" offsethorizontal="0.0" offsetvertical="0.0" offsetcollisionh="0.0" offsetcollisionv="0.0" collisionmode="3d" walkable="false" avoidable="False" />
 		</tile>
 		<tile>
 			<ground url="sets/OggettiCamera/alpha" walkable="false" />

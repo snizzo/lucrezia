@@ -1,0 +1,60 @@
+<Real Environment>
+Delivering a perception of a nature closer to reality.
+ - Rain, Snow, Leaves. General particle systems
+ - Dynamic time of the day with lighting
+ - Weather-aware world
+ - Positional environmental audio
+ - Thunder shaders
+ - Physics Engine
+ - Detailed dirt
+ - Per-object animations
+ - Real trees
+ - Vegetation force points
+
+<Immersive world>
+Giving the player the impression of living in a very big world
+ - Partially procedural evironments
+ - Biomes support
+ - Structures support
+ - Bounded maps
+
+<Butter like experience>
+ - Fast autoload
+ - Multimaps world
+ - Swap-pos animations
+ - Dream-sequences
+ - Smooth insta morph
+
+<Storytelling>
+Enhances storytelling capabilities
+ - Director mode
+ - Auto place cameras
+ - Face engine
+ - Voice mimic in 8bits
+ - Perfect timing scripting
+
+
+Immediate goal:
+The 4 minutes goodbye demo.
+
+Plot:
+Luna communicates they'll never get together because she doesn't exist.
+Lear goes through a dream sequence in various scenes / environments / weathers
+trying to get Luna. Once he got her, he realises she's dead.
+
+Objectives:
+Acceptance feelings, beauty impact, perfect timing director mode, zero lag.
+Showcasing next gen P3D RPGE features.
+
+Scenes:
+ - Out of school
+ - Own room
+ - Classroom (with exteriors)
+ - Supermarket
+ - Peak of mountain (bigworlds)
+ - Sky
+ - Plane
+ - Train station (with train)
+ - Hospital (interior)
+ - Graveyard
+ - Old school 
