@@ -121,8 +121,11 @@ class MyApp(ShowBase):
         #self.entrypoint = ['macchinadasola.map', '2,2']
         #self.entrypoint = ['black.map', '5,5']
         
-        #cinematica
-        self.entrypoint = ['tetto.map', '4,2']
+        # more less working demo
+        #self.entrypoint = ['tetto.map', '4,2']
+
+        # test dev map
+        self.entrypoint = ['test.map', '3,3']
         
         #inizio vero
         #self.entrypoint = ['classe.map', '5,2', 'up']
@@ -130,8 +133,8 @@ class MyApp(ShowBase):
         
         
         #UNCOMMENT TO ENABLE INTRO
-        i = Intro()
-        i.start()
+        #i = Intro()
+        #i.start()
         #persistence.save("gamestate", 3)
 
     def ping (self):
