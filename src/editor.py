@@ -88,6 +88,7 @@ class MyApp(ShowBase):
         __builtins__.resourceManager = ResourceManager()
         __builtins__.configManager = ConfigManager(resourceManager)
 
+        __builtins__.grids = []
         __builtins__.pGrid = Grid()
         __builtins__.extract = ExtractTitle()
         __builtins__.baloons = BaloonManager()
@@ -111,6 +112,10 @@ class MyApp(ShowBase):
         
         self.prepareEditor()
         
+        #accepting request to load a map
+        # old Grid class
+        #self.accept("editor_loadmap", self.loadMap)
+        # new Grid class
         self.accept("editor_loadmap", self.loadMap)
         
     def pandaCallback(self):
@@ -120,8 +125,18 @@ class MyApp(ShowBase):
         def start(self):
             pass
     
+    # loads a map using the new dynamic map loader
+    # adheres to the new map paradigm
+    # TODO: new maps are not yet supported
+    def loadMapDynamic(self, filename):
+        grids.append(Grid())
+
     def loadMap(self, filename):
         pGrid.changeMapHelper(str(filename),'0,0', self.EmptyCallback())
+    
+    def loadMapDynamic(self, filename):
+        pass
+        
     
     # this instantiates the three axis grid
     def prepareEditor(self):

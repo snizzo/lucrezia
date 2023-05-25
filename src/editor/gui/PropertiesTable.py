@@ -78,12 +78,12 @@ class PropertiesTable(DirectObject):
         
         #creates and opens new python script file
         if inlineCode == '' or inlineCode == False:
-            scriptMapDir = resourceManager.getResource('scripts/'+pGrid.getCurrentMapName())
+            scriptMapDir = resourceManager.getResource('scripts/'+pGrid.getCurrentGridNameEditor())
             
             if not os.path.exists(scriptMapDir):
                 os.makedirs(scriptMapDir)
             
-            relpath = 'scripts/'+pGrid.getCurrentMapName()+'/'+pGrid.getCurrentMapName()+event+'.py'
+            relpath = 'scripts/'+pGrid.getCurrentGridNameEditor()+'/'+pGrid.getCurrentGridNameEditor()+event+'.py'
             path = resourceManager.getResource(relpath)
             #creating file if not exists
             open(path, 'a').close()
@@ -111,12 +111,12 @@ class PropertiesTable(DirectObject):
         #creates and opens new python script file
         if inlineCode == '':
             uid = obj.getPropertyList()['id']
-            scriptMapDir = resourceManager.getResource('scripts/'+pGrid.getCurrentMapName())
+            scriptMapDir = resourceManager.getResource('scripts/'+pGrid.getCurrentGridNameEditor())
             
             if not os.path.exists(scriptMapDir):
                 os.makedirs(scriptMapDir)
             
-            relpath = 'scripts/'+pGrid.getCurrentMapName()+'/'+str(obj.getTileX())+'x'+str(obj.getTileY())+uid+event+'.py'
+            relpath = 'scripts/'+pGrid.getCurrentGridNameEditor()+'/'+str(obj.getTileX())+'x'+str(obj.getTileY())+uid+event+'.py'
             path = resourceManager.getResource(relpath)
             #creating file if not exists
             open(path, 'a').close()

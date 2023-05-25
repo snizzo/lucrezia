@@ -1,7 +1,7 @@
 #panda imports
 from direct.showbase.ShowBase import ShowBase
 from panda3d.core import OrthographicLens, LightRampAttrib
-from panda3d.core import loadPrcFileData
+from panda3d.core import loadPrcFileData, LPoint2i
 from direct.filter.CommonFilters import CommonFilters
 from direct.gui.OnscreenImage import OnscreenImage
 
@@ -11,6 +11,7 @@ import os
 
 #lucrezia imports
 from grid.grid import Grid
+from grid.GridManager import GridManager
 
 #from utils.once import Once
 from parser.parser import Parser
@@ -36,12 +37,13 @@ __builtins__.configManager = ConfigManager(resourceManager)
 loadPrcFileData("","""
 gl-debug false
 fullscreen 0
-win-size 1280 800
+win-size 800 600
 text-encoding utf8
 show-frame-rate-meter 0
 sync-video #t
 framebuffer-srgb #t
 """)
+
 
 class MyApp(ShowBase):
 
@@ -78,6 +80,7 @@ class MyApp(ShowBase):
         # for completeness: add minus 'p' before class name for naming variables
         __builtins__.main = self
         __builtins__.pGrid = Grid()
+        __builtins__.gridManager = GridManager()
         __builtins__.extract = ExtractTitle()
         __builtins__.baloons = BaloonManager()
         #__builtins__.configManager = ConfigManager()
@@ -96,7 +99,7 @@ class MyApp(ShowBase):
         #lang = configmanager.getData("LANGUAGE").lower()
         # ===========================================
                  
-        __builtins__.mainMenu = MainMenu(lang)
+        
         
         lang = configManager.getData("LANGUAGE").lower()
         
@@ -136,6 +139,17 @@ class MyApp(ShowBase):
         #i = Intro()
         #i.start()
         #persistence.save("gamestate", 3)
+
+        #spawn current main menu
+        # mainMenu = MainMenu(lang)
+
+        #spawn dev map through new map paradigm
+        print(gridManager.addGrid('test.map', 'prova1'))
+        print(gridManager.addGrid('test.map', 'prova2'))
+
+        self.accept("k", lambda:None)
+        # self.accept("k", gridManager.getGrid('prova1').move(Point3(1,0,0)))
+
 
     def ping (self):
         print("main: PONG!")
