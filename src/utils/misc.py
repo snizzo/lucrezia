@@ -3,6 +3,7 @@ from pandac.PandaModules import TransparencyAttrib
 
 '''
 Generic collection of static snippets
+TODO: rename as a playground for not yet categorized snippets
 '''
 class Misc():
     
@@ -28,3 +29,7 @@ class Misc():
         card.setScale(card.getScale()/ yresolution)
         card.flattenLight() # apply scale
         return card
+    
+    @staticmethod
+    def getDeltaTime():
+        return globalClock.getDt()

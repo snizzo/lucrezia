@@ -24,7 +24,7 @@ from utils.fadeout import FadeOut
 import os, sys
 
 '''
-This class abstracts the 2D grid commoly used in 2D games
+This class abstracts the 2D grid commonly used in 2D games
 to use with panda3d.
 
 INTERNAL TILESET EXAMPLE GRAPH:
@@ -36,21 +36,34 @@ y |
   |
   O------------>
         x
+
+Grid represents a single map entity composed of tiles, objects and other kinformation regarding weather, load and unload scripting.
+
+loadMap()       -> called to load a map
+changedMap()    -> called to attach playable to camera and start gameplay
 '''
 class Grid(DirectObject):
-    '''
-    Autogenerates empty tileset at start
-    '''
-    def __init__(self):
+
+    def __init__(self, mapFile = None, currentGridName=""):
+        """
+        name = ""
+        Descriptive name of the map, used within scripting engine
+
+        mapFile = None
+        Name of the map file to load
+        """
+
         #variables initialization
         self.tileset = []
         self.characterset = []
         self.scrollableset = [] #FIXME: scrollables can't definitely sit here...
         
         #only used in editor as for now, contains just mapname
-        self.currentMapName = ''
+        self.currentGridNameEditor = ''
+        self.currentGridName = ''
         self.currentMapPath = ''
-        
+        self.mapFile = mapFile
+
         #main nodes
         self.node = render.attachNewNode("tileset")
         self.grassnode = render.attachNewNode("grassnodes")
@@ -64,11 +77,20 @@ class Grid(DirectObject):
         #self.mergeMeshes()
         self.unloadScript = False
         self.loadScript = False
+
+        #setting default name if map is empty
+        if mapFile != None and not currentGridName:
+            print("setting grid name to " + mapFile)
+            self.setCurrentGridName(mapFile)
+        else:
+            self.setCurrentGridName(currentGridName)
         
-        self.acceptOnce("changeMap", self.changeMap)
+        # TODO: remove, deprecated
+        #self.acceptOnce("changeMap", self.changeMap)
     
     def changedMap(self):
-        self.acceptOnce("changeMap", self.changeMap)
+        # TODO: remove, deprecated
+        #self.acceptOnce("changeMap", self.changeMap)
         self.getPlayable().setPlayable(True)
     
     def disablePlayable(self):
@@ -182,7 +204,7 @@ class Grid(DirectObject):
             self.getPlayable().face(face)
         
         self.currentMapPath = mapFile
-        self.currentMapName = mapFile.split('/')[-1].replace('.map', '')
+        self.setCurrentGridNameEditor(mapFile.split('/')[-1].replace('.map', ''))
         
         if self.loadScript != False and main.editormode == False:
             eval(self.loadScript)
@@ -216,12 +238,38 @@ class Grid(DirectObject):
     def setOnUnload(self, script):
         self.unloadScript = script
     
-    '''
-    @return string current map name
-    '''
-    def getCurrentMapName(self):
-        return self.currentMapName
+    def getCurrentGridNameEditor(self):
+        """
+        Returns:
+            name of the current grid in editor.
+            This name has its own internal logic and is binded to editor gui generation and behaviour
+        """
+        return self.currentGridNameEditor
     
+    def setCurrentGridNameEditor(self, name):
+        """
+        Arguments:
+            sets name of the current grid in editor.
+            This name has its own internal logic and is binded to editor gui generation and behaviour
+        """
+        self.currentGridNameEditor = name
+    
+    def getCurrentGridName(self):
+        """
+        Returns:
+            name of the current grid.
+            Fancy ID used to identify the grid in the game
+        """
+        return self.currentGridName
+    
+    def setCurrentGridName(self, name):
+        """
+        Arguments:
+            sets name of the current grid.
+            Fancy ID used to identify the grid in the game
+        """
+        self.currentGridName = name
+
     def getBackgroundImage(self):
         return self.bgImage
     
@@ -244,13 +292,36 @@ class Grid(DirectObject):
     def addColumn(self):
         pass
     
+    def move(self, vector: Point3):
+        self.node.setPos(self.node, vector)
+
+    def getNode(self):
+        """
+        Returns:
+            internal panda NodePath holding all grid subnodes
+        """
+        return self.node
+
     '''
     @return string current map filepath
     '''
     def getCurrentMapPath(self):
         return self.currentMapPath
     
-    def loadMap(self,file,playable_pos=LPoint2i(0,0)):
+    def loadMap(self,file="",playable_pos=LPoint2i(0,0)):
+
+        if not file:
+            file = self.mapFile
+
+        if not os.path.isfile(file):
+            print("WARNING: can't find map file, attempting resource parsing: "+file)
+
+            if os.path.isfile(resourceManager.getResource('Mappe/'+file)):
+                file = resourceManager.getResource('Mappe/'+file)
+            else:
+                print("ERROR: can't find map file (resourced): "+file)
+                sys.exit()
+
         xmldoc = minidom.parse(file)
         
         data = xmldoc.getElementsByTagName('data')

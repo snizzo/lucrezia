@@ -1,9 +1,10 @@
 #panda imports
 from direct.showbase.ShowBase import ShowBase
 from panda3d.core import OrthographicLens, LightRampAttrib
-from panda3d.core import loadPrcFileData, LPoint2i
+from panda3d.core import loadPrcFileData, LPoint2i, Point3
 from direct.filter.CommonFilters import CommonFilters
 from direct.gui.OnscreenImage import OnscreenImage
+from direct.task import Task
 
 #libs imports
 import builtins
@@ -28,6 +29,7 @@ from intro.intro import Intro
 from script.script import Script
 from persistence.persistence import Persistence
 from cinematics.flow import Flow
+from utils.misc import Misc
 
 __builtins__.resourceManager = ResourceManager()
 __builtins__.configManager = ConfigManager(resourceManager)
@@ -147,8 +149,26 @@ class MyApp(ShowBase):
         print(gridManager.addGrid('test.map', 'prova1'))
         print(gridManager.addGrid('test.map', 'prova2'))
 
-        self.accept("k", lambda:None)
-        # self.accept("k", gridManager.getGrid('prova1').move(Point3(1,0,0)))
+        # self.accept("k", lambda:None)
+        self.accept("k", self.test)
+        self.accept("p", self.pushtest)
+        self.accept("p-up", self.releasetest)
+
+    def test(self):
+        gridManager.getGrid('prova2').move(Point3(1,0,0))
+    
+    def pushtest(self):
+        print("adding test...")
+        taskMgr.add(self.test2, "test2")
+
+    def releasetest(self):
+        print("removing test...")
+        taskMgr.remove("test2")
+
+    def test2(self, task):
+        deltatime = Misc.getDeltaTime()
+        gridManager.getGrid('prova2').move(Point3(0.5*deltatime,0,0))
+        return Task.cont
 
 
     def ping (self):
