@@ -155,7 +155,9 @@ class MyApp(ShowBase):
         self.accept("p-up", self.releasetest)
 
     def test(self):
-        gridManager.getGrid('prova2').move(Point3(1,0,0))
+        currentgrid = gridManager.getGrid('prova1')
+
+        currentgrid.stash() if not currentgrid.stashed else currentgrid.unstash()
     
     def pushtest(self):
         print("adding test...")

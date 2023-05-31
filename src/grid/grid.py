@@ -72,6 +72,7 @@ class Grid(DirectObject):
         #default value, just for fun
         self.tileDimension = 128.0
         self.showCollisions = False
+        self.stashed = False
         #automatic methods
         #self.generateEmptyTileset(20,20)
         #self.mergeMeshes()
@@ -301,6 +302,44 @@ class Grid(DirectObject):
             internal panda NodePath holding all grid subnodes
         """
         return self.node
+
+    def stash(self):
+        """
+        Remove grid from the scene graph, making it invisible and not checkying for collisions. Will still accept events.
+        """
+        self.node.stash()
+        self.setStashed(True)
+    
+    def unstash(self):
+        """
+        Insert grid into the scene graph, making it visible and checking for collisions.
+        Have to be called after stash().
+        """
+        self.node.unstash()
+        self.setStashed(False)
+    
+    def setStashed(self, stashed):
+        """
+        Arguments:
+            stashed: True to stash the grid, False to unstash it
+        """
+        self.stashed = stashed
+    
+    def toggleStash(self):
+        """
+        Toggle grid stashed state
+        """
+        if self.isStashed():
+            self.unstash()
+        else:
+            self.stash()
+
+    def isStashed(self):
+        """
+        Returns:
+            True if grid is stashed, False otherwise
+        """
+        return self.stashed
 
     '''
     @return string current map filepath
