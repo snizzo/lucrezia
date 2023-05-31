@@ -92,7 +92,11 @@ class Grid(DirectObject):
     def changedMap(self):
         # TODO: remove, deprecated
         #self.acceptOnce("changeMap", self.changeMap)
-        self.getPlayable().setPlayable(True)
+        playable = self.getPlayable()
+        if playable != None:
+            playable.setPlayable(True)
+        else:
+            print("WARNING: no playable set!")
     
     def disablePlayable(self):
         if self.getPlayable() != None:
@@ -158,11 +162,15 @@ class Grid(DirectObject):
             print("ERROR: getObjecyById("+search+") -- can't find any object with id: "+search)
             sys.exit()
     
-    '''
-    return the playable object of the game
-    '''
     def getPlayable(self):
-        return self.node.find("**/=playable=true").getPythonTag("gamenode")
+        '''
+        Returns: 
+            the playable object of the game, if any
+            else None
+        '''
+        value = self.node.find("**/=playable=true").getPythonTag("gamenode")
+
+        return None if value == None else value
     
     def changeMapHelper(self, mapFile, position, callback, face="down"):
         #executing code before killing the map

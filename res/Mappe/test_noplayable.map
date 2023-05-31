@@ -57,7 +57,7 @@
 		</tile>
 		<tile>
 			<ground url="misc/ground2" walkable="true" />
-			<character url="luigi" id="mainplayer" inclination="30.0" scale="11.0" hitboxscale="0.5" speed="1.0" playable="true" direction="down" footsteps="sfx/footsteps_default0.ogg" />
+			<character url="luigi" id="mainplayer" inclination="30.0" scale="11.0" hitboxscale="0.5" speed="1.0" playable="false" direction="down" footsteps="sfx/footsteps_default0.ogg" />
 		</tile>
 		<tile>
 			<ground url="misc/ground2" walkable="true" />
