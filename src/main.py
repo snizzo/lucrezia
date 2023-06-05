@@ -81,7 +81,7 @@ class MyApp(ShowBase):
         #
         # for completeness: add minus 'p' before class name for naming variables
         __builtins__.main = self
-        __builtins__.pGrid = Grid()
+        #__builtins__.pGrid = Grid()
         __builtins__.gridManager = GridManager()
         __builtins__.extract = ExtractTitle()
         __builtins__.baloons = BaloonManager()
@@ -146,8 +146,8 @@ class MyApp(ShowBase):
         # mainMenu = MainMenu(lang)
 
         #spawn dev map through new map paradigm
-        print(gridManager.addGrid('test.map', 'prova1'))
-        print(gridManager.addGrid('test.map', 'prova2'))
+        print(gridManager.add('test.map', 'prova1'))
+        print(gridManager.add('test.map', 'prova2'))
 
         # self.accept("k", lambda:None)
         self.accept("k", self.test)
@@ -155,7 +155,7 @@ class MyApp(ShowBase):
         self.accept("p-up", self.releasetest)
 
     def test(self):
-        currentgrid = gridManager.getGrid('prova1')
+        currentgrid = gridManager.get('prova1')
 
         currentgrid.stash() if not currentgrid.stashed else currentgrid.unstash()
     
@@ -169,7 +169,7 @@ class MyApp(ShowBase):
 
     def test2(self, task):
         deltatime = Misc.getDeltaTime()
-        gridManager.getGrid('prova2').move(Point3(0.5*deltatime,0,0))
+        gridManager.get('prova2').move(Point3(0.5*deltatime,0,0))
         return Task.cont
 
 

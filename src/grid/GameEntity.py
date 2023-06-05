@@ -1,4 +1,6 @@
 
+from grid.Entity import Entity
+
 class GameEntity:
     '''
     In order for a game entity to be valid should be set to a parent

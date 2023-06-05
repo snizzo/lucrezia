@@ -9,6 +9,7 @@ from objects.light import Light
 from grid.gameobject import GameObject
 from grid.character import Character
 from grid.XMLExportable import XMLExportable
+from grid.Entity import Entity
 from editor.gui.PropertiesTableAbstract import PropertiesTableAbstract
 
 '''
@@ -19,7 +20,7 @@ world. This will take care of anything from flags to textures to
 geometries attached to it. Please reference to this instead of the
 direct geometry in other parts of code.
 '''
-class Tile(XMLExportable, PropertiesTableAbstract):
+class Tile(XMLExportable, PropertiesTableAbstract, Entity):
     
     def __init__(self, baseDimension):
         #public props

@@ -8,6 +8,7 @@ from pandac.PandaModules import CardMaker
 
 from grid.XMLExportable import XMLExportable
 from grid.GameEntity import GameEntity
+from grid.Entity import Entity
 from editor.gui.PropertiesTableAbstract import PropertiesTableAbstract
 from geometries.CustomQuad import CustomQuad
 
@@ -16,7 +17,7 @@ import math
 '''
 @inherit XMLExportable
 '''
-class GameObject(GameEntity, XMLExportable, PropertiesTableAbstract):
+class GameObject(GameEntity, XMLExportable, PropertiesTableAbstract, Entity):
     '''
     used to add objects to game that intersects (or not) walkability
     @param attribues list of xml loaded attributes

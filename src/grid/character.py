@@ -15,14 +15,16 @@ from grid.XMLExportable import XMLExportable
 from grid.GameEntity import GameEntity
 from editor.gui.PropertiesTableAbstract import PropertiesTableAbstract
 from grid.Pausable import Pausable
+from grid.Entity import Entity
 
 import sys
 
-class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity, Pausable, CharacterEmotions):
+class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity, Pausable, CharacterEmotions, Entity):
     
     def __init__(self, attributes, showCollisions, grid_currentx, grid_currenty, grid_playable_pos, parent):
         GameEntity.__init__(self, parent) #running parent constructor
-        
+
+
         self.playable = False #defaulting to false
         self.cinematic = False #defaulting to false
         self.footSound = None

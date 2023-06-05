@@ -18,6 +18,7 @@ from objects.grass import Grass
 from objects.light import Light
 from grid.tile import Tile
 from grid.character import Character
+from grid.Entity import Entity
 
 from utils.fadeout import FadeOut
 
@@ -42,7 +43,7 @@ Grid represents a single map entity composed of tiles, objects and other kinform
 loadMap()       -> called to load a map
 changedMap()    -> called to attach playable to camera and start gameplay
 '''
-class Grid(DirectObject):
+class Grid(DirectObject, Entity):
 
     def __init__(self, mapFile = None, currentGridName=""):
         """
@@ -52,6 +53,9 @@ class Grid(DirectObject):
         mapFile = None
         Name of the map file to load
         """
+
+        #making it an Entity
+        Entity.__init__(self)
 
         #variables initialization
         self.tileset = []
@@ -82,9 +86,9 @@ class Grid(DirectObject):
         #setting default name if map is empty
         if mapFile != None and not currentGridName:
             print("setting grid name to " + mapFile)
-            self.setCurrentGridName(mapFile)
+            self.setEntityName(mapFile)
         else:
-            self.setCurrentGridName(currentGridName)
+            self.setEntityName(currentGridName)
         
         # TODO: remove, deprecated
         #self.acceptOnce("changeMap", self.changeMap)
@@ -174,6 +178,7 @@ class Grid(DirectObject):
     
     def changeMapHelper(self, mapFile, position, callback, face="down"):
         #executing code before killing the map
+        #blocking
         if self.unloadScript != False:
             eval(self.unloadScript)
         
@@ -262,22 +267,6 @@ class Grid(DirectObject):
             This name has its own internal logic and is binded to editor gui generation and behaviour
         """
         self.currentGridNameEditor = name
-    
-    def getCurrentGridName(self):
-        """
-        Returns:
-            name of the current grid.
-            Fancy ID used to identify the grid in the game
-        """
-        return self.currentGridName
-    
-    def setCurrentGridName(self, name):
-        """
-        Arguments:
-            sets name of the current grid.
-            Fancy ID used to identify the grid in the game
-        """
-        self.currentGridName = name
 
     def getBackgroundImage(self):
         return self.bgImage

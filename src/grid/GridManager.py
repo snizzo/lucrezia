@@ -1,33 +1,21 @@
 '''
 Handles multiple grids around the 3D world
+
+Subclass of EntityManager
 '''
 
+from grid.EntityManager import EntityManager
 from grid.grid import Grid
 
-class GridManager:
+class GridManager(EntityManager):
     def __init__(self) -> None:
-        self.grids = []
+        EntityManager.__init__(self)
 
-    def addGrid(self, file="", name="") -> int:
+    def add(self, file="", name="") -> int:
         newgrid = Grid(file, name)
         newgrid.loadMap()
         newgrid.changedMap()
 
-        self.grids.append(newgrid)
+        self.append(newgrid)
 
-        return len(self.grids) - 1
-    
-    def getAllLoadedGridsKeys(self) -> list:
-        return [grid.getCurrentGridName() for grid in self.grids]
-
-    def getGrid(self, key) -> Grid:
-        #if is a string
-        if isinstance(key, str):
-            for grid in self.grids:
-                if grid.getCurrentGridName() == key:
-                    return grid
-        
-        if isinstance(key, int):
-            return self.grids[key]
-    
-
+        return self.last()
