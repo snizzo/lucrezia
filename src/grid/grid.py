@@ -6,6 +6,7 @@ from direct.interval.IntervalGlobal import *
 from direct.gui.OnscreenText import OnscreenText
 from direct.gui.OnscreenImage import OnscreenImage
 from direct.interval.LerpInterval import LerpPosInterval
+from direct.task import Task
 
 #standard python
 from xml.dom import minidom
@@ -19,6 +20,7 @@ from objects.light import Light
 from grid.tile import Tile
 from grid.character import Character
 from grid.Entity import Entity
+from grid.GridData import GridData
 
 from utils.fadeout import FadeOut
 
@@ -38,10 +40,18 @@ y |
   O------------>
         x
 
-Grid represents a single map entity composed of tiles, objects and other kinformation regarding weather, load and unload scripting.
+Grid represents a single map entity composed of tiles, objects and other information regarding weather, load and unload scripting.
 
-loadMap()       -> called to load a map
-changedMap()    -> called to attach playable to camera and start gameplay
+LOADING GRID (OLD STATIC METHOD):
+changeMap()       -> game engine api call that fades out calls changeMapHelper() and fades in
+changeMapHelper() -> destroys every asset in the map and calls loadMap()
+loadMap()         -> called to load a map
+changedMap()      -> called to attach playable to camera and start gameplay
+
+LOADING GRID (NEW DYNAMIC METHOD):
+enableDynamicLoading()   -> called to enable dynamic loading
+dynamicUpdateLoadMap()   -> task run every frame to call dynamicLoadMap() 
+dynamicLoadMap()         -> takes a point as input and loads the map around it, unloads the useless assets
 '''
 class Grid(DirectObject, Entity):
 
@@ -92,6 +102,17 @@ class Grid(DirectObject, Entity):
         
         # TODO: remove, deprecated
         #self.acceptOnce("changeMap", self.changeMap)
+
+        #loading grid data
+        # TODO: port static load code to new GridData class?
+        if mapFile != None:
+            self.gridData = GridData(mapFile)
+        else:
+            self.gridData = GridData()
+
+        #dynamic loading
+        self.dynamicLoading = False
+        self.loadPoints = []
     
     def changedMap(self):
         # TODO: remove, deprecated
@@ -122,7 +143,7 @@ class Grid(DirectObject, Entity):
         )
         
         if animation=='flyall':
-            tiles = pGrid.getAllTiles()
+            tiles = self.getAllTiles()
             totSequence = Sequence()
             flyallParallel = Parallel()
             flyallParallel.append(Func(self.disablePlayable))
@@ -177,13 +198,16 @@ class Grid(DirectObject, Entity):
         return None if value == None else value
     
     def changeMapHelper(self, mapFile, position, callback, face="down"):
+        """
+        Actually destroys the map and loads the new one
+        """
         #executing code before killing the map
         #blocking
         if self.unloadScript != False:
             eval(self.unloadScript)
         
         #disabling all lights
-        render.setLightOff()
+        self.node.setLightOff()
         
         #manually removing tiles
         for t in self.tileset[:]:
@@ -337,6 +361,82 @@ class Grid(DirectObject, Entity):
             True if grid is stashed, False otherwise
         """
         return self.stashed
+    
+    def setDynamicLoading(self, dynamic):
+        """
+        Arguments:
+            dynamic: True to enable dynamic loading, False to disable it
+        """
+
+        if self.mapFile == None:
+            print("WARNING: map file not set, can't enable dynamic loading")
+            return
+
+        print("WARNING: setting dynamic loading to "+str(dynamic)+"...")
+        self.dynamicLoading = dynamic
+
+        #loading preloaded attributes from map file
+        self.loadAttributes(self.gridData.getAttributes())
+
+        if self.dynamicLoading == True:
+            taskMgr.add(self.dynamicLoadMap, str(self.getEntityName())+"-dynamicLoadTask")
+            
+    
+    def getDynamicLoading(self):
+        """
+        Returns:
+            True if dynamic loading is enabled, False otherwise
+        """
+        return self.dynamicLoading
+
+    def dynamicLoadMap(self, task):
+        """
+        Load / unload map dynamically based on LoadPoints
+        """
+        
+        if debug:
+            print("list of loadpoints:")
+            for p in self.loadPoints:
+                print(p.getPosition())
+        
+        
+        return Task.cont
+
+    def loadAttributes(self, attributes):
+        if 'tilesize' in attributes:
+            self.tileDimension = float(attributes['tilesize'].value)
+        else:
+            self.tileDimension = 32.0
+        if 'showcollisions' in attributes:
+            if attributes['showcollisions'].value == 'false':
+                self.showCollisions = False
+            else:
+                self.showCollisions = True
+        else:
+            self.showCollisions = False
+        if 'onLoad' in attributes:
+            self.loadScript = attributes['onLoad'].value
+        else:
+            self.loadScript = False
+            
+        if 'onUnload' in attributes:
+            self.unloadScript = attributes['onUnload'].value
+        else:
+            self.unloadScript = False
+
+        # kept here for static loading compatibility
+        if self.getDynamicLoading() == False:
+            if 'camdistance' in attributes:
+                customCamera.setDistance(float(attributes['camdistance'].value))
+            else:
+                customCamera.setDistance(15)
+            if 'bgImage' in attributes:
+                self.setBackgroundImage(attributes['bgImage'].value)
+            else:
+                customCamera.setDistance(15)
+
+    def loadDataBlock(self, dataBlock):
+        pass
 
     '''
     @return string current map filepath
@@ -345,6 +445,10 @@ class Grid(DirectObject, Entity):
         return self.currentMapPath
     
     def loadMap(self,file="",playable_pos=LPoint2i(0,0)):
+
+        if self.getDynamicLoading() == True:
+            print("WARNING: "+ str(self.getEntityName()) + " is loading map dynamically")
+            print("WARNING: dynamic loading is enabled, this will cause some issues")
 
         if not file:
             file = self.mapFile
@@ -489,6 +593,9 @@ class Grid(DirectObject, Entity):
                     
                     
             self.tileset.append(l)
+    
+    def setLoadPoints(self, lp):
+        self.loadPoints = lp
     
     '''
     Use this function with caution. Can cause artifacts or crash bugs.

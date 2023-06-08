@@ -22,6 +22,11 @@ class EntityManager(ABC):
     
     def getAllLoadedKeys(self) -> list:
         return [entity.getEntityName() for entity in self.entities]
+    
+    def getAllEntities(self) -> list:
+        #return the second element of every tuple inside self.entities
+        return self.entities
+
 
     def get(self, key) -> Grid:
         #if is a string

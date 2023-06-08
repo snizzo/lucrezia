@@ -13,6 +13,7 @@ import os
 #lucrezia imports
 from grid.grid import Grid
 from grid.GridManager import GridManager
+from grid.LoadPoint import LoadPoint
 
 #from utils.once import Once
 from parser.parser import Parser
@@ -81,7 +82,6 @@ class MyApp(ShowBase):
         #
         # for completeness: add minus 'p' before class name for naming variables
         __builtins__.main = self
-        #__builtins__.pGrid = Grid()
         __builtins__.gridManager = GridManager()
         __builtins__.extract = ExtractTitle()
         __builtins__.baloons = BaloonManager()
@@ -94,6 +94,11 @@ class MyApp(ShowBase):
         __builtins__.fademanager = FadeOut()
         __builtins__.flow = Flow()
         __builtins__.myfilters = filters
+
+        # set this to true to enable debug mode
+        __builtins__.debug = True
+        # issue 9
+        # __builtins__.pGrid = lambda: gridManager.get(0)
 
         # ===========================================
         #load the config class
@@ -146,8 +151,9 @@ class MyApp(ShowBase):
         # mainMenu = MainMenu(lang)
 
         #spawn dev map through new map paradigm
-        print(gridManager.add('test.map', 'prova1'))
-        print(gridManager.add('test.map', 'prova2'))
+        gridManager.add('camera.map', 'prova1', 'dynamic')
+        #print(gridManager.add('test.map', 'prova2'))
+        gridManager.addLoadPoint(LoadPoint('test', Point3(0,0,0), 2))
 
         # self.accept("k", lambda:None)
         self.accept("k", self.test)
