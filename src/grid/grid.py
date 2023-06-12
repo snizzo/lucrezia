@@ -49,9 +49,9 @@ loadMap()         -> called to load a map
 changedMap()      -> called to attach playable to camera and start gameplay
 
 LOADING GRID (NEW DYNAMIC METHOD):
-enableDynamicLoading()   -> called to enable dynamic loading
-dynamicUpdateLoadMap()   -> task run every frame to call dynamicLoadMap() 
-dynamicLoadMap()         -> takes a point as input and loads the map around it, unloads the useless assets
+setDynamicLoading()      -> used to enable dynamic loading
+dynamicLoadMap()         -> asks GridData for load / unload matrices (using loadpoints) and asks dynamicLoadUpdate() to load / unload the map
+dynamicLoadUpdate()      -> loads / unloads the map based on the matrices
 '''
 class Grid(DirectObject, Entity):
 
@@ -111,8 +111,9 @@ class Grid(DirectObject, Entity):
             self.gridData = GridData()
 
         #dynamic loading
-        self.dynamicLoading = False
-        self.loadPoints = []
+        self.dynamicLoading = False  # enables dynamic loading
+        self.loadPoints = []         # points where to load the map
+        self.dynamicLoadingDelay = 0.5  # wait time between dynamic loading
     
     def changedMap(self):
         # TODO: remove, deprecated
@@ -262,6 +263,18 @@ class Grid(DirectObject, Entity):
     def setOnLoad(self, script):
         self.loadScript = script
     
+    def setDynamicLoadingDelay(self, value):
+        """
+        Sets the delay in seconds between loadmatrix refreshes
+
+        Arguments: 
+            value: True or False
+        """
+        self.dynamicLoadingDelay = value
+    
+    def getDynamicLoadingDelay(self):
+        return self.dynamicLoadingDelay
+
     '''
     @return script to be executed when map is unloaded
     '''
@@ -295,6 +308,13 @@ class Grid(DirectObject, Entity):
     def getBackgroundImage(self):
         return self.bgImage
     
+    def getSizeX(self):
+        return self.gridData.getSizeX()
+    
+    def getSizeY(self):
+        return self.gridData.getSizeY()
+    
+
     '''
     set a background image to be used into the map as borders go away
     '''
@@ -314,6 +334,9 @@ class Grid(DirectObject, Entity):
     def addColumn(self):
         pass
     
+    def setPos(self, vector: Point3):
+        self.node.setPos(vector)
+
     def move(self, vector: Point3):
         self.node.setPos(self.node, vector)
 
@@ -379,7 +402,7 @@ class Grid(DirectObject, Entity):
         self.loadAttributes(self.gridData.getAttributes())
 
         if self.dynamicLoading == True:
-            taskMgr.add(self.dynamicLoadMap, str(self.getEntityName())+"-dynamicLoadTask")
+            taskMgr.doMethodLater(self.getDynamicLoadingDelay(), self.dynamicLoadMap, str(self.getEntityName())+"-dynamicLoadTask")
             
     
     def getDynamicLoading(self):
@@ -399,8 +422,61 @@ class Grid(DirectObject, Entity):
             for p in self.loadPoints:
                 print(p.getPosition())
         
+        loadMatrix = self.gridData.generateChangeMatrixFromLoadPoints(self.loadPoints)[0]
+        unloadMatrix = self.gridData.generateChangeMatrixFromLoadPoints(self.loadPoints)[1]
+        GridData.debugPrintMatrix(loadMatrix)
+        GridData.debugPrintMatrix(unloadMatrix)
+
+        # get load / unload matrix from GridData
+        self.dynamicLoadUpdate(loadMatrix, unloadMatrix)
         
-        return Task.cont
+        return Task.again
+    
+    def dynamicLoadUpdate(self, loadMatrix, unloadMatrix):
+        """
+        Update map dynamically based on matrices
+        """
+
+        #load new tiles from loadMatrix
+        for x in range(0, self.gridData.getSizeY()):
+            for y in range(0, self.gridData.getSizeX()):
+                if loadMatrix[x][y] == 1:
+                    self.loadTile(x, y)
+
+    def loadTile(self, x, y):
+        t = Tile(self.tileDimension)
+        t.setX(x)
+        t.setY(y)
+        
+        #apending lolol
+        self.tileset.append(t)
+        
+        o = Once() #lo switch viene fatto solo in presenza di una texture 'ground'
+        
+        # load resource from data
+        for res in self.gridData.getData((x, y)):
+            type = res.getType()
+            attributes = res.getAttributes()
+
+            if type == 'ground':
+                t.addTexture(attributes)
+            elif type == 'object':
+                t.addObject(attributes)
+            elif type == 'grass':
+                g = Grass(attributes, self.tileDimension) #creating object
+                t.addCustomObject(g) #setting coordinates of tile
+                g.getNode().wrtReparentTo(self.grassnode)
+            elif type == 'light':
+                t.addLight(attributes)
+            elif type == 'scrollable':
+                c = Scrollable(attributes['url'].value, attributes['inclination'].value, self.tileDimension)
+                c.setX(x)
+                c.setY(y)
+                self.scrollableset.append(c)
+            elif type == 'character':
+                t.addCharacter(attributes, self.showCollisions, Point3(x,y,0))
+                
+        t.node.reparentTo(self.node)
 
     def loadAttributes(self, attributes):
         if 'tilesize' in attributes:

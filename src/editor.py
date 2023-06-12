@@ -88,6 +88,10 @@ class MyApp(ShowBase):
         __builtins__.resourceManager = ResourceManager()
         __builtins__.configManager = ConfigManager(resourceManager)
 
+        # printing debugging stuff. May print also related strictly to the engine
+        # needed before pgrid's Grid() creation
+        __builtins__.debug = True
+
         __builtins__.grids = []
         __builtins__.pGrid = Grid()
         __builtins__.extract = ExtractTitle()

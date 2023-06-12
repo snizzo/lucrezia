@@ -11,29 +11,58 @@ from panda3d.core import Point3
 from xml.dom import minidom
 from xml.dom import Node
 from utils.once import Once
-import os
+import os, copy
 
 from grid.GridDataBlock import GridDataBlock
 
 class GridData:
-    def __init__(self, mapFile) -> None:
-        if debug:
+    def __init__(self, mapFile = None) -> None:
+        if debug and mapFile != None:
             print("GridData: loading map file: " + mapFile)
         
-        self.attributes = {}
-        self.data = []
+        self.attributes = {}     #attributes of the map such as cameraDistance, tilesize etc...
+        self.data = []           #tiles, meshes, map data as (GridDataBlock)s
 
-        correctFile = GridData.resolvePath(mapFile)
-        self.loadData(correctFile)
-        #self.printDebugData()
+        
 
-        print(self.getData(Point3(1,1,0)))
+        #describing the max size of the grid horizontally and vertically
+        self.sizeX = 0
+        self.sizeY = 0
+
+        self.loadedMatrix = [] #latest generated load matrix
+        self.loadedNodes = [] #latest generated load nodes, used to unload the grid correctly
+        self.defaultZeroMatrix = [] #default matrix of zeros
+        """
+        loadedMatrix uses a different code to describe the map from loadMatrix and unloadMatrix
+        """
+
+        if mapFile != None:
+            correctFile = GridData.resolvePath(mapFile)
+            self.loadData(correctFile)
+            self.loadedMatrix = self.generateZeroMatrix()
+            self.defaultZeroMatrix = self.generateZeroMatrix()
+        else:
+            print("WARNING: no map file specified, creating empty GridData")
 
     def getAttributes(self) -> dict:
         return self.attributes
     
-    def getData(self, position: Point3) -> list:
-        return self.data[int(position.getX())][int(position.getY())]
+    def getSizeX(self) -> int:
+        return self.sizeX
+    
+    def getSizeY(self) -> int:
+        return self.sizeY
+
+    def getData(self, position) -> list:
+        #if is type Point3
+        if isinstance(position, Point3):
+            return self.data[int(position.getX())][int(position.getY())]
+        #if is type tuple
+        elif isinstance(position, tuple):
+            return self.data[position[0]][position[1]]
+        else:
+            print("WARNING: getData() called with wrong type: " + str(type(position)))
+            return None
 
     def printDebugData(self) -> None:
         for row in self.data:
@@ -43,6 +72,82 @@ class GridData:
                 for datablock in datablocklist:
                     print("\t\t", datablock.getType(), "[", datablock.getAttributes(), "]")
             print("]")
+    
+    def generateZeroMatrix(self) -> list:
+        newMatrix = [[0] * self.getSizeX() for _ in range(self.getSizeY())]
+        return newMatrix
+
+    def generateLoadedMatrix(self, loadPoints: list) -> list:
+        """
+        Generates a matrix of 1s and 0s where 1 means that the cell is loaded and 0 means that the cell is not loaded
+        """
+
+        newLoadedMatrix = self.generateZeroMatrix() #temporary matrix that will overwrite self.loadMatrix
+
+        #generate new loaded matrix
+        for loadPoint in loadPoints:
+            for x in range(0,self.getSizeY()):
+                for y in range(0, self.getSizeX()):
+
+                    if loadPoint.isInRange(Point3(x,y,0)):
+                        newLoadedMatrix[x][y] = 1
+
+        newLoadedMatrix = newLoadedMatrix[::-1] #reverse matrix to match panda3d coords
+        return newLoadedMatrix
+
+    @staticmethod
+    def fromGraphToMatrixCoords(self, x, y):
+        return [x , self.getSizeY()-y]
+
+    def generateLoadMatrix(self, oldMatrix, newMatrix) -> list:
+        """
+        LoadMatrix has 1 where the cell has to be loaded, 0 otherwise
+        """
+        loadMatrix = self.generateZeroMatrix()
+        for x in range(0,self.getSizeY()):
+            for y in range(0, self.getSizeX()):
+                if oldMatrix[x][y] == 0 and newMatrix[x][y] == 1:
+                    loadMatrix[x][y] = 1
+        return loadMatrix[::-1]
+    
+    def generateUnloadMatrix(self, oldMatrix, newMatrix) -> list:
+        """
+        UnloadMatrix has 1 where the cell has to be unloaded, 0 otherwise
+        """
+        unloadMatrix = self.generateZeroMatrix()
+        for x in range(0,self.getSizeY()):
+            for y in range(0, self.getSizeX()):
+                if oldMatrix[x][y] == 1 and newMatrix[x][y] == 0:
+                    unloadMatrix[x][y] = 1
+        return unloadMatrix[::-1]
+
+    def generateChangeMatrixFromLoadPoints(self, loadPoints: list) -> list:
+        """
+        Returns:
+            list: [loadMatrix, unloadMatrix]
+            
+        loadMatrix has 1 where the cell has to be loaded, 0 otherwise
+        unloadMatrix has 1 where the cell has to be unloaded, 0 otherwise
+        """
+
+        #generate new matrices comparing them to the old ones
+        newLoadedMatrix = self.generateLoadedMatrix(loadPoints)
+        loadMatrix = self.generateLoadMatrix(self.loadedMatrix, newLoadedMatrix)
+        unloadMatrix = self.generateUnloadMatrix(self.loadedMatrix, newLoadedMatrix)
+
+        #update newloadedmatrix now becomes loadedmatrix
+        #and represents loaded cells
+        self.loadedMatrix = newLoadedMatrix
+
+        #GridData.debugPrintMatrix(newLoadedMatrix)
+
+        return [loadMatrix, unloadMatrix]
+
+    @staticmethod
+    def debugPrintMatrix(matrix: list) -> None:
+        for row in matrix:
+            print(row)
+
 
     def loadData(self, mapFile) -> None:
         if debug:
@@ -93,9 +198,12 @@ class GridData:
                             elif res.nodeName == 'character':
                                 d = GridDataBlock('character', res.attributes)
                                 subdata.append(d)
-                            
+            self.sizeX = currentx
             currentx = 0
             currenty += 1
+            self.sizeY = currenty
+        
+        self.data = self.data[::-1] #reverse matrix to match panda3d coords
 
     @staticmethod
     def resolvePath(file):

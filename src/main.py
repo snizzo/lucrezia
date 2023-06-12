@@ -70,7 +70,7 @@ class MyApp(ShowBase):
         
         #enabling shader system (and ppl)
         render.setShaderAuto()
-        #base.oobe()
+        base.oobe()
         
         #filters -- experimental
         filters = CommonFilters(base.win, base.cam)
@@ -151,9 +151,11 @@ class MyApp(ShowBase):
         # mainMenu = MainMenu(lang)
 
         #spawn dev map through new map paradigm
-        gridManager.add('camera.map', 'prova1', 'dynamic')
+        gridManager.add('camera.map', 'prova1', 'dynamic', 2)
+        gridManager.get('prova1').setPos(Point3(2,3,0))
         #print(gridManager.add('test.map', 'prova2'))
-        gridManager.addLoadPoint(LoadPoint('test', Point3(0,0,0), 2))
+        gridManager.addLoadPoint(LoadPoint('test', Point3(1,1,0), 3))
+        gridManager.addLoadPoint(LoadPoint('test2', Point3(5,7,0), 1))
 
         # self.accept("k", lambda:None)
         self.accept("k", self.test)

@@ -28,8 +28,25 @@ class LoadPoint:
         else:
             self.node.setName(self.name)
 
+    def getName(self) -> str:
+        return self.name
+
     def attachTo(self, parent) -> None:
         self.node.reparentTo(parent)
+    
+    # function isInRange return boolean
+    def isInRange(self, position) -> bool:
+        """
+        Checks if the given position is in range of the loadpoint.
+
+        Args:
+            position (Point3): the position to check
+        """
+        if position.getX() >= self.node.getX() - self.radius and position.getX() <= self.node.getX() + self.radius:
+            if position.getY() >= self.node.getY() - self.radius and position.getY() <= self.node.getY() + self.radius:
+                return True
+        return False
+
     
     def setPosition(self, position) -> None:
         self.node.setPos(position)
