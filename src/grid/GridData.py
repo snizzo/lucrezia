@@ -41,6 +41,19 @@ class GridData:
             self.loadData(correctFile)
             self.loadedMatrix = self.generateZeroMatrix()
             self.defaultZeroMatrix = self.generateZeroMatrix()
+
+            #print x and y
+            if True:
+                print("GridData: sizeX: " + str(self.sizeX) + ", sizeY: " + str(self.sizeY))
+
+                print(self.data)
+
+                for y in range(0, self.sizeY):
+                    for x in range(0, self.sizeX):
+                        print(self.data[y][x], end="")
+                    print("")
+                    
+            
         else:
             print("WARNING: no map file specified, creating empty GridData")
 
@@ -54,6 +67,7 @@ class GridData:
         return self.sizeY
 
     def getData(self, position) -> list:
+
         #if is type Point3
         if isinstance(position, Point3):
             return self.data[int(position.getX())][int(position.getY())]
@@ -104,22 +118,22 @@ class GridData:
         LoadMatrix has 1 where the cell has to be loaded, 0 otherwise
         """
         loadMatrix = self.generateZeroMatrix()
-        for x in range(0,self.getSizeY()):
-            for y in range(0, self.getSizeX()):
-                if oldMatrix[x][y] == 0 and newMatrix[x][y] == 1:
-                    loadMatrix[x][y] = 1
-        return loadMatrix[::-1]
+        for y in range(0,self.getSizeY()):
+            for x in range(0, self.getSizeX()):
+                if oldMatrix[y][x] == 0 and newMatrix[y][x] == 1:
+                    loadMatrix[y][x] = 1
+        return loadMatrix
     
     def generateUnloadMatrix(self, oldMatrix, newMatrix) -> list:
         """
         UnloadMatrix has 1 where the cell has to be unloaded, 0 otherwise
         """
         unloadMatrix = self.generateZeroMatrix()
-        for x in range(0,self.getSizeY()):
-            for y in range(0, self.getSizeX()):
-                if oldMatrix[x][y] == 1 and newMatrix[x][y] == 0:
-                    unloadMatrix[x][y] = 1
-        return unloadMatrix[::-1]
+        for y in range(0,self.getSizeY()):
+            for x in range(0, self.getSizeX()):
+                if oldMatrix[y][x] == 1 and newMatrix[y][x] == 0:
+                    unloadMatrix[y][x] = 1
+        return unloadMatrix
 
     def generateChangeMatrixFromLoadPoints(self, loadPoints: list) -> list:
         """
@@ -148,6 +162,15 @@ class GridData:
         for row in matrix:
             print(row)
 
+    @staticmethod
+    def rotateMatrix(matrix):
+        # Use zip() with argument unpacking (*) to transpose the matrix
+        transposed = list(zip(*matrix))
+
+        # Reverse each row in the transposed matrix to rotate it clockwise
+        rotated = [row[::-1] for row in transposed]
+
+        return rotated
 
     def loadData(self, mapFile) -> None:
         if debug:
@@ -203,7 +226,7 @@ class GridData:
             currenty += 1
             self.sizeY = currenty
         
-        self.data = self.data[::-1] #reverse matrix to match panda3d coords
+        #self.data = GridData.rotateMatrix(self.data) #reverse matrix to match panda3d coords
 
     @staticmethod
     def resolvePath(file):

@@ -149,13 +149,14 @@ class MyApp(ShowBase):
 
         #spawn current main menu
         # mainMenu = MainMenu(lang)
+        self.myLP = LoadPoint('test', Point3(1,1,0), 2)
 
         #spawn dev map through new map paradigm
         gridManager.add('camera.map', 'prova1', 'dynamic', 2)
         gridManager.get('prova1').setPos(Point3(2,3,0))
         #print(gridManager.add('test.map', 'prova2'))
-        gridManager.addLoadPoint(LoadPoint('test', Point3(1,1,0), 3))
-        gridManager.addLoadPoint(LoadPoint('test2', Point3(5,7,0), 1))
+        gridManager.addLoadPoint(self.myLP)
+        #gridManager.addLoadPoint(LoadPoint('test2', Point3(5,7,0), 1))
 
         # self.accept("k", lambda:None)
         self.accept("k", self.test)
@@ -177,7 +178,7 @@ class MyApp(ShowBase):
 
     def test2(self, task):
         deltatime = Misc.getDeltaTime()
-        gridManager.get('prova2').move(Point3(0.5*deltatime,0,0))
+        self.myLP.move(Point3(0.5*deltatime,0,0))
         return Task.cont
 
 

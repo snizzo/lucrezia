@@ -438,23 +438,23 @@ class Grid(DirectObject, Entity):
         """
 
         #load new tiles from loadMatrix
-        for x in range(0, self.gridData.getSizeY()):
-            for y in range(0, self.gridData.getSizeX()):
-                if loadMatrix[x][y] == 1:
-                    self.loadTile(x, y)
+        for y in range(0, self.gridData.getSizeY()):
+            for x in range(0, self.gridData.getSizeX()):
+                if loadMatrix[y][x] == 1:
+                    self.loadTile(y, x)
 
-    def loadTile(self, x, y):
+    def loadTile(self, y, x):
         t = Tile(self.tileDimension)
         t.setX(x)
         t.setY(y)
         
-        #apending lolol
+        #appending to grid internal tileset
         self.tileset.append(t)
         
         o = Once() #lo switch viene fatto solo in presenza di una texture 'ground'
         
         # load resource from data
-        for res in self.gridData.getData((x, y)):
+        for res in self.gridData.getData((y, x)):
             type = res.getType()
             attributes = res.getAttributes()
 

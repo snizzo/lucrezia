@@ -46,8 +46,16 @@ class LoadPoint:
             if position.getY() >= self.node.getY() - self.radius and position.getY() <= self.node.getY() + self.radius:
                 return True
         return False
-
     
+    def move(self, position) -> None:
+        self.node.setPos(self.node, position)
+
+    def getPosition(self, relativeto=None) -> Point3:
+        if relativeto != None:
+            return self.node.getPos(relativeto)
+        else:
+            return self.node.getPos()
+
     def setPosition(self, position) -> None:
         self.node.setPos(position)
     

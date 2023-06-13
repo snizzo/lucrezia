@@ -26,10 +26,9 @@ class GridManager(EntityManager):
                             and dynamic is the method used to load the grid in chunks as the player moves around the world
         """
         newgrid = Grid(file, name)
-        newgrid.setDynamicLoadingDelay(dynamicLoadingDelay)
 
         if method == "dynamic":
-            self.loadDynamic(newgrid)
+            self.loadDynamic(newgrid, dynamicLoadingDelay)
         elif method == "static":
             self.loadStatic(newgrid)
         else:
@@ -44,7 +43,8 @@ class GridManager(EntityManager):
         newgrid.loadMap()
         newgrid.changedMap()
     
-    def loadDynamic(self, newgrid) -> None:
+    def loadDynamic(self, newgrid, dynamicLoadingDelay = 0.5) -> None:
+        newgrid.setDynamicLoadingDelay(dynamicLoadingDelay)
         newgrid.setDynamicLoading(True)
         #refresh load points
         self.updateLoadPoints()
