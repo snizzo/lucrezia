@@ -9,6 +9,7 @@ from direct.task import Task
 #libs imports
 import builtins
 import os
+import argparse
 
 #lucrezia imports
 from grid.grid import Grid
@@ -31,6 +32,7 @@ from script.script import Script
 from persistence.persistence import Persistence
 from cinematics.flow import Flow
 from utils.misc import Misc
+from tests.Tests import Tests
 
 __builtins__.resourceManager = ResourceManager()
 __builtins__.configManager = ConfigManager(resourceManager)
@@ -59,6 +61,8 @@ class MyApp(ShowBase):
         base.win.setClearColorActive(True)
         lang="ita"
 
+        runTest = True
+
         '''
         #ortho camera lens
         lens = OrthographicLens()
@@ -77,12 +81,8 @@ class MyApp(ShowBase):
         #filters.setAmbientOcclusion()
         
         #defining global variables
-        # TAKE CARE: these must be objects created form classes which
-        # structure has been built with globalness in mind!!
-        #
-        # for completeness: add minus 'p' before class name for naming variables
-        __builtins__.main = self
-        __builtins__.gridManager = GridManager()
+        __builtins__.main = self                       #everyone can access the main class
+        __builtins__.gridManager = GridManager()       #manages grids around the world
         __builtins__.extract = ExtractTitle()
         __builtins__.baloons = BaloonManager()
         #__builtins__.configManager = ConfigManager()
@@ -116,71 +116,24 @@ class MyApp(ShowBase):
         #print(resourceManager.getResource("misc/grass.png"))
         
         configManager.saveConfig("LANGUAGE","ITA")
-        lang = configManager.getData("LANGUAGE").lower()
-        extract.extractTxt(lang)
         
-        """
-        r = ResourceManager()
-        print(r.getResource('misc/grass') # deve dire path assoluto = res/misc/grass.png)
-        """
-        
-        #self.entrypoint = ['camera.map', '3,3']
-        #self.entrypoint = ['finedemo.map', '1,1']
-        #self.entrypoint = ['parcogiochi.map', '9,12']
-        #self.entrypoint = ['incidente.map', '20,11']
-        #self.entrypoint = ['macchinadasola.map', '2,2']
-        #self.entrypoint = ['black.map', '5,5']
-        
-        # more less working demo
-        #self.entrypoint = ['tetto.map', '4,2']
 
         # test dev map
         self.entrypoint = ['test.map', '3,3']
         
-        #inizio vero
-        #self.entrypoint = ['classe.map', '5,2', 'up']
-        #mainMenu.show()
-        
-        
         #UNCOMMENT TO ENABLE INTRO
         #i = Intro()
         #i.start()
-        #persistence.save("gamestate", 3)
 
-        #spawn current main menu
-        # mainMenu = MainMenu(lang)
-        self.myLP = LoadPoint('test', Point3(1,1,0), 2)
+        # parsing commandline arguments (runtest)
+        parser = argparse.ArgumentParser(description='Simple program with command-line argument.')
+        parser.add_argument('-t', '--runtest', default=None, action="store", help='Specify a string for the runtest argument.')
+        args = parser.parse_args()
 
-        #spawn dev map through new map paradigm
-        gridManager.add('camera.map', 'prova1', 'dynamic', 2)
-        gridManager.get('prova1').setPos(Point3(2,3,0))
-        #print(gridManager.add('test.map', 'prova2'))
-        gridManager.addLoadPoint(self.myLP)
-        #gridManager.addLoadPoint(LoadPoint('test2', Point3(5,7,0), 1))
+        testName = args.runtest
 
-        # self.accept("k", lambda:None)
-        self.accept("k", self.test)
-        self.accept("p", self.pushtest)
-        self.accept("p-up", self.releasetest)
-
-    def test(self):
-        currentgrid = gridManager.get('prova1')
-
-        currentgrid.stash() if not currentgrid.stashed else currentgrid.unstash()
-    
-    def pushtest(self):
-        print("adding test...")
-        taskMgr.add(self.test2, "test2")
-
-    def releasetest(self):
-        print("removing test...")
-        taskMgr.remove("test2")
-
-    def test2(self, task):
-        deltatime = Misc.getDeltaTime()
-        self.myLP.move(Point3(0.5*deltatime,0,0))
-        return Task.cont
-
+        if testName is not None:
+            Tests.runTest(testName)
 
     def ping (self):
         print("main: PONG!")

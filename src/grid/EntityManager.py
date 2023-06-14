@@ -1,6 +1,6 @@
 '''
 Superclass that manages all the entities in game.
-Have to be subclassed ot manage different types of entities.
+Have to be subclassed to manage different types of entities.
 '''
 
 from grid.grid import Grid

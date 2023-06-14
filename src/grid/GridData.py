@@ -41,19 +41,6 @@ class GridData:
             self.loadData(correctFile)
             self.loadedMatrix = self.generateZeroMatrix()
             self.defaultZeroMatrix = self.generateZeroMatrix()
-
-            #print x and y
-            if True:
-                print("GridData: sizeX: " + str(self.sizeX) + ", sizeY: " + str(self.sizeY))
-
-                print(self.data)
-
-                for y in range(0, self.sizeY):
-                    for x in range(0, self.sizeX):
-                        print(self.data[y][x], end="")
-                    print("")
-                    
-            
         else:
             print("WARNING: no map file specified, creating empty GridData")
 
