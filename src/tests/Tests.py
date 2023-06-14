@@ -2,7 +2,14 @@
 Class used to run singular tests for specific features.
 """
 
+import importlib
+import inspect
+import os
+
 from tests.TestDynamicLoading import TestDynamicLoading
+from tests.TestPrimitiveBox import TestPrimitiveBox
+
+testPath = "src/tests/"
 
 class Tests():
     def __init__(self):
@@ -33,6 +40,8 @@ class Tests():
         #lists of supported tests
         if name == "dynamicloading":
             t = TestDynamicLoading()
+        elif name == "primitivebox":
+            t = TestPrimitiveBox()
         elif name == "emptytest":
             print("Running empty test...")
         else:

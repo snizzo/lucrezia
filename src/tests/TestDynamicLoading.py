@@ -12,9 +12,9 @@ from grid.LoadPoint import LoadPoint
 #from utils.once import Once
 from utils.misc import Misc
 
-from direct.showbase.DirectObject import DirectObject
+from tests.Test import Test
 
-class TestDynamicLoading(DirectObject):
+class TestDynamicLoading(Test):
     def __init__(self):
 
         #spawn current main menu
