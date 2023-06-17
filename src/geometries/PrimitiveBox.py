@@ -79,7 +79,7 @@ class PrimitiveBox:
         for i, vertex_pos in enumerate(normals):
             normal.addData4f(normals[i])
         for i, vertex_pos in enumerate(colors):
-            color.addData4f(colors[i % len(colors)])
+            color.addData4f(colors[i])
 
         # Create the geometry
         geom = Geom(vdata)
@@ -105,4 +105,4 @@ class PrimitiveBox:
         self.node_path.setScale(scale_x, scale_y, scale_z)
 
     def setColor(self, r, g, b, a=1.0):
-        self.node_path.setColorScale(r, g, b, a)
+        self.node_path.setColor(r, g, b, a)
