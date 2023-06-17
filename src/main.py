@@ -130,10 +130,14 @@ class MyApp(ShowBase):
         parser.add_argument('-t', '--runtest', default=None, action="store", help='Specify a string for the runtest argument.')
         args = parser.parse_args()
 
-        testName = args.runtest
+        self.runTest(args.runtest)
 
+    def runTest(self, testName):
         if testName is not None:
-            Tests.runTest(testName)
+            t = Tests()
+            t.autoImport()
+            t.runTest(testName)
+
 
     def ping (self):
         print("main: PONG!")

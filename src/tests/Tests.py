@@ -6,45 +6,50 @@ import importlib
 import inspect
 import os
 
-from tests.TestDynamicLoading import TestDynamicLoading
-from tests.TestPrimitiveBox import TestPrimitiveBox
-
 testPath = "src/tests/"
 
 class Tests():
     def __init__(self):
-        pass
+        self.modules = {} # dict of modules containing tests
 
-    @staticmethod
-    def printRunning(name):
-        print("Running test: " + name + "...")
-    
-    @staticmethod
-    def printDone(name):
-        print("Test " + name + " done!")
+    def autoImport(self):
+        """
+        Automatically import all tests in src/tests/ and populate the self.modules dict
+        """
 
-    @staticmethod
-    def runTest(name):
+        # get all files in src/tests/
+        files = os.listdir(testPath)
+
+        # for each file
+        for file in files:
+            # if it's a python file
+            if file.endswith(".py"):
+                classname = file[:-3]
+                # import it
+                module = importlib.import_module("tests." + file[:-3])
+
+                # add test class to modules dict
+                self.modules[classname] = module
+
+    def runTest(self, name):
         """
         Run a test with the given name
 
         Args:
-            name (str): name of the test to run, case insensitive
+            name (str): name of the test to run
         """
 
-        # case insensitive
-        name = name.lower()
 
-        Tests.printRunning(name)
 
-        #lists of supported tests
-        if name == "dynamicloading":
-            t = TestDynamicLoading()
-        elif name == "primitivebox":
-            t = TestPrimitiveBox()
-        elif name == "emptytest":
-            print("Running empty test...")
+        print("Running test: " + name)
+
+        if self.modules.get(name) is not None:
+            module = self.modules[name]
+            obj = module.__dict__[name]()
+        elif self.modules.get("Test" + name) is not None:
+            module = self.modules["Test" + name]
+            obj = module.__dict__["Test" + name]()
         else:
             print("Test not found!")
         
-        Tests.printDone(name)
+        print("Test done!")
