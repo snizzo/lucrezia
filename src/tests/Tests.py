@@ -30,6 +30,15 @@ class Tests():
 
                 # add test class to modules dict
                 self.modules[classname] = module
+    
+    def listTests(self):
+        """
+        List all tests in src/tests/
+        """
+
+        print("Tests:")
+        for test in self.modules:
+            print(" - " + test)
 
     def runTest(self, name):
         """
@@ -38,9 +47,7 @@ class Tests():
         Args:
             name (str): name of the test to run
         """
-
-
-
+        
         print("Running test: " + name)
 
         if self.modules.get(name) is not None:

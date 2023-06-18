@@ -128,15 +128,20 @@ class MyApp(ShowBase):
         # parsing commandline arguments (runtest)
         parser = argparse.ArgumentParser(description='Simple program with command-line argument.')
         parser.add_argument('-t', '--runtest', default=None, action="store", help='Specify a string for the runtest argument.')
+        parser.add_argument('-lt', '--listtest', default=False, action="store_true", help='List all available tests')
         args = parser.parse_args()
 
-        self.runTest(args.runtest)
+        self.runTest(args.runtest, args.listtest)
 
-    def runTest(self, testName):
+    def runTest(self, testName, listTest=False):
         if testName is not None:
             t = Tests()
             t.autoImport()
             t.runTest(testName)
+        elif listTest is True:
+            t = Tests()
+            t.autoImport()
+            t.listTests()
 
 
     def ping (self):

@@ -2,13 +2,24 @@ from panda3d.core import GeomVertexFormat, GeomVertexData, Geom, GeomTriangles, 
 from panda3d.core import GeomNode, NodePath, TransparencyAttrib
 from panda3d.core import Point3, Vec4
 
+from geometries.Primitive import Primitive
 
-class PrimitiveBox:
-    def __init__(self, size=1.0):
-        self.size = size
-        self.node_path = None
 
-    def createBox(self):
+class PrimitiveBox(Primitive):
+    def __init__(self, size=1.0, method="load"):
+        Primitive.__init__(self, size, method)
+
+    def load(self):
+        """
+        Load a box from a model file.
+        """
+        self.node_path = loader.loadModel("geometries/models/box.bam")
+        self.node_path.setScale(self.size, self.size, self.size)
+
+    def create(self):
+        """
+        Programmatically create a box primitive.
+        """
         # Create vertex data format
         format_obj = GeomVertexFormat.get_v3n3c4()
 
@@ -97,12 +108,3 @@ class PrimitiveBox:
 
         # Create the node path
         self.node_path = NodePath(geom_node)
-
-    def setPosition(self, x, y, z):
-        self.node_path.setPos(x, y, z)
-
-    def setScale(self, scale_x, scale_y, scale_z):
-        self.node_path.setScale(scale_x, scale_y, scale_z)
-
-    def setColor(self, r, g, b, a=1.0):
-        self.node_path.setColor(r, g, b, a)

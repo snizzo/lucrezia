@@ -22,7 +22,7 @@ class TestPrimitiveBox(Test):
         Test.__init__(self)
 
         box = PrimitiveBox(size=1.0)
-        box.createBox()
+        box.setWireframe(True)
 
         # Set the position, scale, and color of the box
         box.setPosition(0, 0, 0)
