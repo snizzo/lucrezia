@@ -1,8 +1,10 @@
+# pylint: disable=undefined-variable, global-variable-not-assigned
 
 # copy paste imports from main.py
 #panda imports
 from panda3d.core import Point3
 from direct.task import Task
+from direct.showbase.ShowBase import ShowBase
 
 #libs imports
 

@@ -3,6 +3,12 @@ from abc import ABC, abstractmethod
 
 class Primitive(ABC):
     def __init__(self, size=1.0, method="load"):
+        """
+        Args:
+            method: can be have different values to describe the method used to generate the shape
+                "programmatic": shape is defined inside the class and generated via cpu at runtime
+                "load":         shape is predefined in the .bam file and loaded later as a 3d model
+        """
         self.size = size
         self.node_path = None
 
@@ -45,6 +51,12 @@ class Primitive(ABC):
         if not self.isLoadedCheck():
             return
         self.node_path.setShader(shader)
+
+    #enable per pixel lightning
+    def setPPL(self, ppl=True):
+        if not self.isLoadedCheck():
+            return
+        self.node_path.setShaderAuto() if ppl else self.node_path.clearShader()
     
     def setWireframe(self, wireframe=True):
         if not self.isLoadedCheck():

@@ -37,8 +37,16 @@ class Tests():
         """
 
         print("Tests:")
+        
         for test in self.modules:
-            print(" - " + test)
+            
+            #don't print Test class
+            if test == "Test" or test == "Tests":
+                continue
+
+            #remove Test prefix
+            if test.startswith("Test"):
+                print(" - " + test[4:])
 
     def runTest(self, name):
         """

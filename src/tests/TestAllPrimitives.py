@@ -1,6 +1,8 @@
+# pylint: disable=undefined-variable, global-variable-not-assigned
 
 # copy paste imports from main.py
 #panda imports
+import dis
 from panda3d.core import Point3
 from direct.task import Task
 
@@ -10,6 +12,8 @@ from direct.task import Task
 from grid.LoadPoint import LoadPoint
 from geometries.PrimitiveBox import PrimitiveBox
 from geometries.PrimitiveSphere import PrimitiveSphere
+from geometries.PrimitiveCone import PrimitiveCone
+from geometries.PrimitiveArrow import PrimitiveArrow
 
 #from utils.once import Once
 from utils.misc import Misc
@@ -22,27 +26,27 @@ class TestAllPrimitives(Test):
     def __init__(self):
         Test.__init__(self)
 
-        nitems = 2
-        distances = [i for i in range(0, nitems*4, 4)]
+        self.y_offset = self.offset()
 
-        box = PrimitiveBox(size=1.0)
-        box.setWireframe(True)
+        self.addPrimitive(PrimitiveBox(size=1.0))
+        self.addPrimitive(PrimitiveSphere(size=1.0))
+        self.addPrimitive(PrimitiveCone(size=1.0))
+        self.addPrimitive(PrimitiveArrow(size=1.0))
 
-        # Set the position, scale, and color of the box
-        box.setPosition(distances.pop(), 0, 0)
-        box.setScale(1.5, 1.5, 1.5)
-        box.setColor(1.0, 0.5, 0.2)  # Set color to orange
+    def addPrimitive(self, primitive):
+        primitive.setWireframe(False)
+
+        # Set the position, scale, and color of the primitive
+        primitive.setPosition(next(self.y_offset), 0, 0)
+        primitive.setScale(1.5, 1.5, 1.5)
+        primitive.setColor(1.0, 0.5, 0.2)
+        primitive.setPPL(True)
 
         # Reparent the box to the render node
-        box.node_path.reparentTo(render)
-
-        sphere = PrimitiveSphere(size=1.0)
-        sphere.setWireframe(True)
-
-        # Set the position, scale, and color of the sphere
-        sphere.setPosition(distances.pop(), 0, 0)
-        sphere.setScale(1.5, 1.5, 1.5)
-        sphere.setColor(1.0, 0.5, 0.2)  # Set color to orange
-
-        # Reparent the sphere to the render node
-        sphere.node_path.reparentTo(render)
+        primitive.node_path.reparentTo(render)
+    
+    def offset(self):
+        num = 0
+        while True:
+            yield num
+            num += 4
