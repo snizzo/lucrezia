@@ -53,7 +53,7 @@ setDynamicLoading()      -> used to enable dynamic loading
 dynamicLoadMap()         -> asks GridData for load / unload matrices (using loadpoints) and asks dynamicLoadUpdate() to load / unload the map
 dynamicLoadUpdate()      -> loads / unloads the map based on the matrices
 '''
-class Grid(DirectObject, Entity):
+class Grid(Entity):
 
     def __init__(self, mapFile = None, currentGridName=""):
         """

@@ -17,6 +17,17 @@ class Primitive(ABC):
         elif method == "load":
             self.load()
     
+    def getNode(self):
+        '''
+        Used to reparent gizmo to other stuff, to move them around
+        '''
+        return self.node_path
+
+    def reparentTo(self, parent):
+        if not self.isLoadedCheck():
+            return
+        self.node_path.reparentTo(parent)
+
     @abstractmethod
     def load(self):
         pass
@@ -32,6 +43,13 @@ class Primitive(ABC):
         else:
             return True
 
+    # TODO: duplicate code of setPosition
+    def setPos(self, x, y, z):
+        if not self.isLoadedCheck():
+            return
+        self.node_path.setPos(x, y, z)
+
+    # TODO: duplicate code of setPos
     def setPosition(self, x, y, z):
         if not self.isLoadedCheck():
             return
@@ -42,15 +60,35 @@ class Primitive(ABC):
             return
         self.node_path.setScale(scale_x, scale_y, scale_z)
 
-    def setColor(self, r, g, b, a=1.0):
+    #TODO: ugly but functional, maybe improve this?
+    def setColor(self, r, g=None, b=None, a=None):
         if not self.isLoadedCheck():
             return
+
+        if isinstance(r, tuple):
+            # If r is a tuple, unpack the values
+            r, g, b, a = r
+
+        if a is None:
+            a = 1.0
+
         self.node_path.setColor(r, g, b, a)
+    
+    def setAlpha(self, alpha):
+        if not self.isLoadedCheck():
+            return
+        self.node_path.setTransparency(1)
+        self.node_path.setAlphaScale(alpha)
     
     def setShader(self, shader):
         if not self.isLoadedCheck():
             return
         self.node_path.setShader(shader)
+
+    def setVisible(self, visible=True):
+        if not self.isLoadedCheck():
+            return
+        self.node_path.show() if visible else self.node_path.hide()
 
     #enable per pixel lightning
     def setPPL(self, ppl=True):

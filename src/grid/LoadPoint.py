@@ -5,6 +5,11 @@ Created by GridManager and provided to current loaded grids.
 
 from panda3d.core import NodePath, Point3
 
+#lucrezia imports
+from geometries.PrimitiveSphere import PrimitiveSphere
+from geometries.ColorCodes import ColorCodes
+
+
 class LoadPoint:
     def __init__(self, name = "unknown", position = Point3(0,0,0), radius = 5) -> None:
         """
@@ -14,6 +19,9 @@ class LoadPoint:
             radius (int, optional): the radius of the loadpoint implemented as a cube, not as a circumference. Defaults to 5.
         """
         self.node = None
+
+        # visible means the point has a visible position model attached to it
+        self.visible = False
 
         #sets also nodepath name
         self.setName(name)
@@ -31,8 +39,16 @@ class LoadPoint:
     def getName(self) -> str:
         return self.name
 
+    # TODO: duplicate code of attachTo
+    #       here for compatibility reason
+    def reparentTo(self, parent) -> None:
+        self.attachTo(parent)
+
     def attachTo(self, parent) -> None:
         self.node.reparentTo(parent)
+    
+    def detach(self) -> None:
+        self.node.detachNode()
     
     # function isInRange return boolean
     def isInRange(self, position) -> bool:
@@ -47,6 +63,12 @@ class LoadPoint:
                 return True
         return False
     
+    def getNode(self) -> NodePath:
+        '''
+        Get a reference to the current nodepath
+        '''
+        return self.node
+
     def move(self, position) -> None:
         self.node.setPos(self.node, position)
 
@@ -66,9 +88,23 @@ class LoadPoint:
             radius = int(radius)
         self.radius = radius
 
+    # TODO: duplicate code of getPos
     def getPosition(self) -> tuple:
         return self.node.getPos()
     
+    # TODO: duplicate code of getPosition
+    def getPos(self) -> tuple:
+        return self.node.getPos()
+
     def getRadius(self) -> int:
         return self.radius
+
+    def setVisible(self, visible = False) -> None:
+        self.visible = visible
+        if visible == True:
+            self.ball = PrimitiveSphere(0.5)
+            self.ball.setColor(ColorCodes.get("cyan"))
+            self.ball.setWireframe(False)
+            self.ball.load()
+            self.ball.reparentTo(self.node)
     

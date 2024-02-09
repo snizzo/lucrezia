@@ -5,7 +5,9 @@ The entity name is used to identify the entity uniquely in the game, across Grid
 and any other kind of entity that will be implemented in the future.
 """
 
-class Entity():
+from direct.showbase.DirectObject import DirectObject
+
+class Entity(DirectObject):
     def __init__(self) -> None:
         self.entityName = ""
     

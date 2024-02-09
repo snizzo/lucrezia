@@ -19,7 +19,7 @@ from grid.Entity import Entity
 
 import sys
 
-class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity, Pausable, CharacterEmotions, Entity):
+class Character(DirectObject, XMLExportable, PropertiesTableAbstract, GameEntity, Pausable, CharacterEmotions):
     
     def __init__(self, attributes, showCollisions, grid_currentx, grid_currenty, grid_playable_pos, parent):
         GameEntity.__init__(self, parent) #running parent constructor

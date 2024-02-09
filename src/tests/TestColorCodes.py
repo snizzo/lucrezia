@@ -19,17 +19,18 @@ from utils.misc import Misc
 from tests.Test import Test
 
 
-
-class TestPrimitiveBox(Test):
+class TestColorCodes(Test):
     def __init__(self):
         Test.__init__(self)
 
-        box = PrimitiveBox(size=1.0)
+        self.box = box = PrimitiveBox(size=1.0)
         box.setWireframe(True)
 
         # Set the position, scale, and color of the box
         box.setPosition(0, 0, 0)
         box.setScale(2, 2, 2)
+
+        # can change color to the primitive
         box.setColor(ColorCodes.get("cyan"))  # Set color to orange
 
         # Reparent the box to the render node
