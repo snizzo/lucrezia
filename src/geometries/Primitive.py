@@ -91,7 +91,7 @@ class Primitive(ABC):
         self.node_path.show() if visible else self.node_path.hide()
 
     #enable per pixel lightning
-    def setPPL(self, ppl=True):
+    def setPPL(self, ppl=False):
         if not self.isLoadedCheck():
             return
         self.node_path.setShaderAuto() if ppl else self.node_path.clearShader()

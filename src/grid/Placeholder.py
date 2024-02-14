@@ -14,26 +14,44 @@ from geometries.ColorCodes import ColorCodes
 #lucrezia imports
 from grid.Entity import Entity
 
-class PlaceHolder(Entity):
-    def __init__(self, parent = None):
+class Placeholder(Entity):
+    def __init__(self, parent = None, size = None) -> None:
+        '''
+        If size isn't set as a custom value, set it to 1.0 as a default value and calculate the bounding box of the parent node.
+        If size has a custom value set, then keep it without using the bounding box.
+        '''
+        self.size = size
 
-        self.sphere = PrimitiveSphere(size=1.0)
+        if size == None:
+            tempSize = 1.0
+        else:
+            tempSize = size
+
+        self.node = render.attachNewNode("placeholder")
+        
+        self.sphere = PrimitiveSphere(tempSize)
         self.sphere.setWireframe(False)
         self.setColor("red")  # Set color to orange
+        self.sphere.reparentTo(self.node)
+        self.sphere.setVisible(True)
 
         if parent != None:
             self.setParent(parent)
     
     def setParent(self, parent):
-        self.sphere.reparentTo(parent)
-        self.sphere.setPos(0, 0, 0) # root relative to the parent
-        self.sphere.setVisible(True)
+        self.parent = parent
+        self.node.reparentTo(parent)
+        self.node.setPos(0, 0, 0) # root relative to the parent
 
+        if self.size == None:
         # get panda3d bounding box
-        bb = parent.getBounds()
+            self.adaptToBoundingSize()
+
+    def adaptToBoundingSize(self):
+        bb = self.parent.getBounds()
         radius = bb.getRadius()
         self.sphere.setScale(radius, radius, radius)
-    
+
     def setColor(self, color):
         self.sphere.setColor(ColorCodes.get(color))
         self.sphere.setAlpha(0.5)

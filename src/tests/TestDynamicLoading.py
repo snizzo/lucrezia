@@ -19,7 +19,7 @@ class TestDynamicLoading(Test):
 
         #spawn current main menu
         # mainMenu = MainMenu(lang)
-        self.myLP = LoadPoint('test', Point3(0,0,0), 2)
+        self.myLP = LoadPoint(render, 'test', Point3(0,0,0), 2)
         self.myLP.setVisible(True)
 
         #spawn dev map through new map paradigm

@@ -8,7 +8,7 @@ from direct.task import Task
 
 #lucrezia imports
 from grid.LoadPoint import LoadPoint
-from grid.Placeholder import PlaceHolder
+from grid.Placeholder import Placeholder
 
 #from utils.once import Once
 from utils.misc import Misc
@@ -21,13 +21,12 @@ class TestPlaceholder(Test):
         # create new empty nodepath
         pht_np = render.attachNewNode("placeholder_test")
         # create placeholder object
-        pht = PlaceHolder(pht_np)
+        pht = Placeholder(pht_np)
         pht.setParent(pht_np)
 
 
         # mainMenu = MainMenu(lang)
-        self.myLP = LoadPoint('test', Point3(5,5,5), 2)
-        self.myLP.reparentTo(render)
+        self.myLP = LoadPoint(render, 'test', Point3(5,5,5), 2)
         self.myLP.setVisible(False)
         pht.setParent(self.myLP.node)
 
@@ -42,4 +41,6 @@ class TestPlaceholder(Test):
         originalX = self.myLP.getPos().getX()
         originalY = self.myLP.getPos().getY()
         originalZ = self.myLP.getPos().getZ()
-        self.myLP.getNode().setPos(originalX+directionX,originalY+directionX,originalZ+directionZ)
+        self.myLP.getNode().setPos(originalX+directionX,originalY+directionY,originalZ+directionZ)
+
+        print("x: ", originalX+directionX, "y: ", originalY+directionY, "z: ", originalZ+directionZ)

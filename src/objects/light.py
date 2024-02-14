@@ -98,6 +98,7 @@ class Light(PropertiesTableAbstract, XMLExportable):
             self.plnp.setPos(0.5, -self.properties['distance'], 0.5)
         
         render.setLight(self.plnp)
+        self.ignore(["placeholder"])
         
         if self.on:
             self.setOn()
@@ -106,6 +107,14 @@ class Light(PropertiesTableAbstract, XMLExportable):
         self.plnp.setTag("id", self.properties['id'])
         self.plnp.setPythonTag("gamenode", self)
     
+    def ignore(self, ids_ignore_list):
+        # select all nodes that are in the ignore list
+        for id in ids_ignore_list:
+            nodelist = render.findAllMatches("**/"+id+"*")
+
+            for node in nodelist:
+                node.setLightOff()
+
     def getName(self):
         return 'Point Light: '+self.properties['id']
     

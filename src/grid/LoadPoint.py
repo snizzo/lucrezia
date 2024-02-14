@@ -9,9 +9,11 @@ from panda3d.core import NodePath, Point3
 from geometries.PrimitiveSphere import PrimitiveSphere
 from geometries.ColorCodes import ColorCodes
 
+from grid.Placeholder import Placeholder
+
 
 class LoadPoint:
-    def __init__(self, name = "unknown", position = Point3(0,0,0), radius = 5) -> None:
+    def __init__(self, parent = None, name = "unknown", position = Point3(0,0,0), radius = 5) -> None:
         """
         Args:
             name (str, optional): the name of the loadpoint. Defaults to "unknown".
@@ -27,6 +29,9 @@ class LoadPoint:
         self.setName(name)
         self.setPosition(position)
         self.setRadius(radius)
+
+        if parent != None:
+            self.attachTo(parent)
     
     def setName(self, name) -> None:
         self.name = "loadpoint-" + name
@@ -102,9 +107,5 @@ class LoadPoint:
     def setVisible(self, visible = False) -> None:
         self.visible = visible
         if visible == True:
-            self.ball = PrimitiveSphere(0.5)
-            self.ball.setColor(ColorCodes.get("cyan"))
-            self.ball.setWireframe(False)
-            self.ball.load()
-            self.ball.reparentTo(self.node)
+            self.placeholder = Placeholder(self.node, 0.2)
     

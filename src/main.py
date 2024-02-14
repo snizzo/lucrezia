@@ -77,7 +77,7 @@ class MyApp(ShowBase):
         base.oobe()
         
         #filters -- experimental
-        filters = CommonFilters(base.win, base.cam)
+        #filters = CommonFilters(base.win, base.cam)
         #filters.setAmbientOcclusion()
         
         #defining global variables
@@ -93,7 +93,7 @@ class MyApp(ShowBase):
         __builtins__.persistence = Persistence()
         __builtins__.fademanager = FadeOut()
         __builtins__.flow = Flow()
-        __builtins__.myfilters = filters
+        #__builtins__.myfilters = filters
 
         # set this to true to enable debug mode
         __builtins__.debug = True
