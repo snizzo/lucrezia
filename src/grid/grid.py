@@ -21,6 +21,7 @@ from grid.tile import Tile
 from grid.character import Character
 from grid.Entity import Entity
 from grid.GridData import GridData
+from grid.Placeholder import Placeholder
 
 from utils.fadeout import FadeOut
 
@@ -114,6 +115,9 @@ class Grid(Entity):
         self.dynamicLoading = False  # enables dynamic loading
         self.loadPoints = []         # points where to load the map
         self.dynamicLoadingDelay = 0.5  # wait time between dynamic loading
+
+        self.ph = Placeholder()
+        self.ph.setParent(self.node)
     
     def changedMap(self):
         # TODO: remove, deprecated
@@ -336,6 +340,13 @@ class Grid(Entity):
     
     def setPos(self, vector: Point3):
         self.node.setPos(vector)
+    
+    def getPos(self):
+        """
+        Returns:
+            position: always relative to render
+        """
+        return self.node.getPos(render)
 
     def move(self, vector: Point3):
         self.node.setPos(self.node, vector)
@@ -422,12 +433,13 @@ class Grid(Entity):
             for p in self.loadPoints:
                 print(p.getPosition())
         
-        loadMatrix = self.gridData.generateChangeMatrixFromLoadPoints(self.loadPoints)[0]
-        unloadMatrix = self.gridData.generateChangeMatrixFromLoadPoints(self.loadPoints)[1]
-        GridData.debugPrintMatrix(loadMatrix)
-        GridData.debugPrintMatrix(unloadMatrix)
+        # TODO: am i generating these twice?
+        loadMatrix = self.gridData.generateChangeMatrixFromLoadPoints(self.loadPoints, self.getPos())[0]
+        unloadMatrix = self.gridData.generateChangeMatrixFromLoadPoints(self.loadPoints, self.getPos())[1]
+        #GridData.debugPrintMatrix(loadMatrix)
+        #GridData.debugPrintMatrix(unloadMatrix)
 
-        # get load / unload matrix from GridData
+        # set load / unload matrix from GridData
         self.dynamicLoadUpdate(loadMatrix, unloadMatrix)
         
         return Task.again
@@ -442,6 +454,9 @@ class Grid(Entity):
             for x in range(0, self.gridData.getSizeX()):
                 if loadMatrix[y][x] == 1:
                     self.loadTile(y, x)
+        
+        #unload tiles from unloadMatrix
+        # not yet implemented
 
     def loadTile(self, y, x):
         t = Tile(self.tileDimension)
@@ -521,6 +536,9 @@ class Grid(Entity):
         return self.currentMapPath
     
     def loadMap(self,file="",playable_pos=LPoint2i(0,0)):
+        '''
+        loads map statically, probably going to be deprecated
+        '''
 
         if self.getDynamicLoading() == True:
             print("WARNING: "+ str(self.getEntityName()) + " is loading map dynamically")

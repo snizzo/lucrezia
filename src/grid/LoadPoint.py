@@ -3,6 +3,7 @@ LoadPoints are used to load the grid in chunks as the player moves around the wo
 Created by GridManager and provided to current loaded grids.
 """
 
+from platform import node
 from panda3d.core import NodePath, Point3
 
 #lucrezia imports
@@ -56,18 +57,29 @@ class LoadPoint:
         self.node.detachNode()
     
     # function isInRange return boolean
-    def isInRange(self, position) -> bool:
+    def isInRange(self, position, relativeto = "render") -> bool:
         """
         Checks if the given position is in range of the loadpoint.
 
         Args:
-            position (Point3): the position to check
+            position (Point3): the position to check, relative to render
+            relativeto (str, optional): specify if has to check position between relative or absolute positions, 
+                                        "render" for absolute, "this" for relative.
+                                        Defaults to "render".
         """
-        if position.getX() >= self.node.getX() - self.radius and position.getX() <= self.node.getX() + self.radius:
-            if position.getY() >= self.node.getY() - self.radius and position.getY() <= self.node.getY() + self.radius:
+
+        if relativeto == "render":
+            nodepos = self.node.getPos(render)
+        elif relativeto == "this":
+            nodepos = self.node.getPos()
+        else:
+            print("ERROR: LoadPoint::isInRange -> param relativeto is missing, can be \"render\" or \"this\"")
+        
+        if position.getY() >= nodepos.getX() - self.radius and position.getY() <= nodepos.getX() + self.radius:
+            if position.getX() >= nodepos.getY() - self.radius and position.getX() <= nodepos.getY() + self.radius:
                 return True
         return False
-    
+
     def getNode(self) -> NodePath:
         '''
         Get a reference to the current nodepath

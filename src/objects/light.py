@@ -98,7 +98,7 @@ class Light(PropertiesTableAbstract, XMLExportable):
             self.plnp.setPos(0.5, -self.properties['distance'], 0.5)
         
         render.setLight(self.plnp)
-        self.ignore(["placeholder"])
+        self.ignore(["placeholder"]) # cost of function can be pretty heavy with high placeholder and lights count
         
         if self.on:
             self.setOn()
@@ -108,6 +108,12 @@ class Light(PropertiesTableAbstract, XMLExportable):
         self.plnp.setPythonTag("gamenode", self)
     
     def ignore(self, ids_ignore_list):
+        '''
+        TODO: For every id in the ignore list, it will set the light off for every node that has the id in its name
+
+        Maybe there's a better way of doing it?
+        '''
+
         # select all nodes that are in the ignore list
         for id in ids_ignore_list:
             nodelist = render.findAllMatches("**/"+id+"*")

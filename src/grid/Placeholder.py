@@ -15,7 +15,7 @@ from geometries.ColorCodes import ColorCodes
 from grid.Entity import Entity
 
 class Placeholder(Entity):
-    def __init__(self, parent = None, size = None) -> None:
+    def __init__(self, parent = None, size = None, color = "red") -> None:
         '''
         If size isn't set as a custom value, set it to 1.0 as a default value and calculate the bounding box of the parent node.
         If size has a custom value set, then keep it without using the bounding box.
@@ -31,7 +31,7 @@ class Placeholder(Entity):
         
         self.sphere = PrimitiveSphere(tempSize)
         self.sphere.setWireframe(False)
-        self.setColor("red")  # Set color to orange
+        self.setColor(color)  # Set color to orange
         self.sphere.reparentTo(self.node)
         self.sphere.setVisible(True)
 

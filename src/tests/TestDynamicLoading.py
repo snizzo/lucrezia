@@ -24,7 +24,10 @@ class TestDynamicLoading(Test):
 
         #spawn dev map through new map paradigm
         gridManager.add('camera.map', 'prova1', 'dynamic', 2)
-        gridManager.get('prova1').setPos(Point3(2,3,0))
+
+        #uncomment to test against offset map
+        # gridManager.get('prova1').setPos(Point3(2,3,0))
+
         #print(gridManager.add('test.map', 'prova2'))
         gridManager.addLoadPoint(self.myLP)
         #gridManager.addLoadPoint(LoadPoint('test2', Point3(5,7,0), 1))
