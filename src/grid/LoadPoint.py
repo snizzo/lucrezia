@@ -4,16 +4,17 @@ Created by GridManager and provided to current loaded grids.
 """
 
 from platform import node
-from panda3d.core import NodePath, Point3
+from panda3d.core import NodePath, Point3, LVecBase3f
 
 #lucrezia imports
 from geometries.PrimitiveSphere import PrimitiveSphere
 from geometries.ColorCodes import ColorCodes
+from grid.GameEntity import GameEntity
 
 from grid.Placeholder import Placeholder
 
 
-class LoadPoint:
+class LoadPoint(GameEntity):
     def __init__(self, parent = None, name = "unknown", position = Point3(0,0,0), radius = 5) -> None:
         """
         Args:
@@ -48,6 +49,10 @@ class LoadPoint:
     # TODO: duplicate code of attachTo
     #       here for compatibility reason
     def reparentTo(self, parent) -> None:
+        # TODO: LoadPoint should have to be tied to grid tile's GameEntity restriction but breaks oop
+        #GameEntity.reparentTo(self, parent)
+
+
         self.attachTo(parent)
 
     def attachTo(self, parent) -> None:
@@ -88,6 +93,20 @@ class LoadPoint:
 
     def move(self, position) -> None:
         self.node.setPos(self.node, position)
+    
+    def setPos(self, relativeto, position:LVecBase3f=None) -> None:
+        """
+        setPos accepts both implicit and explicit relative position value
+
+        Arguments:
+            relativeto: can be Point3(), stating an implicit relative position to node's parent or NodePath, explicitely stating relative to
+            position  : used to specity explicit relative position when relativeto is used
+        
+        """
+        if isinstance(relativeto, LVecBase3f):
+            self.node.setPos(relativeto)
+        elif isinstance(relativeto, NodePath) and isinstance(position, LVecBase3f) and position != None:
+            self.node.setPos(relativeto, position)
 
     def getPosition(self, relativeto=None) -> Point3:
         if relativeto != None:

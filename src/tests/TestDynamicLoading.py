@@ -8,13 +8,14 @@ from direct.task import Task
 
 #lucrezia imports
 from grid.LoadPoint import LoadPoint
+from grid.KeyboardMovable import KeyboardMovable
 
 #from utils.once import Once
 from utils.misc import Misc
 
 from tests.Test import Test
 
-class TestDynamicLoading(Test):
+class TestDynamicLoading(Test, KeyboardMovable):
     def __init__(self):
 
         #spawn current main menu
@@ -26,31 +27,13 @@ class TestDynamicLoading(Test):
         gridManager.add('camera.map', 'prova1', 'dynamic', 2)
 
         #uncomment to test against offset map
-        # gridManager.get('prova1').setPos(Point3(2,3,0))
+        gridManager.get('prova1').setPos(Point3(2,3,0))
 
         #print(gridManager.add('test.map', 'prova2'))
         gridManager.addLoadPoint(self.myLP)
         #gridManager.addLoadPoint(LoadPoint('test2', Point3(5,7,0), 1))
 
-        # self.accept("k", lambda:None)
-        self.accept("k", self.test)
-        self.accept("p", self.pushtest)
-        self.accept("p-up", self.releasetest)
+        self.setMovableNode(self.myLP)
+        self.setMovable(True)
+        #self.setMovableSpeed(0.8)
 
-    def test(self):
-        currentgrid = gridManager.get('prova1')
-
-        currentgrid.stash() if not currentgrid.stashed else currentgrid.unstash()
-    
-    def pushtest(self):
-        print("adding test...")
-        taskMgr.add(self.test2, "test2")
-
-    def releasetest(self):
-        print("removing test...")
-        taskMgr.remove("test2")
-
-    def test2(self, task):
-        deltatime = Misc.getDeltaTime()
-        self.myLP.move(Point3(0.5*deltatime,0,0))
-        return Task.cont

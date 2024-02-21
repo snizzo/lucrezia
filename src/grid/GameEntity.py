@@ -1,14 +1,22 @@
 
+from panda3d.core import NodePath
+
 from grid.Entity import Entity
 
 class GameEntity:
     '''
-    In order for a game entity to be valid should be set to a parent
+    In order for a game entity to be valid should be set to a parent (doens't hold for LoadPoint)
     '''
     def __init__(self, parent):
         self.parent = parent
         self.node = None
     
+    def getNode(self):
+        return self.node
+    
+    def setNode(self, node: NodePath):
+        self.node = node
+
     '''
     Automatically move the object to the near tile depending
     on the latest movement direction. Works only if target object has

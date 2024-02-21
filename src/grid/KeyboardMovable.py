@@ -22,6 +22,8 @@ class KeyboardMovable(Movable, DirectObject):
     def setMovable(self, value, speed = 0.1):
         """
         Sets the correct input / ignore events of the movable object 
+
+        If movable node is not set and can't be inferred just return False and fail, as there's nothing to move
         """
         if not self.isSetMovableNode():
             if not self.autoSetMovableNode():
@@ -69,25 +71,13 @@ class KeyboardMovable(Movable, DirectObject):
 
     # TODO: get rid of duplicate code
     def startMoveUp(self):
-        originalX = self.movableNode.getPos().getX()
-        originalY = self.movableNode.getPos().getY()
-        originalZ = self.movableNode.getPos().getZ()
-        self.movableNode.setPos(originalX,originalY,originalZ+self.movableSpeed)
+        self.movableNode.setPos(self.movableNode, Point3(0, 0, self.movableSpeed))
 
     def startMoveDown(self):
-        originalX = self.movableNode.getPos().getX()
-        originalY = self.movableNode.getPos().getY()
-        originalZ = self.movableNode.getPos().getZ()
-        self.movableNode.setPos(originalX,originalY,originalZ-self.movableSpeed)
+        self.movableNode.setPos(self.movableNode, Point3(0,0,self.movableSpeed))
 
     def startMoveLeft(self):
-        originalX = self.movableNode.getPos().getX()
-        originalY = self.movableNode.getPos().getY()
-        originalZ = self.movableNode.getPos().getZ()
-        self.movableNode.setPos(originalX-self.movableSpeed,originalY,originalZ)
+        self.movableNode.setPos(self.movableNode, Point3(-self.movableSpeed,0,0))
 
     def startMoveRight(self):
-        originalX = self.movableNode.getPos().getX()
-        originalY = self.movableNode.getPos().getY()
-        originalZ = self.movableNode.getPos().getZ()
-        self.movableNode.setPos(originalX+self.movableSpeed,originalY,originalZ)
+        self.movableNode.setPos(self.movableNode, Point3(self.movableSpeed,0,0))

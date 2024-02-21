@@ -3,18 +3,24 @@ Superclass that manages all the entities in game.
 Have to be subclassed to manage different types of entities.
 '''
 
+#python imports
 from grid.grid import Grid
 from abc import ABC, abstractmethod
+
+#panda3d imports
+
+#lucrezia imports
+from grid.Entity import Entity
 
 class EntityManager(ABC):
     def __init__(self) -> None:
         self.entities = []
 
     @abstractmethod
-    def add(self, file="", name=""):
+    def add(self, file: str="", name: str=""):
         pass
     
-    def append(self, entity) -> None:
+    def append(self, entity: Entity) -> None:
         self.entities.append(entity)
 
     def last(self) -> Grid:
