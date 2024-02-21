@@ -4,7 +4,10 @@
 #panda imports
 from panda3d.core import Point3
 from direct.task import Task
-from direct.showbase.ShowBase import ShowBase
+from direct.showbase.ShowBase import ShowBase #DirectObject
+
+#gui
+from panda3d.core import TextNode
 
 
 from geometries.PrimitiveBox import PrimitiveBox
@@ -55,4 +58,26 @@ class Placeholder(Entity):
     def setColor(self, color):
         self.sphere.setColor(ColorCodes.get(color))
         self.sphere.setAlpha(0.5)
+    
+    def setLabel(self, label):
+        if label == None:
+            return
+
+        self.text = TextNode('placeholder_label')
+        self.text.setText(label)
+        self.text.setAlign(TextNode.ACenter)
+        self.textNodePath = self.node.attachNewNode(self.text)
+        self.textNodePath.setScale(0.07)
+        self.textNodePath.setBillboardPointEye(-4, fixed_depth=True)
+    
+    def hideLabel(self):
+        if hasattr(self, 'textNodePath') and isinstance(self.textNodePath, NodePath):
+            self.textNodePath.detachNode()
+            self.textNodePath.destroy()
+    
+    def hide(self):
+        self.node.hide()
+    
+    def destroy(self):
+        self.node.detachNode()
 

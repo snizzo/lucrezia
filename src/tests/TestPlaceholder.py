@@ -9,13 +9,14 @@ from direct.task import Task
 #lucrezia imports
 from grid.LoadPoint import LoadPoint
 from grid.Placeholder import Placeholder
+from grid.KeyboardMovable import KeyboardMovable
 
 #from utils.once import Once
 from utils.misc import Misc
 
 from tests.Test import Test
 
-class TestPlaceholder(Test):
+class TestPlaceholder(Test, KeyboardMovable):
     def __init__(self):
         
         # create new empty nodepath
@@ -30,17 +31,11 @@ class TestPlaceholder(Test):
         self.myLP.setVisible(False)
         pht.setParent(self.myLP.node)
 
-        # move only in x and z direction (to the front of the camera)
-        self.accept('arrow_up', self.move, [0,0,1]) # up
-        self.accept('arrow_down', self.move, [0,0,-1]) # down
-        self.accept('arrow_left', self.move, [-1,0,0]) # left
-        self.accept('arrow_right', self.move, [1,0,0]) # right
-    
-    def move(self, directionX, directionY, directionZ):
-        # z-up i suppose
-        originalX = self.myLP.getPos().getX()
-        originalY = self.myLP.getPos().getY()
-        originalZ = self.myLP.getPos().getZ()
-        self.myLP.getNode().setPos(originalX+directionX,originalY+directionY,originalZ+directionZ)
+        self.setMovableNode(self.myLP)
+        self.setMovable(True, speed=0.8)
 
-        print("x: ", originalX+directionX, "y: ", originalY+directionY, "z: ", originalZ+directionZ)
+        self.accept("t", self.toggleVisible)
+
+    def toggleVisible(self):
+        self.myLP.setVisible(not self.myLP.isVisible())
+        print("toggleVisible")

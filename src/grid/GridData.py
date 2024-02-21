@@ -90,10 +90,10 @@ class GridData:
         print("Generating loaded matrix with offset: ", mapOffset)
 
         xOffset = int(mapOffset.getX())
-        yOffset = int(mapOffset.getY())
+        zOffset = int(mapOffset.getZ())
 
         print("xOffset: ", xOffset)
-        print("yOffset: ", yOffset)
+        print("zOffset: ", zOffset)
 
         newLoadedMatrix = self.generateZeroMatrix() #temporary matrix that will overwrite self.loadMatrix
         GridData.debugPrintMatrix(newLoadedMatrix, "step 1 zeroMatrix")
@@ -102,11 +102,11 @@ class GridData:
         #generate new loaded matrix
         for loadPoint in loadPoints:
             for x in range(0,self.getSizeY()):
-                for y in range(0, self.getSizeX()):
+                for z in range(0, self.getSizeX()):
                     
                     #trying to normalize the grid check to the absolute position provided by the loadpoint
-                    if loadPoint.isInRange(Point3(x+xOffset,y+yOffset,0)):
-                        newLoadedMatrix[x][y] = 1
+                    if loadPoint.isInRange(Point3(x+xOffset,0,z+zOffset)):
+                        newLoadedMatrix[x][z] = 1
 
         GridData.debugPrintMatrix(newLoadedMatrix, "step 2 checked")
 

@@ -80,8 +80,8 @@ class LoadPoint(GameEntity):
         else:
             print("ERROR: LoadPoint::isInRange -> param relativeto is missing, can be \"render\" or \"this\"")
         
-        if position.getY() >= nodepos.getX() - self.radius and position.getY() <= nodepos.getX() + self.radius:
-            if position.getX() >= nodepos.getY() - self.radius and position.getX() <= nodepos.getY() + self.radius:
+        if position.getZ() >= nodepos.getX() - self.radius and position.getZ() <= nodepos.getX() + self.radius:
+            if position.getX() >= nodepos.getZ() - self.radius and position.getX() <= nodepos.getZ() + self.radius:
                 return True
         return False
 
@@ -135,8 +135,17 @@ class LoadPoint(GameEntity):
     def getRadius(self) -> int:
         return self.radius
 
-    def setVisible(self, visible = False) -> None:
+    def setVisible(self, visible = False, label=None) -> None:
         self.visible = visible
         if visible == True:
             self.placeholder = Placeholder(self.node, 0.2)
+            self.placeholder.setLabel(label)
+        else:
+            if hasattr(self, 'placeholder') and isinstance(self.placeholder, Placeholder):
+                self.placeholder.hide()
+                self.placeholder.destroy()
+                self.placeholder = None
+    
+    def isVisible(self) -> bool:
+        return self.visible
     
