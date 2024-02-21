@@ -74,7 +74,7 @@ class KeyboardMovable(Movable, DirectObject):
         self.movableNode.setPos(self.movableNode, Point3(0, 0, self.movableSpeed))
 
     def startMoveDown(self):
-        self.movableNode.setPos(self.movableNode, Point3(0,0,self.movableSpeed))
+        self.movableNode.setPos(self.movableNode, Point3(0, 0, -self.movableSpeed))
 
     def startMoveLeft(self):
         self.movableNode.setPos(self.movableNode, Point3(-self.movableSpeed,0,0))
