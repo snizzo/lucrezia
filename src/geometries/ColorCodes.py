@@ -1,12 +1,14 @@
 
-class ColorCodes:
-    '''
-    Used to insert and retrieve color codes for native geometries like primitives
-    '''
-    codes = {}
+#lucrezia imports
+from gui.AssetListManager import AssetListManager
+
+class ColorCodes(AssetListManager):
 
     @staticmethod
     def load():
+        if not ColorCodes.isLoaded:
+            ColorCodes.isLoaded = True
+        
         # add some default color codes
         ColorCodes.add("red", (1.0, 0.0, 0.0, 1.0))
         ColorCodes.add("green", (0.0, 1.0, 0.0, 1.0))
@@ -28,21 +30,5 @@ class ColorCodes:
     def fromRGBA(r, g, b, a):
         return (r, g, b, a)
 
-    @staticmethod
-    def add(key, value):
-        ColorCodes.codes[key] = value
-
-    @staticmethod
-    def get(key):
-
-        if key not in ColorCodes.codes:
-            print("ColorCodes: key not found: " + key)
-            return None
-
-        return ColorCodes.codes[key]
-    
-    @staticmethod
-    def getAll():
-        return ColorCodes.codes.keys()
-
+#color codes can autoload because it uses no panda3d resources to load
 ColorCodes.load()

@@ -104,6 +104,7 @@ class MyApp(ShowBase):
         #enabling shader system (and ppl)
         render.setShaderAuto()
 
+        # all the world is instantiated correctly and rendered offscreen but oobe specifically breaks windowType offscreen
         if self.dryRun!=True:
             base.oobe()
         
