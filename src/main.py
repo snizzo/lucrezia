@@ -2,6 +2,7 @@
 from direct.showbase.ShowBase import ShowBase
 from panda3d.core import OrthographicLens, LightRampAttrib
 from panda3d.core import loadPrcFileData, LPoint2i, Point3
+from panda3d.core import WindowProperties
 from direct.filter.CommonFilters import CommonFilters
 from direct.gui.OnscreenImage import OnscreenImage
 from direct.task import Task
@@ -47,6 +48,7 @@ text-encoding utf8
 show-frame-rate-meter 0
 sync-video #t
 framebuffer-srgb #t
+window-type none
 """)
 
 
@@ -54,11 +56,38 @@ class MyApp(ShowBase):
 
     def __init__(self):
         ShowBase.__init__(self)
-        
+
+        # dryRun is a flag to avoid the instantiation of the 3d window if not necessary
+        # false -> 3d window is instantiated
+        # true -> 3d window is instantiated offscreen, without support for oobe
+        self.dryRun = False
+
+        # editormode is a flag to enable the editor mode, with various adjustments to workflow
+        # and mechanics disabled. Has to be set to true only in editor.py
+        # false -> editor mode is disabled
+        # true -> editor mode is enabled
         self.editormode = False
-        
-        base.win.setClearColor((0, 0, 0, 1))
-        base.win.setClearColorActive(True)
+
+        # windowType is a flag to set the type of window to be instantiated
+        # onscreen -> 3d window is instantiated
+        # none -> 3d window is not instantiated
+        # offscreen -> 3d window is instantiated but not shown
+        self.windowType = 'onscreen'
+
+        # preparsing commandline arguments (runtest) before showbase constructor to avoid the instantiation of the 3d window if not necessary
+        # for cli operations
+        parser = argparse.ArgumentParser(description='Panda3D RPG cli mode')
+        parser.add_argument('-t', '--runtest', default=None, action="store", help='Specify a string for the runtest argument.')
+        parser.add_argument('-lt', '--listtest', default=False, action="store_true", help='List all available tests')
+        args = parser.parse_args()
+
+        # list the args that forces a dry (offscreen) run, like list tests
+        if args.listtest == True:
+            self.dryRun = True
+            self.windowType = 'offscreen'
+
+        self.load3DWindow(self.windowType)
+
         lang="ita"
 
         runTest = True
@@ -74,7 +103,9 @@ class MyApp(ShowBase):
         
         #enabling shader system (and ppl)
         render.setShaderAuto()
-        base.oobe()
+
+        if self.dryRun!=True:
+            base.oobe()
         
         #filters -- experimental
         #filters = CommonFilters(base.win, base.cam)
@@ -125,27 +156,43 @@ class MyApp(ShowBase):
         #i = Intro()
         #i.start()
 
-        # parsing commandline arguments (runtest)
-        parser = argparse.ArgumentParser(description='Simple program with command-line argument.')
-        parser.add_argument('-t', '--runtest', default=None, action="store", help='Specify a string for the runtest argument.')
-        parser.add_argument('-lt', '--listtest', default=False, action="store_true", help='List all available tests')
-        args = parser.parse_args()
+        # argument parsing effects
+        self.runTest(args.runtest)
+        self.listTests(args.listtest)
 
-        self.runTest(args.runtest, args.listtest)
-
-    def runTest(self, testName, listTest=False):
+    def runTest(self, testName):
         if testName is not None:
             t = Tests()
             t.autoImport()
             t.runTest(testName)
-        elif listTest is True:
+    
+    def listTests(self,listTest=False):
+        if listTest is True:
             t = Tests()
             t.autoImport()
             t.listTests()
+    
+    def load3DWindow(self, windowType = 'onscreen'):
+        '''
+        Panda3d starts with a dry mode (without any 3d window active).
+
+        Instantiates the 3d window and sets the background color
+        '''
+        base.windowType = windowType
+        wp = WindowProperties.getDefault()
+        base.openDefaultWindow(props = wp)
+
+        base.win.setClearColor((0, 0, 0, 1))
+        base.win.setClearColorActive(True)
+
+    def isDryRun(self):
+        return self.dryRun
 
 
     def ping (self):
         print("main: PONG!")
         
+
 app = MyApp()
-app.run()
+if not app.isDryRun():
+    app.run()
