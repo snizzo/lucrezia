@@ -18,6 +18,15 @@ from grid.GridDataBlock import GridDataBlock
 from grid.Placeholder import Placeholder
 
 class GridData:
+    """
+    Handles internal representation of grid data by using matrices. Used to dynamic load / unload maps with loadpoints.
+
+    Matrices are often referenced with y and x inverted because their representation is rotated 90 degrees.
+    
+    Example:
+    print( self.loadedMatrix[y][x] ) is a typical iteration over the content of a control matrix
+    """
+
     def __init__(self, mapFile = None) -> None:
         if debug and mapFile != None:
             print("GridData: loading map file: " + mapFile)
@@ -32,20 +41,34 @@ class GridData:
         self.sizeY = 0
 
         self.loadedMatrix = [] #latest generated load matrix
+        """
+        Marks with 0 and 1 tiles that are intersected by a LoadPoint area
+        """
+
         self.loadedNodes = [] #latest generated load nodes, used to unload the grid correctly
+        """
+        Marks with 0 and 1 tiles that are actually loaded and not loaded therefore holding the status of load/unload onscreen
+        """
+
         self.defaultZeroMatrix = [] #default matrix of zeros
         """
-        loadedMatrix uses a different code to describe the map from loadMatrix and unloadMatrix
+        Is a basic fixed matrix of dimension y*x filled with only 0s and serves as a base to build other matrices
         """
 
         if mapFile != None:
             correctFile = GridData.resolvePath(mapFile)
             self.loadData(correctFile)
             self.loadedMatrix = self.generateZeroMatrix()
+            self.loadedNodes = self.generateZeroMatrix()
             self.defaultZeroMatrix = self.generateZeroMatrix()
         else:
             print("WARNING: no map file specified, creating empty GridData")
-        
+    
+    def setStatusTile(self, position, status) -> None:
+        self.statusMatrix[position[0]][position[1]] = status
+
+    def getStatusTile(self, position) -> int:
+        return self.statusMatrix[position[0]][position[1]]
 
     def getAttributes(self) -> dict:
         return self.attributes
@@ -83,7 +106,7 @@ class GridData:
 
     def generateLoadedMatrix(self, loadPoints: list, mapOffset: Point3 = Point3(0,0,0)) -> list:
         """
-        Generates a matrix of 1s and 0s where 1 means that the cell is loaded and 0 means that the cell is not loaded
+        Generates a matrix of 1s and 0s where 1 means that the cell is inside the load points and 0 means that the cell is not loaded not taking into account if the cells are already loaded or not
         mapOffset is used to offset the map from the origin, necessary to calculate correct positions
         """
 
@@ -96,7 +119,6 @@ class GridData:
         print("zOffset: ", zOffset)
 
         newLoadedMatrix = self.generateZeroMatrix() #temporary matrix that will overwrite self.loadMatrix
-        GridData.debugPrintMatrix(newLoadedMatrix, "step 1 zeroMatrix")
 
         # this is the crucial check made between loadpoint and grid positions
         #generate new loaded matrix
@@ -108,9 +130,8 @@ class GridData:
                     if loadPoint.isInRange(Point3(x+xOffset,0,z+zOffset)):
                         newLoadedMatrix[x][z] = 1
 
-        GridData.debugPrintMatrix(newLoadedMatrix, "step 2 checked")
-
         #newLoadedMatrix = newLoadedMatrix[::-1] #reverse matrix to match panda3d coords
+        # apparently reversing is not needed
 
         GridData.debugPrintMatrix(newLoadedMatrix, "step 3 reversed")
 
@@ -124,13 +145,18 @@ class GridData:
         """
         LoadMatrix has 1 where the cell has to be loaded, 0 otherwise
 
+        Checks if the cell isn't for some reason already loaded in self.loadedNodes
+
         This is a comparison between the old and the new matrix, therefore there's no need to check for offset position
         """
         loadMatrix = self.generateZeroMatrix()
         for y in range(0,self.getSizeY()):
             for x in range(0, self.getSizeX()):
-                if oldMatrix[y][x] == 0 and newMatrix[y][x] == 1:
+                if oldMatrix[y][x] == 0 and newMatrix[y][x] == 1 and self.loadedNodes[y][x] != 1:
                     loadMatrix[y][x] = 1
+
+                    #mark the selected cell as loaded once given back to grid
+                    self.loadedNodes[y][x] = 1
         return loadMatrix
     
     def generateUnloadMatrix(self, oldMatrix, newMatrix) -> list:
@@ -140,8 +166,11 @@ class GridData:
         unloadMatrix = self.generateZeroMatrix()
         for y in range(0,self.getSizeY()):
             for x in range(0, self.getSizeX()):
-                if oldMatrix[y][x] == 1 and newMatrix[y][x] == 0:
+                if oldMatrix[y][x] == 1 and newMatrix[y][x] == 0 and self.loadedNodes[y][x] == 1:
                     unloadMatrix[y][x] = 1
+
+                    # mark the selected cell as not loaded once given back to grid
+                    self.loadedNodes[y][x] = 0
         return unloadMatrix
 
     def generateChangeMatrixFromLoadPoints(self, loadPoints: list, mapOffset: Point3 = Point3(0,0,0)) -> list:
@@ -162,15 +191,14 @@ class GridData:
         loadMatrix = self.generateLoadMatrix(self.loadedMatrix, newLoadedMatrix)
         unloadMatrix = self.generateUnloadMatrix(self.loadedMatrix, newLoadedMatrix)
 
-        GridData.debugPrintMatrix(newLoadedMatrix, "newLoadedMatrix")
-        GridData.debugPrintMatrix(loadMatrix, "loadMatrix")
-        GridData.debugPrintMatrix(unloadMatrix, "unloadMatrix")
-
         #update newloadedmatrix now becomes loadedmatrix
         #and represents loaded cells
         self.loadedMatrix = newLoadedMatrix
 
-        #GridData.debugPrintMatrix(newLoadedMatrix)
+        GridData.debugPrintMatrix(self.loadedNodes, "self.loadedNodes")
+        GridData.debugPrintMatrix(newLoadedMatrix, "newLoadedMatrix")
+        GridData.debugPrintMatrix(loadMatrix, "loadMatrix")
+        GridData.debugPrintMatrix(unloadMatrix, "unloadMatrix")
 
         return [loadMatrix, unloadMatrix]
 

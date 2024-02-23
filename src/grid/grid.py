@@ -41,6 +41,8 @@ y |
   O------------>
         x
 
+TODO: create different classes and reuse code
+
 Grid represents a single map entity composed of tiles, objects and other information regarding weather, load and unload scripting.
 
 LOADING GRID (OLD STATIC METHOD):
@@ -89,7 +91,6 @@ class Grid(Entity):
         self.showCollisions = False
         self.stashed = False
         #automatic methods
-        #self.generateEmptyTileset(20,20)
         #self.mergeMeshes()
         self.unloadScript = False
         self.loadScript = False
@@ -195,7 +196,7 @@ class Grid(Entity):
     def getPlayable(self):
         '''
         Returns: 
-            the playable object of the game, if any
+            the playable object of the game if any,
             else None
         '''
         value = self.node.find("**/=playable=true").getPythonTag("gamenode")
@@ -433,11 +434,9 @@ class Grid(Entity):
             for p in self.loadPoints:
                 print(p.getPosition())
         
-        # TODO: am i generating these twice?
-        loadMatrix = self.gridData.generateChangeMatrixFromLoadPoints(self.loadPoints, self.getPos())[0]
-        unloadMatrix = self.gridData.generateChangeMatrixFromLoadPoints(self.loadPoints, self.getPos())[1]
-        #GridData.debugPrintMatrix(loadMatrix)
-        #GridData.debugPrintMatrix(unloadMatrix)
+        updatedMatrixes = self.gridData.generateChangeMatrixFromLoadPoints(self.loadPoints, self.getPos())
+        loadMatrix = updatedMatrixes[0]
+        unloadMatrix = updatedMatrixes[1]
 
         # set load / unload matrix from GridData
         self.dynamicLoadUpdate(loadMatrix, unloadMatrix)
@@ -453,12 +452,15 @@ class Grid(Entity):
         for y in range(0, self.gridData.getSizeY()):
             for x in range(0, self.gridData.getSizeX()):
                 if loadMatrix[y][x] == 1:
-                    self.loadTile(y, x)
+                    self.loadTile(x, y)
         
         #unload tiles from unloadMatrix
-        # not yet implemented
+        for y in range(0, self.gridData.getSizeY()):
+            for x in range(0, self.gridData.getSizeX()):
+                if unloadMatrix[y][x] == 1:
+                    self.unloadTile(x, y)
 
-    def loadTile(self, y, x):
+    def loadTile(self, x, y):
         t = Tile(self.tileDimension)
         t.setX(x)
         t.setY(y)
@@ -492,6 +494,11 @@ class Grid(Entity):
                 t.addCharacter(attributes, self.showCollisions, Point3(x,y,0))
                 
         t.node.reparentTo(self.node)
+    
+    def unloadTile(self, x, y):
+        t = self.getTile(x, y)
+        t.destroy()
+        self.tileset.remove(t)
 
     def loadAttributes(self, attributes):
         if 'tilesize' in attributes:
@@ -647,6 +654,10 @@ class Grid(Entity):
     Used to get Tile object from coordinates.
     Very slow, linear, improvable.
     Used only in editor mode.
+
+    This may no more be the case.
+    TODO: improve this to constant time
+
     @return Tile instance or -1 if tile is not found
     '''
     def getTile(self, x, y):
@@ -655,38 +666,6 @@ class Grid(Entity):
                 return t
         
         return -1
-    '''
-    This method generates an internal tileset.
-    Seen with list of lists (multidim array)
-    
-    The tileset is automatically placed at (0,0,0) and coloured
-    chess-style.
-    '''
-    def generateEmptyTileset(self, x, y):
-        colorSwitch = Toggle(False)
-        
-        for i in range(x):
-            l = []
-            
-            for j in range(y):
-                t = Tile()
-                
-                t.generate()
-                
-                #color switcher
-                t.setTexture("misc/grass")
-                
-                #setting right coordinates
-                t.setX(i-(x/2))
-                t.setY(j-(y/2))
-                #reparenting to grid node
-                t.node.reparentTo(self.node)
-                
-                #appending to list
-                l.append(t)
-                    
-                    
-            self.tileset.append(l)
     
     def setLoadPoints(self, lp):
         self.loadPoints = lp

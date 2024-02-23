@@ -12,16 +12,13 @@ from grid.XMLExportable import XMLExportable
 from grid.Entity import Entity
 from editor.gui.PropertiesTableAbstract import PropertiesTableAbstract
 
-'''
-TILE CLASS 
-
-Tile class is used to represent a tile in the 2d simulated
-world. This will take care of anything from flags to textures to 
-geometries attached to it. Please reference to this instead of the
-direct geometry in other parts of code.
-'''
 class Tile(XMLExportable, PropertiesTableAbstract, Entity):
-    
+    '''
+    Tile class is used to represent a tile in the 2d simulated
+    world. This will take care of anything from flags to textures to 
+    geometries attached to it. Please reference to this instead of the
+    direct geometry in other parts of code.
+    '''    
     def __init__(self, baseDimension):
         #public props
         self.walkable = True
