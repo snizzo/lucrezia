@@ -64,12 +64,6 @@ class GridData:
         else:
             print("WARNING: no map file specified, creating empty GridData")
     
-    def setStatusTile(self, position, status) -> None:
-        self.statusMatrix[position[0]][position[1]] = status
-
-    def getStatusTile(self, position) -> int:
-        return self.statusMatrix[position[0]][position[1]]
-
     def getAttributes(self) -> dict:
         return self.attributes
     
