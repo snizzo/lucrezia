@@ -6,6 +6,8 @@ Subclass of EntityManager
 
 from grid.EntityManager import EntityManager
 from grid.grid import Grid
+from grid.StaticGrid import StaticGrid
+from grid.DynamicGrid import DynamicGrid
 
 class GridManager(EntityManager):
     def __init__(self) -> None:
@@ -25,12 +27,12 @@ class GridManager(EntityManager):
             method can be: "static" or "dynamic" where static is the default method used to load the whole grid at once
                             and dynamic is the method used to load the grid in chunks as the player moves around the world
         """
-        newgrid = Grid(file, name)
+        newgrid = None
 
         if method == "dynamic":
-            self.loadDynamic(newgrid, dynamicLoadingDelay)
+            newgrid = self.loadDynamic(file, name, dynamicLoadingDelay)
         elif method == "static":
-            self.loadStatic(newgrid)
+            newgrid = self.loadStatic(file, name)
         else:
             print("WARNING: could not load grid with method: " + method + ", using static method")
             self.loadStatic(newgrid)
@@ -39,15 +41,19 @@ class GridManager(EntityManager):
 
         return self.last()
 
-    def loadStatic(self, newgrid) -> None:
+    def loadStatic(self, file, name) -> StaticGrid:
+        newgrid = StaticGrid(file, name)
         newgrid.loadMap()
         newgrid.changedMap()
+        return newgrid
     
-    def loadDynamic(self, newgrid, dynamicLoadingDelay = 0.5) -> None:
+    def loadDynamic(self, file, name, dynamicLoadingDelay = 0.5) -> None:
+        newgrid = DynamicGrid(file, name)
         newgrid.setDynamicLoadingDelay(dynamicLoadingDelay)
         newgrid.setDynamicLoading(True)
         #refresh load points
         self.updateLoadPoints()
+        return newgrid
     
     def removeLoadPoint(self, descriptor):
         """
