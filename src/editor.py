@@ -16,6 +16,7 @@ import builtins
 
 #lucrezia imports
 from grid.grid import Grid
+from grid.StaticGrid import StaticGrid
 
 #from utils.once import Once
 from parser.parser import Parser
@@ -93,7 +94,7 @@ class MyApp(ShowBase):
         __builtins__.debug = True
 
         __builtins__.grids = []
-        __builtins__.pGrid = Grid()
+        __builtins__.pGrid = StaticGrid()
         __builtins__.extract = ExtractTitle()
         __builtins__.baloons = BaloonManager()
         #__builtins__.configManager = ConfigManager() 

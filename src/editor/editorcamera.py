@@ -80,6 +80,7 @@ class EditorCamera(CustomCamera):
         self.analyzeCurrentCell()
     
     def analyzeCurrentCell(self):
+        #TODO: try to avoid sending messages
         messenger.send("editor_analyzecell", [self.selectedCellX, self.selectedCellY])
     
     def zoomOut(self):

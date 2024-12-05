@@ -206,8 +206,42 @@ class Grid(Entity):
     def addColumn(self):
         pass
     
-    def setPos(self, vector: Point3):
-        self.node.setPos(vector)
+    def setHpr(self, vector: Point3, relativeto: NodePath = None):
+        """
+        Arguments:
+            vector: rotation vector
+            relativeto: NodePath to get the rotation relative to, if None rotation is relative to itself
+        """
+        if relativeto == None:
+            self.node.setHpr(vector)
+        else:
+            self.node.setHpr(relativeto, vector)
+    
+    def getHpr(self, relativeto: NodePath = None):
+        """
+        Arguments:
+            relativeto: NodePath to get the rotation relative to, if None rotation is relative to itself
+
+        Returns:
+            node rotation: relative to itself if no argument is passed
+        """
+        if relativeto == None:
+            return self.node.getHpr()
+        else:
+            return self.node.getHpr(relativeto)
+
+    def setPos(self, vector: Point3, relativeto: NodePath = None):
+        """
+        #should always be relative to render because usually grid's internal self.node is always a child of render
+        #but nothing except implicit code strucutre is enforcing this rule
+
+        #TODO: explicitely enforce render?
+        """
+
+        if relativeto == None:
+            self.node.setPos(vector)
+        else:
+            self.node.setPos(relativeto, vector)
     
     def getPos(self):
         """

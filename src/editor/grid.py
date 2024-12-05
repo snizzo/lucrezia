@@ -53,6 +53,9 @@ import sys,os
 #      the three LineSeg instance nodes and paths
 
 class ThreeAxisGrid:
+   """
+   Draws a three axis grid in the scene, used for editor mode
+   """
    def __init__(self, xsize = 50, ysize = 50, zsize = 50,
       gridstep = 10, subdiv = 10):
       

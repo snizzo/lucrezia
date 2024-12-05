@@ -182,10 +182,6 @@ class StaticGrid(Grid):
         loads map statically, probably going to be deprecated
         '''
 
-        if self.getDynamicLoading() == True:
-            print("WARNING: "+ str(self.getEntityName()) + " is loading map dynamically")
-            print("WARNING: dynamic loading is enabled, this will cause some issues")
-
         if not file:
             file = self.mapFile
 
